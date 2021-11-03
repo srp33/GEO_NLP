@@ -1,0 +1,16 @@
+argparse
+bs4
+fasttext
+gensim
+html5lib
+lxml
+matplotlib
+nltk
+numpy
+pandas
+scispacy
+sklearn
+spacy>=2.3.0,<3.0.0
+spacy-lookups-data
+wikipedia
+Word2Vec
