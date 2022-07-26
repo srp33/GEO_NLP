@@ -5,7 +5,7 @@ class tester:
         self.data_names = []
         self.in_file = ""
 
-    def whichQuery(self, query_num):
+    def which_query(self, query_num):
         self.query_number = query_num
         self.in_file = "/Data/Queries/q{}/names.txt".format(query_num)
         with open(self.in_file, "r") as names:
@@ -34,7 +34,7 @@ class tester:
         else:
             return 0
 
-    def returnPercent(self, data):
+    def return_percent(self, data):
         total_relevant = len(self.data_names) - 1
         num_relevant = 0
 

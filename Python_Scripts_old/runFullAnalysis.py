@@ -1,5 +1,5 @@
-from multiprocessing import Pool
 import multiprocessing
+from multiprocessing import Pool
 
 #exec(open('testPool.py').read())
 
