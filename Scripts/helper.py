@@ -81,13 +81,17 @@ def extract_keywords_baseline(text, num_keywords):
     return unique_keywords
 
 def get_keywords(keyword_extractor, num_keywords, series):
+    if num_keywords == "full_text":
+        with open(f"/Data/AllGEO.json", "r") as all_file:
+            all_dict = json.loads(all_file.read())
+            return(all_dict[series])
     with open(f"/Data/KeywordWeights/{series}", "r") as cache_file:
         keyword_dict = json.loads(cache_file.read())
         keywords = keyword_dict[keyword_extractor]
         
         if keywords == [] or keywords == [[]]:
             return("")
-        elif int(num_keywords) < len(keywords):
+        elif num_keywords < len(keywords):
             keywords=keywords[:num_keywords]
         
         keyword_list = []

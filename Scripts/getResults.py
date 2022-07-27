@@ -3,7 +3,7 @@ import sys
 
 model_types = get_model_types()
 #model_types.append("Spacy")
-#model_types.append("SciSpacy")
+model_types.append("SciSpacy")
 num_keywords = [int(x) for x in sys.argv[1].split(",")]
 num_keywords.append("full_text")
 
@@ -27,11 +27,16 @@ with open("Results/results.tsv", 'w') as results_file:
             for method in ["KPMiner", "Baseline"]:
             #for method in keyword_extraction_methods:
                 for multiplication_rate in multiplication_rates:
-                    #for keywords in num_keywords:
-                    for keywords in [2, 4, 'full_text']:
+                    for keywords in num_keywords:
+                    #for keywords in [2, 4, 'full_text']:
                         with open(f"/Results/{query}/{model}/{keywords}/{method}/{multiplication_rate}/similarity.tsv") as data_file:
-                            num_to_check_for = len(get_series_identifiers(query, "testing_series"))
-                            accuracy = 0
+                            header = data_file.readline()
+                            list_test_series = []
+                            for series in get_series_identifiers(query, "testing_series"):
+                                if get_keywords(method, keywords, series) != "":
+                                    list_test_series.append(series)
+                            num_to_check_for = len(list_test_series)
+                            accuracy = 0 
                             for gse in range(num_to_check_for):
                                 line = data_file.readline()
                                 line = line.rstrip("\n")

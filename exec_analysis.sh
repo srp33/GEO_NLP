@@ -53,8 +53,8 @@ queries="q1,q2,q3,q4,q5,q6"
 
 #python3 bioBertModel.py
 
-python3 calculateSimilarities.py "$all_geo_json_file_path" "$queries" "$multiplication_rates" "$num_keyword_options"
-#python3 getResults.py "$num_keyword_options" "$multiplication_rates" "$queries"
+#python3 calculateSimilarities.py "$all_geo_json_file_path" "$queries" "$multiplication_rates" "$num_keyword_options"
+python3 getResults.py "$num_keyword_options" "$multiplication_rates" "$queries"
 
 #TODO: Do I need NLTKImport.py
 
