@@ -8,13 +8,6 @@ import pke
 import random
 import re
 import requests
-#from scipy.spatial.distance import cosine
-#from gensim.models.fasttext import FastText as FT_gensim
-#from tester import tester
-#import numpy as np
-
-#def load_embedding(path):
-#    return KeyedVectors.load_word2vec_format(path, binary = True)
 
 def print_time_stamp(message):
     print(f"{message} - {datetime.datetime.now()}")
@@ -105,19 +98,6 @@ def get_keywords(keyword_extractor, num_keywords, series):
 def get_model_types():
     return ["fasttext__cbow", "fasttext__skipgram"]
 
-#def get_names_to_query(query_number):
-#    file_path = f'/Data/Queries/q{query_number}/names_to_query.txt'
-#
-#    files = []
-#
-#    with open(file_path, 'r+') as in_file:
-#        for line in in_file:
-#            names = line.split(' ')
-#            for name in names:
-#                files.append(name.upper().strip())
-#
-#    return (files[0:len(files)-1])
-
 #def get_score(file_path, query):
 #    score_to_series = {}
 #    with open(file_path, "r+") as in_file:
@@ -145,24 +125,6 @@ def get_model_types():
 #        scores.append(score)
 #    return scores
 
-#def generate_results(result_path, model_name, best_combo, num_keywords):
-#    outputFile = open(f"/Data/Results/{num_keywords}_{model_name}Output.txt", 'w+')
-#    outputFile.write(f"{model_name} Results for {num_keywords} keywords\n")
-#    outputFile.write("MODEL\tQUERY\t#\tSCORE\n")
-#
-#    for name in result_path:
-#        for query in [1,2,3,4,5,6]:
-#            path = f"/Data/Results/{model_name}/q{query}/{name}/{num_keywords}"
-#            #path = "/Results/{}}/{}".format(model_name,name)
-#            top_nums = [1, 10, 100]
-#            scores = get_score(path + "/similarity.txt", query)
-#            print(f"Got scores for the following path : {path}")
-#            for i, score in enumerate(scores):
-#                #if (top_nums[i] == 100):
-#                    #best_combo.write("{}}\t{}\t{}\t{}\t{}\n".format(model_name, str(name).strip(), str(query).strip(), str(top_nums[i]).strip(), str(score).strip()))
-#                strForFile = "{}\t{}\t{}\t{}\n".format(str(name).strip(), str(query).strip(), str(top_nums[i]).strip(), str(score).strip())
-#                outputFile.write(strForFile)
-#
 #def evaluate_geo():
 #    path_to_geo_queries = "/Data/GEO_Queries/"
 #    path_to_queries = "/Data/Queries/"

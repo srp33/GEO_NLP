@@ -80,15 +80,6 @@ def sciSpacy_similarity(num_keywords, keyword_extractor_name, query, other_multi
                     test_or_other = "Other"
                 result_file.write(f"{series[1]}\t{series[0]}\t{test_or_other}\n")
     return
-#writing out my thought process here
-#TODO: ask Piccolo if I need num keywords or if i can just comapre the whole thing. 
-#For each query, numkeyword, multiplication rate, and extraction method:
-#I need to get lists of the training, test, and other series
-#I need to sum the cosine similarity between each other/test with training and divide by
-#the number of training series
-#I need to save that to a list of lists that I then sort/rank
-#Save that to a file
-#Make sure getResults.py can pick that up.
 
 num_keywords_list = [2,4,8,16,32,'full_text']
 for query in ["q1", "q2", "q3", "q4", "q5", "q6"]:
@@ -98,24 +89,3 @@ for query in ["q1", "q2", "q3", "q4", "q5", "q6"]:
                 mp = multiprocessing.Process(target=sciSpacy_similarity, args=(num_keywords, keyword_extractor_name, query, other_multiplication_rate))
                 mp.start()
 
-
-
-
-
-
-# for query in range(1,7):
-#     for keywordExtractor in [ "KPMiner", "Baseline"]:
-#         mp = multiprocessing.Process(target=findSimilarity, args=(keywordExtractor, "SpaCy", model, candidate_articles, query, num_keywords, vector_size))
-#         mp.start()
-#         mp.join()
-    #print(np.dot(doc1.vector, doc2.vector) / (np.linalg.norm(doc1.vector) * np.linalg.norm(doc2.vector)))
-
-
-
-
-    #from article def cosine_distance_wordembedding_method(s1, s2):
-    # import scipy
-    # vector_1 = np.mean([model[word] for word in preprocess(s1)],axis=0)
-    # vector_2 = np.mean([model[word] for word in preprocess(s2)],axis=0)
-    # cosine = scipy.spatial.distance.cosine(vector_1, vector_2)
-    # print('Word Embedding method with a cosine distance asses that our two sentences are similar to',round((1-cosine)*100,2),'%')
