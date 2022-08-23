@@ -10,8 +10,11 @@ pandas==1.4.2
 scipy==1.8.1
 #scispacy==0.5.0
 sentence-transformers==2.2.2
-#spacy==3.2.4
+#spacy==3.4.1
 spacy-lookups-data==1.0.3
 #wikipedia==1.4.0
 #Word2Vec==0.11.1
-
+transformers[tf-cpu]== 4.21.1
+tensorflow==2.9.1
+#urllib3==1.26.11
+#wget==3.2

@@ -66,8 +66,24 @@ with open(f"/Data/{query_id}/training_series", "w") as training_file:
 with open(f"/Data/{query_id}/testing_series", "w") as testing_file:
     testing_file.write(json.dumps(testing_series))
 
-# Find the series that are in STARGEO but not used for training or testing
-other_candidates = set(star_list) - set(training_series) - set(testing_series)
+
+#Ensure none of the training or testing sets of different queries are in the other pool
+not_repeat_series = []
+for query in ['q1', 'q2', 'q3', 'q4', 'q5', 'q6']:
+    with open(f"/Data/{query}/training_series", "r") as training_file:
+        train_series = json.loads(training_file.read())
+        for series in train_series:
+            not_repeat_series.append(series)
+
+        with open(f"/Data/{query}/testing_series", "r") as testing_file:
+            test_series = json.loads(testing_file.read())
+            for series in test_series:
+                not_repeat_series.append(series)
+print(not_repeat_series)
+
+# Find series that are in STARGEO but not used for training or testing
+other_candidates = set(star_list) - set(not_repeat_series)
+
 
 for other_multiplication_rate in other_multiplication_rates:
     other_candidates_tmp = list(other_candidates)

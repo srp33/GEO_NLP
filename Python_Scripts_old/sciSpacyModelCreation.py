@@ -1,7 +1,5 @@
-from gettext import npgettext
 from helper import *
 import multiprocessing
-import scispacy
 import spacy
 import sys
 import os
@@ -88,4 +86,3 @@ for query in ["q1", "q2", "q3", "q4", "q5", "q6"]:
             for other_multiplication_rate in [1,2]:
                 mp = multiprocessing.Process(target=sciSpacy_similarity, args=(num_keywords, keyword_extractor_name, query, other_multiplication_rate))
                 mp.start()
-

@@ -2,6 +2,9 @@ from helper import *
 import sys
 
 model_types = get_model_types()
+model_types.append('dmis-lab/biobert-large-cased-v1.1-squad')
+model_types.append("en_core_web_lg")
+model_types.append("en_core_sci_lg")
 num_keywords = [int(x) for x in sys.argv[1].split(",")]
 num_keywords.append("full_text")
 
@@ -10,8 +13,8 @@ multiplication_rates = [int(x) for x in sys.argv[2].split(",")][0:2]
 queries = sys.argv[3].split(",")
 
 def calculate_accuracy(query, model, keywords, method, multiplication_rate, vector_average_method="word_vector"):
-    with open("Results/results.tsv", 'w') as results_file:
-        with open(f"/Results/{query}/{model}/{keywords}/{method}/{multiplication_rate}/{vector_average_method}_similarity") as data_file:
+    with open("Results/results.tsv", 'a') as results_file:
+        with open(f"/Results/{query}/{model}/{keywords}/{method}/{multiplication_rate}/{vector_average_method}_similarity.tsv") as data_file:
             tmp = data_file.readline()
             list_test_series = []
             for series in get_series_identifiers(query, "testing_series"):
@@ -26,14 +29,19 @@ def calculate_accuracy(query, model, keywords, method, multiplication_rate, vect
                 if line[2] == "Test":
                     accuracy += 1
             accuracy = accuracy / num_to_check_for
+
+            if model == "dmis-lab/biobert-large-cased-v1.1-squad":
+                model = "bioBert"
+            elif model == "bert-base-uncased":
+                model = "Bert"
             results_file.write(f"{method}\t{keywords}_{vector_average_method}\t{multiplication_rate}\t{model}\t{query}\t{accuracy}\n")
     return
 
 #creating a tsv file that contains all combination results.
 with open("Results/results.tsv", 'w') as results_file:
     results_file.write("Extraction Method\tNumber of Keywords\tMultiplication Rate\tModel Type\tQuery\tAccuracy\n")
-#for query in queries:
-for query in ['q1', 'q2', 'q3', 'q4', 'q5']:
+
+for query in queries:
     for model in model_types:
         for method in ["KPMiner", "Baseline"]:
         #for method in keyword_extraction_methods:

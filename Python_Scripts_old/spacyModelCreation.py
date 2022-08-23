@@ -1,4 +1,3 @@
-from gettext import npgettext
 from helper import *
 import multiprocessing
 import spacy

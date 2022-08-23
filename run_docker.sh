@@ -10,6 +10,8 @@ docker run --rm -i -t \
     -v $(pwd)/Models:/Models \
     -v $(pwd)/Results:/Results \
     -v /tmp:/tmp \
-    --user $(id -u):$(id -g) \
     srp33/data_master \
     /exec_analysis.sh
+
+#    /bin/bash
+# --user $(id -u):$(id -g) \
