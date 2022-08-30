@@ -1,7 +1,5 @@
 from helper import *
-import fasttext
 import os
-import multiprocessing
 import numpy as np
 from numpy import dot
 from numpy.linalg import norm
@@ -19,14 +17,13 @@ num_keyword_options.append("full_text")
 def find_similarity(query, keyword_extractor_name, num_keywords, other_multiplication_rate, model_name, averaging_method = "word_vector"):
     results_dir_path = f"/Results/{query}/{model_name}/{num_keywords}/{keyword_extractor_name}/{other_multiplication_rate}"
     Path(results_dir_path).mkdir(parents=True, exist_ok=True)
-    
+
+    # if os.path.exists(f'{results_dir_path}/{averaging_method}_similarity.tsv'):
+    #     return()
+
     training_vector_list = []
-    if model_name == 'dmis-lab/biobert-large-cased-v1.1-squad' or model_name == "bert-base-uncased" or model_name == "allenai/scibert_scivocab_uncased":
-        model = SentenceTransformer(model_name)  
-    elif model_name == "en_core_sci_lg" or model_name == "en_core_web_lg":
-        model = spacy.load(model_name)
-    else:
-        model = get_model(f"/Models/custom/{model_name}/{keyword_extractor_name}/{num_keywords}.bin")
+    model = SentenceTransformer(model_name)  
+    # model = spacy.load(model_name)
                     
     #Finding training set vector average
     for training_series_id in get_series_identifiers(query, "training_series"):
@@ -39,10 +36,6 @@ def find_similarity(query, keyword_extractor_name, num_keywords, other_multiplic
             training_vector_list.append()
         elif model_name == "en_core_sci_lg" or model_name == "en_core_web_lg":
             training_vector_list.append(model(keywords).vector)
-        elif averaging_method != "word_vector":
-            training_vector_list.append(model.get_sentence_vector(keywords))
-        else:
-            training_vector_list.append(get_keyword_embedding(keywords, model, 300))
     print(training_vector_list)
     average_training_vector = sum(training_vector_list) / len(training_vector_list)
     
@@ -63,10 +56,6 @@ def find_similarity(query, keyword_extractor_name, num_keywords, other_multiplic
             testing_and_other_vector = model.encode(keywords)
         elif model_name == "en_core_sci_lg" or model_name == "en_core_web_lg":
             testing_and_other_vector = model(keywords).vector
-        elif averaging_method != "word_vector":
-            testing_and_other_vector = model.get_sentence_vector(keywords)
-        else:    
-            testing_and_other_vector = get_keyword_embedding(keywords, model, 300)
         print(testing_and_other_vector)
         #calculate cos sim
         cos_sim = dot(average_training_vector, testing_and_other_vector)/(norm(average_training_vector)*norm(testing_and_other_vector))
@@ -89,10 +78,6 @@ def find_similarity(query, keyword_extractor_name, num_keywords, other_multiplic
 
     return()
 
-def get_model(model_path):
-    model = fasttext.load_model(model_path)
-    return model
-
 def get_keyword_embedding(keywords, model, vector_size):
     doc_vec = np.zeros((vector_size))
 
@@ -104,8 +89,8 @@ def get_keyword_embedding(keywords, model, vector_size):
 
     return(avg_word_vector)
 
-models = get_model_types()
-
+models = []
+models.append("allenai/scibert_scivocab_uncased")
 with open(all_geo_file_path) as all_file:
     all_dict = json.loads(all_file.read())
 

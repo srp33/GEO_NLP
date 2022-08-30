@@ -1,11 +1,8 @@
 from helper import *
 import sys
 
-model_types = get_model_types()
-model_types.append('dmis-lab/biobert-large-cased-v1.1-squad')
-model_types.append("en_core_web_lg")
-model_types.append("en_core_sci_lg")
 num_keywords = [int(x) for x in sys.argv[1].split(",")]
+model_types = get_model_types()
 num_keywords.append("full_text")
 
 keyword_extraction_methods = get_list_extractors()
@@ -31,9 +28,15 @@ def calculate_accuracy(query, model, keywords, method, multiplication_rate, vect
             accuracy = accuracy / num_to_check_for
 
             if model == "dmis-lab/biobert-large-cased-v1.1-squad":
-                model = "bioBert"
+                model = "BioBert"
             elif model == "bert-base-uncased":
                 model = "Bert"
+            elif model == "allenai/scibert_scivocab_uncased":
+                model = "SciBert"
+            elif model == "en_core_sci_lg":
+                model = "SciSpacy"
+            elif model == "en_core_web_lg":
+                model = "Spacy"
             results_file.write(f"{method}\t{keywords}_{vector_average_method}\t{multiplication_rate}\t{model}\t{query}\t{accuracy}\n")
     return
 

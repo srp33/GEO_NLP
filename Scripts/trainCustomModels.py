@@ -2,7 +2,6 @@
 #from gensim.summarization import keywords
 from helper import *
 import fasttext
-import pke
 import sys
 
 star_geo_file_path = sys.argv[1]
@@ -28,32 +27,33 @@ extraction_methods = ["Baseline", "KPMiner"]
 for extraction_method in extraction_methods:
     for num_keywords in num_keyword_options:
         for model_type in get_model_types():
-            model = model_type.split("__")[1]
+            if model_type.startswith("fasttext"):
+                model = model_type.split("__")[1]
             
-            #don't want to remake this if it already exists. 
-            new_path = f"Models/custom/{model_type}/{extraction_method}/{num_keywords}.bin"
-            if not os.path.exists(new_path):
-                with open(corpus_file_path, "w") as corpus_file: 
+                #don't want to remake this if it already exists. 
+                new_path = f"Models/custom/{model_type}/{extraction_method}/{num_keywords}.bin"
+                if not os.path.exists(new_path):
+                    with open(corpus_file_path, "w") as corpus_file: 
 
-                    counter = 0
-                    for series in all_dict:
-                        if num_keywords == "full_text":
-                            text = all_dict[series]
-                            corpus_file.write(f"{text}/n")
-                            continue
+                        counter = 0
+                        for series in all_dict:
+                            if num_keywords == "full_text":
+                                text = all_dict[series]
+                                corpus_file.write(f"{text}/n")
+                                continue
 
-                        counter += 1
+                            counter += 1
                         
-                        keyword_text = get_keywords(extraction_method, num_keywords, series)
+                            keyword_text = get_keywords(extraction_method, num_keywords, series)
                 
-                        if keyword_text == "":
-                            continue
+                            if keyword_text == "":
+                                continue
 
-                        if counter > 1:
-                            corpus_file.write("\n")
-                        corpus_file.write(f"{keyword_text}")
+                            if counter > 1:
+                                corpus_file.write("\n")
+                            corpus_file.write(f"{keyword_text}")
                 
-                model = fasttext.train_unsupervised(corpus_file_path, model, dim=300)
-                model.save_model(new_path)
+                    model = fasttext.train_unsupervised(corpus_file_path, model, dim=300)
+                    model.save_model(new_path)
 
                 #https://github.com/facebookresearch/fastText/tree/main/python#train_unsupervised-parameters

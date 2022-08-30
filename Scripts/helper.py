@@ -96,7 +96,7 @@ def get_keywords(keyword_extractor, num_keywords, series):
 
 
 def get_model_types():
-    return ["fasttext__cbow", "fasttext__skipgram"]
+    return ["fasttext__cbow", "fasttext__skipgram", "en_core_web_lg", "en_core_sci_lg", "dmis-lab/biobert-large-cased-v1.1-squad", "bert-base-uncased", "allenai/scibert_scivocab_uncased"]
 
 #def get_score(file_path, query):
 #    score_to_series = {}

@@ -29,8 +29,6 @@ queries="q1,q2,q3,q4,q5,q6"
 #   Selecting a text similarity measure for a content-based recommender system: A comparison in two corpora https://www.emerald.com/insight/content/doi/10.1108/EL-08-2018-0165/full/html
 #   Build A Text Recommendation System with Python https://towardsdatascience.com/build-a-text-recommendation-system-with-python-e8b95d9f251c
 #
-# Should we include the "Overall design" field from GEO in our search?
-#   Maybe not if these are not consistent among datasets...
 
 #Rscript getAllGEO.R "$all_geo_tsv_file_path"
 #python3 prepareAllGEO.py "$all_geo_tsv_file_path" "$all_geo_json_file_path"
@@ -51,7 +49,7 @@ queries="q1,q2,q3,q4,q5,q6"
 #python3 assignTrainingTestingOther.py "$star_geo_file_path" "$all_geo_json_file_path" "GSE30699,GSE28424,GSE24401,GSE42903,GSE5045,GSE16088,GSE16091,GSE36001,GSE11127,GSE14359,GSE21257,GSE38133,GSE52089,GSE55958,GSE19913,GSE32395,GSE42351,GSE48281,GSE53155,GSE12512,GSE55957,GSE85537,GSE76535,GSE16089,GSE19276,GSE32981,GSE33382,GSE3362,GSE38134,GSE8079,GSE42572,GSE11414,GSE12865,GSE14789,GSE14827,GSE22970,GSE28252,GSE30807,GSE37552,GSE39055,GSE39057,GSE56001,GSE9508,GSE73166,GSE73422,GSE86109,GSE89074,GSE89370,GSE73120,GSE87437,GSE96892,GSE115590,GSE119975,GSE1153,GSE16066,GSE16070,GSE16080,GSE16082,GSE16085,GSE18947,GSE27900,GSE29634,GSE33458,GSE35512,GSE39072,GSE42352,GSE44713,GSE5796,GSE58209,GSE6711,GSE50527,GSE57203,GSE66673,GSE68950,GSE65065,GSE70719,GSE81892,GSE63390,GSE97572,GSE129091,GSE134603,GSE143556,GSE1000,GSE11115,GSE13504,GSE19060,GSE21751,GSE24170,GSE26244,GSE26857,GSE28256,GSE28912,GSE32182,GSE46448,GSE46493,GSE46549,GSE49003,GSE50988,GSE5117,GSE51349,GSE54267,GSE54820,GSE54942,GSE9854,GSE55749,GSE61928,GSE70414,GSE65401,GSE87363,GSE94805,GSE107855,GSE107836" q6 "$multiplication_rates"
 
 #python3 calculateSimilarities.py "$all_geo_json_file_path" "$queries" "$multiplication_rates" "$num_keyword_options"
-#python3 getResults.py "$num_keyword_options" "$multiplication_rates" "$queries"
+python3 getResults.py "$num_keyword_options" "$multiplication_rates" "$queries"
 
 #TODO: Do I need NLTKImport.py
 

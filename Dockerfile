@@ -19,8 +19,8 @@ RUN pip install scispacy
 RUN pip install https://s3-us-west-2.amazonaws.com/ai2-s2-scispacy/releases/v0.5.0/en_core_sci_lg-0.5.0.tar.gz
 
 #SciBert
-# RUN pip install https://s3-us-west-2.amazonaws.com/ai2-s2-scispacy/releases/v0.5.0/en_core_sci_scibert-0.5.0.tar.gz
-# RUN python3 -m scispacy download en_core_sci_lg
+RUN wget -O scibert_uncased.tar https://s3-us-west-2.amazonaws.com/ai2-s2-research/scibert/huggingface_pytorch/scibert_scivocab_uncased.tar
+RUN tar -xvf scibert_uncased.tar
 
 # COPY ImportNLTK.py /
 # RUN python3 /ImportNLTK.py
