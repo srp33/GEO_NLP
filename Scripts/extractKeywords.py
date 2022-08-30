@@ -38,8 +38,6 @@ def extract_keywords(geo_series_id, max_num_keywords=32):
             keywords = extraction.get_n_best(n=max_num_keywords)
                      
             extractor_dict[extractor_name] = keywords
-            #TODO: Remove this in the future!!
-            break
  
     
         with open(f"/Data/KeywordWeights/{geo_series_id}", "w") as geo_file:
