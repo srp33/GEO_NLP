@@ -2,12 +2,14 @@ from bs4 import BeautifulSoup
 from pathlib import Path
 import datetime
 import json
-import math
 import os
 import pke
-import random
 import re
-import requests
+import zipfile
+
+all_geo_dict = {}
+with open("/Data/AllGEO.json") as cache_file:
+    all_geo_dict = json.loads(cache_file.read())
 
 def print_time_stamp(message):
     print(f"{message} - {datetime.datetime.now()}")
@@ -78,6 +80,8 @@ def get_keywords(keyword_extractor, num_keywords, series):
         with open(f"/Data/AllGEO.json", "r") as all_file:
             all_dict = json.loads(all_file.read())
             return(all_dict[series])
+    if not os.path.exists(f"/Data/KeywordWeights/{series}"):
+        extract_keywords(series, 32)
     with open(f"/Data/KeywordWeights/{series}", "r") as cache_file:
         keyword_dict = json.loads(cache_file.read())
         keywords = keyword_dict[keyword_extractor]
@@ -94,74 +98,42 @@ def get_keywords(keyword_extractor, num_keywords, series):
         keyword_text = " ".join(keyword_list)
         return(keyword_text)
 
-
 def get_model_types():
-    return ["fasttext__cbow", "fasttext__skipgram", "en_core_web_lg", "en_core_sci_lg", "dmis-lab/biobert-large-cased-v1.1-squad", "bert-base-uncased", "allenai/scibert_scivocab_uncased"]
+    return ["fasttext__cbow", "fasttext__skipgram", "en_core_web_lg", "en_core_sci_lg", "dmis-lab/biobert-large-cased-v1.1-squad", "bert-base-uncased", "allenai/scibert_scivocab_uncased", "gpt2", "wiki_fasttext", "bioWordVec"]
 
-#def get_score(file_path, query):
-#    score_to_series = {}
-#    with open(file_path, "r+") as in_file:
-#        for line in in_file:
-#            line_list = line.split('\t')
-#            try:
-#                score_to_series[line_list[1].strip()] = line_list[0].strip()
-#            except:
-#                print("Line List : {}".format(line_list))
-#                print("Error was found in {}".format(file_path))
-#    scores = []
-#    to_test = [1,10,100]
-#    for top_num in to_test:
-#        try:
-#            top_results = get_x_top_results(top_num, score_to_series)
-#        except:
-#            print("\n")
-#            print(f"file_path : {file_path}")
-#            print(f"QUERY : {query}")
-#            print(f"Length of score_to_series : {len(score_to_series)}")
-#            print(f"top num : {top_num}")
-#        my_tester = tester()
-#        my_tester.which_query(query)
-#        score = my_tester.return_percent(top_results)
-#        scores.append(score)
-#    return scores
+def extract_keywords(geo_series_id, max_num_keywords=32):  
+    # Check whether the specified path exists or not
+    path = f"/Data/KeywordWeights/{geo_series_id}"
+    print("In the function!")
+    if not os.path.exists(path):
+        print(f"Making {geo_series_id}")
+        title_and_abstract = all_geo_dict[geo_series_id]
+        extractor_dict = {}
+        #Extracting Baseline
+        unique_words = extract_keywords_baseline(title_and_abstract, max_num_keywords)
+        word_list = []
+        for i, word in enumerate(unique_words):
+            word = [word, (max_num_keywords - i) / max_num_keywords]
+            word_list.append(word)
+        extractor_dict["Baseline"] = word_list
+    
+        #Using Keyword extraction methods
+        for extractor_name, extraction in get_keyword_extractors().items():
+            try:
+            #use try: (code) except: (more code or word pass)
+                extraction.load_document(input=title_and_abstract, language='en')
+                extraction.candidate_selection()
+                extraction.candidate_weighting()
 
-#def evaluate_geo():
-#    path_to_geo_queries = "/Data/GEO_Queries/"
-#    path_to_queries = "/Data/Queries/"
-#
-#    query_list = ["q1_Family+History_Breast+Cancer.txt",  "q2_Liver+Damage_Hepatitis.txt",
-#                  "q3_Monozygotic+Twins.txt",  "q4_Kidney_Tumor_Cell+Line.txt",
-#                  "q5_Diabetes_Type+1.txt",  "q6_Osteosarcoma.txt"]
-#
-#    starGEO_datasets = (get_candidate_articles(100000)).keys()
-#
-#    results_dir_path = f"/Data/GEO_Queries/geo_results.txt"
-#    with open(results_dir_path, 'w+') as out_file:
-#        for top_n in [1,10,100]:
-#            for path in query_list:
-#                num_og = 0
-#                geo_results = []
-#                query_results = []
-#                with open(path_to_geo_queries + path, 'r') as geo_file:
-#                    superseries = False
-#                    for line in geo_file:
-#                        if line.startswith("(Submitter supplied) This SuperSeries is composed of the SubSeries listed below"):
-#                            superseries = True
-#                        if line.startswith("Series") and superseries:
-#                            superseries = False
-#                        if line.startswith("Series") and not superseries:
-#                            num_og += 1
-#                            split_sent = line.split()
-#                            if split_sent[2] in starGEO_datasets:
-#                                geo_results.append(split_sent[2])
-#
-#                with open(path_to_queries + f"q{path[1]}/names.txt", 'r') as query_file:
-#                    for line in query_file:
-#                        query_results = line.split()
-#                num_relevant = 0
-#                for series in geo_results[:top_n]:
-#                    if series in query_results:
-#                        num_relevant = num_relevant + 1
-#
-#                out_file.write(f"GEO\tq{path[1]}\t{top_n}\t {round(((num_relevant/len(query_results)) * 100),1)}\n")
-#    print("Finished GEO evaluation")
+                keywords = extraction.get_n_best(n=max_num_keywords)
+                     
+                extractor_dict[extractor_name] = keywords
+                print("Got some keywords!")
+            except:
+                print("no keywords")
+                extractor_dict[extractor_name] = []
+    
+        with open(f"/Data/KeywordWeights/{geo_series_id}", "w") as geo_file:
+            geo_file.write(json.dumps(extractor_dict))
+
+    return

@@ -25,7 +25,6 @@ RUN tar -xvf scibert_uncased.tar
 # COPY ImportNLTK.py /
 # RUN python3 /ImportNLTK.py
 
-
 COPY exec_analysis.sh /
 
 COPY Scripts/* /
