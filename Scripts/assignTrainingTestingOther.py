@@ -9,6 +9,8 @@ series = sys.argv[3].split(",")
 query_id = sys.argv[4]
 other_multiplication_rates = [int(x) for x in sys.argv[5].split(",")]
 
+print(len(series))
+
 all_dict = {}
 star_list = []
 

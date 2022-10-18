@@ -14,6 +14,15 @@ all_geo_dict = {}
 with open(all_geo_file_path) as cache_file:
     all_geo_dict = json.loads(cache_file.read())
 
+
+counter = 0
+for series in all_geo_dict:
+    path = f"/Data/KeywordWeights/{series}"
+    if os.path.exists(path):
+        counter += 1
+print(counter)
+print(len(all_geo_dict))
+sys.exit()
 # for series in all_geo_dict:
 #     extract_keywords(series)
 print("about to start")

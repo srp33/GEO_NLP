@@ -14,15 +14,15 @@ from transformers import *
 
 all_geo_file_path = sys.argv[1]
 queries = sys.argv[2].split(",")
-other_multiplication_rate_options = [int(x) for x in sys.argv[3].split(",")][:2]
+other_multiplication_rate_options = [int(x) for x in sys.argv[3].split(",")]
 num_keyword_options = [int(x) for x in sys.argv[4].split(",")]
 num_keyword_options.append("full_text")
 hugging_face_list = ['dmis-lab/biobert-large-cased-v1.1-squad', 'bert-base-uncased', "allenai/scibert_scivocab_uncased", "gpt2"]
 
 def find_similarity(query, keyword_extractor_name, num_keywords, other_multiplication_rate, model_name, model, averaging_method = "word_vector"):
     results_dir_path = f"/Results/{query}/{model_name}/{num_keywords}/{keyword_extractor_name}/{other_multiplication_rate}"
-    if os.path.exists(f'{results_dir_path}/{averaging_method}_similarity.tsv'):
-        return()
+    #if os.path.exists(f'{results_dir_path}/{averaging_method}_similarity.tsv'):
+    #    return()
     Path(results_dir_path).mkdir(parents=True, exist_ok=True)
     training_vector_list = []
     #Finding training set vector average
@@ -78,13 +78,13 @@ def find_similarity(query, keyword_extractor_name, num_keywords, other_multiplic
             testing_and_other_vector = model.get_sentence_vector(keywords)
         else:    
             testing_and_other_vector = get_keyword_embedding(keywords, model, 300)
-        print(testing_and_other_vector)
         #calculate cos sim
-        cos_sim = dot(average_training_vector[0], testing_and_other_vector[0])/(norm(average_training_vector[0])*norm(testing_and_other_vector[0]))
-        cos_sim_and_series_id_list.append([cos_sim, testing_and_other_series_id])
-
-    cos_sim_and_series_id_list.sort()
-    cos_sim_and_series_id_list.reverse()
+        # if len(average_training_vector) > 1:
+        #     cos_sim = dot(average_training_vector[0], testing_and_other_vector[0])/(norm(average_training_vector[0])*norm(testing_and_other_vector[0]))
+        #     cos_sim_and_series_id_list.append([cos_sim, testing_and_other_series_id])
+        # else: #TODO: fix this later
+        cos_sim_and_series_id_list.sort()
+        cos_sim_and_series_id_list.reverse()
 
     #recording findings
     with open(f'{results_dir_path}/{averaging_method}_similarity.tsv', 'w+') as out_file:
@@ -120,10 +120,7 @@ models = get_model_types()
 with open(all_geo_file_path) as all_file:
     all_dict = json.loads(all_file.read())
 
-print("I have started calculate similarities script, about to enter the for loop") #TODO: delete later
-
-for model_name in ["bioWordVec", "wiki_fasttext"]:
-    print(f"Running model {model_name}")
+for model_name in ["en_core_sci_lg"]:
     if model_name in hugging_face_list:
         model = SentenceTransformer(model_name)  
     elif model_name == "en_core_sci_lg" or model_name == "en_core_web_lg":
@@ -132,12 +129,11 @@ for model_name in ["bioWordVec", "wiki_fasttext"]:
         model = KeyedVectors.load_word2vec_format("/Models/BioWordVec_PubMed_MIMICIII_d200.vec.bin", binary=True)
     elif model_name == "wiki_fasttext":
         model = KeyedVectors.load_word2vec_format("/Models/wiki.en.vec")
-    for keyword_extractor_name in ['KPMiner', 'Baseline']:
+    for keyword_extractor_name in ['Baseline']:
     #for keyword_extractor_name in get_keyword_extractors():
         for query in queries:
-            for num_keywords in num_keyword_options:
+            for num_keywords in ["full_text"]:
                 for other_multiplication_rate in other_multiplication_rate_options:
-                    print("I am starting a new combination!") #TODO: delete later
                     #for model_name in models: TODO: uncomment after gpt2 is running
                     if model_name.startswith("fasttext") and num_keywords == "full_text":
                         find_similarity(query, keyword_extractor_name, num_keywords, other_multiplication_rate, model_name, model, "sentence_vector")

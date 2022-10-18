@@ -1,9 +1,7 @@
 #FROM python:3.8.5
-FROM bioconductor/bioconductor_docker:RELEASE_3_14
-
+FROM bioconductor/bioconductor_docker:RELEASE_3_15
 
 RUN R -e 'BiocManager::install("GEOmetadb", force = TRUE)'
-
 
 RUN pip install --upgrade pip setuptools wheel
 
@@ -22,8 +20,9 @@ RUN pip install https://s3-us-west-2.amazonaws.com/ai2-s2-scispacy/releases/v0.5
 RUN wget -O scibert_uncased.tar https://s3-us-west-2.amazonaws.com/ai2-s2-research/scibert/huggingface_pytorch/scibert_scivocab_uncased.tar
 RUN tar -xvf scibert_uncased.tar
 
-# COPY ImportNLTK.py /
-# RUN python3 /ImportNLTK.py
+#Need this for stopwords!
+COPY ImportNLTK.py /
+RUN python3 /ImportNLTK.py
 
 COPY exec_analysis.sh /
 

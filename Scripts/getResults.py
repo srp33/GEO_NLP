@@ -1,15 +1,19 @@
 from helper import *
 import sys
+import os
 
 num_keywords = [int(x) for x in sys.argv[1].split(",")]
 model_types = get_model_types()
+model_types.append("GEOBert")
 num_keywords.append("full_text")
 
 keyword_extraction_methods = get_list_extractors()
-multiplication_rates = [int(x) for x in sys.argv[2].split(",")][0:2]
+multiplication_rates = [int(x) for x in sys.argv[2].split(",")]
 queries = sys.argv[3].split(",")
 
-def calculate_accuracy(query, model, keywords, method, multiplication_rate, vector_average_method="word_vector"):
+def calculate_accuracy(query, model, keywords, method, multiplication_rate, vector_average_method="sentence_vector"):
+    if not os.path.exists(f"/Results/{query}/{model}/{keywords}/{method}/{multiplication_rate}/{vector_average_method}_similarity.tsv"):
+        return()
     with open("Results/results.tsv", 'a') as results_file:
         with open(f"/Results/{query}/{model}/{keywords}/{method}/{multiplication_rate}/{vector_average_method}_similarity.tsv") as data_file:
             tmp = data_file.readline()
@@ -37,19 +41,27 @@ def calculate_accuracy(query, model, keywords, method, multiplication_rate, vect
                 model = "SciSpacy"
             elif model == "en_core_web_lg":
                 model = "Spacy"
-            results_file.write(f"{method}\t{keywords}_{vector_average_method}\t{multiplication_rate}\t{model}\t{query}\t{accuracy}\n")
-    return
-
+            elif model == "all-roberta-large-v1":
+                model = "Roberta"
+            elif model == "sentence-t5-xxl":
+                model = "T5"
+                #T5 stands for Text-To-Text Transfer Transformer
+            elif model == "all-mpnet-base-v2":
+                model = "MPNet" #model made by microsoft
+            results_file.write(f"{model}\t{multiplication_rate}\t{query}\t{vector_average_method}\t{accuracy}\n")
+    return()
+ 
 #creating a tsv file that contains all combination results.
 with open("Results/results.tsv", 'w') as results_file:
-    results_file.write("Extraction Method\tNumber of Keywords\tMultiplication Rate\tModel Type\tQuery\tAccuracy\n")
+    results_file.write("Model_Type\tMultiplication_Rate\tQuery\tVector_Method\tAccuracy\n")
+
+print(queries)
 
 for query in queries:
     for model in model_types:
-        for method in ["KPMiner", "Baseline"]:
+        for method in ["Baseline"]:
         #for method in keyword_extraction_methods:
             for multiplication_rate in multiplication_rates:
-                for keywords in num_keywords:
-                    if keywords == "full_text":
-                        calculate_accuracy(query, model, keywords, method, multiplication_rate, "sentence_vector")
-                    calculate_accuracy(query, model, keywords, method, multiplication_rate)                        
+                for keywords in ["full_text"]:
+                    for vector_type in ["sentence_vector", "word_vector", "word_vector_cat", "word_vector_sum"]:
+                        calculate_accuracy(query, model, keywords, method, multiplication_rate, vector_type)                         

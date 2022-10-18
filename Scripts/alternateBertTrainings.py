@@ -56,7 +56,7 @@ tokenizer.train(files=files, vocab_size=vocab_size, special_tokens=special_token
 # enable truncation up to the maximum 512 tokens
 tokenizer.enable_truncation(max_length=max_length)
 
-model_path = "/Models/custom/bert"
+model_path = "/Models/custom/GEOMPNet"
 # make the directory if not already there
 if not os.path.isdir(model_path):
   os.mkdir(model_path)
@@ -73,7 +73,7 @@ with open(os.path.join(model_path, "config.json"), "w") as f:
       "max_len": max_length,
   }
   json.dump(tokenizer_cfg, f)
-tokenizer = BertTokenizerFast.from_pretrained(model_path)
+tokenizer = MPNetTokenizerFast.from_pretrained(model_path)
 
 def encode_with_truncation(examples):
   """Mapping function to tokenize the sentences passed with truncation"""
@@ -137,8 +137,8 @@ if not truncate_longer_samples:
 print(len(train_dataset), len(test_dataset))
 
 # initialize the model with the config
-model_config = BertConfig(vocab_size=vocab_size, max_position_embeddings=max_length)
-model = BertForMaskedLM(config=model_config)
+model_config = MPNetConfig(vocab_size=vocab_size, max_position_embeddings=max_length)
+model = MPNetModel(config=model_config)
 
 # initialize the data collator, randomly masking 20% (default is 15%) of the tokens for the Masked Language
 # Modeling (MLM) task
@@ -171,8 +171,8 @@ trainer = Trainer(
 # train the model
 trainer.train()
 
-model = BertForMaskedLM.from_pretrained(os.path.join(model_path, "checkpoint-6000"))
-tokenizer = BertTokenizerFast.from_pretrained(model_path)
+model = MPNetModel.from_pretrained(os.path.join(model_path, "checkpoint-6000"))
+tokenizer = MPNetTokenizerFast.from_pretrained(model_path)
 print(model)
 
 # Code modified from https://www.thepythoncode.com/article/pretraining-bert-huggingface-transformers-in-python

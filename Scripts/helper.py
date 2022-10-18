@@ -6,6 +6,9 @@ import os
 import pke
 import re
 import zipfile
+import nltk
+from nltk.corpus import stopwords
+
 
 all_geo_dict = {}
 with open("/Data/AllGEO.json") as cache_file:
@@ -34,6 +37,8 @@ def clean_text(text):
     text = re.sub(r'[n|N]o\.', r'number', text)
     text = re.sub(r' [0-9]+ ', r' ', text)
     text = re.sub(r' +', r' ', text)
+    text = re.sub("  ", " ", text)
+    #Double check with Professor piccolo TODO: do we want to remove more common words? Or do that just when making vectors?
     return text
 
 def get_series_identifiers(query, file_name):
@@ -75,11 +80,23 @@ def extract_keywords_baseline(text, num_keywords):
 
     return unique_keywords
 
+def remove_stop_words(text):
+    text = text.split(" ")
+    stops = set(stopwords.words('english'))
+    new_text_list = []
+    for word in text:
+        if word not in stops:
+            new_text_list.append(word)
+    new_text = " ".join(new_text_list)
+    return(new_text)
+
 def get_keywords(keyword_extractor, num_keywords, series):
     if num_keywords == "full_text":
         with open(f"/Data/AllGEO.json", "r") as all_file:
             all_dict = json.loads(all_file.read())
-            return(all_dict[series])
+            text = all_dict[series]
+            new_text = remove_stop_words(text)
+            return(new_text)
     if not os.path.exists(f"/Data/KeywordWeights/{series}"):
         extract_keywords(series, 32)
     with open(f"/Data/KeywordWeights/{series}", "r") as cache_file:
@@ -99,7 +116,7 @@ def get_keywords(keyword_extractor, num_keywords, series):
         return(keyword_text)
 
 def get_model_types():
-    return ["fasttext__cbow", "fasttext__skipgram", "en_core_web_lg", "en_core_sci_lg", "dmis-lab/biobert-large-cased-v1.1-squad", "bert-base-uncased", "allenai/scibert_scivocab_uncased", "gpt2", "wiki_fasttext", "bioWordVec"]
+    return ["fasttext__cbow", "fasttext__skipgram", "en_core_web_lg", "en_core_sci_lg", "all-roberta-large-v1", "sentence-t5-xxl", "all-mpnet-base-v2", "dmis-lab/biobert-large-cased-v1.1-squad", "bert-base-uncased", "allenai/scibert_scivocab_uncased", "gpt2", "bioWordVec", "pretrained_fasttext_wiki", "pretrained_fasttext_wiki_subword", "pretrained_fasttext_crawl", "pretrained_fasttext_crawl_subword"]
 
 def extract_keywords(geo_series_id, max_num_keywords=32):  
     # Check whether the specified path exists or not
