@@ -37,6 +37,7 @@ for extraction_method in extraction_methods:
         #don't want to remake this if it already exists. 
         new_path = f"Models/custom/{model_type}/{extraction_method}/{num_keywords}.bin"
         if not os.path.exists(new_path):
+            print(f"I am making a {model_type} {extraction_method} with {num_keywords}")
             with open(corpus_file_path, "w") as corpus_file: 
                 counter = 0
                 for series in nonstar_text_list:

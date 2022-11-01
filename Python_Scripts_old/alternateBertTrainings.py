@@ -39,13 +39,13 @@ special_tokens = [
   "[PAD]", "[UNK]", "[CLS]", "[SEP]", "[MASK]", "<S>", "<T>"
 ]
 # if you want to train the tokenizer on both sets
-# files = ["train.txt", "test.txt"]
+files = ["train.txt", "test.txt"]
 # training the tokenizer on the training set
-files = ["train.txt"]
+#files = ["train.txt"]
 # 30,522 vocab is BERT's default vocab size, feel free to tweak
 vocab_size = 30_522
 # maximum sequence length, lowering will result to faster training (when increasing batch size)
-max_length = 512
+max_length = 700
 # whether to truncate
 truncate_longer_samples = False
 
@@ -98,8 +98,8 @@ if truncate_longer_samples:
   test_dataset.set_format(type="torch", columns=["input_ids", "attention_mask"])
 else:
   # remove other columns, and remain them as Python lists
-  test_dataset.set_format(columns=["input_ids", "attention_mask", "special_tokens_mask"])
-  train_dataset.set_format(columns=["input_ids", "attention_mask", "special_tokens_mask"])
+  test_dataset.set_format(columns=["input_ids", "attention_mask"])
+  train_dataset.set_format(columns=["input_ids", "attention_mask"])
 
 from itertools import chain
 # Main data processing function that will concatenate all texts from our dataset and generate chunks of

@@ -68,7 +68,7 @@ queries="q1,q2,q3,q4,q5,q6"
 # This script extracts keywords from STARGEO series before we do machine learning.
 # We run it for allGEO because nonstar geo is used for model training. 
 # We do this beforehand because we have to do it multiple times and it's kinda slow.
-#python3 extractKeywords.py "$all_geo_json_file_path" "$queries" "$multiplication_rates" "$num_keyword_options" #91% of the way done!
+# python3 extractKeywords.py "$all_geo_json_file_path" "$queries" "$multiplication_rates" "$num_keyword_options" #91% of the way done!
 
 #python3 makeNonstarGeo.py "$star_geo_file_path" "$all_geo_json_file_path"
 #python3 trainCustomModels.py "$star_geo_file_path" "$all_geo_json_file_path" "$num_keyword_options" "Models/custom"
@@ -87,7 +87,7 @@ queries="q1,q2,q3,q4,q5,q6"
 #python3 testingBert.py "$all_geo_json_file_path"
 #python3 fasterSimilarityCalc.py "$all_geo_json_file_path" "$queries" "$multiplication_rates" "$num_keyword_options"
 #python3 calculateSimilarities.py "$all_geo_json_file_path" "$queries" "$multiplication_rates" "$num_keyword_options"
-#python3 getResults.py "$num_keyword_options" "$multiplication_rates" "$queries"
+python3 getResults.py "$num_keyword_options" "$multiplication_rates" "$queries"
 #TODO: Do I need NLTKImport.py
 
 exit

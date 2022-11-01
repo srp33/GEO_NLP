@@ -108,6 +108,7 @@ def find_similarity(query, keyword_extractor_name, num_keywords, other_multiplic
             list_of_ids.append(series)
     
     cos_sim_and_series_id_list = []
+    na_list = []
     #Finding vectors for each series to compare to training
     for testing_and_other_series_id in list_of_ids:
         keywords = get_keywords(keyword_extractor_name, num_keywords, testing_and_other_series_id)
@@ -120,7 +121,12 @@ def find_similarity(query, keyword_extractor_name, num_keywords, other_multiplic
                 vector = word_embeddings[text_index,:]
                 vector = vector.detach().numpy()
                 tmp_list.append(vector)
+            try:
                 testing_and_other_vector = (sum(tmp_list) / len(tmp_list))
+            except:
+                cos_sim_and_series_id_list.append([0, testing_and_other_series_id])
+                print("An exception occurred")
+                continue
         elif model_name == "GEOBert":
             if averaging_method == "word_vector":
                 testing_and_other_vector = get_bert_word_embedding(keywords, model, tokenizer, word_method)
@@ -141,8 +147,13 @@ def find_similarity(query, keyword_extractor_name, num_keywords, other_multiplic
             testing_and_other_vector = get_keyword_embedding(keywords, model, 300)
         #calculate cos sim
         if model_name == "gpt2":
-            cos_sim = dot(average_training_vector[0], testing_and_other_vector[0])/(norm(average_training_vector[0])*norm(testing_and_other_vector[0]))
-            cos_sim_and_series_id_list.append([cos_sim, testing_and_other_series_id])
+            try:
+                cos_sim = dot(average_training_vector[0], testing_and_other_vector[0])/(norm(average_training_vector[0])*norm(testing_and_other_vector[0]))
+                cos_sim_and_series_id_list.append([cos_sim, testing_and_other_series_id])
+            except:
+                na_list.append(["NA", testing_and_other_series_id])
+                print("An exception occurred")
+            
         else:
             cos_sim = dot(average_training_vector, testing_and_other_vector)/(norm(average_training_vector)*norm(testing_and_other_vector))
             cos_sim_and_series_id_list.append([cos_sim, testing_and_other_series_id])
@@ -157,6 +168,13 @@ def find_similarity(query, keyword_extractor_name, num_keywords, other_multiplic
         print_time_stamp(f"Processing {results_dir_path}")
         out_file.write("Series ID\tSimilarity Score\tTest or Other Group\n")
         for series in cos_sim_and_series_id_list:
+            test_or_other= ""
+            if series[1] in get_series_identifiers(query, "testing_series"):
+                test_or_other = "Test"
+            else:
+                test_or_other = "Other"
+            out_file.write(f"{series[1]}\t{series[0]}\t{test_or_other}\n")
+        for series in na_list:
             test_or_other= ""
             if series[1] in get_series_identifiers(query, "testing_series"):
                 test_or_other = "Test"
@@ -193,7 +211,9 @@ word_methods = ['cat', "sum"]
 keyword_extractor_name = "Baseline"
 
 for model_name in ["fasttext__cbow", "fasttext__skipgram", "en_core_web_lg", "en_core_sci_lg", "all-roberta-large-v1", "sentence-t5-xxl", "all-mpnet-base-v2", "dmis-lab/biobert-large-cased-v1.1-squad", "bert-base-uncased", "allenai/scibert_scivocab_uncased", "gpt2", "bioWordVec", "pretrained_fasttext_wiki", "pretrained_fasttext_wiki_subword", "pretrained_fasttext_crawl", "pretrained_fasttext_crawl_subword"]:
-    for query in ['q1','q2','q3','q4','q5','q6']:
+#for model_name in ["bioWordVec", "pretrained_fasttext_wiki", "pretrained_fasttext_wiki_subword", "pretrained_fasttext_crawl", "pretrained_fasttext_crawl_subword", "fasttext__cbow", "fasttext__skipgram", "en_core_web_lg", "en_core_sci_lg", "all-roberta-large-v1", "sentence-t5-xxl", "all-mpnet-base-v2", "dmis-lab/biobert-large-cased-v1.1-squad", "bert-base-uncased", "allenai/scibert_scivocab_uncased"]:
+# for model_name in ['gpt2']:
+    for query in queries:
         for num_keywords in ["full_text"]:
             for other_multiplication_rate in other_multiplication_rate_options:
                 if model_name == "GEOBert":
@@ -207,3 +227,11 @@ for model_name in ["fasttext__cbow", "fasttext__skipgram", "en_core_web_lg", "en
                     find_similarity(query, keyword_extractor_name, num_keywords, other_multiplication_rate, model_name)
                     # mp = multiprocessing.Process(target=find_similarity, args=(query, keyword_extractor_name, num_keywords, other_multiplication_rate, model_name))
                     # mp.start()
+
+##################################Keyword trial!!#############################################
+# for multiplication_rate in ['1','2','5','10','100']:
+#     for model in ["all-mpnet-base-v2"]: #Our best model so far!
+#         for method in keyword_extraction:
+#             for numKeywords in num_keyword_options:
+#                 for query in queries:
+#                     find_similarity(query, method, numKeywords, multiplication_rate, model)

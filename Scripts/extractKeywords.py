@@ -22,7 +22,7 @@ for series in all_geo_dict:
         counter += 1
 print(counter)
 print(len(all_geo_dict))
-sys.exit()
+
 # for series in all_geo_dict:
 #     extract_keywords(series)
 print("about to start")
