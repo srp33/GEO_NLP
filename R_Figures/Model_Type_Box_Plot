@@ -26,4 +26,4 @@ g <- ggplot(data=data1, aes(x=Model_Type, y=Accuracy)) +
   theme(axis.text.x = element_text(angle=315, vjust=0, hjust=0))+
   scale_y_continuous(limits = c(0,1))
 print(g)
-#ggsave(f"{download_path}+/allmodels.png", plot = g, width=20, height=12, units='cm')
+#ggsave(f"{download_path}/allmodels.png", plot = g, width=20, height=12, units='cm')
