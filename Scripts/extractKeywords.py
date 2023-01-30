@@ -23,8 +23,6 @@ for series in all_geo_dict:
 print(counter)
 print(len(all_geo_dict))
 
-# for series in all_geo_dict:
-#     extract_keywords(series)
 print("about to start")
 args=[(series, 32) for series in all_geo_dict]
 pool = multiprocessing.Pool(processes = 12)

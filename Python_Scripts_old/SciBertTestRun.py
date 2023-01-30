@@ -12,7 +12,6 @@ all_geo_file_path = sys.argv[1]
 queries = sys.argv[2].split(",")
 other_multiplication_rate_options = [int(x) for x in sys.argv[3].split(",")][:2]
 num_keyword_options = [int(x) for x in sys.argv[4].split(",")]
-num_keyword_options.append("full_text")
 
 def find_similarity(query, keyword_extractor_name, num_keywords, other_multiplication_rate, model_name, averaging_method = "word_vector"):
     results_dir_path = f"/Results/{query}/{model_name}/{num_keywords}/{keyword_extractor_name}/{other_multiplication_rate}"

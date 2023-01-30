@@ -1,12 +1,10 @@
 from bs4 import BeautifulSoup
-from pathlib import Path
+#from pathlib import Path TODO: remove me?
 import datetime
 import json
 import os
 import pke
 import re
-import zipfile
-import nltk
 from nltk.corpus import stopwords
 
 
@@ -38,12 +36,12 @@ def clean_text(text):
     text = re.sub(r' [0-9]+ ', r' ', text)
     text = re.sub(r' +', r' ', text)
     text = re.sub("  ", " ", text)
-    #Double check with Professor piccolo TODO: do we want to remove more common words? Or do that just when making vectors?
     return text
 
 def get_series_identifiers(query, file_name):
     file_path = f'/Data/{query}/{file_name}'
-
+    if file_name == 'all_star':
+        file_path = '/Data/rest_of_star_geo'
     with open(file_path, 'r+') as in_file:
         series_list = json.loads(in_file.read())
         return series_list 
@@ -115,8 +113,11 @@ def get_keywords(keyword_extractor, num_keywords, series):
         keyword_text = " ".join(keyword_list)
         return(keyword_text)
 
+def get_huggingface_list():
+    return(['dmis-lab/biobert-large-cased-v1.1-squad', 'bert-base-uncased', "allenai/scibert_scivocab_uncased", "all-roberta-large-v1", "sentence-t5-xxl", "all-mpnet-base-v2"])
+
 def get_model_types():
-    return ["fasttext__cbow", "fasttext__skipgram", "en_core_web_lg", "en_core_sci_lg", "all-roberta-large-v1", "sentence-t5-xxl", "all-mpnet-base-v2", "dmis-lab/biobert-large-cased-v1.1-squad", "bert-base-uncased", "allenai/scibert_scivocab_uncased", "gpt2", "bioWordVec", "pretrained_fasttext_wiki", "pretrained_fasttext_wiki_subword", "pretrained_fasttext_crawl", "pretrained_fasttext_crawl_subword"]
+    return ["fasttext__cbow", "fasttext__skipgram", "en_core_web_lg", "en_core_sci_lg", "all-roberta-large-v1", "sentence-t5-xxl", "all-mpnet-base-v2", "dmis-lab/biobert-large-cased-v1.1-squad", "bert-base-uncased", "allenai/scibert_scivocab_uncased", "gpt2", "bioWordVec", "pretrained_fasttext_wiki", "pretrained_fasttext_wiki_subword", "pretrained_fasttext_crawl", "pretrained_fasttext_crawl_subword", 'BiomedRoberta', 'GEOBert']
 
 def extract_keywords(geo_series_id, max_num_keywords=32):  
     # Check whether the specified path exists or not

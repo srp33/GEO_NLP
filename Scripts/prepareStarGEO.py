@@ -6,7 +6,8 @@ star_file_path = sys.argv[1]
 all_geo_file_path = sys.argv[2]
 
 # Check whether we already have a cache of summaries
-if not os.path.exists(star_file_path):
+if 1==1:
+#if not os.path.exists(star_file_path):
 
     with open(all_geo_file_path) as cache_file:
         all_geo_dict = json.loads(cache_file.read())

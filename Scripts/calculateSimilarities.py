@@ -1,9 +1,8 @@
-import tokenize
+from pathlib import Path
 from helper import *
 from testingBert import *
 import fasttext
 import os
-import multiprocessing
 import spacy
 import numpy as np
 from numpy import dot
@@ -11,37 +10,40 @@ from numpy.linalg import norm
 from gensim.models import KeyedVectors
 import spacy
 import sys
-import zipfile
 from sentence_transformers import SentenceTransformer
 from transformers import GPT2LMHeadModel
 from transformers import *
 from tokenizers import *
-from gensim.models import Word2Vec
-import nltk
-from nltk.corpus import stopwords
 
 all_geo_file_path = sys.argv[1]
 queries = sys.argv[2].split(",")
 other_multiplication_rate_options = [int(x) for x in sys.argv[3].split(",")]
+other_multiplication_rate_options.append('all_star')
 num_keyword_options = [int(x) for x in sys.argv[4].split(",")]
-num_keyword_options.append("full_text")
-hugging_face_list = ['dmis-lab/biobert-large-cased-v1.1-squad', 'bert-base-uncased', "allenai/scibert_scivocab_uncased", "all-roberta-large-v1", "sentence-t5-xxl", "all-mpnet-base-v2"] 
+num_keyword_options.append('full_text')
+hugging_face_list = get_huggingface_list()
 
-def find_similarity(query, keyword_extractor_name, num_keywords, other_multiplication_rate, model_name, averaging_method = "word_vector", word_method = 'cat'):
+#This function has different if statements tailored to different models for their implementation and use.
+def find_similarity(query, keyword_extractor_name, num_keywords, other_multiplication_rate, model_name, averaging_method = "sentence_vector", word_method = 'sum'):
     results_dir_path = f"/Results/{query}/{model_name}/{num_keywords}/{keyword_extractor_name}/{other_multiplication_rate}"
     if os.path.exists(f'{results_dir_path}/{averaging_method}_similarity.tsv'):
         return()
     Path(results_dir_path).mkdir(parents=True, exist_ok=True)
     training_vector_list = []
+    
+    #Load the model
     if model_name in hugging_face_list:
         model = SentenceTransformer(model_name)
+    elif model_name == 'BiomedRoberta':
+        model = AutoModel.from_pretrained("allenai/biomed_roberta_base")
+        tokenizer = AutoTokenizer.from_pretrained("allenai/biomed_roberta_base")
     elif model_name == "GEOBert":
         model_path = "/Models/custom/bert"
         model = BertModel.from_pretrained(os.path.join(model_path, "checkpoint-3000"), output_hidden_states = True)
         tokenizer = BertTokenizer.from_pretrained(model_path)
     elif model_name == "gpt2":
-        model = GPT2LMHeadModel.from_pretrained('gpt2')  # or any other checkpoint
-        word_embeddings = model.transformer.wte.weight  # Word Token Embeddings 
+        model = GPT2LMHeadModel.from_pretrained('gpt2')  
+        word_embeddings = model.transformer.wte.weight 
         tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
     elif model_name == "en_core_sci_lg" or model_name == "en_core_web_lg":
         model = spacy.load(model_name)
@@ -66,8 +68,9 @@ def find_similarity(query, keyword_extractor_name, num_keywords, other_multiplic
         if keywords == "":
             continue
         if model_name in hugging_face_list:
-            #tokenize.add_special_tokens({'pad_token': '[PAD]'}) #in some models this throws an error...
             training_vector_list.append(model.encode(keywords))
+        elif model_name == 'BiomedRoberta':
+            training_vector_list.append(get_rob_sentence_embedding(keywords, model, tokenizer, word_method))
         elif model_name == "gpt2":
             tmp_list = []
             for word in keywords:
@@ -86,19 +89,18 @@ def find_similarity(query, keyword_extractor_name, num_keywords, other_multiplic
         elif model_name == "en_core_sci_lg" or model_name == "en_core_web_lg":
             training_vector_list.append(model(keywords).vector)
         elif averaging_method != "word_vector":
-            training_vector_list.append(model.get_sentence_vector(keywords))
+            training_vector_list.append(model.get_sentence_vector(keywords))            
         elif model_name == "bioWordVec" or model_name.startswith("pretrained"):
             tmp_list = []
             for word in keywords:
-                if word in model.wv.vocab: #is this why 1?
+                if word in model.wv.vocab:
                     tmp_list.append(model[word])
             training_vector_list.append(sum(tmp_list) / len(tmp_list))
         else:
             training_vector_list.append(get_keyword_embedding(keywords, model, 300))
     average_training_vector = sum(training_vector_list) / len(training_vector_list)
-    print(average_training_vector) #TODO: remove once debugged
     
-
+    #grab every series ID with the 'test' or 'other' label assigned for this query and multiplication rate
     list_of_ids = []
     for series in get_series_identifiers(f"{query}/other_series", other_multiplication_rate):
         if get_keywords(keyword_extractor_name, num_keywords, series) != "":
@@ -114,6 +116,8 @@ def find_similarity(query, keyword_extractor_name, num_keywords, other_multiplic
         keywords = get_keywords(keyword_extractor_name, num_keywords, testing_and_other_series_id)
         if model_name in hugging_face_list:
             testing_and_other_vector = model.encode(keywords)
+        elif model_name == 'BiomedRoberta':
+            testing_and_other_vector = get_rob_sentence_embedding(keywords, model, tokenizer, word_method)
         elif model_name == "gpt2":
             tmp_list = []
             for word in keywords:
@@ -128,10 +132,7 @@ def find_similarity(query, keyword_extractor_name, num_keywords, other_multiplic
                 print("An exception occurred")
                 continue
         elif model_name == "GEOBert":
-            if averaging_method == "word_vector":
-                testing_and_other_vector = get_bert_word_embedding(keywords, model, tokenizer, word_method)
-            else:
-                testing_and_other_vector = get_sentence_embedding(keywords, model, tokenizer)
+            testing_and_other_vector = get_sentence_embedding(keywords, model, tokenizer)
         elif model_name == "en_core_sci_lg" or model_name == "en_core_web_lg":
             testing_and_other_vector = model(keywords).vector
         elif model_name == "bioWordVec" or model_name.startswith("pretrained"):
@@ -140,13 +141,13 @@ def find_similarity(query, keyword_extractor_name, num_keywords, other_multiplic
                 if word in model.wv.vocab:
                     tmp_list.append(model[word])
             testing_and_other_vector = (sum(tmp_list) / len(tmp_list))
-
         elif averaging_method != "word_vector":
             testing_and_other_vector = model.get_sentence_vector(keywords)
         else:    
             testing_and_other_vector = get_keyword_embedding(keywords, model, 300)
-        #calculate cos sim
-        if model_name == "gpt2":
+        
+        #calculate cosine similarity between series and averaged training vector
+        if model_name == "gpt2" or model_name == 'BiomedRoberta':
             try:
                 cos_sim = dot(average_training_vector[0], testing_and_other_vector[0])/(norm(average_training_vector[0])*norm(testing_and_other_vector[0]))
                 cos_sim_and_series_id_list.append([cos_sim, testing_and_other_series_id])
@@ -162,8 +163,6 @@ def find_similarity(query, keyword_extractor_name, num_keywords, other_multiplic
     cos_sim_and_series_id_list.reverse()
 
     #recording findings
-    if model_name == "GEOBert" and averaging_method == "word_vector":
-        averaging_method = averaging_method + "_" + word_method
     with open(f'{results_dir_path}/{averaging_method}_similarity.tsv', 'w+') as out_file:
         print_time_stamp(f"Processing {results_dir_path}")
         out_file.write("Series ID\tSimilarity Score\tTest or Other Group\n")
@@ -200,37 +199,33 @@ def get_keyword_embedding(keywords, model, vector_size):
     return(avg_word_vector)
 
 models = get_model_types()
-#models.append("GEOBert")
 
 with open(all_geo_file_path) as all_file:
     all_dict = json.loads(all_file.read())
 
-keyword_extraction = get_list_extractors()
-print(keyword_extraction)
-word_methods = ['cat', "sum"]
+word_method = "sum" 
+#We found no significant difference between concatenation and sum methodologies for retrieving embeddings from top 4 layers. 
+#We used model default techniques to retrieve embeddings if functions were in place for their retrieval. Also we found no difference
+#between sentence and word averaging methods. We default here to sentence vectors due the ease of SentenceTransformers.
 keyword_extractor_name = "Baseline"
+num_keywords= 'full_text'
+#we only want to see full_text comparisons because we are not using keyword extraction here. 
 
-for model_name in ["fasttext__cbow", "fasttext__skipgram", "en_core_web_lg", "en_core_sci_lg", "all-roberta-large-v1", "sentence-t5-xxl", "all-mpnet-base-v2", "dmis-lab/biobert-large-cased-v1.1-squad", "bert-base-uncased", "allenai/scibert_scivocab_uncased", "gpt2", "bioWordVec", "pretrained_fasttext_wiki", "pretrained_fasttext_wiki_subword", "pretrained_fasttext_crawl", "pretrained_fasttext_crawl_subword"]:
-#for model_name in ["bioWordVec", "pretrained_fasttext_wiki", "pretrained_fasttext_wiki_subword", "pretrained_fasttext_crawl", "pretrained_fasttext_crawl_subword", "fasttext__cbow", "fasttext__skipgram", "en_core_web_lg", "en_core_sci_lg", "all-roberta-large-v1", "sentence-t5-xxl", "all-mpnet-base-v2", "dmis-lab/biobert-large-cased-v1.1-squad", "bert-base-uncased", "allenai/scibert_scivocab_uncased"]:
-# for model_name in ['gpt2']:
+for model_name in models:
     for query in queries:
-        for num_keywords in ["full_text"]:
-            for other_multiplication_rate in other_multiplication_rate_options:
-                if model_name == "GEOBert":
-                    for word_method in word_methods:
-                        find_similarity(query, keyword_extractor_name, num_keywords, other_multiplication_rate, model_name, word_method)
-                print(f"I am making a {model_name} model with {other_multiplication_rate} multiplication rate!") #TODO: delete later
-                if model_name.startswith("fasttext") and num_keywords == "full_text":
-                    find_similarity(query, keyword_extractor_name, num_keywords, other_multiplication_rate, model_name)
-                    find_similarity(query, keyword_extractor_name, num_keywords, other_multiplication_rate, model_name, averaging_method="sentence_vector")
-                else:
-                    find_similarity(query, keyword_extractor_name, num_keywords, other_multiplication_rate, model_name)
-                    # mp = multiprocessing.Process(target=find_similarity, args=(query, keyword_extractor_name, num_keywords, other_multiplication_rate, model_name))
-                    # mp.start()
+        for other_multiplication_rate in other_multiplication_rate_options:
+            if model_name == "GEOBert":
+                find_similarity(query, keyword_extractor_name, num_keywords, other_multiplication_rate, model_name, word_method)
+            if model_name.startswith("fasttext") and num_keywords == "full_text":
+                find_similarity(query, keyword_extractor_name, num_keywords, other_multiplication_rate, model_name)
+            else:
+                find_similarity(query, keyword_extractor_name, num_keywords, other_multiplication_rate, model_name)
 
-##################################Keyword trial!!#############################################
-# for multiplication_rate in ['1','2','5','10','100']:
-#     for model in ["all-mpnet-base-v2"]: #Our best model so far!
+##################################Keyword extraction#############################################
+#keyword_extraction = get_list_extractors()
+
+# for multiplication_rate in other_multiplication_rate_options:
+#     for model in models:
 #         for method in keyword_extraction:
 #             for numKeywords in num_keyword_options:
 #                 for query in queries:

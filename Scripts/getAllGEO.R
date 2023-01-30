@@ -4,7 +4,7 @@ out_file_path = commandArgs(trailingOnly = TRUE)[1]
 if (!file.exists(out_file_path)) {
   # Loading here because it takes awhile to load
   #   so only want to load it if file not yet created.
-  library(GEOmetadb)
+  library("GEOmetadb")
 
   sqlfile <- getSQLiteFile(destdir = "/Data", destfile = paste0(sqlfile_path, ".gz"))
 

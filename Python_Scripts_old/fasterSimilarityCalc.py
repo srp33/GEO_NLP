@@ -1,8 +1,6 @@
 import tokenize
 from helper import *
 import fasttext
-import os
-import multiprocessing
 import numpy as np
 from numpy import dot
 from numpy.linalg import norm
@@ -16,7 +14,6 @@ all_geo_file_path = sys.argv[1]
 queries = sys.argv[2].split(",")
 other_multiplication_rate_options = [int(x) for x in sys.argv[3].split(",")]
 num_keyword_options = [int(x) for x in sys.argv[4].split(",")]
-num_keyword_options.append("full_text")
 hugging_face_list = ['dmis-lab/biobert-large-cased-v1.1-squad', 'bert-base-uncased', "allenai/scibert_scivocab_uncased", "gpt2"]
 
 def find_similarity(query, keyword_extractor_name, num_keywords, other_multiplication_rate, model_name, model, averaging_method = "word_vector"):

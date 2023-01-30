@@ -1,13 +1,11 @@
-import sentencepiece
 from datasets import *
 from transformers import *
 from tokenizers import *
 import os
 import json
-from tqdm.auto import tqdm
-import sys
-#Could we reformat to corpus file for the nonStar Geo series and go straight to tokenizing? 
+
 dataset = load_dataset('csv', data_files = "https://huggingface.co/datasets/spiccolo/gene_expression_omnibus_nlp/resolve/main/NonstarGeo.csv", split="train")
+
 # split the dataset into training (90%) and testing (10%)
 d = dataset.train_test_split(test_size=0.1)
 print(d["train"])
@@ -38,13 +36,11 @@ dataset_to_text(d["test"], "test.txt")
 special_tokens = [
   "[PAD]", "[UNK]", "[CLS]", "[SEP]", "[MASK]", "<S>", "<T>"
 ]
-# if you want to train the tokenizer on both sets
-# files = ["train.txt", "test.txt"]
 # training the tokenizer on the training set
 files = ["train.txt"]
-# 30,522 vocab is BERT's default vocab size, feel free to tweak
+# 30,522 vocab is BERT's default vocab size, could be changed. 
 vocab_size = 30_522
-# maximum sequence length, lowering will result to faster training (when increasing batch size)
+# max sequence length. Lowering --> faster training (when increasing batch size)
 max_length = 512
 # whether to truncate
 truncate_longer_samples = False
@@ -102,7 +98,7 @@ else:
   train_dataset.set_format(columns=["input_ids", "attention_mask", "special_tokens_mask"])
 
 from itertools import chain
-# Main data processing function that will concatenate all texts from our dataset and generate chunks of
+# Main data processing function that will concatenate all texts from dataset and generate chunks of
 # max_seq_length.
 # grabbed from: https://github.com/huggingface/transformers/blob/main/examples/pytorch/language-modeling/run_mlm.py
 def group_texts(examples):
@@ -123,9 +119,6 @@ def group_texts(examples):
 # Note that with `batched=True`, this map processes 1,000 texts together, so group_texts throws away a
 # remainder for each of those groups of 1,000 texts. You can adjust that batch_size here but a higher value
 # might be slower to preprocess.
-#
-# To speed up this part, we use multiprocessing. See the documentation of the map method for more information:
-# https://huggingface.co/docs/datasets/package_reference/main_classes.html#datasets.Dataset.map
 if not truncate_longer_samples:
   train_dataset = train_dataset.map(group_texts, batched=True,
                                     desc=f"Grouping texts in chunks of {max_length}")
@@ -140,7 +133,7 @@ print(len(train_dataset), len(test_dataset))
 model_config = BertConfig(vocab_size=vocab_size, max_position_embeddings=max_length)
 model = BertForMaskedLM(config=model_config)
 
-# initialize the data collator, randomly masking 20% (default is 15%) of the tokens for the Masked Language
+# initialize data collator, randomly masking 20% (default is 15%) of the tokens for the Masked Language
 # Modeling (MLM) task
 data_collator = DataCollatorForLanguageModeling(
     tokenizer=tokenizer, mlm=True, mlm_probability=0.2
@@ -170,9 +163,4 @@ trainer = Trainer(
 )
 # train the model
 trainer.train()
-
-model = BertForMaskedLM.from_pretrained(os.path.join(model_path, "checkpoint-6000"))
-tokenizer = BertTokenizerFast.from_pretrained(model_path)
-print(model)
-
-# Code modified from https://www.thepythoncode.com/article/pretraining-bert-huggingface-transformers-in-python
+#Code modified from https://www.thepythoncode.com/article/pretraining-bert-huggingface-transformers-in-python

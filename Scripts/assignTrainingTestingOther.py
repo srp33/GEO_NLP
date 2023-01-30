@@ -1,3 +1,4 @@
+from pathlib import Path
 from helper import *
 import json
 import random
@@ -9,8 +10,6 @@ series = sys.argv[3].split(",")
 query_id = sys.argv[4]
 other_multiplication_rates = [int(x) for x in sys.argv[5].split(",")]
 
-print(len(series))
-
 all_dict = {}
 star_list = []
 
@@ -20,6 +19,8 @@ with open(star_file_path) as star_file:
 with open(all_geo_file_path) as all_file:
     all_dict = json.loads(all_file.read())
 
+#We did not want to have series identical to eachother in training and testing 
+#so we removed GEO series that were identical or nearly identical.
 PERCENT_SHARED_WORDS_THRESHOLD = .75 
 
 unique_series = []
@@ -86,6 +87,8 @@ print(not_repeat_series)
 # Find series that are in STARGEO but not used for training or testing
 other_candidates = set(star_list) - set(not_repeat_series)
 
+with open(f'Data/rest_of_star_geo', 'w') as all_file:
+    all_file.write(json.dumps(list(other_candidates)))
 
 for other_multiplication_rate in other_multiplication_rates:
     other_candidates_tmp = list(other_candidates)

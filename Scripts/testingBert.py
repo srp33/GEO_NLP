@@ -1,4 +1,3 @@
-from webbrowser import get
 from datasets import *
 from transformers import *
 from tokenizers import *
@@ -8,9 +7,6 @@ import json
 from tqdm.auto import tqdm
 from scipy.spatial.distance import cosine
 import sys
-# from keras.optimizers import Adam
-# adam = Adam(lr=2e-5,decay=0.01)
-#maxlen = 50 
 # code from https://mccormickml.com/2019/05/14/BERT-word-embeddings-tutorial/#why-bert-embeddings
 all_geo_file_path = sys.argv[1]
 all_dict = {}
@@ -18,9 +14,6 @@ with open(all_geo_file_path) as all_file:
     all_dict = json.loads(all_file.read())
 
 print('begin_build')
-model_path = "/Models/custom/bert"
-model = BertModel.from_pretrained(os.path.join(model_path, "checkpoint-3000"), output_hidden_states = True)
-tokenizer = BertTokenizer.from_pretrained(model_path)
 
 def get_sentence_embedding(text, model, tokenizer):
       
@@ -74,6 +67,41 @@ def get_sentence_embedding(text, model, tokenizer):
     sentence_embedding = torch.mean(token_vecs, dim=0)
     return(sentence_embedding)
 
+def get_rob_sentence_embedding(text, model, tokenizer, word_method):
+      
+    marked_text = marked_text = "[CLS] " + text + " [SEP]"
+
+    # Tokenize our sentence with the BERT tokenizer.
+    tokenized_text = tokenizer.tokenize(marked_text)
+
+    
+    # Map the token strings to their vocabulary indeces.
+    indexed_tokens = tokenizer.convert_tokens_to_ids(tokenized_text)
+
+    # Mark each of the 22 tokens as belonging to sentence "1".
+    segments_ids = [1] * len(tokenized_text)
+
+    # Convert inputs to PyTorch tensors
+    tokens_tensor = torch.tensor([indexed_tokens])
+    segments_tensors = torch.tensor([segments_ids])
+    model.eval()
+    # Run the text through BERT, and collect all of the hidden states produced
+    # from all 12 layers. 
+    if word_method == 'cat':
+        with torch.no_grad():
+            outputs = model(tokens_tensor, segments_tensors)
+        return(outputs[1])    
+    else:
+        with torch.no_grad():
+            outputs = model(tokens_tensor, segments_tensors)
+            lastHiddenState = outputs[0]
+            print(lastHiddenState)
+            print(lastHiddenState.size())
+        token_embeddings = lastHiddenState.permute(1,0,2)
+        print(token_embeddings)
+        token_embeddings.size()
+        print(token_embeddings.size())
+        return(token_embeddings[2])
 
 def get_bert_word_embedding(text, model, tokenizer, method):
     marked_text = marked_text = "[CLS] " + text + " [SEP]"
@@ -87,6 +115,7 @@ def get_bert_word_embedding(text, model, tokenizer, method):
     model.eval()
     with torch.no_grad():
         outputs = model(tokens_tensor, segments_tensors)
+        print(outputs)
         hidden_states = outputs[2]
     token_embeddings = torch.stack(hidden_states, dim=0)
 
@@ -142,11 +171,36 @@ def get_bert_word_embedding(text, model, tokenizer, method):
         avg_sum = total / len(token_vecs_sum)
         return(avg_sum)
 
-# first_cat = get_bert_word_embedding(all_dict["GSE1"], model, tokenizer, "cat")
-# first_sum = get_bert_word_embedding(all_dict["GSE1"], model, tokenizer, "sum")
-# other_cat = get_bert_word_embedding(all_dict["GSE2"], model, tokenizer, "cat")
-# other_sum = get_bert_word_embedding(all_dict["GSE2"], model, tokenizer, "sum")
-# print(cosine(first_cat, other_cat))
-# print(cosine(first_sum, other_sum))
-# print(first, second)
-# print(cosine(first, second))
+def get_roberta_word_embedding(text, model, tokenizer, method):
+    marked_text = marked_text = "[CLS] " + text + " [SEP]"
+    tokenized_text = tokenizer.tokenize(marked_text)
+    indexed_tokens = tokenizer.convert_tokens_to_ids(tokenized_text)
+    segments_ids = [1] * len(tokenized_text)
+    if method == "cat":
+    
+        tokens_tensor = torch.tensor([indexed_tokens])
+        segments_tensors = torch.tensor([segments_ids])
+        model.eval()
+        with torch.no_grad():
+            outputs = model(tokens_tensor, segments_tensors)
+            print(outputs)
+            lastHiddenState = outputs[1]
+            print(lastHiddenState)
+            print(lastHiddenState.size())
+        return(lastHiddenState)
+    else:
+        # Convert inputs to PyTorch tensors
+        tokens_tensor = torch.tensor([indexed_tokens])
+        segments_tensors = torch.tensor([segments_ids])
+        model.eval()
+        with torch.no_grad():
+            outputs = model(tokens_tensor, segments_tensors)
+            print(outputs)
+            lastHiddenState = outputs[0]
+            print(lastHiddenState)
+            print(lastHiddenState.size())
+        token_embeddings = lastHiddenState.permute(1,0,2)
+        print(token_embeddings)
+        token_embeddings.size()
+        print(token_embeddings.size())
+        return(token_embeddings[2])
