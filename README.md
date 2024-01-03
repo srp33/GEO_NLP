@@ -54,7 +54,7 @@ python3 calculateSimilarities.py "$all_geo_json_file_path" "$queries" "$multipli
 ```
 ## 7. Record Model Performance
 ```bash
-Record the performance of each model at each multiplication rate of imbalance for each query. 
+# Record the performance of each model at each multiplication rate of imbalance for each query. 
 python3 getResults.py "$num_keyword_options" "$multiplication_rates" "$queries"
 ```
 ## 8. Analyze Length Bias
