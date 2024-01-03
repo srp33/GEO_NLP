@@ -63,7 +63,7 @@ queries="q1,q2,q3,q4,q5,q6"
 
 Rscript getAllGEO.R "$all_geo_tsv_file_path"
 python3 prepareAllGEO.py "$all_geo_tsv_file_path" "$all_geo_json_file_path"
-python3 prepareStarGEO.py "$star_geo_file_path" "$all_geo_json_file_path"
+python3 prepareStarGEO.py "$star_geo_file_path" "$all_geo_json_file_path" 
 
 # This script extracts keywords from STARGEO series before we do machine learning.
 # We run it for allGEO because nonstar geo is used for model training. 

@@ -10,7 +10,7 @@ RUN pip install git+https://github.com/boudinfl/pke.git
 COPY requirements.txt /
 RUN pip install -r requirements.txt
 
-RUN python3 -m spacy download en_core_web_lg
+# RUN python3 -m spacy download en_core_web_lg # This line was throwing an error that exited the file 9/2023
 
 #SciSpacy
 RUN pip install scispacy
@@ -23,6 +23,7 @@ RUN tar -xvf scibert_uncased.tar
 #Need this for stopwords!
 COPY ImportNLTK.py /
 RUN python3 /ImportNLTK.py
+RUN pip install -U scikit-activeml
 
 COPY exec_analysis.sh /
 
