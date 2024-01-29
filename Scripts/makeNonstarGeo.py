@@ -1,20 +1,21 @@
+import gzip
 import json
 import sys
 
 star_geo_file_path = sys.argv[1]
 all_geo_file_path = sys.argv[2]
+non_star_geo_file_path = sys.argv[3]
 
-with open(star_geo_file_path) as star_file:
+with gzip.open(star_geo_file_path) as star_file:
     star_list = json.loads(star_file.read())
     star_set = set(star_list)
 
-with open(all_geo_file_path) as all_file:
+with gzip.open(all_geo_file_path) as all_file:
     all_dict = json.loads(all_file.read())
 
-with open("/Data/NonstarGeo.csv", "w") as write_file:
-    write_file.write("Series,Text\n")
+non_star_set = all_dict.keys() - star_set
+non_star_list = sorted(list(non_star_set))
 
-for series, text in all_dict.items():
-    if series not in star_set:
-        with open("/Data/NonstarGeo.csv", "a") as write_file:
-            write_file.write(f"{series},{all_dict[series]}\n")
+print(len(non_star_list)) # 71958
+with gzip.open(non_star_geo_file_path, "w") as write_file:
+    write_file.write(json.dumps(non_star_list).encode())

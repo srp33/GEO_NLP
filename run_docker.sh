@@ -1,17 +1,19 @@
-docker build -t srp33/data_master .
+#! /bin/bash
 
-mkdir -p Data/q1 Data/q2 Data/q3 Data/q4 Data/q5 Data/q6
+docker build -t srp33/geo_nlp .
+
+mkdir -p Data
 mkdir -p Models Models/custom
+mkdir -p Queries
 mkdir -p Results
 
 #docker run --rm -d \
 docker run --rm -i -t \
     -v $(pwd)/Data/:/Data/ \
     -v $(pwd)/Models:/Models \
+    -v $(pwd)/Queries:/Queries \
     -v $(pwd)/Results:/Results \
     -v /tmp:/tmp \
-    srp33/data_master \
+    --user $(id -u):$(id -g) \
+    srp33/geo_nlp \
     /exec_analysis.sh
-
-#    /bin/bash
-# --user $(id -u):$(id -g) \

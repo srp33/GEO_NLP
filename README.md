@@ -3,6 +3,7 @@
 ## Overview
 
 In this project, we aim to perform a systematic benchmark comparison of various Natural Language Processing (NLP) models on a large public data repository: the Gene Expression Omnibus (GEO). Three categories of models are implemented:
+
 1. Models pretrained on a large corpus of text that is not specifically related to biology.
 2. Models pretrained on a large corpus of text that is specifically related to biology.
 3. Models created from out-of-sample domain specific text. In this case, text not used for training or testing from the Gene Expression Omnibus website.
