@@ -1,7 +1,7 @@
 FROM python:3.11.7-bullseye
 
 RUN pip install --upgrade pip setuptools wheel
-RUN pip install geofetch==0.12.5 joblib==1.3.2 bs4==0.0.2 gemmapy==0.0.2
+RUN pip install geofetch==0.12.5 joblib==1.3.2 bs4==0.0.2 gemmapy==0.0.2 scikit-learn==1.4.0
 
 #FROM bioconductor/bioconductor_docker:RELEASE_3_15
 

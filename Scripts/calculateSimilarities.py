@@ -30,7 +30,7 @@ def find_similarity(query, keyword_extractor_name, num_keywords, other_multiplic
         return()
     Path(results_dir_path).mkdir(parents=True, exist_ok=True)
     training_vector_list = []
-    
+
     #Load the model
     if model_name in hugging_face_list:
         model = SentenceTransformer(model_name)
@@ -42,8 +42,8 @@ def find_similarity(query, keyword_extractor_name, num_keywords, other_multiplic
         model = BertModel.from_pretrained(os.path.join(model_path, "checkpoint-3000"), output_hidden_states = True)
         tokenizer = BertTokenizer.from_pretrained(model_path)
     elif model_name == "gpt2":
-        model = GPT2LMHeadModel.from_pretrained('gpt2')  
-        word_embeddings = model.transformer.wte.weight 
+        model = GPT2LMHeadModel.from_pretrained('gpt2')
+        word_embeddings = model.transformer.wte.weight
         tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
     elif model_name == "en_core_sci_lg" or model_name == "en_core_web_lg":
         model = spacy.load(model_name)
@@ -82,14 +82,14 @@ def find_similarity(query, keyword_extractor_name, num_keywords, other_multiplic
         elif model_name == "GEOBert":
             if averaging_method == "word_vector":
                 training_vector_list.append(get_bert_word_embedding(keywords, model, tokenizer, word_method))
-            else:            
+            else:
                 training_vector_list.append(get_sentence_embedding(keywords, model, tokenizer))
         elif model_name == "scibert_scivocab_uncased":
             training_vector_list.append()
         elif model_name == "en_core_sci_lg" or model_name == "en_core_web_lg":
             training_vector_list.append(model(keywords).vector)
         elif averaging_method != "word_vector":
-            training_vector_list.append(model.get_sentence_vector(keywords))            
+            training_vector_list.append(model.get_sentence_vector(keywords))
         elif model_name == "bioWordVec" or model_name.startswith("pretrained"):
             tmp_list = []
             for word in keywords:
@@ -99,7 +99,7 @@ def find_similarity(query, keyword_extractor_name, num_keywords, other_multiplic
         else:
             training_vector_list.append(get_keyword_embedding(keywords, model, 300))
     average_training_vector = sum(training_vector_list) / len(training_vector_list)
-    
+
     #grab every series ID with the 'test' or 'other' label assigned for this query and multiplication rate
     list_of_ids = []
     for series in get_series_identifiers(f"{query}/other_series", other_multiplication_rate):
@@ -107,8 +107,8 @@ def find_similarity(query, keyword_extractor_name, num_keywords, other_multiplic
             list_of_ids.append(series)
     for series in get_series_identifiers(query, "testing_series"):
         if get_keywords(keyword_extractor_name, num_keywords, series) != "":
+
             list_of_ids.append(series)
-    
     cos_sim_and_series_id_list = []
     na_list = []
     #Finding vectors for each series to compare to training
@@ -143,9 +143,9 @@ def find_similarity(query, keyword_extractor_name, num_keywords, other_multiplic
             testing_and_other_vector = (sum(tmp_list) / len(tmp_list))
         elif averaging_method != "word_vector":
             testing_and_other_vector = model.get_sentence_vector(keywords)
-        else:    
+        else:
             testing_and_other_vector = get_keyword_embedding(keywords, model, 300)
-        
+
         #calculate cosine similarity between series and averaged training vector
         if model_name == "gpt2" or model_name == 'BiomedRoberta':
             try:
@@ -154,11 +154,10 @@ def find_similarity(query, keyword_extractor_name, num_keywords, other_multiplic
             except:
                 na_list.append(["NA", testing_and_other_series_id])
                 print("An exception occurred")
-            
         else:
             cos_sim = dot(average_training_vector, testing_and_other_vector)/(norm(average_training_vector)*norm(testing_and_other_vector))
             cos_sim_and_series_id_list.append([cos_sim, testing_and_other_series_id])
-        
+
     cos_sim_and_series_id_list.sort()
     cos_sim_and_series_id_list.reverse()
 
@@ -203,13 +202,13 @@ models = get_model_types()
 with open(all_geo_file_path) as all_file:
     all_dict = json.loads(all_file.read())
 
-word_method = "sum" 
-#We found no significant difference between concatenation and sum methodologies for retrieving embeddings from top 4 layers. 
+word_method = "sum"
+#We found no significant difference between concatenation and sum methodologies for retrieving embeddings from top 4 layers.
 #We used model default techniques to retrieve embeddings if functions were in place for their retrieval. Also we found no difference
 #between sentence and word averaging methods. We default here to sentence vectors due the ease of SentenceTransformers.
 keyword_extractor_name = "Baseline"
 num_keywords= 'full_text'
-#we only want to see full_text comparisons because we are not using keyword extraction here. 
+#we only want to see full_text comparisons because we are not using keyword extraction here.
 
 for model_name in models:
     for query in queries:
@@ -220,13 +219,3 @@ for model_name in models:
                 find_similarity(query, keyword_extractor_name, num_keywords, other_multiplication_rate, model_name)
             else:
                 find_similarity(query, keyword_extractor_name, num_keywords, other_multiplication_rate, model_name)
-
-##################################Keyword extraction#############################################
-#keyword_extraction = get_list_extractors()
-
-# for multiplication_rate in other_multiplication_rate_options:
-#     for model in models:
-#         for method in keyword_extraction:
-#             for numKeywords in num_keyword_options:
-#                 for query in queries:
-#                     find_similarity(query, method, numKeywords, multiplication_rate, model)

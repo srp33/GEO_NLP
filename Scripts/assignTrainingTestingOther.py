@@ -1,106 +1,59 @@
-from pathlib import Path
+import gzip
 from helper import *
 import json
 import random
 import sys
 
-star_file_path = sys.argv[1]
-all_geo_file_path = sys.argv[2]
-series = sys.argv[3].split(",")
-query_id = sys.argv[4]
-other_multiplication_rates = [int(x) for x in sys.argv[5].split(",")]
+gemma_json_file_path = sys.argv[1]
+all_geo_json_file_path = sys.argv[2]
+query_descriptor = sys.argv[3]
+query_dir_path = sys.argv[4]
+assignments_dir_path = sys.argv[5]
+other_multiplication_rates = [int(x) for x in sys.argv[6].split(",")]
 
-all_dict = {}
-star_list = []
+with gzip.open(gemma_json_file_path) as gemma_file:
+    gemma_list = sorted(list(json.loads(gemma_file.read()).keys()))
 
-with open(star_file_path) as star_file:
-    star_list = json.loads(star_file.read())
-
-with open(all_geo_file_path) as all_file:
+with gzip.open(all_geo_json_file_path) as all_file:
     all_dict = json.loads(all_file.read())
+    all_list = sorted(list(all_dict.keys()))
 
-#We did not want to have series identical to eachother in training and testing 
-#so we removed GEO series that were identical or nearly identical.
-PERCENT_SHARED_WORDS_THRESHOLD = .75 
-
-unique_series = []
-list_of_unique_sets = []
-
-for i, s in enumerate(series):
-    title_and_abstract = all_dict[s]
-    title_and_abstract = clean_text(title_and_abstract)
-    new_series_set = set(title_and_abstract.split(" "))
-    new_series_set = new_series_set - {''}
-        
-    #The first series should be unique. 
-    if i == 0:
-        list_of_unique_sets.append(new_series_set)
-        unique_series.append(s)
-        continue
-
-    percentages = []
-
-    for i, series_set in enumerate(list_of_unique_sets):
-
-        common_words = series_set & new_series_set
-        all_words = series_set | new_series_set
-        percent_shared_words = len(common_words) / len(all_words)
-        percentages.append(percent_shared_words)
-
-    if max(percentages) < PERCENT_SHARED_WORDS_THRESHOLD:
-        list_of_unique_sets.append(new_series_set)
-        unique_series.append(s)
+with open(f"{query_dir_path}/{query_descriptor}") as query_file:
+    query_list = query_file.read().rstrip("\n").split("\n")
 
 random.seed(0)
-random.shuffle(unique_series)
+random.shuffle(query_list)
 
 # If there is an odd number of series, this code ensures that
 # there is one more in training than in testing.
-if len(unique_series) % 2 == 0:
-    training_series = unique_series[:int(len(unique_series) / 2)]
-    testing_series = unique_series[int(len(unique_series) / 2):]
+if len(query_list) % 2 == 0:
+    training_series = query_list[:int(len(query_list) / 2)]
+    testing_series = query_list[int(len(query_list) / 2):]
 else:
-    training_series = unique_series[:(int(len(unique_series) / 2) + 1)]
-    testing_series = unique_series[(int(len(unique_series) / 2) + 1):]
+    training_series = query_list[:(int(len(query_list) / 2) + 1)]
+    testing_series = query_list[(int(len(query_list) / 2) + 1):]
 
-with open(f"/Data/{query_id}/training_series", "w") as training_file:
-    training_file.write(json.dumps(training_series))
+os.makedirs(f"{assignments_dir_path}/{query_descriptor}", exist_ok=True)
 
-with open(f"/Data/{query_id}/testing_series", "w") as testing_file:
-    testing_file.write(json.dumps(testing_series))
+with open(f"{assignments_dir_path}/{query_descriptor}/training_series", "w") as training_file:
+    training_file.write(json.dumps(sorted(training_series)))
 
+with open(f"{assignments_dir_path}/{query_descriptor}/testing_series", "w") as testing_file:
+    testing_file.write(json.dumps(sorted(testing_series)))
 
-#Ensure none of the training or testing sets of different queries are in the other pool
-not_repeat_series = []
-for query in ['q1', 'q2', 'q3', 'q4', 'q5', 'q6']:
-    with open(f"/Data/{query}/training_series", "r") as training_file:
-        train_series = json.loads(training_file.read())
-        for series in train_series:
-            not_repeat_series.append(series)
+# Find series that are in Gemma but not used for training or testing
+other_set = set(gemma_list) - set(query_list)
 
-        with open(f"/Data/{query}/testing_series", "r") as testing_file:
-            test_series = json.loads(testing_file.read())
-            for series in test_series:
-                not_repeat_series.append(series)
-print(not_repeat_series)
-
-# Find series that are in STARGEO but not used for training or testing
-other_candidates = set(star_list) - set(not_repeat_series)
-
-with open(f'Data/rest_of_star_geo', 'w') as all_file:
-    all_file.write(json.dumps(list(other_candidates)))
+with open(f"{assignments_dir_path}/{query_descriptor}/rest_of_gemma_all", "w") as other_file:
+    other_file.write(json.dumps(sorted(list(other_set))))
 
 for other_multiplication_rate in other_multiplication_rates:
-    other_candidates_tmp = list(other_candidates)
-    random.shuffle(other_candidates_tmp)
+    other_list = list(other_set)
+    random.shuffle(other_list)
 
-    # How many series do we want in the other group?
+    # Which series do we want in the other group?
     num_other = len(testing_series) * other_multiplication_rate
+    other_series = other_list[:num_other]
 
-    other_series = other_candidates_tmp[:num_other]
-
-    out_dir_path = f"/Data/{query_id}/other_series"
-    Path(out_dir_path).mkdir(parents=True, exist_ok=True)
-
-    with open(f"{out_dir_path}/{other_multiplication_rate}", "w") as other_file:
-        other_file.write(json.dumps(other_series))
+    with open(f"/Assignments/{query_descriptor}/rest_of_gemma_{other_multiplication_rate}", "w") as other_file:
+        other_file.write(json.dumps(sorted(other_series)))

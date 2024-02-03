@@ -1,11 +1,49 @@
+import glob
+import gzip
 from helper import *
+from sklearn.metrics import precision_recall_curve, auc
 import sys
 import os
 
-#3 functions below.
-#The first creates a file for retrieval results
-#The second creates a file only for 'all-star' multiplication rate (all of STARGEO).
-#The last script is for keyword extraction specifically.
+similarities_dir_path = sys.argv[1]
+metrics_dir_path = sys.argv[2]
+
+metrics_file_path = f"{metrics_dir_path}/Results.tsv.gz"
+
+with gzip.open(metrics_file_path, "w") as metrics_file:
+    for similarities_file_path in glob.glob(f"{similarities_dir_path}/*/*/*"):
+        print(f"Parsing {similarities_file_path}")
+
+        file_path_items = similarities_file_path.split("/")
+        query_descriptor = file_path_items[1]
+        method = file_path_items[2]
+        multiplication_rate = file_path_items[3].replace("rest_of_gemma_", "")
+
+        with open(similarities_file_path) as similarities_file:
+            similarities_file.readline()
+
+            groups_scores = []
+
+            for line in similarities_file:
+                line_items = line.rstrip("\n").split("\t")
+                #series = line_items[0]
+                group = line_items[1]
+                score = float(line_items[2])
+
+                groups_scores.append([group, score])
+
+            groups_scores = sorted(groups_scores, key=lambda x: x[1]) #reverse=True
+            print(groups_scores)
+            #TODO: extract groups as a list and convert to 0/1
+            #      extract scores as a list
+            # Calculate precision-recall curve
+            #precision, recall, _ = precision_recall_curve(y_true, y_scores)
+
+            # Calculate the area under the precision-recall curve
+            #auc_score = auc(recall, precision)
+        break
+
+sys.exit(0)
 
 num_keywords = [int(x) for x in sys.argv[1].split(",")]
 model_types = get_model_types()
@@ -21,6 +59,7 @@ generalPretrained = ["pretrained_fasttext_wiki", "pretrained_fasttext_wiki_subwo
 def calculate_accuracy(query, model, keywords, method, multiplication_rate, vector_average_method="sentence_vector"):
     if not os.path.exists(f"/Results/{query}/{model}/{keywords}/{method}/{multiplication_rate}/{vector_average_method}_similarity.tsv"):
         return()
+
     with open("Results/results.tsv", 'a') as results_file:
         with open(f"/Results/{query}/{model}/{keywords}/{method}/{multiplication_rate}/{vector_average_method}_similarity.tsv") as data_file:
             tmp = data_file.readline()
