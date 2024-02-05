@@ -1,9 +1,12 @@
 import gemmapy
+import gzip
+import json
 import sys
 
 mondo_term_ids = sys.argv[1].split(",")
 is_large = sys.argv[2] == "True"
-out_file_path = sys.argv[3]
+all_geo_json_file_path = sys.argv[3]
+out_file_path = sys.argv[4]
 
 api_instance = gemmapy.GemmaPy()
 
@@ -24,6 +27,12 @@ for mondo_term_id in mondo_term_ids:
         for d in api_response.data:
             if d.accession is not None and d.external_database == 'GEO':
                 series.add(d.accession)
+
+with gzip.open(all_geo_json_file_path) as all_file:
+    all_dict = json.loads(all_file.read())
+
+# Make sure none of the series have been excluded previously.
+series = series & all_dict.keys()
 
 series = sorted(list(series))
 

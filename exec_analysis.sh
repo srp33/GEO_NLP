@@ -51,12 +51,12 @@ gemma_json_file_path="/Data/Gemma.json.gz"
 non_gemma_json_file_path="/Data/NonGemma.json.gz"
 gemma_overlap_file_path="/Data/Gemma_word_overlap.tsv.gz"
 multiplication_rates="1,2,5,10,100,300"
-num_keyword_options="2,4,8,16,32"
 
 tmp_dir_path="/Data/tmp"
 mkdir -p ${tmp_dir_path}
 
 #python3 getAllGEO.py ${tmp_dir_path} "$all_geo_tsv_file_path"
+# FYI: This excludes SubSeries
 #python3 prepareAllGEO.py "$all_geo_tsv_file_path" "$all_geo_json_file_path"
 
 #python getGemma.py "$all_geo_json_file_path" "$gemma_txt_file_path" "$non_gemma_txt_file_path"
@@ -64,23 +64,23 @@ mkdir -p ${tmp_dir_path}
 #python3 prepareGemma.py "$all_geo_json_file_path" "$non_gemma_txt_file_path" "$non_gemma_json_file_path"
 
 # Save small queries
-#python3 getQuerySeries.py 0005494 False Queries/triple_negative_breast_carcinoma
-#python3 getQuerySeries.py 0011429 False Queries/juvenile_idiopathic_arthritis
+#python3 getQuerySeries.py 0005494 False "$all_geo_json_file_path" Queries/triple_negative_breast_carcinoma
+#python3 getQuerySeries.py 0011429 False "$all_geo_json_file_path" Queries/juvenile_idiopathic_arthritis
 
 # Save medium queries
-#python3 getQuerySeries.py 0008608 False Queries/down_syndrome
-#python3 getQuerySeries.py 0004985,0000693 False Queries/bipolar_disorder
+#python3 getQuerySeries.py 0008608 False "$all_geo_json_file_path" Queries/down_syndrome
+#python3 getQuerySeries.py 0004985,0000693 False "$all_geo_json_file_path" Queries/bipolar_disorder
 
 # Save large queries
-#python3 getQuerySeries.py 0005180 True Queries/parkinson_disease
-#python3 getQuerySeries.py 0005072 True Queries/neuroblastoma
+#python3 getQuerySeries.py 0005180 True "$all_geo_json_file_path" Queries/parkinson_disease
+#python3 getQuerySeries.py 0005072 True "$all_geo_json_file_path" Queries/neuroblastoma
 
-#python3 assignTrainingTestingOther.py "$gemma_json_file_path" "$all_geo_json_file_path" triple_negative_breast_carcinoma Queries Assignments "$multiplication_rates"
-#python3 assignTrainingTestingOther.py "$gemma_json_file_path" "$all_geo_json_file_path" juvenile_idiopathic_arthritis Queries Assignments "$multiplication_rates"
-#python3 assignTrainingTestingOther.py "$gemma_json_file_path" "$all_geo_json_file_path" down_syndrome Queries Assignments "$multiplication_rates"
-#python3 assignTrainingTestingOther.py "$gemma_json_file_path" "$all_geo_json_file_path" bipolar_disorder Queries Assignments "$multiplication_rates"
-#python3 assignTrainingTestingOther.py "$gemma_json_file_path" "$all_geo_json_file_path" parkinson_disease Queries Assignments "$multiplication_rates"
-#python3 assignTrainingTestingOther.py "$gemma_json_file_path" "$all_geo_json_file_path" neuroblastoma Queries Assignments "$multiplication_rates"
+#python3 assignTrainingTestingOther.py "$gemma_json_file_path" triple_negative_breast_carcinoma Queries Assignments "$multiplication_rates"
+#python3 assignTrainingTestingOther.py "$gemma_json_file_path" juvenile_idiopathic_arthritis Queries Assignments "$multiplication_rates"
+#python3 assignTrainingTestingOther.py "$gemma_json_file_path" down_syndrome Queries Assignments "$multiplication_rates"
+#python3 assignTrainingTestingOther.py "$gemma_json_file_path" bipolar_disorder Queries Assignments "$multiplication_rates"
+#python3 assignTrainingTestingOther.py "$gemma_json_file_path" parkinson_disease Queries Assignments "$multiplication_rates"
+#python3 assignTrainingTestingOther.py "$gemma_json_file_path" neuroblastoma Queries Assignments "$multiplication_rates"
 
 #python3 calculateWordOverlap.py "$gemma_json_file_path" "$all_geo_json_file_path" "$gemma_overlap_file_path"
 
@@ -95,7 +95,8 @@ mkdir -p ${tmp_dir_path}
 #python3 trainBert.py
 #python3 calculateSimilarities.py "$all_geo_json_file_path" "$queries" "$multiplication_rates" "$num_keyword_options"
 
-python3 calculateMetrics.py Similarities Metrics
+#TODO: Clean up this script after getting the above code working.
+#python3 calculateMetrics.py Similarities Metrics
 #python3 getResults.py "$num_keyword_options" "$multiplication_rates" "$queries"
 
 #python3 lengthanalysis.py "$all_geo_json_file_path" "$queries" "$multiplication_rates" "$num_keyword_options"

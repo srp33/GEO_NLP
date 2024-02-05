@@ -5,18 +5,13 @@ import random
 import sys
 
 gemma_json_file_path = sys.argv[1]
-all_geo_json_file_path = sys.argv[2]
-query_descriptor = sys.argv[3]
-query_dir_path = sys.argv[4]
-assignments_dir_path = sys.argv[5]
-other_multiplication_rates = [int(x) for x in sys.argv[6].split(",")]
+query_descriptor = sys.argv[2]
+query_dir_path = sys.argv[3]
+assignments_dir_path = sys.argv[4]
+other_multiplication_rates = [int(x) for x in sys.argv[5].split(",")]
 
 with gzip.open(gemma_json_file_path) as gemma_file:
     gemma_list = sorted(list(json.loads(gemma_file.read()).keys()))
-
-with gzip.open(all_geo_json_file_path) as all_file:
-    all_dict = json.loads(all_file.read())
-    all_list = sorted(list(all_dict.keys()))
 
 with open(f"{query_dir_path}/{query_descriptor}") as query_file:
     query_list = query_file.read().rstrip("\n").split("\n")

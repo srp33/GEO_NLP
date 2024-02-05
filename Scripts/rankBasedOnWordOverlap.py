@@ -16,7 +16,7 @@ with open(f"{assignments_dir_path}/{query_descriptor}/training_series") as the_f
 with open(f"{assignments_dir_path}/{query_descriptor}/testing_series") as the_file:
     testing_series = set(json.loads(the_file.read()))
 
-for assignments_file_path in glob.glob(f"{assignments_dir_path}/{query_descriptor}/rest_of_gemma_*"):
+for assignments_file_path in sorted(glob.glob(f"{assignments_dir_path}/{query_descriptor}/rest_of_gemma_*")):
     with open(assignments_file_path) as the_file:
         other_series = set(json.loads(the_file.read()))
 
@@ -39,8 +39,10 @@ for assignments_file_path in glob.glob(f"{assignments_dir_path}/{query_descripto
                 series_B = line_items[1]
                 overlap = float(line_items[2])
 
-                if (series_A in testing_series or series_A in other_series) and series_B in training_series:
-                    score_dict[series_A] = score_dict.setdefault(series_A, []) + [overlap]
+                if series_A in training_series and (series_B in testing_series or series_B in other_series):
+                    score_dict[series_B] = score_dict.setdefault(series_B, []) + [overlap]
+
+            non_series = (testing_series | other_series) - score_dict.keys()
 
             for series, overlaps in score_dict.items():
                 group = "Testing" if series in testing_series else "Other"
