@@ -97,7 +97,6 @@ mkdir -p ${tmp_dir_path}
 
 #TODO: Clean up this script after getting the above code working.
 #python3 calculateMetrics.py Similarities Metrics
-#python3 getResults.py "$num_keyword_options" "$multiplication_rates" "$queries"
 
 #python3 lengthanalysis.py "$all_geo_json_file_path" "$queries" "$multiplication_rates" "$num_keyword_options"
 
