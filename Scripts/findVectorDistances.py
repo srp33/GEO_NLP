@@ -1,27 +1,97 @@
-from pathlib import Path
-from helper import *
-from testingBert import *
-import fasttext
 import os
-import spacy
-import numpy as np
-from numpy import dot
-from numpy.linalg import norm
-from gensim.models import KeyedVectors
-import spacy
-import sys
-from sentence_transformers import SentenceTransformer
-from transformers import GPT2LMHeadModel
-from transformers import *
-from tokenizers import *
+os.environ['HF_HOME'] = "/Models/huggingface"
 
-all_geo_file_path = sys.argv[1]
-queries = sys.argv[2].split(",")
-other_multiplication_rate_options = [int(x) for x in sys.argv[3].split(",")]
-other_multiplication_rate_options.append('all_star')
-num_keyword_options = [int(x) for x in sys.argv[4].split(",")]
-num_keyword_options.append('full_text')
-hugging_face_list = get_huggingface_list()
+#import fasttext
+#from gensim.models import KeyedVectors
+#from gensim.models.doc2vec import Doc2Vec
+import gzip
+from helper import *
+import joblib
+import json
+#import numpy as np
+#from numpy import dot
+#from numpy.linalg import norm
+import os
+from pathlib import Path
+from sentence_transformers import SentenceTransformer
+from sentence_transformers.util import cos_sim
+#import spacy
+import sys
+#from testingBert import *
+#from transformers import pipeline
+#from transformers import logging
+#logging.set_verbosity_error()
+
+#Translating text to numbers is known as encoding. Encoding is done in a two-step process: the tokenization, followed by the conversion to input IDs.
+#word-based tokenizers vs. character-based (better for languages like Chinese) vs. subword (best of both worlds)
+#Batching is the act of sending multiple sentences through the model, all at once.
+#Most models handle sequences of up to 512 or 1024 tokens. One option is to truncate them.
+
+def save_encodings_for_series(checkpoint, this_series, gemma_list, all_dict, tmp_dir_path):
+    Path(f"{tmp_dir_path}/{checkpoint}").mkdir(parents=True, exist_ok=True)
+
+    tmp_file_path = f"{tmp_dir_path}/{checkpoint}/{this_series}"
+    if os.path.exists(tmp_file_path):
+        print(f"{tmp_file_path} already exists.")
+        return
+
+    with open(tmp_file_path, "w") as tmp_file:
+        model = SentenceTransformer(checkpoint)
+
+        this_series_vector = model.encode(all_dict[this_series])
+
+        other_list = [x for x in gemma_list if x != this_series]
+        other_series_sentences = [all_dict[x] for x in other_list]
+
+        # FYI: I ran some tests, and this batched approach was slightly slower than processing them one at a time.
+        #      other_series_vectors = model.encode(other_series_sentences)
+
+        for i, other_series in enumerate(other_list):
+            print(checkpoint, this_series, other_series)
+            other_series_vector = model.encode(other_series_sentences[i])
+            similarity = cos_sim(this_series_vector, other_series_vector)
+            similarity = similarity.numpy()[0][0]
+
+            tmp_file.write(f"{this_series}\t{other_series}\t{checkpoint}\t{similarity}\n")
+
+
+gemma_json_file_path = sys.argv[1]
+all_geo_json_file_path = sys.argv[2]
+tmp_dir_path = sys.argv[3]
+out_file_path = sys.argv[4]
+
+if os.path.exists(out_file_path):
+    print(f"{out_file_path} already exists.")
+    sys.exit(0)
+
+with gzip.open(gemma_json_file_path) as gemma_file:
+    gemma_list = sorted(list(json.loads(gemma_file.read()).keys()))
+
+with gzip.open(all_geo_json_file_path) as all_file:
+    all_dict = json.loads(all_file.read())
+
+#return(['dmis-lab/biobert-large-cased-v1.1-squad', 'bert-base-uncased', "allenai/scibert_scivocab_uncased", "all-roberta-large-v1", "sentence-t5-xxl", "all-mpnet-base-v2"])
+#return ["fasttext__cbow", "fasttext__skipgram", "en_core_web_lg", "en_core_sci_lg", "all-roberta-large-v1", "sentence-t5-xxl", "all-mpnet-base-v2", "dmis-lab/biobert-large-cased-v1.1-squad", "bert-base-uncased", "allenai/scibert_scivocab_uncased", "gpt2", "bioWordVec", "pretrained_fasttext_wiki", "pretrained_fasttext_wiki_subword", "pretrained_fasttext_crawl", "pretrained_fasttext_crawl_subword", 'BiomedRoberta', 'GEOBert']
+checkpoints = ["sentence-transformers/all-mpnet-base-v2", "sentence-transformers/all-roberta-large-v1"]
+
+# FYI: This is the single-threaded way to iterate through all combinations.
+#for checkpoint in checkpoints:
+#    for this_series in gemma_list:
+#        save_encodings_for_series(checkpoint, this_series, gemma_list, all_dict, tmp_dir_path)
+
+# FYI: This is the multi-threaded way to iterate through all combinations.
+combos = [[checkpoint, this_series] for checkpoint in checkpoints for this_series in gemma_list]
+joblib.Parallel(n_jobs=32)(joblib.delayed(save_encodings_for_series)(combo[0], combo[1], gemma_list, all_dict, tmp_dir_path) for combo in combos)
+
+#with gzip.open(out_file_path, "w") as out_file:
+#    out_file.write("Series_A\tSeries_B\tMethod\tScore\n".encode())
+
+sys.exit(1)
+
+#model = KeyedVectors.load_word2vec_format("/Models/BioWordVec_PubMed_MIMICIII_d200.vec.bin", binary=True)
+#model = KeyedVectors.load_word2vec_format("/Models/wiki-news-300d-1M.vec")
+#print(model.wv.vocab)
+#model = Doc2Vec.load()
 
 #This function has different if statements tailored to different models for their implementation and use.
 def find_similarity(query, keyword_extractor_name, num_keywords, other_multiplication_rate, model_name, averaging_method = "sentence_vector", word_method = 'sum'):

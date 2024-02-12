@@ -6,9 +6,8 @@ import sys
 
 gemma_overlap_file_path = sys.argv[1]
 query_descriptor = sys.argv[2]
-method_descriptor = sys.argv[3]
-assignments_dir_path = sys.argv[4]
-similarities_dir_path = sys.argv[5]
+assignments_dir_path = sys.argv[3]
+similarities_dir_path = sys.argv[4]
 
 with open(f"{assignments_dir_path}/{query_descriptor}/training_series") as the_file:
     training_series = set(json.loads(the_file.read()))
@@ -20,12 +19,12 @@ for assignments_file_path in sorted(glob.glob(f"{assignments_dir_path}/{query_de
     with open(assignments_file_path) as the_file:
         other_series = set(json.loads(the_file.read()))
 
-    os.makedirs(f"{similarities_dir_path}/{query_descriptor}/{method_descriptor}", exist_ok=True)
+    os.makedirs(f"{similarities_dir_path}/{query_descriptor}/word_overlap", exist_ok=True)
 
     with gzip.open(gemma_overlap_file_path) as the_file:
         the_file.readline()
 
-        out_file_path = f"{similarities_dir_path}/{query_descriptor}/{method_descriptor}/{os.path.basename(assignments_file_path)}"
+        out_file_path = f"{similarities_dir_path}/{query_descriptor}/word_overlap/{os.path.basename(assignments_file_path)}"
         print(f"Preparing to save to {out_file_path}")
 
         with open(out_file_path, "w") as out_file:
@@ -37,7 +36,7 @@ for assignments_file_path in sorted(glob.glob(f"{assignments_dir_path}/{query_de
                 line_items = line.decode().rstrip("\n").split("\t")
                 series_A = line_items[0]
                 series_B = line_items[1]
-                overlap = float(line_items[2])
+                overlap = float(line_items[3])
 
                 if series_A in training_series and (series_B in testing_series or series_B in other_series):
                     score_dict[series_B] = score_dict.setdefault(series_B, []) + [overlap]

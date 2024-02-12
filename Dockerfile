@@ -2,12 +2,10 @@ FROM python:3.11.7-bullseye
 
 RUN pip install --upgrade pip setuptools wheel
 RUN pip install geofetch==0.12.5 joblib==1.3.2 bs4==0.0.2 gemmapy==0.0.2 scikit-learn==1.4.0
-
-#FROM bioconductor/bioconductor_docker:RELEASE_3_15
-
-#RUN R -e 'BiocManager::install("GEOmetadb", force = TRUE)'
-
-#RUN pip install git+https://github.com/boudinfl/pke.git
+#RUN pip install gensim==4.3.2
+RUN mkdir -p /huggingface \
+ && chmod 777 /huggingface -R
+RUN pip install transformers==4.37.2 datasets==2.16.1 sentence-transformers==2.3.1 tensorflow==2.15.0.post1 
 
 #COPY requirements.txt /
 #RUN pip install -r requirements.txt

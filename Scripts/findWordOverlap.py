@@ -7,8 +7,6 @@ gemma_json_file_path = sys.argv[1]
 all_geo_json_file_path = sys.argv[2]
 out_file_path = sys.argv[3]
 
-star_list = []
-
 with gzip.open(gemma_json_file_path) as gemma_file:
     gemma_list = sorted(list(json.loads(gemma_file.read()).keys()))
 
@@ -22,7 +20,7 @@ for series in gemma_list:
     series_word_sets[series] = words
 
 with gzip.open(out_file_path, "w") as out_file:
-    out_file.write("Series_A\tSeries_B\tProportion_Shared_Words\n".encode())
+    out_file.write("Series_A\tSeries_B\tMethod\tScore\n".encode())
 
     for this_series in gemma_list:
         print(this_series)
@@ -38,4 +36,4 @@ with gzip.open(out_file_path, "w") as out_file:
             all_words = this_series_words | other_series_words
             proportion_shared_words = len(common_words) / len(all_words)
 
-            out_file.write((f"{this_series}\t{other_series}\t{proportion_shared_words}\n").encode())
+            out_file.write((f"{this_series}\t{other_series}\tWord overlap\t{proportion_shared_words}\n").encode())

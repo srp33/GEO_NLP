@@ -9,8 +9,8 @@ mkdir -p Similarities
 mkdir -p Models Models/custom
 mkdir -p Metrics
 
-#docker run --rm -d \
-docker run --rm -i -t \
+#docker run --rm -i -t \
+docker run --rm -d \
     -v $(pwd)/Data:/Data \
     -v $(pwd)/Queries:/Queries \
     -v $(pwd)/Assignments:/Assignments \
