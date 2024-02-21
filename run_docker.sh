@@ -2,15 +2,15 @@
 
 docker build -t srp33/geo_nlp .
 
-mkdir -p Data
+mkdir -p Data/tmp
 mkdir -p Queries
 mkdir -p Assignments
 mkdir -p Similarities
-mkdir -p Models Models/custom
+mkdir -p Models
 mkdir -p Metrics
 
-#docker run --rm -i -t \
-docker run --rm -d \
+#docker run --rm -d \
+docker run --rm -i -t \
     -v $(pwd)/Data:/Data \
     -v $(pwd)/Queries:/Queries \
     -v $(pwd)/Assignments:/Assignments \
@@ -21,3 +21,4 @@ docker run --rm -d \
     --user $(id -u):$(id -g) \
     srp33/geo_nlp \
     /exec_analysis.sh
+#    --gpus all \

@@ -1,19 +1,20 @@
 import os
 os.environ['HF_HOME'] = "/Models/huggingface"
 
+from chromadb.utils import embedding_functions
 #import fasttext
 #from gensim.models import KeyedVectors
 #from gensim.models.doc2vec import Doc2Vec
 import gzip
 from helper import *
-import joblib
+#import joblib
 import json
 #import numpy as np
 #from numpy import dot
 #from numpy.linalg import norm
 import os
 from pathlib import Path
-from sentence_transformers import SentenceTransformer
+#from sentence_transformers import SentenceTransformer
 from sentence_transformers.util import cos_sim
 #import spacy
 import sys
@@ -27,42 +28,58 @@ import sys
 #Batching is the act of sending multiple sentences through the model, all at once.
 #Most models handle sequences of up to 512 or 1024 tokens. One option is to truncate them.
 
-def save_encodings_for_series(checkpoint, this_series, gemma_list, all_dict, tmp_dir_path):
-    Path(f"{tmp_dir_path}/{checkpoint}").mkdir(parents=True, exist_ok=True)
+def save_encodings(checkpoint, series_list, all_dict, tmp_dir_path):
+    model_root = os.path.dirname(checkpoint)
+    model_name = os.path.basename(checkpoint)
 
-    tmp_file_path = f"{tmp_dir_path}/{checkpoint}/{this_series}"
-    if os.path.exists(tmp_file_path):
-        print(f"{tmp_file_path} already exists.")
+    Path(f"{tmp_dir_path}/{checkpoint}").mkdir(parents=True, exist_ok=True)
+    embeddings_file_path = f"{tmp_dir_path}/{checkpoint}/embeddings.gz"
+
+    if os.path.exists(embeddings_file_path):
+        print(f"{embeddings_file_path} already exists.")
         return
 
-    with open(tmp_file_path, "w") as tmp_file:
-        model = SentenceTransformer(checkpoint)
+    if model_root == "sentence-transformers":
+        model = embedding_functions.SentenceTransformerEmbeddingFunction(model_name=model_name, device="cuda")
+    else:
+        raise Exception(f"Unknown model root: {model_root}.")
 
-        this_series_vector = model.encode(all_dict[this_series])
+    series_embeddings = model([all_dict[series] for series in series_list])
 
-        other_list = [x for x in gemma_list if x != this_series]
-        other_series_sentences = [all_dict[x] for x in other_list]
+    embeddings_dict = {}
+    for i, embedding in enumerate(series_embeddings):
+        series = series_list[i]
+        embeddings_dict[series] = embedding
 
-        # FYI: I ran some tests, and this batched approach was slightly slower than processing them one at a time.
-        #      other_series_vectors = model.encode(other_series_sentences)
+    print(f"Saving to {embeddings_file_path}.")
+    with gzip.open(embeddings_file_path, "w") as embeddings_file:
+        embeddings_file.write(json.dumps(embeddings_dict).encode())
 
-        for i, other_series in enumerate(other_list):
-            print(checkpoint, this_series, other_series)
-            other_series_vector = model.encode(other_series_sentences[i])
-            similarity = cos_sim(this_series_vector, other_series_vector)
-            similarity = similarity.numpy()[0][0]
+def save_similarities(checkpoint, tmp_dir_path):
+    embeddings_file_path = f"{tmp_dir_path}/{checkpoint}/embeddings.gz"
+    distances_file_path = f"{tmp_dir_path}/{checkpoint}/distances.gz"
 
-            tmp_file.write(f"{this_series}\t{other_series}\t{checkpoint}\t{similarity}\n")
+    with gzip.open(embeddings_file_path) as embeddings_file:
+        embeddings_dict = json.loads(embeddings_file.read().decode())
 
+    print(f"Saving to {distances_file_path}.")
+    with gzip.open(distances_file_path, "w") as distances_file:
+        distances_file.write("Series_A\tSeries_B\tMethod\tScore\n".encode())
+
+        for series_A, series_A_embedding in embeddings_dict.items():
+            print(f"Finding distances for {series_A}")
+            for series_B, series_B_embedding in embeddings_dict.items():
+                if series_A == series_B:
+                    continue
+
+                similarity = cos_sim(series_A_embedding, series_B_embedding)
+                similarity = similarity.numpy()[0][0]
+
+                distances_file.write((f"{series_A}\t{series_B}\t{checkpoint}\t{similarity}\n").encode())
 
 gemma_json_file_path = sys.argv[1]
 all_geo_json_file_path = sys.argv[2]
 tmp_dir_path = sys.argv[3]
-out_file_path = sys.argv[4]
-
-if os.path.exists(out_file_path):
-    print(f"{out_file_path} already exists.")
-    sys.exit(0)
 
 with gzip.open(gemma_json_file_path) as gemma_file:
     gemma_list = sorted(list(json.loads(gemma_file.read()).keys()))
@@ -72,19 +89,16 @@ with gzip.open(all_geo_json_file_path) as all_file:
 
 #return(['dmis-lab/biobert-large-cased-v1.1-squad', 'bert-base-uncased', "allenai/scibert_scivocab_uncased", "all-roberta-large-v1", "sentence-t5-xxl", "all-mpnet-base-v2"])
 #return ["fasttext__cbow", "fasttext__skipgram", "en_core_web_lg", "en_core_sci_lg", "all-roberta-large-v1", "sentence-t5-xxl", "all-mpnet-base-v2", "dmis-lab/biobert-large-cased-v1.1-squad", "bert-base-uncased", "allenai/scibert_scivocab_uncased", "gpt2", "bioWordVec", "pretrained_fasttext_wiki", "pretrained_fasttext_wiki_subword", "pretrained_fasttext_crawl", "pretrained_fasttext_crawl_subword", 'BiomedRoberta', 'GEOBert']
+
 checkpoints = ["sentence-transformers/all-mpnet-base-v2", "sentence-transformers/all-roberta-large-v1"]
 
-# FYI: This is the single-threaded way to iterate through all combinations.
-#for checkpoint in checkpoints:
-#    for this_series in gemma_list:
-#        save_encodings_for_series(checkpoint, this_series, gemma_list, all_dict, tmp_dir_path)
+for checkpoint in checkpoints:
+    save_encodings(checkpoint, gemma_list, all_dict, tmp_dir_path)
+    save_similarities(checkpoint, tmp_dir_path)
 
 # FYI: This is the multi-threaded way to iterate through all combinations.
-combos = [[checkpoint, this_series] for checkpoint in checkpoints for this_series in gemma_list]
-joblib.Parallel(n_jobs=32)(joblib.delayed(save_encodings_for_series)(combo[0], combo[1], gemma_list, all_dict, tmp_dir_path) for combo in combos)
-
-#with gzip.open(out_file_path, "w") as out_file:
-#    out_file.write("Series_A\tSeries_B\tMethod\tScore\n".encode())
+#combos = [[checkpoint, this_series] for checkpoint in checkpoints for this_series in gemma_list]
+#joblib.Parallel(n_jobs=4)(joblib.delayed(save_encodings_for_series)(combo[0], combo[1], gemma_list, all_dict, tmp_dir_path) for combo in combos)
 
 sys.exit(1)
 

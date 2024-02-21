@@ -49,12 +49,10 @@ gemma_txt_file_path="/Data/Gemma.txt.gz"
 non_gemma_txt_file_path="/Data/NonGemma.txt.gz"
 gemma_json_file_path="/Data/Gemma.json.gz"
 non_gemma_json_file_path="/Data/NonGemma.json.gz"
-gemma_overlap_file_path="/Data/Gemma_word_overlap.tsv.gz"
-gemma_distances_file_path="/Data/Gemma_distances.tsv.gz"
 multiplication_rates="1,2,5,10,100,300"
 
 tmp_dir_path="/Data/tmp"
-mkdir -p ${tmp_dir_path}
+mkdir -p ${tmp_dir_path}/word_overlap
 
 #python3 getAllGEO.py ${tmp_dir_path} "$all_geo_tsv_file_path"
 # FYI: This excludes SubSeries
@@ -83,23 +81,35 @@ mkdir -p ${tmp_dir_path}
 #python3 assignTrainingTestingOther.py "$gemma_json_file_path" parkinson_disease Queries Assignments "$multiplication_rates"
 #python3 assignTrainingTestingOther.py "$gemma_json_file_path" neuroblastoma Queries Assignments "$multiplication_rates"
 
-#python3 findWordOverlap.py "$gemma_json_file_path" "$all_geo_json_file_path" "$gemma_overlap_file_path"
-#python3 rankBasedOnWordOverlap.py "$gemma_overlap_file_path" triple_negative_breast_carcinoma Assignments Similarities
-#python3 rankBasedOnWordOverlap.py "$gemma_overlap_file_path" juvenile_idiopathic_arthritis Assignments Similarities
-#python3 rankBasedOnWordOverlap.py "$gemma_overlap_file_path" down_syndrome Assignments Similarities
-#python3 rankBasedOnWordOverlap.py "$gemma_overlap_file_path" bipolar_disorder Assignments Similarities
-#python3 rankBasedOnWordOverlap.py "$gemma_overlap_file_path" parkinson_disease Assignments Similarities
-#python3 rankBasedOnWordOverlap.py "$gemma_overlap_file_path" neuroblastoma Assignments Similarities
+overlap_scores_file_path="${tmp_dir_path}/word_overlap/scores.tsv.gz"
+#python3 findWordOverlap.py "$gemma_json_file_path" "$all_geo_json_file_path" "$overlap_scores_file_path"
 
-#rm -rf ${tmp_dir_path}/*
-python3 findVectorDistances.py "$gemma_json_file_path" "$all_geo_json_file_path" "${tmp_dir_path}" "$gemma_distances_file_path"
+#for tag in triple_negative_breast_carcinoma juvenile_idiopathic_arthritis down_syndrome bipolar_disorder parkinson_disease neuroblastoma
+#do
+#  python3 rankTestingOther.py "$overlap_scores_file_path" $tag word_overlap Assignments Similarities
+#do
+
+#TODO: Add other checkpoints, etc.
+#python3 findVectorDistances.py "$gemma_json_file_path" "$all_geo_json_file_path" "${tmp_dir_path}"
+
+#for d in ${tmp_dir_path}/sentence-transformers/*
+#do
+#    method_descriptor=sentence-transformers____$(basename $d)
+#
+#    for tag in triple_negative_breast_carcinoma juvenile_idiopathic_arthritis down_syndrome bipolar_disorder parkinson_disease neuroblastoma
+#    do
+#        python3 rankTestingOther.py "$d/distances.gz" $tag ${method_descriptor} Assignments Similarities &
+#    done
+#    wait
+#done
+
 #TODO: Remove this script when done with above.
 #python3 calculateSimilarities.py "$all_geo_json_file_path" "$queries" "$multiplication_rates" "$num_keyword_options"
 #python3 trainCustomModels.py "$star_geo_file_path" "$all_geo_json_file_path" "$num_keyword_options" "Models/custom"
 #python3 trainBert.py
 
-#TODO: Clean up this script after getting the above code working.
-#python3 calculateMetrics.py Similarities Metrics
+#TODO: Remove extra code at the end of this script after getting the other working.
+python3 calculateMetrics.py Similarities Metrics
 
 #TODO: Add this to calculateMetrics.py?
 #python3 lengthanalysis.py "$all_geo_json_file_path" "$queries" "$multiplication_rates" "$num_keyword_options"

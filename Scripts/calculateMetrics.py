@@ -18,7 +18,7 @@ with gzip.open(metrics_file_path, "w") as metrics_file:
 
         file_path_items = similarities_file_path.split("/")
         query = file_path_items[1]
-        method = file_path_items[2]
+        method = file_path_items[2].replace("____", "/")
         multiplication_rate = file_path_items[3].replace("rest_of_gemma_", "")
 
         groups_scores = []
