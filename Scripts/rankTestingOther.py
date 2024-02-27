@@ -17,6 +17,14 @@ with open(f"{assignments_dir_path}/{query_descriptor}/testing_series") as the_fi
     testing_series = set(json.loads(the_file.read()))
 
 for assignments_file_path in sorted(glob.glob(f"{assignments_dir_path}/{query_descriptor}/rest_of_gemma_*")):
+    out_file_path = f"{similarities_dir_path}/{query_descriptor}/{method_descriptor}/{os.path.basename(assignments_file_path)}"
+
+    if os.path.exists(out_file_path):
+        print(f"{out_file_path} already exists.")
+        continue
+    else:
+        print(f"Saving to {out_file_path}")
+
     with open(assignments_file_path) as the_file:
         other_series = set(json.loads(the_file.read()))
 
@@ -37,9 +45,6 @@ for assignments_file_path in sorted(glob.glob(f"{assignments_dir_path}/{query_de
                 score_dict[series_B] = score_dict.setdefault(series_B, []) + [overlap]
 
             #non_series = (testing_series | other_series) - score_dict.keys()
-
-        out_file_path = f"{similarities_dir_path}/{query_descriptor}/{method_descriptor}/{os.path.basename(assignments_file_path)}"
-        print(f"Saving to {out_file_path}")
 
         with open(out_file_path, "w") as out_file:
             out_file.write(f"Series\tGroup\tScore\n")

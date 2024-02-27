@@ -2,33 +2,25 @@ import os
 os.environ['HF_HOME'] = "/Models/huggingface"
 
 from chromadb.utils import embedding_functions
-#import fasttext
-#from gensim.models import KeyedVectors
-#from gensim.models.doc2vec import Doc2Vec
+import fasttext
+from gensim.models import KeyedVectors
 import gzip
 from helper import *
-#import joblib
+import joblib
 import json
-#import numpy as np
-#from numpy import dot
-#from numpy.linalg import norm
+import numpy as np
 import os
 from pathlib import Path
-#from sentence_transformers import SentenceTransformer
+from sentence_transformers import SentenceTransformer
 from sentence_transformers.util import cos_sim
-#import spacy
 import sys
-#from testingBert import *
-#from transformers import pipeline
-#from transformers import logging
-#logging.set_verbosity_error()
 
 #Translating text to numbers is known as encoding. Encoding is done in a two-step process: the tokenization, followed by the conversion to input IDs.
 #word-based tokenizers vs. character-based (better for languages like Chinese) vs. subword (best of both worlds)
 #Batching is the act of sending multiple sentences through the model, all at once.
 #Most models handle sequences of up to 512 or 1024 tokens. One option is to truncate them.
 
-def save_encodings(checkpoint, series_list, all_dict, tmp_dir_path):
+def save_embeddings(checkpoint, series_list, all_dict, tmp_dir_path):
     model_root = os.path.dirname(checkpoint)
     model_name = os.path.basename(checkpoint)
 
@@ -39,12 +31,51 @@ def save_encodings(checkpoint, series_list, all_dict, tmp_dir_path):
         print(f"{embeddings_file_path} already exists.")
         return
 
-    if model_root == "sentence-transformers":
-        model = embedding_functions.SentenceTransformerEmbeddingFunction(model_name=model_name, device="cuda")
+    # Got error: menadsa/S-Bio_ClinicalBERT
+    if model_root in ["sentence-transformers", "hkunlp", "thenlper", "pritamdeka", "NeuML", "FremyCompany", "nuvocare", "allenai", "microsoft", "emilyalsentzer", "medicalai"]:
+        model = embedding_functions.SentenceTransformerEmbeddingFunction(model_name=f"{model_root}/{model_name}", device="cuda")
+    elif model_root in ["nomic-ai"]:
+        model = SentenceTransformer(f"{model_root}/{model_name}", device="cuda", trust_remote_code=True)
+    elif model_root == "openai":
+        with open("Models/open_ai.key") as api_key_file:
+            api_key = api_key_file.read().strip()
+
+        model = embedding_functions.OpenAIEmbeddingFunction(api_key=api_key, model_name=model_name)
+    elif model_root == "fasttext":
+        if model_name == "cbow-wikinews":
+            model = KeyedVectors.load_word2vec_format("/Models/wiki-news-300d-1M-subword.vec", binary=False)
+        elif model_name == "cbow-commoncrawl":
+            model = KeyedVectors.load_word2vec_format("/Models/crawl-300d-2M-subword.vec", binary=False)
     else:
         raise Exception(f"Unknown model root: {model_root}.")
 
-    series_embeddings = model([all_dict[series] for series in series_list])
+    # We have to do this in smaller chunks because sometimes API server won't accept full list.
+    series_embeddings = []
+    series_per_chunk = 100
+    for start_i in range(0, len(series_list), series_per_chunk):
+        end_i = start_i + series_per_chunk
+        print(f"Obtaining embeddings for {start_i} - {end_i}")
+
+        text_list = [all_dict[series] for series in series_list[start_i:end_i]]
+
+        if model_root == "fasttext":
+            embeddings = []
+
+            for text in text_list:
+                words = tokenize_and_remove_stop_words(text)
+                word_embeddings = []
+
+                for word in words:
+                    if model.has_index_for(word):
+                        word_embeddings.append(model.get_vector(word, norm=True))
+
+                embeddings.append(np.mean(word_embeddings, axis=0).tolist())
+        elif model_root == "nomic-ai":
+            embeddings = model.encode(text_list).tolist()
+        else:
+            embeddings = model(text_list)
+
+        series_embeddings.extend(embeddings)
 
     embeddings_dict = {}
     for i, embedding in enumerate(series_embeddings):
@@ -58,6 +89,10 @@ def save_encodings(checkpoint, series_list, all_dict, tmp_dir_path):
 def save_similarities(checkpoint, tmp_dir_path):
     embeddings_file_path = f"{tmp_dir_path}/{checkpoint}/embeddings.gz"
     distances_file_path = f"{tmp_dir_path}/{checkpoint}/distances.gz"
+
+    if os.path.exists(distances_file_path):
+        print(f"{distances_file_path} already exists.")
+        return
 
     with gzip.open(embeddings_file_path) as embeddings_file:
         embeddings_dict = json.loads(embeddings_file.read().decode())
@@ -87,18 +122,14 @@ with gzip.open(gemma_json_file_path) as gemma_file:
 with gzip.open(all_geo_json_file_path) as all_file:
     all_dict = json.loads(all_file.read())
 
-#return(['dmis-lab/biobert-large-cased-v1.1-squad', 'bert-base-uncased', "allenai/scibert_scivocab_uncased", "all-roberta-large-v1", "sentence-t5-xxl", "all-mpnet-base-v2"])
-#return ["fasttext__cbow", "fasttext__skipgram", "en_core_web_lg", "en_core_sci_lg", "all-roberta-large-v1", "sentence-t5-xxl", "all-mpnet-base-v2", "dmis-lab/biobert-large-cased-v1.1-squad", "bert-base-uncased", "allenai/scibert_scivocab_uncased", "gpt2", "bioWordVec", "pretrained_fasttext_wiki", "pretrained_fasttext_wiki_subword", "pretrained_fasttext_crawl", "pretrained_fasttext_crawl_subword", 'BiomedRoberta', 'GEOBert']
-
-checkpoints = ["sentence-transformers/all-mpnet-base-v2", "sentence-transformers/all-roberta-large-v1"]
+# Built this list on February 26, 2024.
+# FYI: PharMolix/BioMedGPT-LM-7B would not run because I did not have enough GPU memory.
+checkpoints = ["fasttext/cbow-wikinews", "fasttext/cbow-commoncrawl", "sentence-transformers/all-mpnet-base-v2", "sentence-transformers/all-roberta-large-v1", "sentence-transformers/all-MiniLM-L6-v2", "sentence-transformers/msmarco-distilbert-base-v3", "sentence-transformers/sentence-t5-large", "sentence-transformers/paraphrase-TinyBERT-L6-v2", "hkunlp/instructor-xl", "thenlper/gte-large", "nomic-ai/nomic-embed-text-v1.5", "pritamdeka/S-Biomed-Roberta-snli-multinli-stsb", "openai/text-embedding-ada-002", "openai/text-embedding-3-small", "openai/text-embedding-3-large", "NeuML/pubmedbert-base-embeddings", "pritamdeka/S-PubMedBert-MS-MARCO-SCIFACT", "FremyCompany/BioLORD-2023", "pritamdeka/S-BioBert-snli-multinli-stsb", "nuvocare/WikiMedical_sent_biobert", "sentence-transformers/average_word_embeddings_glove.6B.300d", "sentence-transformers/average_word_embeddings_glove.840B.300d", "allenai/scibert_scivocab_uncased", "allenai/biomed_roberta_base", "microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext", "emilyalsentzer/Bio_ClinicalBERT", "medicalai/ClinicalBERT"]
 
 for checkpoint in checkpoints:
-    save_encodings(checkpoint, gemma_list, all_dict, tmp_dir_path)
-    save_similarities(checkpoint, tmp_dir_path)
+    save_embeddings(checkpoint, gemma_list, all_dict, tmp_dir_path)
 
-# FYI: This is the multi-threaded way to iterate through all combinations.
-#combos = [[checkpoint, this_series] for checkpoint in checkpoints for this_series in gemma_list]
-#joblib.Parallel(n_jobs=4)(joblib.delayed(save_encodings_for_series)(combo[0], combo[1], gemma_list, all_dict, tmp_dir_path) for combo in combos)
+joblib.Parallel(n_jobs=8)(joblib.delayed(save_similarities)(checkpoint, tmp_dir_path) for checkpoint in checkpoints)
 
 sys.exit(1)
 

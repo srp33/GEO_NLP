@@ -16,6 +16,7 @@ with gzip.open(all_geo_json_file_path) as all_file:
 series_word_sets = {}
 for series in gemma_list:
     text = clean_text(all_dict[series])
+    text = tokenize_and_remove_stop_words(text)
     words = set(text.split(" ")) - {''}
     series_word_sets[series] = words
 

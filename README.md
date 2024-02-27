@@ -1,5 +1,7 @@
 # GEO_NLP
 
+Need to store OpenAI API key in Models/open_ai.key
+
 ## Overview
 
 In this project, we aim to perform a systematic benchmark comparison of various Natural Language Processing (NLP) models on a large public data repository: the Gene Expression Omnibus (GEO). Three categories of models are implemented:

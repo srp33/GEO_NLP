@@ -11,6 +11,7 @@ mkdir -p Metrics
 
 #docker run --rm -d \
 docker run --rm -i -t \
+    --gpus all \
     -v $(pwd)/Data:/Data \
     -v $(pwd)/Queries:/Queries \
     -v $(pwd)/Assignments:/Assignments \
@@ -21,4 +22,3 @@ docker run --rm -i -t \
     --user $(id -u):$(id -g) \
     srp33/geo_nlp \
     /exec_analysis.sh
-#    --gpus all \
