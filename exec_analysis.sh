@@ -67,31 +67,32 @@ overlap_scores_file_path="${tmp_dir_path}/word_overlap/scores.tsv.gz"
 #done
 #wait
 
-#TODO: Save the embedding size and data source type for each checkpoint
-#TODO: Do fine tuning with randomly selected 50% of non-Gemma GEO.
-#python3 findVectorDistances.py "$gemma_json_file_path" "$all_geo_json_file_path" "${tmp_dir_path}"
+python3 findVectorDistances.py "$gemma_json_file_path" "$all_geo_json_file_path" "${tmp_dir_path}"
 
-for d in ${tmp_dir_path}/*/*
-do
-    model_root=$(dirname $d)
-    model_root=$(basename $model_root)
+#for d in ${tmp_dir_path}/*/*
+#do
+#    model_root=$(dirname $d)
+#    model_root=$(basename $model_root)
+#
+#    if [[ "${model_root}" == "word_overlap" ]]
+#    then
+#        continue
+#    fi
+#
+#    method_descriptor=${model_root}____$(basename $d)
+#
+#    for tag in triple_negative_breast_carcinoma juvenile_idiopathic_arthritis down_syndrome bipolar_disorder parkinson_disease neuroblastoma
+#    do
+#        python3 rankTestingOther.py "$d/distances.gz" $tag ${method_descriptor} Assignments Similarities &
+#    done
+#    wait
+#done
 
-    if [[ "${model_root}" == "word_overlap" ]]
-    then
-        continue
-    fi
-
-    method_descriptor=${model_root}____$(basename $d)
-
-    for tag in triple_negative_breast_carcinoma juvenile_idiopathic_arthritis down_syndrome bipolar_disorder parkinson_disease neuroblastoma
-    do
-        python3 rankTestingOther.py "$d/distances.gz" $tag ${method_descriptor} Assignments Similarities &
-    done
-    wait
-done
-
-#TODO: Remove extra code at the end of this script after getting the other working.
 #python3 calculateMetrics.py Similarities Metrics
+
+#TODO: Save the embedding size and data source type for each checkpoint
+
+#TODO: Do fine tuning with randomly selected 50% of non-Gemma GEO.
 
 #TODO: Remove this script when done with above.
 #python3 calculateSimilarities.py "$all_geo_json_file_path" "$queries" "$multiplication_rates" "$num_keyword_options"
