@@ -8,7 +8,6 @@ mkdir -p Assignments
 mkdir -p Similarities
 mkdir -p Models
 mkdir -p Metrics
-mkdir -p Figures
 
 #docker run --rm -d \
 docker run --rm -i -t \
@@ -19,7 +18,6 @@ docker run --rm -i -t \
     -v $(pwd)/Similarities:/Similarities \
     -v $(pwd)/Models:/Models \
     -v $(pwd)/Metrics:/Metrics \
-    -v $(pwd)/Figures:/Figures \
     -v /tmp:/tmp \
     --user $(id -u):$(id -g) \
     srp33/geo_nlp \

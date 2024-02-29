@@ -27,7 +27,7 @@ def save_embeddings(checkpoint, series_list, all_dict, tmp_dir_path):
         return
 
     # Got error: menadsa/S-Bio_ClinicalBERT
-    if model_root in ["sentence-transformers", "hkunlp", "thenlper", "pritamdeka", "NeuML", "FremyCompany", "nuvocare", "allenai", "microsoft", "emilyalsentzer", "medicalai"]:
+    if model_root in ["sentence-transformers", "hkunlp", "thenlper", "pritamdeka", "NeuML", "FremyCompany", "nuvocare", "allenai", "microsoft", "emilyalsentzer", "medicalai", "google", "albert"]:
         model = embedding_functions.SentenceTransformerEmbeddingFunction(model_name=f"{model_root}/{model_name}", device="cuda")
     elif model_root in ["nomic-ai"]:
         model = SentenceTransformer(f"{model_root}/{model_name}", device="cuda", trust_remote_code=True)
@@ -117,13 +117,11 @@ with gzip.open(gemma_json_file_path) as gemma_file:
 with gzip.open(all_geo_json_file_path) as all_file:
     all_dict = json.loads(all_file.read())
 
-# Built this list on February 26, 2024.
+# Built this list on February 27, 2024.
 # FYI: PharMolix/BioMedGPT-LM-7B would not run because I did not have enough GPU memory.
-checkpoints = ["fasttext/cbow-wikinews", "fasttext/cbow-commoncrawl", "sentence-transformers/all-mpnet-base-v2", "sentence-transformers/all-roberta-large-v1", "sentence-transformers/all-MiniLM-L6-v2", "sentence-transformers/msmarco-distilbert-base-v3", "sentence-transformers/sentence-t5-large", "sentence-transformers/paraphrase-TinyBERT-L6-v2", "hkunlp/instructor-xl", "thenlper/gte-large", "nomic-ai/nomic-embed-text-v1.5", "pritamdeka/S-Biomed-Roberta-snli-multinli-stsb", "openai/text-embedding-ada-002", "openai/text-embedding-3-small", "openai/text-embedding-3-large", "NeuML/pubmedbert-base-embeddings", "pritamdeka/S-PubMedBert-MS-MARCO-SCIFACT", "FremyCompany/BioLORD-2023", "pritamdeka/S-BioBert-snli-multinli-stsb", "nuvocare/WikiMedical_sent_biobert", "sentence-transformers/average_word_embeddings_glove.6B.300d", "sentence-transformers/average_word_embeddings_glove.840B.300d", "allenai/scibert_scivocab_uncased", "allenai/biomed_roberta_base", "microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext", "emilyalsentzer/Bio_ClinicalBERT", "medicalai/ClinicalBERT"]
+checkpoints = ["fasttext/cbow-wikinews", "fasttext/cbow-commoncrawl", "sentence-transformers/all-mpnet-base-v2", "sentence-transformers/all-roberta-large-v1", "sentence-transformers/all-MiniLM-L6-v2", "sentence-transformers/msmarco-distilbert-base-v3", "sentence-transformers/sentence-t5-large", "sentence-transformers/sentence-t5-xl", "sentence-transformers/paraphrase-TinyBERT-L6-v2", "hkunlp/instructor-xl", "thenlper/gte-large", "nomic-ai/nomic-embed-text-v1.5", "pritamdeka/S-Biomed-Roberta-snli-multinli-stsb", "openai/text-embedding-ada-002", "openai/text-embedding-3-small", "openai/text-embedding-3-large", "NeuML/pubmedbert-base-embeddings", "pritamdeka/S-PubMedBert-MS-MARCO-SCIFACT", "FremyCompany/BioLORD-2023", "pritamdeka/S-BioBert-snli-multinli-stsb", "nuvocare/WikiMedical_sent_biobert", "sentence-transformers/average_word_embeddings_glove.6B.300d", "sentence-transformers/average_word_embeddings_glove.840B.300d", "allenai/scibert_scivocab_uncased", "allenai/biomed_roberta_base", "microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext", "emilyalsentzer/Bio_ClinicalBERT", "medicalai/ClinicalBERT", "google/electra-base-discriminator", "google/electra-small-discriminator", "albert/albert-base-v2", "albert/albert-xxlarge-v2"]
 
 for checkpoint in checkpoints:
     save_embeddings(checkpoint, gemma_list, all_dict, tmp_dir_path)
 
 joblib.Parallel(n_jobs=8)(joblib.delayed(save_similarities)(checkpoint, tmp_dir_path) for checkpoint in checkpoints)
-
-
