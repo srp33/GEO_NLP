@@ -5,7 +5,32 @@ import os
 import sys
 
 embeddings_file_pattern = sys.argv[1]
-out_file_path = sys.argv[2]
+out_sizes_file_path = sys.argv[2]
+out_metadata_file_path = sys.argv[3]
+
+size_dict = {}
+
+for embeddings_file_path in glob.glob(embeddings_file_pattern):
+    with gzip.open(embeddings_file_path) as embeddings_file:
+        print(f"Getting embedding size for {embeddings_file_path}")
+        model_root = os.path.basename(os.path.dirname(os.path.dirname(embeddings_file_path)))
+        model_name = os.path.basename(os.path.dirname(embeddings_file_path))
+
+        embeddings_dict = json.loads(embeddings_file.read().decode())
+        example_series = sorted(embeddings_dict.keys())[0]
+        example_embedding = embeddings_dict[example_series]
+
+        size_dict[(model_root, model_name)] = len(example_embedding)
+
+with gzip.open(out_sizes_file_path, "w") as out_file:
+    out_file.write("Checkpoint\tEmbedding_Size\n".encode())
+    out_file.write("word_overlap\tNA\n".encode())
+
+    for model_root_name, size in sorted(size_dict.items()):
+        out_file.write((f"{model_root_name[0]}/{model_root_name[1]}\t{size}\n").encode())
+
+print(f"Saved to {out_sizes_file_path}")
+sys.exit(0)
 
 #def get_data_source_type(model_name):
 #    model_name = model_name.lower()
@@ -83,7 +108,7 @@ for embeddings_file_path in glob.glob(embeddings_file_pattern):
 
         lengths_dict[(model_root, model_name)] = len(example_embedding)
 
-with open(out_file_path) as out_file:
+with gzip.open(out_file_path) as out_file:
     def write(items):
         out_file.write("\t".join(items) + "\n")
 
@@ -92,4 +117,3 @@ with open(out_file_path) as out_file:
 
     for model_root_name, length in sorted(lengths_dict.items()):
         write([f"{model_root_name[0]}/{model_root_name[1]}", length, get_data_source_type(model_name), get_model_type(model_root, model_name)])
-
