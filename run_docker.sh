@@ -7,7 +7,7 @@ mkdir -p Queries
 mkdir -p Assignments
 mkdir -p Similarities
 mkdir -p Models
-mkdir -p Metrics
+mkdir -p Results
 
 #docker run --rm -d \
 docker run --rm -i -t \
@@ -17,7 +17,7 @@ docker run --rm -i -t \
     -v $(pwd)/Assignments:/Assignments \
     -v $(pwd)/Similarities:/Similarities \
     -v $(pwd)/Models:/Models \
-    -v $(pwd)/Metrics:/Metrics \
+    -v $(pwd)/Results:/Results \
     -v /tmp:/tmp \
     --user $(id -u):$(id -g) \
     srp33/geo_nlp \

@@ -88,7 +88,7 @@ overlap_scores_file_path="${tmp_dir_path}/word_overlap/scores.tsv.gz"
 #    wait
 #done
 
-#python3 calculateMetrics.py Similarities Metrics
+python3 calculateMetrics.py Similarities Results
 
 #TODO: Save the embedding size and data source type for each checkpoint
 #python3 saveCheckpointMetadata.py "Data/tmp/*/*/embeddings.gz" Metrics/Checkpoint_Metadata.tsv
