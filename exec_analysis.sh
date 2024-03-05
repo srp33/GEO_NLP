@@ -88,10 +88,11 @@ overlap_scores_file_path="${tmp_dir_path}/word_overlap/scores.tsv.gz"
 #    wait
 #done
 
-#python3 calculateMetrics.py Similarities Results
+python3 calculateMetrics.py Similarities Results
 
 #TODO: Save the embedding size and data source type for each checkpoint
-python3 saveCheckpointMetadata.py "Data/tmp/*/*/embeddings.gz" Results/Embedding_Sizes.tsv.gz Results/Checkpoint_Metadata.tsv.gz
+#python3 saveCheckpointMetadata.py "Data/tmp/*/*/embeddings.gz" Results/Embedding_Sizes.tsv.gz Results/Checkpoint_Metadata.tsv.gz
+#TODO: Save a file that indicates the top 5-10 "Other" predictions for the best overall algorithm.
 
 #TODO: Do fine tuning with randomly selected 50% of non-Gemma GEO.
 
