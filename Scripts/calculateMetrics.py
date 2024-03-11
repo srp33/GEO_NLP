@@ -41,9 +41,9 @@ with gzip.open(metrics_file_path, "w") as metrics_file:
 
         # Calculate the area under the precision-recall curve
         precision, recall, _ = precision_recall_curve(groups, scores)
-        auc_prc = auc(recall, precision)
+        auprc = auc(recall, precision)
 
-        metrics_file.write((f"{query}\t{method}\t{multiplication_rate}\tAUC_PRC\t{auc_prc}\n").encode())
+        metrics_file.write((f"{query}\t{method}\t{multiplication_rate}\tAUPRC\t{auprc}\n").encode())
 
         # Calculate proportions in top N
         groups_scores = sorted(groups_scores, key=lambda x: x[1], reverse=True)
