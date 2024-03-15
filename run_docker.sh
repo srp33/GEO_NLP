@@ -5,6 +5,7 @@ docker build -t srp33/geo_nlp .
 mkdir -p Data/tmp
 mkdir -p Queries
 mkdir -p Assignments
+mkdir -p Manual_Searches
 mkdir -p Similarities
 mkdir -p Models
 mkdir -p Results
@@ -16,6 +17,7 @@ docker run --rm -i -t \
     -v $(pwd)/Queries:/Queries \
     -v $(pwd)/Assignments:/Assignments \
     -v $(pwd)/Similarities:/Similarities \
+    -v $(pwd)/Manual_Searches:/Manual_Searches \
     -v $(pwd)/Models:/Models \
     -v $(pwd)/Results:/Results \
     -v /tmp:/tmp \
