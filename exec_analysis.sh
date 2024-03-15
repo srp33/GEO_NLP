@@ -90,20 +90,15 @@ overlap_scores_file_path="${tmp_dir_path}/word_overlap/scores.tsv.gz"
 
 #python3 calculateMetrics.py Similarities Results
 
-python3 findTopOtherCandidates.py "Similarities/*/*/rest_of_gemma_all" Results/Top_Other_Candidates.tsv.gz
-#python3 findTopOtherCandidates.py "Similarities/*/sentence-transformers____all-roberta-large-v1/rest_of_gemma_all;Similarities/*/thenlper____gte-large/rest_of_gemma_all;Similarities/*/sentence-transformers____paraphrase-TinyBERT-L6-v2/rest_of_gemma_all" Results/Top_Other_Candidates.tsv.gz
+#python3 findTopOtherCandidates.py "Similarities/*/*/rest_of_gemma_all" Results/Top_Other_Candidates.tsv.gz
 
-#TODO: Save the embedding size and data source type for each checkpoint
 #python3 saveCheckpointMetadata.py "Data/tmp/*/*/embeddings.gz" Results/Embedding_Sizes.tsv.gz Results/Checkpoint_Metadata.tsv.gz
-#TODO: Save a file that indicates the top 5-10 "Other" predictions for the best overall algorithm.
 
-#TODO: Do fine tuning with randomly selected 50% of non-Gemma GEO?
 
 #TODO: Add this to calculateMetrics.py?
 # Checks for bias in favor of shorter or longer summary sections.
 #python3 lengthanalysis.py "$all_geo_json_file_path" "$queries" "$multiplication_rates" "$num_keyword_options"
 
-#TODO: Remove this script when done with above.
 #python3 calculateSimilarities.py "$all_geo_json_file_path" "$queries" "$multiplication_rates" "$num_keyword_options"
 #python3 trainCustomModels.py "$star_geo_file_path" "$all_geo_json_file_path" "$num_keyword_options" "Models/custom"
 #python3 trainBert.py
