@@ -1,2 +1,0 @@
-Manually filtered to include only series from humans.
-Also filtered to Expression profiling by array and Expression profiling by high throughput sequencing because that is what Gemma focuses on.

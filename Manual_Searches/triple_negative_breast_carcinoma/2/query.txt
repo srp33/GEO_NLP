@@ -1,1 +1,1 @@
-("triple-negative breast carcinoma"[All Fields] OR "triple-negative breast cancer"[All Fields]) OR "triple-receptor negative breast cancer"[All Fields]
+(("triple-negative breast carcinoma"[All Fields] OR "triple-negative breast cancer"[All Fields]) OR "triple-receptor negative breast cancer"[All Fields]) AND "Homo sapiens"[porgn] AND ("gse"[Filter] AND ("Expression profiling by array"[Filter] OR "Expression profiling by high throughput sequencing"[Filter]))
