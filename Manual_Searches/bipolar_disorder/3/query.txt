@@ -1,0 +1,1 @@
+"bipolar disorder"[MeSH Terms] AND "Homo sapiens"[porgn] AND ("gse"[Filter] AND ("Expression profiling by array"[Filter] OR "Expression profiling by high throughput sequencing"[Filter]))

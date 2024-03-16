@@ -1,0 +1,501 @@
+
+1. Transcriptomic Analysis of Isolated Monocytes from heathy donors and JIA patinets using Nanostring Technology
+(Submitter supplied) Among immune cells, activated monocytes play a detrimental role in chronic and viral-induced  inflammatory pathologies. The uncontrolled activation of monocytes and the subsequent  excessive production of inflammatory factors damage bone-cartilage joints in Juvenile  Idiopathic Arthritis (JIA), a childhood rheumatoid arthritis (RA) disease. The moderate  beneficial effect of current therapies and clinical trials highlights the need of alternative  strategies targeting monocytes to treat RA disease. more...
+Organism:	Homo sapiens
+Type:		Expression profiling by array
+Platform: GPL18649 6 Samples
+FTP download: GEO (RCC) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE243nnn/GSE243512/
+Series		Accession: GSE243512	ID: 200243512
+
+2. Single-cell RNA-Seq resolves phenotypically heterogeneous subtypes in systemic juvenile idiopathic arthritis (SJIA)
+(Submitter supplied) Systemic juvenile idiopathic arthritis (SJIA) is a clinically heterogenous systemic inflammatory disorder sometimes complicated by macrophage activation syndrome (MAS) and lung disease (LD), which are thought to be driven by IFN signaling. To identify cellular sources and novel gene programs underlying SJIA pathogenesis, we performed the first in-depth single-cell RNA Sequencing (scRNA-Seq) analysis of 21 SJIA, SJIA-LD, and SJIA-MAS patient PBMCs. more...
+Organism:	Homo sapiens
+Type:		Expression profiling by high throughput sequencing
+Platform: GPL11154 26 Samples
+FTP download: GEO (H5, XLSX) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE207nnn/GSE207633/
+Series		Accession: GSE207633	ID: 200207633
+
+3. Conventional DC1 (cDC1) are Strongly Enriched, Quiescent and Relatively Tolerogenic in Local Inflammatory Arthritis
+(Submitter supplied) We sequenced (bulk RNA-seq) conventional (c)DC1, cDC2 and monocytes from a local inflammatory site, namely synovial fluid (SF) from patients suffering from a chronic inflammatory condition, Juvenile Idiopathic Arthritis (JIA). To be able to compare to steady state, we also sequenced cDC2 and monocyte subsets from peripheral blood of healthy controls.
+Organism:	Homo sapiens
+Type:		Expression profiling by high throughput sequencing
+Platform: GPL16558 25 Samples
+FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE220nnn/GSE220264/
+Series		Accession: GSE220264	ID: 200220264
+
+4. Profiling the peripheral immune response to TNF-alpha stimulation in patients with untreated juvenile idiopathic arthritis using scRNAseq
+(Submitter supplied) We report the application of next-generation sequencing tehcnologies to profile the effects of tumor necrosis factor alpha (TNFα) treatment on the transcriptomes of cells derived from juvenile idopathic arthritis (JIA) patients and healthy control subjects. Whole blood from de-identified subects with JIA was collected following children's provided assent and parental signed consent. Controls included healthy adults under the age of 25 years without any medical conditions or family history of autoimmune disease. more...
+Organism:	Homo sapiens
+Type:		Expression profiling by high throughput sequencing
+Platform: GPL18573 16 Samples
+FTP download: GEO (MTX, TSV) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE205nnn/GSE205095/
+Series		Accession: GSE205095	ID: 200205095
+
+5. RNA sequencing of T helper type 1 differentiated cultures in polyarticular juvenile idiopathic arthritis and healthy controls
+(Submitter supplied) Biologic pathway differences in polyarticular JIA and healthy control Th1 culture cells were determined by RNA sequencing and pathway analysis. RNA from 3 JIA and 3 pediatric healthy control Th1 cultures were analyzed for differential gene expression using DESeq2.
+Organism:	Homo sapiens
+Type:		Expression profiling by high throughput sequencing
+Platform: GPL24676 6 Samples
+FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE185nnn/GSE185193/
+SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA767894
+Series		Accession: GSE185193	ID: 200185193
+
+6. Immunoregulatory function of peripheral blood CD71+ erythroid cells in pediatric inflammatory diseases
+(Submitter supplied) Human CD71+ erythroid cells (CECs) have been recognized to have an immunoregulatory function via direct cell-cell interaction and soluble mediators such as arginase-2 and reactive oxygen species. Circulating CECs increase in healthy newborns or patients with hemolytic, malignant and cardiopulmonary disorders. To assess the pathophysiological role of CECs in inflammatory diseases, we studied the gene expression and function focusing on systemic-onset juvenile idiopathic arthritis (SoJIA). more...
+Organism:	Homo sapiens
+Type:		Expression profiling by array
+Platform: GPL23126 6 Samples
+FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE164nnn/GSE164120/
+Series		Accession: GSE164120	ID: 200164120
+
+7. Expression data from Fibroblast-like Synoviocytes (FLS) isolated from patients with Juvenile Idiopathic Arthritis (JIA) - compares untreated FLS to FLS exposed to conditioned media from Chondrocytes (Ch)
+(Submitter supplied) This dataset was used to determine the influence of conditioned media from Ch and how that influence affects genome-wide gene transcription in fibroblast-like synoviocytes In this dataset, we include data from untreated fibroblast-like synoviocytes and FLS cultured in chondrocyte-conditioned media, both normal FLS (C ) and JIA FLS (J).
+Organism:	Homo sapiens
+Type:		Expression profiling by array
+Platform: GPL23159 36 Samples
+FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE165nnn/GSE165626/
+Series		Accession: GSE165626	ID: 200165626
+
+8. Experimental and clinical assessment of angiogenesis-related parameters inpatients with juvenile idiopathic arthritis-associated uveitis
+(Submitter supplied) Introduction: In chronic and treatment-resistant cases of juvenile idiopathic arthritis-associated uveitis (JIAU), alterations of the iris vasculature may be observed clinically. We sought to investigate this phenomenon by combining clinical and laboratory analyses.  Methods: Iris tissue (IT), aqueous humor (AH) and serum samples from patients with clinically inactive JIAU (n=30) or acute anterior uveitis (AAU; n=18), and primary open angle glaucoma (POAG; n=20) were obtained during ocular surgery. more...
+Organism:	Homo sapiens
+Type:		Expression profiling by high throughput sequencing
+Platform: GPL18573 8 Samples
+FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE171nnn/GSE171745/
+SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA720699
+Series		Accession: GSE171745	ID: 200171745
+
+9. Transcriptome profiling to identify a human effector regulatory T cell core signature
+(Submitter supplied) We investigated the transcriptomic landscape of human Treg in an autoimmune-associated inflammatory environment, i.e. synovial fluid (SF) from inflamed joints of Juvenile Idiopathic Arthritis (JIA) to improve our understanding of human effector Treg programming.
+Organism:	Homo sapiens
+Type:		Expression profiling by high throughput sequencing
+Platform: GPL18573 26 Samples
+FTP download: GEO (XLSX) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE161nnn/GSE161426/
+SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA678290
+Series		Accession: GSE161426	ID: 200161426
+
+10. Monocyte and Macrophage Transcriptional Phenotypes in Systemic Juvenile Idiopathic Arthritis Reveal TRIM8 as a Mediator of IFN-γ Hyper-responsiveness and Risk for Macrophage Activation Syndrome
+(Submitter supplied) Systemic juvenile idiopathic arthritis (SJIA) confers high risk for macrophage activation syndrome (MAS), a life-threatening episode of hyperinflammation driven by IFN-γ. Monocytes in SJIA display IFN-γhyperresponsiveness, but the molecular basis of this remains unclear. The objective of this study is to identify monocyte and macrophage polarization phenotypes including features of interferon response. more...
+Organism:	Homo sapiens
+Type:		Expression profiling by high throughput sequencing
+Platform: GPL16791 242 Samples
+FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE147nnn/GSE147795/
+SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA616382
+Series		Accession: GSE147795	ID: 200147795
+
+11. CD4+ T cells From Children With Active Juvenile Idiopathic Arthritis Show Altered Chromatin Features Associated With Transcriptional Abnormalities
+(Submitter supplied) This SuperSeries is composed of the SubSeries listed below.
+Organism:	Homo sapiens
+Type:		Genome binding/occupancy profiling by high throughput sequencing; Expression profiling by high throughput sequencing
+Platform: GPL16791 70 Samples
+FTP download: GEO (GAPPEDPEAK, NARROWPEAK, TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE164nnn/GSE164215/
+Series		Accession: GSE164215	ID: 200164215
+
+12. CD4+ T cells From Children With Active Juvenile Idiopathic Arthritis Show Altered Chromatin Features Associated With Transcriptional Abnormalities (RNA-seq)
+(Submitter supplied) We used a multi-omics approach in an attempt to identify mechanisms driving the transcriptional abnormalities in peripheral blood CD4+ T cells of children with active JIA.  We demonstrate that active JIA is associated with distinct alterations in CD4+ T cell chromatin, as assessed by ATAC-seq studies.  However, 3D chromatin architecture, assessed by HiChIP and simultaneous mapping of CTCF anchors of chromatin loops, reveals that normal 3D chromatin architecture is largely preserved in JIA CD4+ T cells. more...
+Organism:	Homo sapiens
+Type:		Expression profiling by high throughput sequencing
+Platform: GPL16791 32 Samples
+FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE164nnn/GSE164213/
+SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA689564
+Series		Accession: GSE164213	ID: 200164213
+
+13. Single-cell transcriptomes and T cell receptor sequences of memory T lymphocytes from the peripheral blood and the synovial fluid of patients with juvenile idiopathic arthritis.
+(Submitter supplied) Antigen-experienced (or memory) T lymphocytes were isolated from the synovial fluid of inflamed joints and the peripheral blood of patients with juvenile idiopathic arthritis (JIA). After flow-sort of CD4+CD45RO+CD25- (Tcon), CD4+CD45RO+CD127loCD25+ (Treg) and CD8+CD45RO+ T cells, single-cell RNA-sequencing was conducted to perform paired analyses of gene transcription and T cell receptor (TCR) repertoires in the same cells. more...
+Organism:	Homo sapiens
+Type:		Expression profiling by high throughput sequencing
+Platform: GPL18573 40 Samples
+FTP download: GEO (CSV, FASTA, H5) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE160nnn/GSE160097/
+SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA671834
+Series		Accession: GSE160097	ID: 200160097
+
+14. Transcription profiling of monocytes from patients with active and inactive systemic juvenile idiopathic arthritis.
+(Submitter supplied) Systemic juvenile idiopathic arthritis (SJIA) confers high risk for macrophage activation syndrome (MAS), a life-threatening episode of hyperinflammation driven by IFN-γ. Monocytes in SJIA display IFNγ-hyperresponsiveness, but the molecular basis of this remains unclear. The objective of this study is to identify circulating monocyte polarization phenotypes including features of interferon response. more...
+Organism:	Homo sapiens
+Type:		Expression profiling by high throughput sequencing
+Platform: GPL16791 37 Samples
+FTP download: GEO (TSV) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE147nnn/GSE147608/
+SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA615697
+Series		Accession: GSE147608	ID: 200147608
+
+15. Diagnosing enterovirus meningitis via blood transcriptomics: an alternative for lumbar puncture?
+(Submitter supplied) Background: Meningitis can be caused by several viruses and bacteria. Identifying the causative pathogen as quickly as possible is crucial to initiate the most optimal therapy, as acute bacterial meningitis is associated with a significant morbidity and mortality. Bacterial meningitis requires antibiotics, as opposed to enteroviral meningitis, which only requires supportive therapy. Clinical presentation is usually not sufficient to differentiate between viral and bacterial meningitis, thereby necessitating cerebrospinal fluid (CSF) analysis by PCR and/or time-consuming bacterial cultures. more...
+Organism:	Homo sapiens
+Type:		Expression profiling by high throughput sequencing
+Platform: GPL18573 476 Samples
+FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE133nnn/GSE133378/
+SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA551288
+Series		Accession: GSE133378	ID: 200133378
+
+16. Neutrophil gene expression in systemic juvenile idiopathic arthritis
+(Submitter supplied) Systemic juvenile idiopathic arthritis (SJIA) is a chronic childhood arthropathy with features of autoinflammation. Early inflammatory SJIA is associated with expansion and activation of neutrophils with a sepsis-like phenotype, but neutrophil phenotypes present in longstanding and clinically inactive disease (CID) are unknown. The objective of this study was to examine activated neutrophil subsets, S100 alarmin release, and gene expression signatures in children with a spectrum of SJIA disease activity. more...
+Organism:	Homo sapiens
+Type:		Expression profiling by high throughput sequencing
+Platform: GPL23934 24 Samples
+FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE122nnn/GSE122552/
+SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA505535
+Series		Accession: GSE122552	ID: 200122552
+
+17. Whole Blood Transcriptome Profiling in Juvenile Idiopathic Arthritis and Inflammatory Bowel Disease
+(Submitter supplied) We report whole blood gene expression of 12 healthy controls and 190 patients with either oligoarticular (n=43), polyarticular (n=46), or systemic JIA (n=26), or Crohn's disease (n=60) and ulcerative colitis (n=15). The subtypes of JIA are characterized by a gradient of differential gene expression ranging from controls to oligoJIA, polyJIA, sJIA, and IBD.
+Organism:	Homo sapiens
+Type:		Expression profiling by high throughput sequencing
+Platform: GPL11154 202 Samples
+FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE112nnn/GSE112057/
+SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA439192
+Series		Accession: GSE112057	ID: 200112057
+
+18. MicroRNA-125a-5p overexpression in human macrophages
+(Submitter supplied) Systemic juvenile idiopathic arthritis (SJIA) is a severe childhood arthropathy with features of autoinflammation. Monocytes and macrophages in SJIA have a complex phenotype with both pro- and anti-inflammatory properties that combine features of several well characterized in vitro conditions used to activate macrophages.  An important anti-inflammatory phenotype is expression of CD163, a scavenger receptor that sequesters toxic pro-inflammatory complexes that is highly expressed in both active SJIA and macrophage activation syndrome (MAS). more...
+Organism:	Homo sapiens
+Type:		Expression profiling by high throughput sequencing
+Platform: GPL15433 6 Samples
+FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE104nnn/GSE104853/
+SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA414033
+Series		Accession: GSE104853	ID: 200104853
+
+19. Neutrophils in systemic onset Juvenile Idiopathic Arthritis display sepsis-like features which can be reverted by IL-1 blockade
+(Submitter supplied) This study investigated neutrophils in systemic onset Juvenile Idiopathic Arthritis (sJIA), one of the most common multifactorial autoinflammatory diseases, characterized by arthritis and severe systemic inflammatory manifestations like fever, rash, hepatosplenomegaly and serositis. Neutrophil counts were markedly increased at disease onset, correlated to levels of inflammatory mediators and normalized within days after initiation of therapy with recombinant IL-1 receptor antagonist (rIL-1RA). more...
+Organism:	Homo sapiens
+Type:		Expression profiling by high throughput sequencing
+Platform: GPL18573 6 Samples
+FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE103nnn/GSE103170/
+SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA400390
+Series		Accession: GSE103170	ID: 200103170
+
+20. Transcription factors operate across disease loci: EBNA2 in autoimmunity
+(Submitter supplied) Explaining the genetics of many diseases is challenging because most associations localize to regulatory regions. We present a novel computational method for discovering disease-driving mechanisms acting across multiple disease-associated, non-coding genomic regions. Application to a matrix of 213 phenotypes and 1,544 transcription factor (TF) binding datasets identifies 2,264 significant associations for hundreds of TFs in 92 phenotypes, including prostate and breast cancers. more...
+Organism:	Homo sapiens
+Type:		Expression profiling by high throughput sequencing
+Platform: GPL16791 2 Samples
+FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE93nnn/GSE93709/
+SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA362187
+Series		Accession: GSE93709	ID: 200093709
+
+21. A multidimensional blood stimulation assay reveals immune alterations underlying systemic juvenile idiopathic arthritis [RNA-Seq]
+(Submitter supplied) Despite great scientific and technological advances, immune alterations predisposing to sporadic human inflammatory diseases remain mostly unknown. To fill this gap, we developed a strategy to evaluate blood leukocyte responses to innate stimuli, simultaneously at the transcriptional, cellular and secreted protein levels. The data were integrated using weighted gene co-expression network analysis. When applied to systemic juvenile idiopathic arthritis (sJIA), an autoinflammatory disease of unknown etiology, this approach identified gene sets associated with specific cytokine environments and activated leukocyte subsets. more...
+Organism:	Homo sapiens
+Type:		Expression profiling by high throughput sequencing
+Platform: GPL16791 32 Samples
+FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE103nnn/GSE103501/
+SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA401766
+Series		Accession: GSE103501	ID: 200103501
+
+22. Healthy adult and sJIA blood stimulation with innate immune ligands
+(Submitter supplied) The goal of this study was to characterize altered inducible immune networks in Systemic onset juvenile idiopathic arthritis (sJIA), an IL-1-driven autoinflammatory disease of unknown etiology. To this end, we developed a high-throughput assay that quantifies the transcriptional and protein-level responses of blood leukocytes to innate stimuli. Herein, we report transcriptional data from healthy adult blood stimulated with 16 different conditions, including TLR ligands, cytosolic receptor ligands and inflammatory cytokines. more...
+Organism:	Homo sapiens
+Type:		Expression profiling by array
+Platform: GPL10558 291 Samples
+FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE103nnn/GSE103500/
+Series		Accession: GSE103500	ID: 200103500
+
+23. A multidimensional blood stimulation assay reveals immune alterations underlying systemic juvenile idiopathic arthritis
+(Submitter supplied) This SuperSeries is composed of the SubSeries listed below.
+Organism:	Homo sapiens
+Type:		Expression profiling by array; Expression profiling by high throughput sequencing
+Platforms: GPL10558 GPL16791 323 Samples
+FTP download: GEO ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE80nnn/GSE80325/
+Series		Accession: GSE80325	ID: 200080325
+
+24. RNA-seq in neutrophils from Juvenile Idiopathic Arthritis
+(Submitter supplied) In this study, we explored transcriptional complexity in human neutrophils from juvenile idiopathis arthritis and healthy control. We obtained differentially expressed genes among 3 ADU (active disease, untreated), 3 ADT (active disease, treated) and 2 HC (healthy control) samples using Cuffdiff2 software.
+Organism:	Homo sapiens
+Type:		Expression profiling by high throughput sequencing
+Platform: GPL11154 8 Samples
+FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE92nnn/GSE92293/
+SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA357106
+Series		Accession: GSE92293	ID: 200092293
+
+25. Transcriptional profiling reveals monocyte signature associated with JIA patient poor response to methotrexate
+(Submitter supplied) The mechanisms that determine the efficacy or inefficacy of methotrexate in juvenile idiopathic arthritis (JIA) are ill-defined.  The objective of this study was to identify a gene expression transcriptional signature associated with poor response to MTX in patients with JIA. RNA sequencing was used to measure gene expression in peripheral blood mononuclear cells (PBMC) collected from 47 patients with JIA prior to MTX treatment and 14 age-matched controls. more...
+Organism:	Homo sapiens
+Type:		Expression profiling by high throughput sequencing
+Platform: GPL16791 61 Samples
+FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE81nnn/GSE81259/
+SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA321106
+Series		Accession: GSE81259	ID: 200081259
+
+26. Modeling Transcriptional Rewiring in Neutrophils through the Course of Treated Juvenile Idiopathic Arthritis
+(Submitter supplied) Neutrophils in children with the polyarticular form of juvenile idiopathic arthritis (JIA) display abnormal transcriptional patterns linked to fundamental metabolic derangements. These abnormalities include re-ordering of miRNA-RNA expression networks. In this study, we sought to determine the effects of therapy on miRNA-RNA networks in polyarticular JIA. We studied children with active JIA disease on therapy (ADM), children with inactive disease also on therapy (ID), and children with clinical remission on medication (CRM) using exon and miRNA microarrays and compared results to findings from healthy control (HC) children. more...
+Organism:	Homo sapiens; synthetic construct
+Type:		Expression profiling by array; Non-coding RNA profiling by array
+Platforms: GPL5188 GPL8786 145 Samples
+FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE94nnn/GSE94354/
+Series		Accession: GSE94354	ID: 200094354
+
+27. Epipolymorphisms associated with the clinical outcome of autoimmune arthritis affect CD4+ T cell activation pathways (expression)
+(Submitter supplied) Multifactorial diseases, including autoimmune juvenile idiopathic arthritis (JIA), result from a complex interplay between genetics and environment. Epigenetic mechanisms are believed to integrate such gene-environment interactions, fine-tuning gene expression and possibly contributing to immune system dysregulation. Although anti-TNF therapy has strongly increased JIA remission rates, it is not curative and up to 80% of patients flare upon treatment withdrawal. more...
+Organism:	Homo sapiens
+Type:		Expression profiling by array
+Platform: GPL10558 125 Samples
+FTP download: GEO (IDAT, TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE89nnn/GSE89252/
+Series		Accession: GSE89252	ID: 200089252
+
+28. CD4+ T Cells Gene Expression-Based Biomarkers in Juvenile Idiopathic Arthritis (JIA)
+(Submitter supplied) Aim: To discovery biomarkers in JIA base on gene expression from RNA sequencing on CD4+ T Cells Method: Paired-end Ilumina sequencing to capture gene expression of CD4+ T cells from JIA individuals with active disease and patients in clinical remission on medication.
+Organism:	Homo sapiens
+Type:		Expression profiling by high throughput sequencing
+Platform: GPL16791 21 Samples
+FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE83nnn/GSE83415/
+SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA325833
+Series		Accession: GSE83415	ID: 200083415
+
+29. Gene expression data of whole blood of systemic juvenile idiopathic arthritis (SJIA) patients treated with canakinumab or placebo and age matched healthy controls
+(Submitter supplied) Canakinumab is a human anti-interleukin-1 beta (IL-1 beta) monoclonal antibody neutralizing IL-1 beta. Systemic juvenile idiopathic arthritis (SJIA) is a rare, multigenic, autoinflammatory disease of unknown etiology characterized by chronic arthritis; intermittent high-spiking fever, rash, and elevated levels of acute-phase reactants. Blood samples of SJIA patients were obtained from two phase 3 clinical trials conducted by the members of the Pediatric Rheumatology International Trials Organization (PRINTO) and the Pediatric Rheumatology Collaborative Study Group (PRCSG) (Clinicaltrials.gov: NCT00886769 and NCT00889863). more...
+Organism:	Homo sapiens
+Type:		Expression profiling by array
+Platform: GPL570 206 Samples
+FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE80nnn/GSE80060/
+Series		Accession: GSE80060	ID: 200080060
+
+30. Peripheral Blood Mononuclear Cells (PBMC) Gene Expression-Based Biomarkers in Juvenile Idiopathic Arthritis (JIA)
+(Submitter supplied) Aim: To discovery biomarkers in JIA base on gene expression from RNA sequencing on PBMC Method: Paired-end Ilumina sequencing to capture gene expression of PBMC from JIA individuals and healthy controls Results:sample heterogeneity makes RNA sequencing on PBMC unsuitable as a first-step method for screening biomarker candidates in JIA
+Organism:	Homo sapiens
+Type:		Expression profiling by high throughput sequencing
+Platform: GPL16791 101 Samples
+FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE79nnn/GSE79970/
+SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA317535
+Series		Accession: GSE79970	ID: 200079970
+
+31. Complexity and Specificity of the Neutrophil Transcriptome in Diverse Inflammatory States
+(Submitter supplied) In this study, we explored transcriptional complexity in human neutrophils, cells generally regarded as nonspecific in their functions and responses.  We studied distinct human disease phenotypes and found that, at the gene, gene isoform, and miRNA level, neutrophils exhibit considerable specificity in their transcriptomes.  These findings were particularly striking for isoform usage.  Thus, even cells whose responses are considered non-specific show tailoring of their transcriptional repertoire toward specific physiologic or pathologic contexts. more...
+Organism:	Homo sapiens; synthetic construct
+Type:		Expression profiling by array; Non-coding RNA profiling by array
+Platforms: GPL8786 GPL5188 179 Samples
+FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE71nnn/GSE71010/
+Series		Accession: GSE71010	ID: 200071010
+
+32. RNA-sequencing of cells derived from the site of inflammation of Juvenile Idiopathic Arthritis patients
+(Submitter supplied) Through RNA sequencing of CD4+ Tmemory/effector cells derived from the synovium of JIA patients and healthy controls, we analyzed the JIA gene expression signature. Treatment of autoinflammatory site-derived patient T cells with the BET-inhibitor JQ1 inhibited immune-related super-enhancers and preferentially reduced disease-associated gene expression, including cytokine-related processes.
+Organism:	Homo sapiens
+Type:		Expression profiling by high throughput sequencing
+Platform: GPL18573 14 Samples
+FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE71nnn/GSE71595/
+SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA291597
+Series		Accession: GSE71595	ID: 200071595
+
+33. Molecular profiles of Systemic Juvenile Idiopathic Arthritis patients
+(Submitter supplied) Biomarker identification for diagnosis of systemic juvenile idiopathic arthritis (SJIA), an auto-inflammatory disease that presents with prolonged fevers.
+Organism:	Homo sapiens
+Type:		Expression profiling by array
+Platform: GPL10558 14 Samples
+FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE57nnn/GSE57183/
+Series		Accession: GSE57183	ID: 200057183
+
+34. Disease-Associated SNPs From non-Coding Regions in Juvenile Idiopathic Arthritis Are Located Within or Adjacent to Functional Genomic Elements of Human Neutrophils and CD4+ T Cells
+(Submitter supplied) This SuperSeries is composed of the SubSeries listed below.
+Organism:	Homo sapiens
+Type:		Expression profiling by high throughput sequencing; Genome binding/occupancy profiling by high throughput sequencing
+Platform: GPL16791 12 Samples
+FTP download: GEO (BEDGRAPH, TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE66nnn/GSE66898/
+Series		Accession: GSE66898	ID: 200066898
+
+35. Disease-Associated SNPs From non-Coding Regions in Juvenile Idiopathic Arthritis Are Located Within or Adjacent to Functional Genomic Elements of Human Neutrophils and CD4+ T Cells [RNA-Seq]
+(Submitter supplied) We sequenced mRNA from 3 neutrophil cells taken from 3 male adult to generate the gene expression profile of human neutrophil cells
+Organism:	Homo sapiens
+Type:		Expression profiling by high throughput sequencing
+Platform: GPL16791 3 Samples
+FTP download: GEO (BEDGRAPH, TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE66nnn/GSE66895/
+SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA278279
+Series		Accession: GSE66895	ID: 200066895
+
+36. Common Immunologic Pathways Between Oligoarticular and Polyarticular Juvenile Idiopathic Arthritis
+(Submitter supplied) The polyarticular and oligoarticular forms of juvenile idiopathic arthritis are classified as distinct entities. At the same time, many children who present with an oligoarticular phenotype eventually evolve to a polyarticular disease pattern, suggesting that the phenotypes might share with overlapping molecular mechanisms. Using gene expression microarrays, we found that 14 genes in neutrophils and 55 genes in PBMC shows common patterns of differential expression when children with active oligoarticular and polyarticular JIA were compared with healthy controls. more...
+Organism:	Homo sapiens
+Type:		Expression profiling by array
+Platform: GPL570 72 Samples
+FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE67nnn/GSE67596/
+Series		Accession: GSE67596	ID: 200067596
+
+37. Gene expression in juvenile spondyloarthritis
+(Submitter supplied) Association of juvenile spondyloarthritis (jSpA) with the HLA-B27 genotype is well established, but there is little knowledge of other genetic factors with a role in disease development. The aim of the present study was to identify and confirm gene signatures and novel biomarkers in various cohorts of untreated and treated patients diagnosed with jSpA and other forms of juvenile idiopathic arthritis (JIA). more...
+Organism:	Homo sapiens
+Type:		Expression profiling by array
+Platform: GPL570 15 Samples
+FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE58nnn/GSE58667/
+Series		Accession: GSE58667	ID: 200058667
+
+38. Expression profiles of long non-coding RNAs located in autoimmune disease-associated regions reveal immune cell type specificity
+(Submitter supplied) Background: Although genome-wide association studies (GWAS) have identified hundreds of variants associated with risk of autoimmune and immune-related disorders (AID), our understanding of the diseases mechanisms is limited. In particular, more than 90% of the risk variants lie in non-coding regions, and almost 10% of these map to long non-coding RNA transcripts (lncRNAs). LncRNAs are known to show more cell-type specificity than protein-coding genes. more...
+Organism:	Homo sapiens
+Type:		Expression profiling by high throughput sequencing; Non-coding RNA profiling by high throughput sequencing
+Platform: GPL11154 7 Samples
+FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE62nnn/GSE62408/
+SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA264020
+Series		Accession: GSE62408	ID: 200062408
+
+39. Whole Blood Gene Expression Profiling Predicts Therapeutic Response in Polyarticular Juvenile Idiopathic Arthritis at 4 Months
+(Submitter supplied) To determine whether gene expression profiles from peripheral whole blood could be used to determine therapeutic outcome in a cohort of children with newly diagnosed polyarticular JIA.
+Organism:	Homo sapiens
+Type:		Expression profiling by array
+Platforms: GPL10558 GPL6884 112 Samples
+FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE55nnn/GSE55319/
+Series		Accession: GSE55319	ID: 200055319
+
+40. Serum Follistatin-Like Protein 1 Is a Biomarker for Macrophage Activation Syndrome and May Predict Disease Course in Systemic Juvenile Idiopathic Arthritis
+(Submitter supplied) Objective. Follistatin-like protein 1 (FSTL-1) is a secreted glycoprotein that is over-expressed in certain inflammatory diseases.  Our objective in this study was to correlate FSTL-1 levels with measures of clinical disease activity in systemic juvenile idiopathic arthritis (sJIA), including macrophage activation syndrome (MAS). Methods. FSTL-1 serum levels were measured by ELISA in 28 patients with sJIA, including 7 patients who developed MAS, as well as in 30 normal controls. more...
+Organism:	Homo sapiens
+Type:		Expression profiling by array
+Platform: GPL570 11 Samples
+FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE38nnn/GSE38849/
+Series		Accession: GSE38849	ID: 200038849
+
+41. Gene Expression Profiles Distinguish Children with Inactive Polyarticular Juvenile Idiopathic Arthritis (JIA) with a Predilection to Flare
+(Submitter supplied) Gene expression profiles were obtained from 17 children with rheumatoid factor negative (RF-) polyarticular juvenile idiopathic arthritis (JIA). The disease was inactive in all patients at visit 1. Thee disease remained inactive at visit 2 for 9 patients, while the other 8 patients were experiencing a disease flare at visit 2. The goal of the study was to better understand the underlying molecular biology of flares in JIA Total RNA was obtained from PBMC at two different times in the course of disease
+Organism:	Homo sapiens
+Type:		Expression profiling by array
+Platform: GPL6884 34 Samples
+FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE26nnn/GSE26112/
+Series		Accession: GSE26112	ID: 200026112
+
+42. Remission in Juvenile Idiopathic Arthritis Achieved on Different Drug Regimens
+(Submitter supplied) Remission has become both the gold standard for clinical care and the end point for clinical trials for children with juvenile idiopathic arthritis (JIA). Using gene expression microarrays, we found that when remission induced by methotrexate (MTX) or MTX plus a TNF inhibitor (etanercept, Et) (MTX+Et) was compared with healthy controls, there were notable differences in gene expression patterns, demonstrating that remission is not a restoration of immunologic normalcy. more...
+Organism:	Homo sapiens
+Type:		Expression profiling by array
+Platform: GPL570 78 Samples
+FTP download: GEO (CEL, CHP) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE41nnn/GSE41831/
+Series		Accession: GSE41831	ID: 200041831
+
+43. Ficolin-1 is upregulated in leukocytes and glomeruli from microscopic polyangiitis patients
+(Submitter supplied) To search for new markers of active lesions that might help better understand the molecular basis of MPA and aid in its diagnosis, DNA microarray analysis was performed with peripheral blood mononuclear cells (PBMCs).
+Organism:	Homo sapiens
+Type:		Expression profiling by array
+Platform: GPL4133 12 Samples
+FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE41nnn/GSE41744/
+Series		Accession: GSE41744	ID: 200041744
+
+44. Microarray-based gene expression profiling in patients with cryopyrin-associated periodic syndromes defines a disease-related signature and IL-1-responsive transcripts.
+(Submitter supplied) To analyse gene expression patterns and to define a specific gene expression signature in patients with the severe end of the spectrum of cryopyrin-associated periodic syndromes (CAPS). The molecular consequences of interleukin 1 inhibition were examined by comparing gene expression patterns in 16 CAPS patients before and after treatment with anakinra. Many DEG include transcripts related to the regulation of innate and adaptive immune responses, oxidative stress, cell death, cell adhesion and motility. more...
+Organism:	Homo sapiens
+Type:		Expression profiling by array
+Platform: GPL571 100 Samples
+FTP download: GEO (CEL, CHP) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE43nnn/GSE43553/
+Series		Accession: GSE43553	ID: 200043553
+
+45. Genome-wide association analysis of juvenile idiopathic arthritis identifies a new susceptibility locus at chromosomal region 3q13.
+(Submitter supplied) Juvenile idiopathic arthritis (JIA) is the most common chronic childhood rheumatic disease in the Western world.  To identify novel JIA predisposing loci, a genome-wide association study (GWAS) in 814 Caucasian JIA cases and 3058 Caucasian controls was completed.  After adjusting for the most significant HLA associations, the strongest novel associations included rs6479891 (10q21, odds ratio (OR)=1.59, P=1.3x10-8) and rs10761747 (OR=1.34, P=4.0x10-5) within JMJD1C; rs12719740 (15q26, OR=1.47, P=3.3x10-7) near FAM169B; rs4688011 (3q13, OR=1.33, P=1.1x10-4) within C3orf1 and rs4254850 (4q31, OR=0.85, P=7.8x10-3) near IL15. more...
+Organism:	Homo sapiens
+Type:		Expression profiling by array
+Platform: GPL570 91 Samples
+FTP download: GEO (CEL, CHP) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE26nnn/GSE26554/
+Series		Accession: GSE26554	ID: 200026554
+
+46. Biological Similarities Exist between Oligoarticular and Polyarticular Subtypes of JIA Based on Age at Onset
+(Submitter supplied) Objective.  To identify gene expression differences in peripheral blood from patients with early and late onset juvenile idiopathic arthritis (JIA).  Methods.  Peripheral blood mononuclear cells (PBMC) were isolated from 56 healthy controls and 104 patients with recent onset JIA (39 persistent oligoarticular, 45 RF-polyarticular, and 20 systemic). Poly(A) RNA was amplified and labeled using NuGEN Ovation, and gene expression assessed with Affymetrix HG-U133 Plus 2.0 GeneChips®. more...
+Organism:	Homo sapiens
+Type:		Expression profiling by array
+Platform: GPL570 160 Samples
+FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE20nnn/GSE20307/
+Series		Accession: GSE20307	ID: 200020307
+
+47. Expression data from SPARKS CHARMS JIA cohort
+(Submitter supplied) Gene expression on peripheral blood mononuclear cells (PBMC) from SPARKS CHARMS juvenile idiopathic arthritis (JIA) cohort pre and post methotrexate therapy. This is the first study to our knowledge, to evaluate gene expression profiles in children with JIA before and after MTX, and to analyze genetic variation in differentially expressed genes. We have identified a gene, which may contribute to genetic variability in MTX response in JIA.
+Organism:	Homo sapiens
+Type:		Expression profiling by array
+Dataset: GDS4272 Platform: GPL570 22 Samples
+FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE23nnn/GSE23687/
+Series		Accession: GSE23687	ID: 200023687
+
+48. Human peripheral blood cells: autoimmune diseases vs. healthy individuals
+(Submitter supplied) Gene expression profiling of peripheral blood cells from patients with rheumatoid arthritis (RA)/ systemic lupus erythematosus (SLE)/ polyarticular type juvenile idiopathic arthritis (polyJIA)/  systemic-onset JIA (sJIA) vs healthy children (HC) and healthy individual (HI).
+Organism:	Homo sapiens
+Type:		Expression profiling by array
+Platform: GPL1291 244 Samples
+FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE17nnn/GSE17755/
+Series		Accession: GSE17755	ID: 200017755
+
+49. Immature cell populations and an erythropoiesis gene expression signature in systemic juvenile idiopathic arthritis: Implications for pathogenesis
+(Submitter supplied) Objective. Previous observations suggest that active systemic juvenile idiopathic arthritis (sJIA) is associated with a prominent erythropoiesis gene expression signature. The aim of this study was to determine the association of this signature with peripheral blood mononuclear cell (PBMC) subpopulations and its specificity for sJIA as compared to related conditions.  125 patients with JIA (18 sJIA and 107 non-sJIA) and 29 controls were studied. more...
+Organism:	Homo sapiens
+Type:		Expression profiling by array
+Dataset: GDS4267 Platform: GPL570 154 Samples
+FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE21nnn/GSE21521/
+Series		Accession: GSE21521	ID: 200021521
+
+50. Anakinra in Systemic-onset Juvenile Idiopathic Arthritis
+(Submitter supplied) Background: Systemic-Onset Juvenile Idiopathic Arthritis (SJIA) is a rare disease associated with dysregulated interleukin (IL)-1 activity.  Objectives: To assess the efficacy and safety of Anakinra, an IL-1 receptor antagonist in SJIA and its effects on gene expression profiling.  Methods: We conducted a multicenter, randomized, double-blind placebo-controlled trial. The primary objective was to compare the efficacy of a one-month treatment with anakinra (2 mg/kg subcutaneoulsy daily, maximum 100 mg) to a placebo between 2 groups of 12 SJIA patients each. more...
+Organism:	Homo sapiens
+Type:		Expression profiling by array
+Platform: GPL6106 85 Samples
+FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE17nnn/GSE17590/
+Series		Accession: GSE17590	ID: 200017590
+
+51. Expression Signatures in Polyarticular JIA Show Heterogeneity and Offer a Molecular Classification of Disease Subsets
+(Submitter supplied) Objective. Microarray analysis was used to determine whether children with recent onset polyarticular juvenile idiopathic arthritis (JIA) exhibit biologically or clinically informative gene expression signatures in peripheral blood mononuclear cells (PBMC).   Methods. Peripheral blood samples were obtained from 59 healthy children and 61 children with polyarticular JIA prior to treatment with second-line medications, such as methotrexate or biological agents. more...
+Organism:	Homo sapiens
+Type:		Expression profiling by array
+Platform: GPL570 120 Samples
+FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE13nnn/GSE13849/
+Series		Accession: GSE13849	ID: 200013849
+
+52. Subtype-specific peripheral blood gene expression profiles in recent onset JIA
+(Submitter supplied) Objective:  A multi-center study of recent onset juvenile idiopathic arthritis (JIA) subjects prior to treatment with DMARDS or biologics was undertaken to identify peripheral blood gene expression differences between JIA subclasses and controls.  Methods:  PBMC from 59 healthy children and 136 JIA subjects (28 enthesitis-related arthritis[ERA], 42 persistent oligoarthritis, 45 RF- polyarthritis, and 21 systemic) were isolated on Ficoll. more...
+Organism:	Homo sapiens
+Type:		Expression profiling by array
+Platform: GPL570 195 Samples
+FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE13nnn/GSE13501/
+Series		Accession: GSE13501	ID: 200013501
+
+53. Remission in Polyarticular Juvenile Idiopathic Arthritis
+(Submitter supplied) Identify biomarkers to predict response to therapy in polyarticular juvenile idiopathic arthritis (JIA) using gene expression microarrays.
+Organism:	Homo sapiens
+Type:		Expression profiling by array
+Platform: GPL570 42 Samples
+FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE15nnn/GSE15645/
+Series		Accession: GSE15645	ID: 200015645
+
+54. Childhood Onset Rheumatic Disease Gene Expression Profile
+(Submitter supplied) Total RNA from peripheral blood mononuclear cells (PBMC) and neutrophils from children with juvenile dermatomyositis (JDM) and juvenile idiopathic arthritis (JIA) were separately compared to pediatric control samples. Keywords: pediatric rheumatic disease, blood, PBMC, neutrophil, JIA, JDM
+Organism:	Homo sapiens
+Type:		Expression profiling by array
+Platform: GPL570 83 Samples
+FTP download: GEO (CEL, CHP) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE11nnn/GSE11083/
+Series		Accession: GSE11083	ID: 200011083
+
+55. Gene expression predictors of extension in oligoarticular juvenile idiopathic arthritis (JIA)
+(Submitter supplied) Children with oligoarticular JIA (arthritis in 4 or fewer joints) can either continue to have this mild form of arthritis (persistent oligoarticular JIA) or extend to a more sever form involving more than 4 joints (extended oligoarticular JIA) Synovial fluid mononuclear cell RNA was prepared from 21 recently diagnosed pre-treatment patients and grouped according to whether the patient had extended or persisted at one year after diagnosis
+Organism:	Homo sapiens
+Type:		Expression profiling by array
+Platform: GPL570 21 Samples
+FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE15nnn/GSE15083/
+Series		Accession: GSE15083	ID: 200015083
+
+56. Construction of a modular analysis framework for blood Genomics Studies
+(Submitter supplied) We designed a strategy for microarray analysis that is based on the identification of transcriptional modules formed by genes coordinately expressed in multiple disease data sets. Mapping changes in gene expression at the module level generated disease-specific transcriptional fingerprints that provide a stable framework for the visualization and functional interpretation of microarray data.
+Organism:	Homo sapiens
+Type:		Expression profiling by array
+Platforms: GPL96 GPL97 471 Samples
+FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE11nnn/GSE11908/
+Series		Accession: GSE11908	ID: 200011908
+
+57. A Modular Analysis Framework for Blood Genomics Studies: Application to Systemic Lupus Erythematosus 
+(Submitter supplied) The analysis of patient blood transcriptional profiles offers a means to investigate the immunological mechanisms relevant to human diseases on a genome-wide scale. In addition, such studies provide a basis for the discovery of clinically relevant biomarker signatures. We designed a strategy for microarray analysis that is based on the identification of transcriptional modules formed by genes coordinately expressed in multiple disease data sets. more...
+Organism:	Homo sapiens
+Type:		Expression profiling by array
+Platforms: GPL96 GPL97 546 Samples
+FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE11nnn/GSE11907/
+Series		Accession: GSE11907	ID: 200011907
+
+58. Juvenile idiopathic arthritis: peripheral blood cells
+(Submitter supplied) Systemic-onset juvenile idiopathic arthritis (soJIA) is a rheumatic disease in childhood characterized by systemic symptoms and a relatively poor prognosis. The peripheral leukocytes are thought to play the pathological role of soJIA although the exact cause is still obscure. In this study, we aimed to clarify the cellular functional abnormality in those cells. Here, we analyzed the gene expression profile in peripheral leukocytes from 51 patients with soJIA, 6 patients with poly-articular type JIA (polyJIA) and 8 healthy children utilizing DNA microarrays. more...
+Organism:	Homo sapiens
+Type:		Expression profiling by array
+Platform: GPL1291 65 Samples
+FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE8nnn/GSE8361/
+Series		Accession: GSE8361	ID: 200008361
+
+59. Gene Expression Profiling in Peripheral Blood in Untreated New Onset Systemic Juvenile Idiopathic Arthritis
+(Submitter supplied) Systemic Juvenile Idiopathic Arthritis (sJIA) has been strongly associated with macrophage activation syndrome (MAS).  To better understand the pathogenesid of sJIA and to facilitate the search for MAS biomarkers, we examine gene expression profiles in untreated new onset sJIA. 17 new onset sJIA patients were included in the study.  5 of the 17 patients showed evidence of subclinical MAS and 2 eventually developed overt MAS. more...
+Organism:	Homo sapiens
+Type:		Expression profiling by array
+Platform: GPL570 47 Samples
+FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE7nnn/GSE7753/
+Series		Accession: GSE7753	ID: 200007753
+
+60. Blood Leukocyte Microarrays to Diagnose Systemic Onset Juvenile Idiopathic Arthritis and Follow IL-1 blocade
+(Submitter supplied) Systemic onset Juvenile Idiopathic Arthritis (SoJIA) represents up to 20% of Juvenile Idiopathic Arthritis (JIA). We have previously reported that this disease is Interleukin 1 (IL1)-mediated, and that IL-1 blockade results in clinical remission in the majority of patients. The diagnosis of SoJIA, however, still relies on clinical findings as no specific diagnostic tests are available, which leads to delays in the initiation of specific therapy. more...
+Organism:	Homo sapiens
+Type:		Expression profiling by array
+Platforms: GPL96 GPL97 246 Samples
+FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE8nnn/GSE8650/
+Series		Accession: GSE8650	ID: 200008650

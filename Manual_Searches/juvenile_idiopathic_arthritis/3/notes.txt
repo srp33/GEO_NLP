@@ -1,0 +1,1 @@
+The GEO advanced search functionality did not show a MeSH term for juvenile anything. So we searched more broadly for arthritis.
