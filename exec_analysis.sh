@@ -58,7 +58,7 @@ mkdir -p ${tmp_dir_path}/word_overlap
 #python3 assignTrainingTestingOther.py "$gemma_json_file_path" parkinson_disease Queries Assignments "$multiplication_rates"
 #python3 assignTrainingTestingOther.py "$gemma_json_file_path" neuroblastoma Queries Assignments "$multiplication_rates"
 
-python3 parseManualSearches.py Manual_Searches
+python3 summarizeManualSearches.py Manual_Searches "$gemma_json_file_path" Results/Manual_Searches.tsv.gz
 
 overlap_scores_file_path="${tmp_dir_path}/word_overlap/scores.tsv.gz"
 #python3 findWordOverlap.py "$gemma_json_file_path" "$all_geo_json_file_path" "$overlap_scores_file_path"
