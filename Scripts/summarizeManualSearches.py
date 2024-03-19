@@ -54,7 +54,6 @@ with gzip.open(out_file_path, "w") as out_file:
                             precision = numMatches / numTop
 
                             #recall = num relevant documents in top n / total relevant documents
-                            #         only calculate if total relevant documents > n
                             recall = numMatches / numTagged
 
                             if (precision + recall) == 0:

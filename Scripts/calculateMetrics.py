@@ -11,7 +11,7 @@ results_dir_path = sys.argv[2]
 metrics_file_path = f"{results_dir_path}/Metrics.tsv.gz"
 
 with gzip.open(metrics_file_path, "w") as metrics_file:
-    metrics_file.write((f"Query\tMethod\tMultiplication_Rate\tMetric\tValue\n").encode())
+    metrics_file.write((f"Query\tMethod\tMultiplication_Rate\tTop_Num\tMetric\tValue\n").encode())
 
     for similarities_file_path in glob.glob(f"{similarities_dir_path}/*/*/*"):
         print(f"Calculating metrics for {similarities_file_path}")
@@ -43,7 +43,7 @@ with gzip.open(metrics_file_path, "w") as metrics_file:
         precision, recall, _ = precision_recall_curve(groups, scores)
         auprc = auc(recall, precision)
 
-        metrics_file.write((f"{query}\t{method}\t{multiplication_rate}\tAUPRC\t{auprc}\n").encode())
+        metrics_file.write((f"{query}\t{method}\t{multiplication_rate}\tNA\tAUPRC\t{auprc}\n").encode())
 
         # Calculate proportions in top N
         groups_scores = sorted(groups_scores, key=lambda x: x[1], reverse=True)
@@ -55,11 +55,20 @@ with gzip.open(metrics_file_path, "w") as metrics_file:
                 if group_score[0] == "Testing":
                     count += 1
 
-            if num_testing > n:
-                recall = "NA"
-            else:
-                recall = f"{round(count / num_testing, 2)}"
+            #precision = the fraction of retrieved documents that are relevant
+            precision = count / min(n, len(groups))
 
-            metrics_file.write((f"{query}\t{method}\t{multiplication_rate}\tRecall_Top_{n}\t{recall}\n").encode())
+            #recall = num relevant documents in top n / total relevant documents
+            recall = count / num_testing
+
+            if (precision + recall) == 0:
+                f1 = "NA"
+            else:
+                f1 = 2 * ((precision * recall) / (precision + recall))
+                f1 = f"{f1:.2f}"
+
+            metrics_file.write((f"{query}\t{method}\t{multiplication_rate}\t{n}\tPrecision\t{precision:.2f}\n").encode())
+            metrics_file.write((f"{query}\t{method}\t{multiplication_rate}\t{n}\tRecall\t{recall:.2f}\n").encode())
+            metrics_file.write((f"{query}\t{method}\t{multiplication_rate}\t{n}\tF1 score\t{f1}\n").encode())
 
 print(f"Saved metrics to {metrics_file_path}")
