@@ -57,12 +57,12 @@ with gzip.open(out_file_path, "w") as out_file:
                             recall = numMatches / numTagged
 
                             if (precision + recall) == 0:
-                                f1 = "NA"
+                                f1 = 0.0
                             else:
                                 f1 = 2 * ((precision * recall) / (precision + recall))
 
-                            out_file.write((f"{query}\t{searchType}\t{numTop}\tRecall\t{recall}\n").encode())
-                            out_file.write((f"{query}\t{searchType}\t{numTop}\tPrecision\t{precision}\n").encode())
-                            out_file.write((f"{query}\t{searchType}\t{numTop}\tF1 score\t{f1}\n").encode())
+                            out_file.write((f"{query}\t{searchType}\t{numTop}\tRecall\t{recall:.2f}\n").encode())
+                            out_file.write((f"{query}\t{searchType}\t{numTop}\tPrecision\t{precision:.2f}\n").encode())
+                            out_file.write((f"{query}\t{searchType}\t{numTop}\tF1 score\t{f1:.2f}\n").encode())
 
 print(f"Saved to {out_file_path}")

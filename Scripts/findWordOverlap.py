@@ -4,18 +4,15 @@ import json
 import sys
 
 gemma_json_file_path = sys.argv[1]
-all_geo_json_file_path = sys.argv[2]
-out_file_path = sys.argv[3]
+out_file_path = sys.argv[2]
 
 with gzip.open(gemma_json_file_path) as gemma_file:
-    gemma_list = sorted(list(json.loads(gemma_file.read()).keys()))
-
-with gzip.open(all_geo_json_file_path) as all_file:
-    all_dict = json.loads(all_file.read())
+    gemma_dict = json.loads(gemma_file.read())
+    gemma_list = sorted(list(gemma_dict.keys()))
 
 series_word_sets = {}
 for series in gemma_list:
-    text = clean_text(all_dict[series])
+    text = gemma_dict[series]
     text = tokenize_and_remove_stop_words(text)
     words = set(text.split(" ")) - {''}
     series_word_sets[series] = words

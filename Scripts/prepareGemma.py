@@ -9,9 +9,6 @@ gemma_json_file_path = sys.argv[3]
 with gzip.open(all_geo_json_file_path) as the_file:
     all_geo_dict = json.loads(the_file.read())
 
-print(len(all_geo_dict))
-sys.exit()
-
 with gzip.open(gemma_txt_file_path) as the_file:
     gemma_list = [line.decode().rstrip("\n") for line in the_file if line.rstrip(b"\n") != b""]
 
