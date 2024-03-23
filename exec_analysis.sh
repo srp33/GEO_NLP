@@ -58,7 +58,7 @@ mkdir -p ${tmp_dir_path}/word_overlap
 #python3 assignTrainingTestingOther.py "$gemma_json_file_path" parkinson_disease Queries Assignments "$multiplication_rates"
 #python3 assignTrainingTestingOther.py "$gemma_json_file_path" neuroblastoma Queries Assignments "$multiplication_rates"
 
-python3 summarizeManualSearches.py Manual_Searches "$gemma_json_file_path" Results/Manual_Searches.tsv.gz
+#python3 summarizeManualSearches.py Manual_Searches "$gemma_json_file_path" Results/Manual_Searches.tsv.gz
 
 overlap_scores_file_path="${tmp_dir_path}/word_overlap/scores.tsv.gz"
 #python3 findWordOverlap.py "$gemma_json_file_path" "$overlap_scores_file_path"
@@ -69,7 +69,7 @@ overlap_scores_file_path="${tmp_dir_path}/word_overlap/scores.tsv.gz"
 #done
 #wait
 
-#python3 findVectorDistances.py "$gemma_json_file_path" "$all_geo_json_file_path" "${tmp_dir_path}/gemma"
+python3 findVectorDistances.py "$gemma_json_file_path" "${tmp_dir_path}/gemma"
 
 #for d in ${tmp_dir_path}/*/*
 #do
@@ -95,7 +95,7 @@ overlap_scores_file_path="${tmp_dir_path}/word_overlap/scores.tsv.gz"
 #python3 findTopOtherCandidates.py "Similarities/*/*/rest_of_gemma_all" Results/Top_Other_Candidates.tsv.gz
 
 # Find vector distances for non-Gemma series.
-#python3 findVectorDistances.py "$non_gemma_json_file_path" "$all_geo_json_file_path" "${tmp_dir_path}/non_gemma"
+#python3 findVectorDistances.py "$non_gemma_json_file_path" "${tmp_dir_path}/non_gemma"
 
 #for tag in triple_negative_breast_carcinoma juvenile_idiopathic_arthritis down_syndrome bipolar_disorder parkinson_disease neuroblastoma
 #do
