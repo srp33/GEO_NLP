@@ -13,7 +13,7 @@ with gzip.open(gemma_json_file_path) as gemma_file:
     gemmaSet = set(json.loads(gemma_file.read()).keys())
 
 with gzip.open(out_file_path, "w") as out_file:
-    out_file.write("Query\tSearch_Type\tNum_Top\tMetric\tValue\n".encode())
+    out_file.write("Query\tSearch_Type\tTop_Num\tMetric\tValue\n".encode())
 
     for queryDirPath in glob.glob(f"{baseDirPath}/*"):
         query = os.path.basename(queryDirPath)
