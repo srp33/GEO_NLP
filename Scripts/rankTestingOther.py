@@ -20,10 +20,10 @@ for assignments_file_path in sorted(glob.glob(f"{assignments_dir_path}/{query_de
     out_file_path = f"{similarities_dir_path}/{query_descriptor}/{method_descriptor}/{os.path.basename(assignments_file_path)}"
 
     if os.path.exists(out_file_path):
-        print(f"{out_file_path} already exists.")
+        print(f"{out_file_path} already exists.", flush=True)
         continue
     else:
-        print(f"Saving to {out_file_path}")
+        print(f"Saving to {out_file_path}", flush=True)
 
     with open(assignments_file_path) as the_file:
         other_series = set(json.loads(the_file.read()))

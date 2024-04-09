@@ -2,23 +2,23 @@
 
 set -o errexit
 
-#if [ ! -f "/Models/wiki-news-300d-1M-subword.vec" ]
-#then
-#  wget -O "/Models/wiki-news-300d-1M-subword.vec.zip" https://dl.fbaipublicfiles.com/fasttext/vectors-english/wiki-news-300d-1M-subword.vec.zip
-#  cd /Models
-#  unzip wiki-news-300d-1M-subword.vec.zip
-#  rm wiki-news-300d-1M-subword.vec.zip
-#  cd -
-#fi
+if [ ! -f "/Models/wiki-news-300d-1M-subword.vec" ]
+then
+  wget -O "/Models/wiki-news-300d-1M-subword.vec.zip" https://dl.fbaipublicfiles.com/fasttext/vectors-english/wiki-news-300d-1M-subword.vec.zip
+  cd /Models
+  unzip wiki-news-300d-1M-subword.vec.zip
+  rm wiki-news-300d-1M-subword.vec.zip
+  cd -
+fi
 
-#if [ ! -f "/Models/crawl-300d-2M-subword.vec" ]
-#then
-#  wget -O "/Models/crawl-300d-2M-subword.zip" https://dl.fbaipublicfiles.com/fasttext/vectors-english/crawl-300d-2M-subword.zip
-#  cd /Models
-#  unzip crawl-300d-2M-subword.zip
-#  rm crawl-300d-2M-subword.zip
-#  cd -
-#fi
+if [ ! -f "/Models/crawl-300d-2M-subword.vec" ]
+then
+  wget -O "/Models/crawl-300d-2M-subword.zip" https://dl.fbaipublicfiles.com/fasttext/vectors-english/crawl-300d-2M-subword.zip
+  cd /Models
+  unzip crawl-300d-2M-subword.zip
+  rm crawl-300d-2M-subword.zip
+  cd -
+fi
 
 all_geo_tsv_file_path="/Data/AllGEO.tsv.gz"
 all_geo_json_file_path="/Data/AllGEO.json.gz"
@@ -69,33 +69,54 @@ overlap_scores_file_path="${tmp_dir_path}/word_overlap/scores.tsv.gz"
 #done
 #wait
 
-python3 findVectorDistances.py "$gemma_json_file_path" "${tmp_dir_path}/gemma"
+#python3 saveEmbeddings.py "$all_geo_json_file_path" checkpoints.txt none "${tmp_dir_path}/Embeddings"
+#python3 findDistances.py "$gemma_json_file_path" "$gemma_json_file_path" checkpoints.txt "${tmp_dir_path}/Embeddings" "${tmp_dir_path}/Distances"
 
-#for d in ${tmp_dir_path}/*/*
+#python3 saveEmbeddings.py "$all_geo_json_file_path" checkpoints.txt 500 "${tmp_dir_path}/Embeddings_Chunks"
+#python3 findDistances.py "$gemma_json_file_path" "$gemma_json_file_path" checkpoints.txt "${tmp_dir_path}/Embeddings_Chunks" "${tmp_dir_path}/Distances_Chunks"
+
+#for f in ${tmp_dir_path}/Distances/*/*.tsv.gz
 #do
-#    model_root=$(dirname $d)
+#    model_root=$(dirname $f)
 #    model_root=$(basename $model_root)
 #
-#    if [[ "${model_root}" == "word_overlap" ]]
-#    then
-#        continue
-#    fi
+#    model_name=$(basename $f)
+#    model_name=${model_name/\.tsv\.gz/}
 #
-#    method_descriptor=${model_root}____$(basename $d)
+#    method_descriptor=${model_root}____${model_name}
 #
 #    for tag in triple_negative_breast_carcinoma juvenile_idiopathic_arthritis down_syndrome bipolar_disorder parkinson_disease neuroblastoma
 #    do
-#        python3 rankTestingOther.py "$d/distances.gz" $tag ${method_descriptor} Assignments Similarities &
+#        python3 rankTestingOther.py "$f" $tag ${method_descriptor} Assignments Similarities &
 #    done
 #    wait
 #done
 
-#python3 calculateMetrics.py Similarities Results
+#for f in ${tmp_dir_path}/Distances_Chunks/*/*.tsv.gz
+#do
+#    model_root=$(dirname $f)
+#    model_root=$(basename $model_root)
+#
+#    model_name=$(basename $f)
+#    model_name=${model_name/\.tsv\.gz/}
+#
+#    method_descriptor=${model_root}____${model_name}
+#
+#    for tag in triple_negative_breast_carcinoma juvenile_idiopathic_arthritis down_syndrome bipolar_disorder parkinson_disease neuroblastoma
+#    do
+#        python3 rankTestingOther.py "$f" $tag ${method_descriptor} Assignments Similarities_Chunks &
+#    done
+#    wait
+#done
+
+#python3 calculateMetrics.py Similarities Results/Metrics.tsv.gz
+#python3 calculateMetrics.py Similarities_Chunks Results/Metrics_Chunks.tsv.gz
 
 #python3 findTopOtherCandidates.py "Similarities/*/*/rest_of_gemma_all" Results/Top_Other_Candidates.tsv.gz
+#python3 findTopOtherCandidates.py "Similarities_Chunks/*/*/rest_of_gemma_all" Results/Top_Other_Candidates_Chunks.tsv.gz
 
 # Find vector distances for non-Gemma series.
-#python3 findVectorDistances.py "$non_gemma_json_file_path" "${tmp_dir_path}/non_gemma"
+python3 findDistances.py "$non_gemma_json_file_path" "${tmp_dir_path}/non_gemma"
 
 #for tag in triple_negative_breast_carcinoma juvenile_idiopathic_arthritis down_syndrome bipolar_disorder parkinson_disease neuroblastoma
 #do

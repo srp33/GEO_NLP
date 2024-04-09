@@ -6,9 +6,7 @@ import sys
 import os
 
 similarities_dir_path = sys.argv[1]
-results_dir_path = sys.argv[2]
-
-metrics_file_path = f"{results_dir_path}/Metrics.tsv.gz"
+metrics_file_path = sys.argv[2]
 
 with gzip.open(metrics_file_path, "w") as metrics_file:
     metrics_file.write((f"Query\tMethod\tMultiplication_Rate\tTop_Num\tMetric\tValue\n").encode())
