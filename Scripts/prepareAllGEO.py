@@ -1,5 +1,6 @@
 import gzip
 from helper import *
+import json
 import os
 import sys
 
@@ -18,18 +19,25 @@ with gzip.open(tsv_file_path) as tsv_file:
         title = line_items[1]
         summary = line_items[2]
         overall_design = line_items[3]
-        all_species = line_items[6].lower().split("; ")
-        all_taxon_id = line_items[7].split("; ")
-        superseries_gse = line_items[8]
+        experiment_type = line_items[4].lower().split("|")
+        gpl = line_items[5].lower().split("|")
+        gpl_title = line_items[6].lower()
+        gpl_technology = line_items[7].lower()
+        species = line_items[8].lower().split("|")
+        taxon_id = line_items[9].split("|")
+        superseries_gse = line_items[10]
 
         # We remove series that are part of a superseries because including these
         #   could cause bias in the machine-learning analysis. Additionally,
         #   if users find a relevant SuperSeries, they will find the associated
         #   SubSeries.
-        if "homo sapiens" in all_species and "9606" in all_taxon_id and superseries_gse == "":
-            print(gse)
-            article_dict[gse] = clean_text(f"{title} {summary} {overall_design}")
+        if "homo sapiens" in species and "9606" in taxon_id and superseries_gse == "":
+            if "expression profiling by array" in experiment_type:
+                if "affymetrix" in gpl_title or "illumina" in gpl_title or "agilent" in gpl_title:
+                    article_dict[gse] = clean_text(f"{title} {summary} {overall_design}")
+            elif "expression profiling by high throughput sequencing" in experiment_type and "illumina" in gpl_title:
+                article_dict[gse] = clean_text(f"{title} {summary} {overall_design}")
 
-print(len(article_dict)) #75980
+print(len(article_dict)) #48,893
 with gzip.open(json_file_path, 'w') as json_file:
     json_file.write(json.dumps(article_dict).encode())

@@ -17,7 +17,7 @@ RUN pip3 install --upgrade pip setuptools wheel \
 RUN mkdir /nltk_data \
  && chmod 777 /nltk_data
 
-COPY checkpoints.txt /
+COPY checkpoints*.txt /
 
 COPY exec_analysis.sh /
 

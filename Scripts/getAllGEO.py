@@ -18,10 +18,10 @@ def save_gse(gse):
         tmp_file_path = f"{tmp_dir_path}/{gse}"
 
         if os.path.exists(tmp_file_path):
-            print(f"{gse} has already been saved.")
+#            print(f"{gse} has already been saved.", flush=True)
             return False
         else:
-            print(f"Retrieving metadata for {gse}.")
+            print(f"Retrieving metadata for {gse}.", flush=True)
 
         url = f"https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc={gse}&targ=gse&view=quick&form=text"
         gse_text = requests.get(url).text
@@ -33,29 +33,48 @@ def save_gse(gse):
         with open(tmp_file_path, "w") as tmp_file:
             tmp_file.write(gse_text)
 
+        print(f"Saved metadata for {gse} to {tmp_file_path}.", flush=True)
+
         time.sleep(1)
         return True
     except:
-        print(f"Error occurred for {gse}.")
+        print(f"Error occurred for {gse}.", flush=True)
         time.sleep(3)
         return False
 
-## Last ran on January 19, 2024.
+def get_gpl_info(gpl):
+    url = f"https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc={gpl}&targ=gpl&view=quick&form=text"
+
+    gpl_text = requests.get(url).text
+
+    gpl_dict = {}
+
+    for line in gpl_text.strip().split("\n"):
+        if line.startswith("!Platform_title = "):
+            gpl_dict["title"] = line.replace("!Platform_title = ", "").strip()
+        if line.startswith("!Platform_technology = "):
+            gpl_dict["technology"] = line.replace("!Platform_technology = ", "").strip()
+
+    return gpl_dict
+
+# Last run on April 18, 2024.
 joblib.Parallel(n_jobs=8)(joblib.delayed(save_gse)(gse) for gse in gse_list)
 
-## Sometimes the files are empty. This removes them.
-#for file_path in glob.glob("Data/tmp/*"):
-#    if os.path.getsize(file_path) == 0:
-#        print(f"Removing {file_path} because it is empty.")
-#        os.remove(file_path)
+# Sometimes the files are empty. This removes them.
+for file_path in glob.glob("Data/tmp/*"):
+    if os.path.getsize(file_path) == 0:
+        print(f"Removing {file_path} because it is empty.", flush=True)
+        os.remove(file_path)
+
+gpl_dict = {}
 
 with gzip.open(out_tsv_file_path, "w") as out_tsv_file:
-    header = f"GSE\tTitle\tSummary\tOverall_Design\tExperiment_Type\tGPL\tSpecies\tTaxon_ID\tSuperSeries_GSE\tSubSeries_GSEs\tPubMed_IDs\n"
+    header = f"GSE\tTitle\tSummary\tOverall_Design\tExperiment_Type\tGPL\tGPL_Title\tGPL_Technology\tSpecies\tTaxon_ID\tSuperSeries_GSE\tSubSeries_GSEs\tPubMed_IDs\n"
     out_tsv_file.write(header.encode())
 
-    for in_file_path in sorted(glob.glob(f"{tmp_dir_path}/*")):
+    for in_file_path in sorted(glob.glob(f"{tmp_dir_path}/GSE*")):
         with open(in_file_path) as in_file:
-            print(f"Parsing text from {in_file_path}")
+            print(f"Parsing text from {in_file_path}", flush=True)
 
             gse = os.path.basename(in_file_path)
             gse_text = in_file.read()
@@ -93,7 +112,7 @@ with gzip.open(out_tsv_file_path, "w") as out_tsv_file:
                 if len(value_list) == 1:
                     gse_dict[key] = value_list[0]
                 else:
-                    gse_dict[key] = "; ".join(value_list)
+                    gse_dict[key] = "|".join(value_list)
 
             title = gse_dict["title"]
 
@@ -110,5 +129,16 @@ with gzip.open(out_tsv_file_path, "w") as out_tsv_file:
             superseries_gse = gse_dict.get("superseries_gse", "")
             pubmed_ids = gse_dict.get("pubmed_id", "")
 
-            out_line = "\t".join([gse, title, summary, overall_design, experiment_type, gpl, species, taxon_id, subseries_gse, superseries_gse, pubmed_ids]) + "\n"
+            # Deal with the fact that some series have multiple platforms.
+            for x in gpl.split("|"):
+                if x not in gpl_dict:
+                    print(f"Getting info for {x}", flush=True)
+                    gpl_dict[x] = get_gpl_info(x)
+
+            gpl_title = "|".join(sorted(set([gpl_dict[x]["title"] for x in gpl.split("|") if "title" in gpl_dict[x]])))
+            gpl_technology = "|".join(sorted(set([gpl_dict[x]["technology"] for x in gpl.split("|") if "technology" in gpl_dict[x]])))
+
+            out_line = "\t".join([gse, title, summary, overall_design, experiment_type, gpl, gpl_title, gpl_technology, species, taxon_id, subseries_gse, superseries_gse, pubmed_ids]) + "\n"
             out_tsv_file.write(out_line.encode())
+
+print(f"Saved to {out_tsv_file_path}.")

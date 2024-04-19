@@ -32,8 +32,7 @@ tmp_dir_path="/Data/tmp"
 mkdir -p ${tmp_dir_path}/word_overlap
 
 #python3 getAllGEO.py ${tmp_dir_path} "$all_geo_tsv_file_path"
-# FYI: This excludes SubSeries
-#python3 prepareAllGEO.py "$all_geo_tsv_file_path" "$all_geo_json_file_path"
+python3 prepareAllGEO.py "$all_geo_tsv_file_path" "$all_geo_json_file_path"
 
 #python getGemma.py "$all_geo_json_file_path" "$gemma_txt_file_path" "$non_gemma_txt_file_path"
 #python3 prepareGemma.py "$all_geo_json_file_path" "$gemma_txt_file_path" "$gemma_json_file_path"
@@ -58,8 +57,7 @@ mkdir -p ${tmp_dir_path}/word_overlap
 #python3 assignTrainingTestingOther.py "$gemma_json_file_path" parkinson_disease Queries Assignments "$multiplication_rates"
 #python3 assignTrainingTestingOther.py "$gemma_json_file_path" neuroblastoma Queries Assignments "$multiplication_rates"
 
-python3 summarizeManualSearches.py Manual_Searches "$gemma_json_file_path" Results/Manual_Searches.tsv.gz
-exit
+#python3 summarizeManualSearches.py Manual_Searches "$gemma_json_file_path" Results/Manual_Searches.tsv.gz
 
 overlap_scores_file_path="${tmp_dir_path}/word_overlap/scores.tsv.gz"
 #python3 findWordOverlap.py "$gemma_json_file_path" "$overlap_scores_file_path"
@@ -116,16 +114,27 @@ overlap_scores_file_path="${tmp_dir_path}/word_overlap/scores.tsv.gz"
 #python3 findTopOtherCandidates.py "Similarities/*/*/rest_of_gemma_all" Results/Top_Other_Candidates.tsv.gz
 #python3 findTopOtherCandidates.py "Similarities_Chunks/*/*/rest_of_gemma_all" Results/Top_Other_Candidates_Chunks.tsv.gz
 
-# Find vector distances for non-Gemma series.
-python3 findDistances.py "$non_gemma_json_file_path" "${tmp_dir_path}/non_gemma"
+# Process non-Gemma series.
+#python3 findDistances.py "$gemma_json_file_path" "$non_gemma_json_file_path" checkpoints2.txt "${tmp_dir_path}/Embeddings" "${tmp_dir_path}/Distances_NonGemma"
 
-#for tag in triple_negative_breast_carcinoma juvenile_idiopathic_arthritis down_syndrome bipolar_disorder parkinson_disease neuroblastoma
+#for f in ${tmp_dir_path}/Distances_NonGemma/*/*.tsv.gz
 #do
-#  python3 rankNonGemma.py Queries/$tag ${non_gemma_txt_file_path}
-#  #"$overlap_scores_file_path" $tag word_overlap Assignments Similarities
-#  break
+#    echo $f
+#    model_root=$(dirname $f)
+#    model_root=$(basename $model_root)
+#
+#    model_name=$(basename $f)
+#    model_name=${model_name/\.tsv\.gz/}
+#
+#    method_descriptor=${model_root}____${model_name}
+#
+#    for tag in triple_negative_breast_carcinoma juvenile_idiopathic_arthritis down_syndrome bipolar_disorder parkinson_disease neuroblastoma
+#    do
+#        python3 rankNonGemma.py "$f" $tag ${method_descriptor} Queries Similarities_NonGemma
+#    done
 #done
-#wait
+
+#python3 findTopNonGemmaCandidates.py "Similarities_NonGemma/*/*/all" ${all_geo_tsv_file_path} Results/Top_NonGemma_Candidates.tsv.gz
 
 
 #python3 saveCheckpointMetadata.py "Data/tmp/*/*/embeddings.gz" Results/Embedding_Sizes.tsv.gz Results/Checkpoint_Metadata.tsv.gz
