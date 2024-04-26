@@ -36,11 +36,11 @@ with gzip.open(out_all_gemma_file_path, "w") as out_file:
     out_file.write(b"\n".join(sorted(list(gemma_series_out))))
 
 print(f"Saved to {out_all_gemma_file_path}:")
-print(len(gemma_series_out)) #5703
+print(len(gemma_series_out)) #5997
 
 non_gemma_series_out = all_geo_series - gemma_series
 with gzip.open(out_non_gemma_file_path, "w") as out_file:
     out_file.write(b"\n".join(sorted(list(non_gemma_series_out))))
 
 print(f"Saved to {out_non_gemma_file_path}:")
-print(len(non_gemma_series_out)) #70277
+print(len(non_gemma_series_out)) #42896

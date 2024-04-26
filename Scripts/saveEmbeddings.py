@@ -49,7 +49,6 @@ def save_embeddings(checkpoint, series_dict, chunk_size, out_file_path):
     # We have to do this in smaller chunks because sometimes API server won't accept full list.
     series_embeddings_dict = {}
 
-    # The smallest embedding size is 768 tokens, so we will go smaller than that.
     # https://python.langchain.com/docs/modules/data_connection/document_transformers/recursive_text_splitter
     text_splitter = RecursiveCharacterTextSplitter(
         chunk_size=chunk_size,

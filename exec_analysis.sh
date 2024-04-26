@@ -32,12 +32,14 @@ tmp_dir_path="/Data/tmp"
 mkdir -p ${tmp_dir_path}/word_overlap
 
 #python3 getAllGEO.py ${tmp_dir_path} "$all_geo_tsv_file_path"
-python3 prepareAllGEO.py "$all_geo_tsv_file_path" "$all_geo_json_file_path"
+#python3 prepareAllGEO.py "$all_geo_tsv_file_path" "$all_geo_json_file_path"
 
-#python getGemma.py "$all_geo_json_file_path" "$gemma_txt_file_path" "$non_gemma_txt_file_path"
+# This sometimes gives an error message, but it seems to work properly.
+#python3 getGemma.py "$all_geo_json_file_path" "$gemma_txt_file_path" "$non_gemma_txt_file_path"
 #python3 prepareGemma.py "$all_geo_json_file_path" "$gemma_txt_file_path" "$gemma_json_file_path"
 #python3 prepareGemma.py "$all_geo_json_file_path" "$non_gemma_txt_file_path" "$non_gemma_json_file_path"
 
+# Save query series on April 19, 2024.
 # Save small queries
 #python3 getQuerySeries.py 0005494 False "$all_geo_json_file_path" Queries/triple_negative_breast_carcinoma
 #python3 getQuerySeries.py 0011429 False "$all_geo_json_file_path" Queries/juvenile_idiopathic_arthritis
@@ -68,11 +70,14 @@ overlap_scores_file_path="${tmp_dir_path}/word_overlap/scores.tsv.gz"
 #done
 #wait
 
-#python3 saveEmbeddings.py "$all_geo_json_file_path" checkpoints.txt none "${tmp_dir_path}/Embeddings"
+# We are using an extremely large chunk size so it doesn't split the texts into chunks.
+#python3 saveEmbeddings.py "$all_geo_json_file_path" checkpoints.txt 100000000 "${tmp_dir_path}/Embeddings"
 #python3 findDistances.py "$gemma_json_file_path" "$gemma_json_file_path" checkpoints.txt "${tmp_dir_path}/Embeddings" "${tmp_dir_path}/Distances"
 
-#python3 saveEmbeddings.py "$all_geo_json_file_path" checkpoints.txt 500 "${tmp_dir_path}/Embeddings_Chunks"
-#python3 findDistances.py "$gemma_json_file_path" "$gemma_json_file_path" checkpoints.txt "${tmp_dir_path}/Embeddings_Chunks" "${tmp_dir_path}/Distances_Chunks"
+# Two two smallest embedding sizes are GloVe (size = 300) and all-MiniLM-L6-v2 (size = 384).
+# That description for all-MiniLM-L6-v2 says, "By default, input text longer than 256 word pieces is truncated."
+python3 saveEmbeddings.py "$all_geo_json_file_path" checkpoints.txt 256 "${tmp_dir_path}/Embeddings_Chunks"
+python3 findDistances.py "$gemma_json_file_path" "$gemma_json_file_path" checkpoints.txt "${tmp_dir_path}/Embeddings_Chunks" "${tmp_dir_path}/Distances_Chunks"
 
 #for f in ${tmp_dir_path}/Distances/*/*.tsv.gz
 #do
@@ -135,7 +140,6 @@ overlap_scores_file_path="${tmp_dir_path}/word_overlap/scores.tsv.gz"
 #done
 
 #python3 findTopNonGemmaCandidates.py "Similarities_NonGemma/*/*/all" ${all_geo_tsv_file_path} Results/Top_NonGemma_Candidates.tsv.gz
-
 
 #python3 saveCheckpointMetadata.py "Data/tmp/*/*/embeddings.gz" Results/Embedding_Sizes.tsv.gz Results/Checkpoint_Metadata.tsv.gz
 
