@@ -116,7 +116,7 @@ mkdir -p ${tmp_dir_path}/word_overlap
 #python3 calculateMetrics.py Similarities Results/Metrics.tsv.gz
 #python3 calculateMetrics.py Similarities_Chunks Results/Metrics_Chunks.tsv.gz
 
-python3 findTopOtherCandidates.py "Similarities/*/*/rest_of_gemma_all" Results/Top_Other_Candidates.tsv.gz
+python3 findTopGemmaCandidates.py "Similarities/*/*/rest_of_gemma_all" ${all_geo_tsv_file_path} Results/Top_Gemma_Candidates.tsv.gz
 
 # Process non-Gemma series.
 #python3 findDistances.py "$gemma_json_file_path" "$non_gemma_json_file_path" checkpoints2.txt "${tmp_dir_path}/Embeddings" "${tmp_dir_path}/Distances_NonGemma"
