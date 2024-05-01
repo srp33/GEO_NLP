@@ -60,7 +60,7 @@ mkdir -p ${tmp_dir_path}/word_overlap
 #python3 assignTrainingTestingOther.py "$gemma_json_file_path" parkinson_disease Queries Assignments "$multiplication_rates"
 #python3 assignTrainingTestingOther.py "$gemma_json_file_path" neuroblastoma Queries Assignments "$multiplication_rates"
 
-python3 summarizeManualSearches.py Manual_Searches "$gemma_json_file_path" Results/Manual_Searches.tsv.gz
+#python3 summarizeManualSearches.py Manual_Searches "$gemma_json_file_path" Results/Manual_Searches.tsv.gz
 
 #python3 findWordOverlap.py "$gemma_json_file_path" "$overlap_scores_file_path"
 
@@ -141,7 +141,7 @@ python3 summarizeManualSearches.py Manual_Searches "$gemma_json_file_path" Resul
 
 #python3 findTopNonGemmaCandidates.py "Similarities_NonGemma/*/*/all" ${all_geo_tsv_file_path} Results/Top_NonGemma_Candidates.tsv.gz
 
-#python3 saveCheckpointMetadata.py "Data/tmp/*/*/embeddings.gz" Results/Embedding_Sizes.tsv.gz Results/Checkpoint_Metadata.tsv.gz
+python3 saveCheckpointMetadata.py "Data/tmp/*/*/embeddings.gz" Results/Embedding_Sizes.tsv.gz Results/Checkpoint_Metadata.tsv.gz
 
 
 #TODO: Add this to calculateMetrics.py?
