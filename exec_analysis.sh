@@ -27,6 +27,7 @@ non_gemma_txt_file_path="/Data/NonGemma.txt.gz"
 gemma_json_file_path="/Data/Gemma.json.gz"
 non_gemma_json_file_path="/Data/NonGemma.json.gz"
 multiplication_rates="1,2,5,10,100,300"
+overlap_scores_file_path="${tmp_dir_path}/word_overlap/scores.tsv.gz"
 
 tmp_dir_path="/Data/tmp"
 mkdir -p ${tmp_dir_path}/word_overlap
@@ -59,9 +60,8 @@ mkdir -p ${tmp_dir_path}/word_overlap
 #python3 assignTrainingTestingOther.py "$gemma_json_file_path" parkinson_disease Queries Assignments "$multiplication_rates"
 #python3 assignTrainingTestingOther.py "$gemma_json_file_path" neuroblastoma Queries Assignments "$multiplication_rates"
 
-#python3 summarizeManualSearches.py Manual_Searches "$gemma_json_file_path" Results/Manual_Searches.tsv.gz
+python3 summarizeManualSearches.py Manual_Searches "$gemma_json_file_path" Results/Manual_Searches.tsv.gz
 
-overlap_scores_file_path="${tmp_dir_path}/word_overlap/scores.tsv.gz"
 #python3 findWordOverlap.py "$gemma_json_file_path" "$overlap_scores_file_path"
 
 #for tag in triple_negative_breast_carcinoma juvenile_idiopathic_arthritis down_syndrome bipolar_disorder parkinson_disease neuroblastoma
@@ -113,8 +113,8 @@ overlap_scores_file_path="${tmp_dir_path}/word_overlap/scores.tsv.gz"
 #    wait
 #done
 
-python3 calculateMetrics.py Similarities Results/Metrics.tsv.gz
-python3 calculateMetrics.py Similarities_Chunks Results/Metrics_Chunks.tsv.gz
+#python3 calculateMetrics.py Similarities Results/Metrics.tsv.gz
+#python3 calculateMetrics.py Similarities_Chunks Results/Metrics_Chunks.tsv.gz
 
 #python3 findTopOtherCandidates.py "Similarities/*/*/rest_of_gemma_all" Results/Top_Other_Candidates.tsv.gz
 #python3 findTopOtherCandidates.py "Similarities_Chunks/*/*/rest_of_gemma_all" Results/Top_Other_Candidates_Chunks.tsv.gz
