@@ -76,8 +76,8 @@ overlap_scores_file_path="${tmp_dir_path}/word_overlap/scores.tsv.gz"
 
 # Two two smallest embedding sizes are GloVe (size = 300) and all-MiniLM-L6-v2 (size = 384).
 # That description for all-MiniLM-L6-v2 says, "By default, input text longer than 256 word pieces is truncated."
-python3 saveEmbeddings.py "$all_geo_json_file_path" checkpoints.txt 256 "${tmp_dir_path}/Embeddings_Chunks"
-python3 findDistances.py "$gemma_json_file_path" "$gemma_json_file_path" checkpoints.txt "${tmp_dir_path}/Embeddings_Chunks" "${tmp_dir_path}/Distances_Chunks"
+#python3 saveEmbeddings.py "$all_geo_json_file_path" checkpoints.txt 256 "${tmp_dir_path}/Embeddings_Chunks"
+#python3 findDistances.py "$gemma_json_file_path" "$gemma_json_file_path" checkpoints.txt "${tmp_dir_path}/Embeddings_Chunks" "${tmp_dir_path}/Distances_Chunks"
 
 #for f in ${tmp_dir_path}/Distances/*/*.tsv.gz
 #do
@@ -113,8 +113,8 @@ python3 findDistances.py "$gemma_json_file_path" "$gemma_json_file_path" checkpo
 #    wait
 #done
 
-#python3 calculateMetrics.py Similarities Results/Metrics.tsv.gz
-#python3 calculateMetrics.py Similarities_Chunks Results/Metrics_Chunks.tsv.gz
+python3 calculateMetrics.py Similarities Results/Metrics.tsv.gz
+python3 calculateMetrics.py Similarities_Chunks Results/Metrics_Chunks.tsv.gz
 
 #python3 findTopOtherCandidates.py "Similarities/*/*/rest_of_gemma_all" Results/Top_Other_Candidates.tsv.gz
 #python3 findTopOtherCandidates.py "Similarities_Chunks/*/*/rest_of_gemma_all" Results/Top_Other_Candidates_Chunks.tsv.gz
