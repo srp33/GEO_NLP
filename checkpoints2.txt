@@ -1,1 +1,1 @@
-sentence-transformers/all-roberta-large-v1
+thenlper/gte-large
