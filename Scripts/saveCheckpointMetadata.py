@@ -10,69 +10,26 @@ out_metadata_file_path = sys.argv[3]
 
 size_dict = {}
 
-for embeddings_file_path in glob.glob(embeddings_file_pattern):
-    with gzip.open(embeddings_file_path) as embeddings_file:
-        print(f"Getting embedding size for {embeddings_file_path}")
-        model_root = os.path.basename(os.path.dirname(os.path.dirname(embeddings_file_path)))
-        model_name = os.path.basename(os.path.dirname(embeddings_file_path))
-
-        embeddings_dict = json.loads(embeddings_file.read().decode())
-        example_series = sorted(embeddings_dict.keys())[0]
-        example_embedding = embeddings_dict[example_series]
-
-        size_dict[(model_root, model_name)] = len(example_embedding)
-
-with gzip.open(out_sizes_file_path, "w") as out_file:
-    out_file.write("Checkpoint\tEmbedding_Size\n".encode())
-    out_file.write("word_overlap\tNA\n".encode())
-
-    for model_root_name, size in sorted(size_dict.items()):
-        out_file.write((f"{model_root_name[0]}/{model_root_name[1]}\t{size}\n").encode())
-
-print(f"Saved to {out_sizes_file_path}")
-sys.exit(0)
-
-#def get_data_source_type(model_name):
-#    model_name = model_name.lower()
+#for embeddings_file_path in glob.glob(embeddings_file_pattern):
+#    with gzip.open(embeddings_file_path) as embeddings_file:
+#        print(f"Getting embedding size for {embeddings_file_path}")
+#        model_root = os.path.basename(os.path.dirname(embeddings_file_path))
+#        model_name = os.path.basename(embeddings_file_path).replace(".gz", "")
 #
-#    if "biomed" in model_name or "pubmed" in model_name or "biolord" in model_name "biobert" in model_name:
-#        return "Biomedical"
-#    elif "scibert" in model_name:
-#        return "Scientific"
-#    return "General"
+#        embeddings_dict = json.loads(embeddings_file.read().decode())
+#        example_series = sorted(embeddings_dict.keys())[0]
+#        example_embedding = embeddings_dict[example_series]
 #
-#def get_model_type(model_root, model_name):
-#    model_name = model_name.lower()
+#        size_dict[(model_root, model_name)] = len(example_embedding)
 #
-#    if model_name.startswith("cbow"):
-#        return "Word2Vec"
-#    elif "glove" in model_name:
-#        return "GloVe"
-#    elif model_root == "openai":
-#        return "Generative Pre-trained Transformer"
-#    elif
-#    return "Transformer"
-#Masked and Permuted Pre-training for Language Understanding (MPNet)
-#Bidirectional Encoder Representations from Transformers (BERT)
-#Lite version of BERT (ALBERT, DistilBERT)
-#Robustly Optimized BERT approach (RoBERTa)
-#Transformer with Extra Long context (Transformer-XL)
-#Self-supervised language representation learning (ELECTRA)
-#Self-supervised contrastive learning (MiniLM-L6-v2)
+#with gzip.open(out_sizes_file_path, "w") as out_file:
+#    out_file.write("Checkpoint\tEmbedding_Size\n".encode())
+#    out_file.write("word_overlap\tNA\n".encode())
+#
+#    for model_root_name, size in sorted(size_dict.items()):
+#        out_file.write((f"{model_root_name[0]}/{model_root_name[1]}\t{size}\n").encode())
 
-
-
-# Data Source Type: General, Biological, Medical
-# Model Category:
-#   Continuous Bag of Words (Word2Vec)
-#   Self-supervised contrastive learning
-#   Bidirectional Encoder Representations from Transformers (BERT)
-#   Text-to-text transformers (T5)
-#   Matryoshka Representation Learning
-#   Generative Pre-trained Transformer (GPT)
-#   Global Vectors for Word Representation (GloVe)
-#   Masked language modeling (MLM)
-#   Instruction-finetuned text embedding model
+#print(f"Saved to {out_sizes_file_path}")
 
 # The Fine Tuning column indicates whether a different checkpoint was fine-tuned to construct a given checkpoint.
 
@@ -110,9 +67,11 @@ info = [["Checkpoint", "Data_Source_Type", "Model_Category", "Fine_Tuning"],
         ["albert/albert-base-v2", "General", "Masked language modeling (MLM)", "NA"],
         ["albert/albert-xxlarge-v2", "General", "Masked language modeling (MLM)", "This checkpoint ostentibly is a fine-tuning of albert/albert-xxlarge-v2."]]
 
-with gzip.open(out_metadata_file_path) as out_file:
+with gzip.open(out_metadata_file_path, "wb") as out_file:
     def write(items):
-        out_file.write("\t".join(items) + "\n")
+        out_file.write(("\t".join(items) + "\n").encode())
 
     for row in info:
         write(row)
+
+print(f"Saved to {out_metadata_file_path}")
