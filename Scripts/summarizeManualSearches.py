@@ -16,7 +16,7 @@ with gzip.open(gemma_json_file_path) as gemma_file:
 with gzip.open(out_summary_file_path, "w") as out_summary_file:
     with gzip.open(out_items_file_path, "w") as out_items_file:
         out_summary_file.write("Query\tSearch_Type\tTop_Num\tMetric\tValue\n".encode())
-        out_items_file.write("Query\tSearch_Type\tSeries_ID\n".encode())
+        out_items_file.write("Query\tSearch_Type\tSeries_ID\tIn_Gemma\n".encode())
 
         for queryDirPath in glob.glob(f"{baseDirPath}/*"):
             query = os.path.basename(queryDirPath)
@@ -69,6 +69,7 @@ with gzip.open(out_summary_file_path, "w") as out_summary_file:
                                 out_summary_file.write((f"{query}\t{searchType}\t{numTop}\tF1 score\t{f1:.2f}\n").encode())
 
                         for geoID in geoIDs:
-                            out_items_file.write((f"{query}\t{searchType}\t{geoID}\n").encode())
+                            inGemma = ["No", "Yes"][geoID in gemmaSet]
+                            out_items_file.write((f"{query}\t{searchType}\t{geoID}\t{inGemma}\n").encode())
 
 print(f"Saved to {out_summary_file_path} and {out_items_file_path}")
