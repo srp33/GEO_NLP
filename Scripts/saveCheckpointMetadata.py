@@ -62,8 +62,6 @@ info = [["Checkpoint", "Data_Source_Type", "Model_Category", "Fine_Tuning"],
         ["microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext", "Biomedical", "Bidirectional Encoder Representations from Transformers (BERT)", "NA"],
         ["emilyalsentzer/Bio_ClinicalBERT", "Biomedical", "Bidirectional Encoder Representations from Transformers (BERT)", "NA"],
         ["medicalai/ClinicalBERT", "Biomedical", "Bidirectional Encoder Representations from Transformers (BERT)", "NA"],
-        ["google/electra-base-discriminator", "General", "Self-supervised language representation learning", "NA"],
-        ["google/electra-small-discriminator", "General", "Self-supervised language representation learning", "This checkpoint ostentibly is a fine-tuning of google/electra-base-discriminator."],
         ["albert/albert-base-v2", "General", "Masked language modeling (MLM)", "NA"],
         ["albert/albert-xxlarge-v2", "General", "Masked language modeling (MLM)", "This checkpoint ostentibly is a fine-tuning of albert/albert-xxlarge-v2."]]
 
