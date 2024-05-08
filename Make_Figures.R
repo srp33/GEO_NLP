@@ -33,33 +33,33 @@ make_query_factor_2 = function(data) {
     return()
 }
 
-manual_results = read_tsv("../Results/Manual_Searches.tsv.gz") %>%
+manual_results = read_tsv("Results/Manual_Searches.tsv.gz") %>%
   make_query_factor() %>%
   mutate(Metric = factor(Metric, levels=c("Precision", "Recall", "F1 score")))
 
-results = read_tsv("../Results/Metrics.tsv.gz") %>%
+results = read_tsv("Results/Metrics.tsv.gz") %>%
   make_query_factor() %>%
   mutate(Multiplication_Rate = factor(Multiplication_Rate, levels = c("1", "2", "5", "10", "100", "300", "all"))) %>%
   mutate(Method = factor(Method, levels = sort(unique(Method))))
 
-results_chunks = read_tsv("../Results/Metrics_Chunks.tsv.gz") %>%
+results_chunks = read_tsv("Results/Metrics_Chunks.tsv.gz") %>%
   make_query_factor() %>%
   mutate(Multiplication_Rate = factor(Multiplication_Rate, levels = c("1", "2", "5", "10", "100", "300", "all"))) %>%
   mutate(Method = factor(Method, levels = sort(unique(Method))))
 
-embedding_sizes = read_tsv("../Results/Embedding_Sizes.tsv.gz")
-checkpoint_metadata = read_tsv("../Results/Checkpoint_Metadata.tsv.gz")
-textlength_vs_distance = read_tsv("../Results/TextLength_vs_Distance.tsv.gz") %>%
+embedding_sizes = read_tsv("Results/Embedding_Sizes.tsv.gz")
+checkpoint_metadata = read_tsv("Results/Checkpoint_Metadata.tsv.gz")
+textlength_vs_distance = read_tsv("Results/TextLength_vs_Distance.tsv.gz") %>%
   make_query_factor_2()
 
-top_gemma_candidates = read_tsv("../Results/Top_Gemma_Candidates.tsv.gz")
-top_nongemma_candidates = read_tsv("../Results/Top_NonGemma_Candidates.tsv.gz")
+top_gemma_candidates = read_tsv("Results/Top_Gemma_Candidates.tsv.gz")
+top_nongemma_candidates = read_tsv("Results/Top_NonGemma_Candidates.tsv.gz")
 
 ########################################################################
 # Create graphs for manual searches.
 ########################################################################
 
-dir.create("../Figures", showWarnings = FALSE)
+dir.create("Figures", showWarnings = FALSE)
 
 plot_data = mutate(manual_results, Top_Num = as.integer(Top_Num)) %>%
   mutate(Search_Type = factor(Search_Type, levels = c("Tag ontology term", "Tag ontology term plus synonyms", "MeSH term")))
@@ -74,7 +74,7 @@ ggplot(plot_data, aes(x = Top_Num, y = Value, color = Metric, linetype=Search_Ty
   scale_color_manual(values = c('Precision' = '#1b9e77', 'Recall' = '#7570b3', 'F1 score' = '#d95f02')) +
   scale_linetype_manual(values = c("MeSH term" = "solid", "Tag ontology term" = "dashed", "Tag ontology term plus synonyms" = "dotdash"), name = "Search type")
 
-ggsave("../Figures/Manual_Searches.pdf", width=12.5, height=8.5, unit="in")
+ggsave("Figures/Manual_Searches.pdf", width=12.5, height=8.5, unit="in")
 
 ########################################################################
 # Compare performance with or without text chunking.
@@ -94,7 +94,7 @@ group_by(diff_data, Method) %>%
   summarize(Difference = median(Difference, na.rm=TRUE)) %>%
   arrange(Method) %>%
   kable(format="simple") %>%
-  write("../Tables/Chunking_Improvement.md")
+  write("Tables/Chunking_Improvement.md")
 
 ########################################################################
 # Create graphs for model-based approaches.
@@ -112,7 +112,7 @@ filter(results, Multiplication_Rate == "all") %>%
   theme_bw(base_size = 14) +
   theme(plot.margin = margin(l = 0, t = 3, r = 5, b = 3, unit = "mm"))
 
-ggsave("../Figures/AUPRC_by_Query.pdf", width=6.5, height=3.5, unit="in")
+ggsave("Figures/AUPRC_by_Query.pdf", width=6.5, height=3.5, unit="in")
 
 filter(results, Multiplication_Rate == "all") %>%
   filter(Metric == "AUPRC") %>%
@@ -127,7 +127,7 @@ filter(results, Multiplication_Rate == "all") %>%
   theme(plot.margin = margin(t = 3, r = 12, unit = "mm")) +
   guides(color = guide_legend(ncol=1))
 
-ggsave("../Figures/AUPRC_by_Checkpoint.pdf", width=6.5, height=9, unit="in")
+ggsave("Figures/AUPRC_by_Checkpoint.pdf", width=6.5, height=9, unit="in")
 
 unique_embedding_sizes = pull(embedding_sizes, Embedding_Size) %>%
   unique() %>%
@@ -164,12 +164,12 @@ filter(results, Multiplication_Rate == "all") %>%
   scale_color_manual(values = c("General" = "#f46d43", "Scientific" = "#abd9e9", "Biomedical" = "#4575b4", "None" = "black"), name = "Data source type") +
   guides(shape = "none")
 
-ggsave("../Figures/AUPRC_Rank_by_Checkpoint.pdf", width=11, height=9, unit="in")
+ggsave("Figures/AUPRC_Rank_by_Checkpoint.pdf", width=11, height=9, unit="in")
 
 inner_join(embedding_sizes, checkpoint_metadata) %>%
   arrange(Checkpoint) %>%
   kable(format="simple") %>%
-  write("../Checkpoint_Metadata.md")
+  write("Tables/Checkpoint_Metadata.md")
 
 top_three = c("thenlper/gte-large", "sentence-transformers/all-roberta-large-v1", "sentence-transformers/all-mpnet-base-v2")
 
@@ -185,7 +185,7 @@ filter(results, Metric == "AUPRC") %>%
   ylab("AUPRC") +
   theme_bw(base_size = 14)
 
-ggsave("../Figures/AUPRC_by_Multiplication_Rate.pdf", width=11, height=9, unit="in")
+ggsave("Figures/AUPRC_by_Multiplication_Rate.pdf", width=11, height=9, unit="in")
 
 filter(results, Metric == "Recall") %>%
   filter(Multiplication_Rate == "all") %>%
@@ -204,7 +204,7 @@ filter(results, Metric == "Recall") %>%
   ylab("Recall (sensitivity)") +
   theme_bw(base_size = 14)
 
-ggsave("../Figures/Recall_by_Top_Num.pdf", width=11, height=9, unit="in")
+ggsave("Figures/Recall_by_Top_Num.pdf", width=11, height=9, unit="in")
 
 select(top_gemma_candidates, -Score) %>%
   mutate(Model = str_replace_all(Model, "____", "/")) %>%
@@ -224,9 +224,9 @@ select(top_gemma_candidates, -Score) %>%
 # I added Current Gemma tag(s) to the spreadsheet on May 1, 2024.
 
 # FYI: Uncomment this only if you want to overwrite the XLSX file.
-# write_xlsx(top_gemma_candidates_table, "../Tables/Top_Gemma_Candidates.xlsx")
+# write_xlsx(top_gemma_candidates_table, "Tables/Top_Gemma_Candidates.xlsx")
 
-top_gemma_candidates_excel = readxl::read_xlsx("../Tables/Top_Gemma_Candidates.xlsx")
+top_gemma_candidates_excel = readxl::read_xlsx("Tables/Top_Gemma_Candidates.xlsx")
 
 pull(top_gemma_candidates_excel, `Strong case`) %>%
   factor(levels = c("Yes", "No", "Maybe")) %>%
@@ -236,7 +236,7 @@ pull(top_gemma_candidates_excel, `Strong case`) %>%
 #     9    13     3 
 
 kable(top_gemma_candidates_excel, format="simple") %>%
-  write("../Tables/Top_Gemma_Candidates.md")
+  write("Tables/Top_Gemma_Candidates.md")
 
 mutate(top_nongemma_candidates, Model = str_replace_all(Model, "____", "/")) %>%
   mutate(Query = fct_recode(Query,
@@ -269,12 +269,12 @@ ggplot(textlength_vs_distance, aes(x = TextLength, y = Distance)) +
   xlab("Text length (# of characters)") +
   theme_bw(base_size = 16)
 
-ggsave("../Figures/Gemma_TextLength_vs_Distance.pdf", width=11, height=9, unit="in")
+ggsave("Figures/Gemma_TextLength_vs_Distance.pdf", width=11, height=9, unit="in")
 
 # FYI: Uncomment this only if you want to overwrite the XLSX file.
-#write_xlsx(top_nongemma_candidates_table, "../Tables/Top_NonGemma_Candidates.xlsx")
+#write_xlsx(top_nongemma_candidates_table, "Tables/Top_NonGemma_Candidates.xlsx")
 
-top_nongemma_candidates_excel = readxl::read_xlsx("../Tables/Top_NonGemma_Candidates.xlsx") %>%
+top_nongemma_candidates_excel = readxl::read_xlsx("Tables/Top_NonGemma_Candidates.xlsx") %>%
   mutate(`Relevant to medical condition` = factor(`Relevant to medical condition`, levels=c("Yes", "No", "Maybe"))) %>%
   mutate(Query = factor(Query, levels = c("Triple negative breast carcinoma", "Parkinson's disease", "Neuroblastoma", "Juvenile idiopathic arthritis", "Down syndrome", "Bipolar disorder")))
 
@@ -293,7 +293,7 @@ group_by(top_nongemma_candidates_excel, Query, `Relevant to medical condition`) 
   scale_fill_brewer(palette = "Set2") +
   theme_bw(base_size=16)
 
-ggsave("../Figures/NonGemma_Relevance.pdf", width=11, height=9, unit="in")
+ggsave("Figures/NonGemma_Relevance.pdf", width=11, height=9, unit="in")
 
 filter(top_nongemma_candidates_excel, `Relevant to medical condition` == "No") %>%
   pull(`Relevant to related condition(s)`) %>%
@@ -315,7 +315,7 @@ filter(top_nongemma_candidates_excel, `Relevant to medical condition` == "Yes") 
   scale_fill_brewer(palette = "Set2") +
   theme_bw(base_size=16)
 
-ggsave("../Figures/NonGemma_SampleType.pdf", width=11, height=9, unit="in")
+ggsave("Figures/NonGemma_SampleType.pdf", width=11, height=9, unit="in")
 
 # TODO:
 # Send Anna the JSON file with the gte embeddings for all of GEO (make sure it has all).
