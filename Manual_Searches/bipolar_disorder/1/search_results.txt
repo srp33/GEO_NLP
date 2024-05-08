@@ -1,5 +1,13 @@
 
-1. Differential diagnosis between uterine leiomyoma and leiomyosarcoma using transcriptome analysis
+1. Fibroblasts as an in vitro model of circadian genetic and genomic studies: A temporal analysis (RNA-Seq)
+(Submitter supplied) Bipolar disorder (BD) is a heritable disorder characterized by shifts in mood that manifest in manic or depressive episodes. Clinical studies have identified abnormalities of the circadian system in BD patients as a hallmark of underlying pathophysiology. Fibroblasts are a well-established in vitro model for measuring circadian patterns. We set out to examine the underlying genetic architecture of circadian rhythm in fibroblasts, with the goal to assess its contribution to the polygenic nature of BD disease risk. more...
+Organism:	Homo sapiens
+Type:		Expression profiling by high throughput sequencing
+Platform: GPL20301 78 Samples
+FTP download: GEO (TSV) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE263nnn/GSE263713/
+Series		Accession: GSE263713	ID: 200263713
+
+2. Differential diagnosis between uterine leiomyoma and leiomyosarcoma using transcriptome analysis
 (Submitter supplied) Objective: The objective of this study was to estimate the accuracy of transcriptome-based classifier in differential diagnosis of uterine leiomyoma and leiomyosarcoma. Methods: We manually selected 114 normal uterine tissue and 31 leiomyosarcoma samples from publicly available transcriptome data in UCSC Xena as training/validation sets. We developed pre-processing procedure and gene selection method to sensitively find genes of larger variance in leiomyosarcoma than normal uterine tissues. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -7,7 +15,7 @@ Platform: GPL24676 35 Samples
 FTP download: GEO (CSV) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE222nnn/GSE222045/
 Series		Accession: GSE222045	ID: 200222045
 
-2. REST and Impaired Neural Stress Resistance in Bipolar Disorder
+3. REST and Impaired Neural Stress Resistance in Bipolar Disorder
 (Submitter supplied) Neurodevelopmental changes and impaired stress resistance have been implicated in the pathogenesis of bipolar disorder (BD), but the underlying regulatory mechanisms are unresolved.  Here we describe a cerebral organoid model of BD that exhibits altered early neural development, elevated neural network activity, and a major shift in the transcriptome. These phenotypic changes were reproduced in cerebral organoids generated from iPS cell lines derived in multiple different laboratories. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -15,7 +23,7 @@ Platform: GPL24676 16 Samples
 FTP download: GEO (TSV) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE234nnn/GSE234795/
 Series		Accession: GSE234795	ID: 200234795
 
-3. Transition of allele-specific DNA hydroxymethylation at regulatory loci is associated with phenotypic variation in monozygotic twins discordant for psychiatric disorders
+4. Transition of allele-specific DNA hydroxymethylation at regulatory loci is associated with phenotypic variation in monozygotic twins discordant for psychiatric disorders
 (Submitter supplied) Major psychiatric disorders such as schizophrenia (SCZ) and bipolar disorder (BPD) are complex genetic mental illnesses. Their non-Mendelian features such as monozygotic twins discordant for SCZ or BPD are likely complicated by environmental modifiers of genetic effects. 5-hydroxymethylcytosine (5hmC) is an important epigenetic marker in gene regulation and whether its links with genetic variants contribute to the non-Mendelian features remain largely unexplored. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -23,7 +31,7 @@ Platform: GPL24676 4 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE246nnn/GSE246593/
 Series		Accession: GSE246593	ID: 200246593
 
-4. Multi-omic profiling of the developing human cerebral cortex at the single cell level [snRNA-seq]
+5. Multi-omic profiling of the developing human cerebral cortex at the single cell level [snRNA-seq]
 (Submitter supplied) Human brain development starts during embryogenesis and extends postnatally to adulthood. During this time, the cellular complexity of the brain is established via dynamic changes in gene expression, mediated, in part, by the spatiotemporal activity of cis-regulatory elements. To better understand these processes, we performed simultaneous profiling of gene expression and chromatin accessibility in 45,549 individual nuclei, isolated from the human cortex across 6 broad developmental time-points from fetus to adult. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -31,7 +39,7 @@ Platform: GPL24676 12 Samples
 FTP download: GEO (RDS, TSV) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE204nnn/GSE204683/
 Series		Accession: GSE204683	ID: 200204683
 
-5. Spatially and temporally distinct patterns of expression for VPS10P domain receptors in human cerebral organoids
+6. Spatially and temporally distinct patterns of expression for VPS10P domain receptors in human cerebral organoids
 (Submitter supplied) Vacuolar protein sorting 10 protein (VPS10P) domain receptors are a unique class of intracellular sorting receptors that emerge as major risk factors associated with psychiatric and neurodegenerative diseases, including bipolar disorders, autism, schizophrenia, as well as Alzheimer’ disease and frontotemporal dementia. Yet, the lack of suitable experimental models to study receptor functions in the human brain have hampered elucidation of receptor actions in brain disease. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -39,7 +47,7 @@ Platform: GPL24676 1 Sample
 FTP download: GEO (MTX, TSV) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE240nnn/GSE240153/
 Series		Accession: GSE240153	ID: 200240153
 
-6. Spatially and temporally distinct patterns of expression for VPS10P domain receptors in human cerebral organoids.
+7. Spatially and temporally distinct patterns of expression for VPS10P domain receptors in human cerebral organoids.
 (Submitter supplied) Vacuolar protein sorting 10 protein (VPS10P) domain receptors are a unique class of intracellular sorting receptors that emerge as major risk factors associated with psychiatric and neurodegenerative diseases, including bipolar disorders, autism, schizophrenia, as well as Alzheimer’ disease and frontotemporal dementia. Yet, the lack of suitable experimental models to study receptor functions in the human brain have hampered elucidation of receptor actions in brain disease. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -47,7 +55,7 @@ Platform: GPL24676 1 Sample
 FTP download: GEO (MTX, TSV) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE233nnn/GSE233567/
 Series		Accession: GSE233567	ID: 200233567
 
-7. Gene expression alterations in the postmortem hippocampus from older patients with bipolar disorder – a hypothesis generating study
+8. Gene expression alterations in the postmortem hippocampus from older patients with bipolar disorder – a hypothesis generating study
 (Submitter supplied) Gene expression of samples from the postmortem hippocampus of older bipolar disorder subjects and controls. Gene expression data was generated using the SurePrint G3 Human Gene Expression v3 microarray. Rank feature selection was performed to identify a subset of features that can optimally differentiate BD and controls.
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -55,7 +63,7 @@ Platform: GPL20844 22 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE210nnn/GSE210064/
 Series		Accession: GSE210064	ID: 200210064
 
-8. Compendium of functional regulatory variants in human neuropsychiatric disease (RNA-Seq)
+9. Compendium of functional regulatory variants in human neuropsychiatric disease (RNA-Seq)
 (Submitter supplied) Abstract: Noncoding variants of presumed regulatory function contribute to neuropsychiatric disease heritability. 4442 noncoding variants connected to risk for 10 neuropsychiatric disorders, including autism spectrum disorder, attention deficit hyperactivity disorder, bipolar disorder, borderline personality disorder, major depression, generalized anxiety disorder, panic disorder, post-traumatic stress disorder, obsessive-compulsive disorder, and schizophrenia, were studied within developing human neural cells. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -64,7 +72,7 @@ FTP download: GEO (CSV, TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE182nnn/GSE
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA754441
 Series		Accession: GSE182094	ID: 200182094
 
-9. Expression data from postmortem human dorsolateral prefrontal cortex - psychiatric disorders & healthy controls
+10. Expression data from postmortem human dorsolateral prefrontal cortex - psychiatric disorders & healthy controls
 (Submitter supplied) In psychiatric disorders, common and rare genetic variants cause widespread dysfunction of cells and their interactions, especially in the prefrontal cortex, giving rise to psychiatric symptoms. To better understand these processes, we traced the effects of common and rare genetics, and cumulative disease risk scores, to their molecular footprints in human cortical single-cell types. We demonstrated that examining gene expression at single-exon resolution is crucial for understanding the cortical dysregulation associated with diagnosis and genetic risk derived from common variants. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -72,7 +80,7 @@ Platform: GPL5188 169 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE208nnn/GSE208338/
 Series		Accession: GSE208338	ID: 200208338
 
-10. Diurnal alterations in gene expression across striatal subregions in psychosis
+11. Diurnal alterations in gene expression across striatal subregions in psychosis
 (Submitter supplied) Background: Psychosis is a defining feature of schizophrenia and highly prevalent in bipolar disorder. Notably, individuals suffering with these illnesses also have major disruptions in sleep and circadian rhythms, and disturbances to sleep and circadian rhythms can precipitate or exacerbate psychotic symptoms. Psychosis is associated with the striatum, though no study to date has directly measured molecular rhythms and determined how they are altered in the striatum of subjects with psychosis. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -80,7 +88,7 @@ Platform: GPL18573 215 Samples
 FTP download: GEO (CSV) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE202nnn/GSE202537/
 Series		Accession: GSE202537	ID: 200202537
 
-11. Network-based integrative analysis of lithium response in bipolar disorder using transcriptomic and GWAS data
+12. Network-based integrative analysis of lithium response in bipolar disorder using transcriptomic and GWAS data
 (Submitter supplied) Lithium is the gold standard treatment for bipolar disorder. The goal of this study was to identify gene expression networks associated with lithium response. RNAseq data was obtained from IPSC derived neurons from lithium responders and non-responders. Focal adhesion was the network most associated with response.
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -88,7 +96,7 @@ Platform: GPL16791 34 Samples
 FTP download: GEO (CSV) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE205nnn/GSE205422/
 Series		Accession: GSE205422	ID: 200205422
 
-12. Deficient LEF1 expression is associated with lithium resistance and hyperexcitability in neurons derived from bipolar disorder patients
+13. Deficient LEF1 expression is associated with lithium resistance and hyperexcitability in neurons derived from bipolar disorder patients
 (Submitter supplied) Bipolar disorder (BD) is a psychiatric condition characterized by depressive and manic episodes that affect 2% of the world population. The first-line long-term treatment for mood stabilization is lithium (Li). Induced pluripotent stem cell modeling of BD using hippocampal dentate gyrus-like neurons derived from Li responsive (LR) and Li non-responsive (NR) patients previously showed neuronal hyperexcitability. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -97,7 +105,7 @@ FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE159nnn/GSE15948
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA669045
 Series		Accession: GSE159487	ID: 200159487
 
-13. Transcriptional effects of bipolar disorder drugs on NT2-N cells
+14. Transcriptional effects of bipolar disorder drugs on NT2-N cells
 (Submitter supplied) Human neuronal-like cells (NT2-N) were treated with either lamotrigine (50 µM), lithium (2.5 mM), quetiapine (50 µM), valproate (0.5 mM) or vehicle control for 24 hours. Genome wide mRNA expression was quantified by RNA-sequencing. Results offer insights on the mechanism(s) of action of bipolar disorder drugs at the transcriptional level.
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -105,7 +113,7 @@ Platform: GPL16791 24 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE197nnn/GSE197966/
 Series		Accession: GSE197966	ID: 200197966
 
-14. RNA-seq analysis for wild-type fibroblasts and patient fibroblasts bearing the m.3243A>G mutatioin
+15. RNA-seq analysis for wild-type fibroblasts and patient fibroblasts bearing the m.3243A>G mutatioin
 (Submitter supplied) The goal of this study is to compare RNA-seq of wild-type fibroblasts and patient fibroblasts bearing the m.3243A>G mutatioin. When comparing patient fibroblasts to wild-type ones and using a significance level of false discovery rate (FDR) < 0.05, we identified 3394 transcripts of which 1849 were upregulated and 1545 were downregulated.
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -114,7 +122,7 @@ FTP download: GEO (ZIP) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE175nnn/GSE17547
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA732455
 Series		Accession: GSE175477	ID: 200175477
 
-15. Lithium treatment and human hippocampal neurogenesis
+16. Lithium treatment and human hippocampal neurogenesis
 (Submitter supplied) Lithium is a first-line treatment for bipolar disorder, where it acts as a mood-stabilizing agent. Although its precise mechanism remains unclear, neuroimaging studies have shown that lithium accumulates in the hippocampus and that chronic use amongst bipolar disorder patients is associated with larger hippocampal volumes. Here, we tested the chronic effects of low (0.75 mM) and high (2.25 mM) doses of lithium on human hippocampal progenitor cells and used immunocytochemistry to investigate the effects of lithium on cell parameters implicated in neurogenesis. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -123,7 +131,7 @@ FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE184nnn/GSE18493
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA767056
 Series		Accession: GSE184930	ID: 200184930
 
-16. TCF7L2 lncRNA: A Link between Bipolar Disorder and Body Mass Index through Glucocorticoid Signaling [RNA-Seq]
+17. TCF7L2 lncRNA: A Link between Bipolar Disorder and Body Mass Index through Glucocorticoid Signaling [RNA-Seq]
 (Submitter supplied) Bipolar disorder (BD) and obesity are highly comorbid. We previously performed a genome-wide association study (GWAS) for BD risk accounting for the  effect of body mass index (BMI) which identified a genome-wide significant single-nucleotide polymorphism (SNP) in the gene encoding the transcription factor 7 like 2 (TCF7L2). However, the molecular function of TCF7L2 in the central nervous system (CNS) and its possible role in BD and BMI interaction remained unclear. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -132,7 +140,7 @@ FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE179nnn/GSE17992
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA745682
 Series		Accession: GSE179921	ID: 200179921
 
-17. TCF7L2 lncRNA: A Link between Bipolar Disorder and Body Mass Index through Glucocorticoid Signaling
+18. TCF7L2 lncRNA: A Link between Bipolar Disorder and Body Mass Index through Glucocorticoid Signaling
 (Submitter supplied) This SuperSeries is composed of the SubSeries listed below.
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing; Genome binding/occupancy profiling by high throughput sequencing
@@ -140,7 +148,7 @@ Platform: GPL20301 10 Samples
 FTP download: GEO (BED, TDF) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE179nnn/GSE179922/
 Series		Accession: GSE179922	ID: 200179922
 
-18. Molecular regulation of melatonin biosynthesis pathway in unipolar and bipolar depression
+19. Molecular regulation of melatonin biosynthesis pathway in unipolar and bipolar depression
 (Submitter supplied) Melatonin is a neurohormone that maintains the circadian rhythms of the body. Although we know the pathway of melatonin action in the brain, we lack comprehensive cross-sectional studies on the periphery of depressed patients.
 Organism:	Homo sapiens; Mus musculus
 Type:		Expression profiling by array
@@ -148,7 +156,7 @@ Platform: GPL20844 14 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE169nnn/GSE169459/
 Series		Accession: GSE169459	ID: 200169459
 
-19. Increased IL-6 and altered inflammatory response in bipolar disorder patient-derived astrocytes
+20. Increased IL-6 and altered inflammatory response in bipolar disorder patient-derived astrocytes
 (Submitter supplied) The goals of this study are to examine responses to inflammation in astrocytes from  induced pluripotent stem cells derived from healthy controls and bipolar disorder patients. We examine the transcriptomic inflmmatory signature of generated astrocytes following Il1Beta exposure in BD vs. control Results: BD-patient astrocytes show a unique inflammatory response with differentially regulated genes.
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -157,7 +165,7 @@ FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE157nnn/GSE15750
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA661540
 Series		Accession: GSE157509	ID: 200157509
 
-20. RNA sequencing  in human  iPSCs derived from  bipolar  patients  to identify important therapeutic molecular targets of Valproate(VPA)
+21. RNA sequencing  in human  iPSCs derived from  bipolar  patients  to identify important therapeutic molecular targets of Valproate(VPA)
 (Submitter supplied) Valproate(VPA) has been used in the treatment of bipolar disorder since the 1990s.  However, the therapeutic targetsof VPA have remained elusive. Here we  used RNA sequencing  in human  iPSCs derived from  bipolar  patients  to further identify important molecular targets. Human iPSCs were homogenized and total RNA was isolated using the RNeasy Plus Micro Kit (Qiagen, Hilden, Germany). RNA quantity and quality were assessed using fluorometry (Qubit RNA Broad Range Assay Kit and Fluorometer; Invitrogen, Carlsbad, CA) and chromatography (Bioanalyzer and RNA 6000 Nano Kit; Agilent, Santa Clara, CA), respectively. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -166,7 +174,7 @@ FTP download: GEO (CSV) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE160nnn/GSE16076
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA674370
 Series		Accession: GSE160761	ID: 200160761
 
-21. Total RNA sequecing for human induced pluripotent derived cerebral organoids
+22. Total RNA sequecing for human induced pluripotent derived cerebral organoids
 (Submitter supplied) Total RNA sequecing for human induced pluripotent derived cerebral organoids from healthy controls and Bipolar disorder
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -175,7 +183,7 @@ FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE134nnn/GSE13449
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA555337
 Series		Accession: GSE134497	ID: 200134497
 
-22. Blood Biomarkers for Memory: Towards Early Detection of Risk for Alzheimer Disease, Pharmacogenomics, and Repurposed Drugs
+23. Blood Biomarkers for Memory: Towards Early Detection of Risk for Alzheimer Disease, Pharmacogenomics, and Repurposed Drugs
 (Submitter supplied) Short-memory dysfunction is a key early feature of Alzheimer Disease. Psychiatric patients may be at higher risk for memory dysfunction and subsequent Alzheimer due to the negative effects of stress and depression on the brain. We carried out longitudinal within-subject studies in male and female psychiatric patients to identify blood gene expression biomarkers that track short term memory as measured by the retention measure in the Hopkins Verbal Learning Test. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -183,7 +191,7 @@ Platform: GPL570 734 Samples
 FTP download: GEO (CEL, TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE127nnn/GSE127711/
 Series		Accession: GSE127711	ID: 200127711
 
-23. A human single cell atlas of the substantia nigra reveals novel cell specific pathways associated with the genetic risk of Parkinson’s disease and neuropsychiatric disorders
+24. A human single cell atlas of the substantia nigra reveals novel cell specific pathways associated with the genetic risk of Parkinson’s disease and neuropsychiatric disorders
 (Submitter supplied) We describe the first human single-nuclei transcriptomic atlas for substantia nigra (SN), generated by sequencing ~ 17,000 nuclei from matched cortical and SN samples.  We show that common genetic risk for Parkinson’s disease (PD) is associated with dopaminergic neuron (DaN)-specific gene expression including mitochondrial functioning, protein folding and ubiquitination pathways. We also identified a distinct cell-type association between PD risk and oligodendrocyte-specific expression implicating metabolic and gene expression regulation networks. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -192,7 +200,7 @@ FTP download: GEO (TAR) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE140nnn/GSE14023
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA589018
 Series		Accession: GSE140231	ID: 200140231
 
-24. Whole blood transcriptome analysis in bipolar disorder reveals strong lithium effect
+25. Whole blood transcriptome analysis in bipolar disorder reveals strong lithium effect
 (Submitter supplied) BACKGROUND: Bipolar disorder (BD) is a highly heritable mood disorder with complex genetic architecture and poorly understood etiology. Previous transcriptomic BD studies have had inconsistent findings due to issues such as small sample sizes and difficulty in adequately accounting for confounders like medication use.  METHODS: We performed a differential expression analysis in a well-characterized BD case-control sample (Nsubjects = 480) by RNA sequencing of whole blood. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -201,7 +209,7 @@ FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE124nnn/GSE12432
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA511612
 Series		Accession: GSE124326	ID: 200124326
 
-25. Transcriptome analyses of iPSC-derived neural stem/progenitor cells and cerebral organoids from monozygotic twins discordant for schizoaffective bipolar disorder
+26. Transcriptome analyses of iPSC-derived neural stem/progenitor cells and cerebral organoids from monozygotic twins discordant for schizoaffective bipolar disorder
 (Submitter supplied) To investigate the disease-associated differences in gene expression pattern during neuro developmental stage between the discordant twins, we performed RNA sequecing-based transcriptome analyses of iPSC-derived neural cells.
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -210,7 +218,7 @@ FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE120nnn/GSE12019
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA491926
 Series		Accession: GSE120190	ID: 200120190
 
-26. Regional transcriptional differences between human cerebellar and forebrain (superior temporal gyrus) microglia
+27. Regional transcriptional differences between human cerebellar and forebrain (superior temporal gyrus) microglia
 (Submitter supplied) Bulk RNA sequencing of purified primary human microglia from superior temporal gyrus and cerebellum
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -219,15 +227,15 @@ FTP download: GEO (CSV) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE133nnn/GSE13335
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA551253
 Series		Accession: GSE133357	ID: 200133357
 
-27. DNA methylation in neurons from post-mortem brains in schizophrenia and bipolar disorder
+28. DNA methylation in neurons from post-mortem brains in schizophrenia and bipolar disorder
 (Submitter supplied) This SuperSeries is composed of the SubSeries listed below.
-Organism:	Mus musculus; Homo sapiens
+Organism:	Homo sapiens; Mus musculus
 Type:		Expression profiling by high throughput sequencing; Methylation profiling by high throughput sequencing; Methylation profiling by array; Genome variation profiling by SNP array
 5 related Platforms 332 Samples
 FTP download: GEO (IDAT, TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE112nnn/GSE112525/
 Series		Accession: GSE112525	ID: 200112525
 
-28. DNA methylation in neurons from post-mortem brains in schizophrenia and bipolar disorder (RNA-Seq)
+29. DNA methylation in neurons from post-mortem brains in schizophrenia and bipolar disorder (RNA-Seq)
 (Submitter supplied) We fine-mapped DNA methylation in neuronal nuclei (NeuN+) isolated by flow cytometry from post-mortem frontal cortex of the brain of individuals diagnosed with schizophrenia, bipolar disorder, and controls (n=29, 26, and 28 individuals).
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -236,7 +244,7 @@ FTP download: GEO (CSV) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE112nnn/GSE11252
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA448069
 Series		Accession: GSE112523	ID: 200112523
 
-29. Genome-Scale Transcriptional Regulatory Network Models of Psychiatric and Neurodegenerative Disorders
+30. Genome-Scale Transcriptional Regulatory Network Models of Psychiatric and Neurodegenerative Disorders
 (Submitter supplied) Transcriptional regulatory changes in the developing and adult brain are prominent features of brain diseases, but the involvement of specific transcription factors (TFs) remains poorly understood. We integrated brain-specific DNase footprinting and TF-gene co-expression to reconstruct a transcriptional regulatory network (TRN) model for the human brain. We identified key regulator TFs whose predicted target genes were enriched for differentially expressed genes in the prefrontal cortex of individuals with psychiatric and neurodegenerative diseases. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -244,7 +252,7 @@ Platform: GPL17077 16 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE102nnn/GSE102122/
 Series		Accession: GSE102122	ID: 200102122
 
-30. Effects of the microRNA 137 and its connection to psychiatric disorders.
+31. Effects of the microRNA 137 and its connection to psychiatric disorders.
 (Submitter supplied) MicroRNAs have been implicated in the pathology not only of cancer, but also of psychiatric diseases, such as bipolar disorder and schizophrenia. As several psychiatric disorders share the same risk genes, we hypothesized that this microRNA could also be associated with attention-deficit/hyperactivity disorder (ADHD) and that this association to psychiatric disorders might be due to the variable number of tandem repeats (VNTR) polymorphism within the internal miR-137 (Imir137) promoter (PMID 18316599; PMID 25154622). more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -252,7 +260,7 @@ Platform: GPL16043 6 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE66nnn/GSE66433/
 Series		Accession: GSE66433	ID: 200066433
 
-31. Bipolar disorder and lithium-induced gene expression in two peripheral cell models
+32. Bipolar disorder and lithium-induced gene expression in two peripheral cell models
 (Submitter supplied) Bipolar disorder is a severe and heritable psychiatric disorder and affects up to 1% of the population worldwide. Lithium is recommended as first-line treatment for the maintenance treatment of bipolar-affective disorder in current guidelines, its molecular modes of action are however poorly understood. Cell models derived from bipolar patients could prove useful to gain more insight in the molecular mechanisms of bipolar disorder and the common pharmacological treatments. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -260,7 +268,7 @@ Platform: GPL570 12 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE66nnn/GSE66196/
 Series		Accession: GSE66196	ID: 200066196
 
-32. Aberrant transcriptomes and DNA methylomes define pathways that drive pathogenesis and loss of brain laterality/asymmetry in schizophrenia and bipolar disorder
+33. Aberrant transcriptomes and DNA methylomes define pathways that drive pathogenesis and loss of brain laterality/asymmetry in schizophrenia and bipolar disorder
 (Submitter supplied) This SuperSeries is composed of the SubSeries listed below.
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -268,7 +276,7 @@ Platforms: GPL8490 GPL16311 41 Samples
 FTP download: GEO (CEL, IDAT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE120nnn/GSE120342/
 Series		Accession: GSE120342	ID: 200120342
 
-33. Aberrant transcriptomes and DNA methylomes define pathways that drive pathogenesis and loss of brain laterality/asymmetry in schizophrenia and bipolar disorder [Illumina]
+34. Aberrant transcriptomes and DNA methylomes define pathways that drive pathogenesis and loss of brain laterality/asymmetry in schizophrenia and bipolar disorder [Illumina]
 (Submitter supplied) Although the loss or reversal of brain laterality is one of the most consistent modalities in schizophrenia (SCZ) and bipolar disorder (BD), its molecular basis remains elusive. Our limited previous studies indicated that epigenetic modifications are key to the asymmetric transcriptomes of brain hemispheres. We used whole-genome expression microarrays to profile post-mortem brain samples from subjects with SCZ, psychotic BD [BD(+)] or non-psychotic BD [BD(-)], or matched controls (n=10/group, corresponding to different brain hemispheres) and performed whole-genome DNA methylation (DNAM) profiling of the same samples (n=3-4/group) to identify pathways associated with SCZ or BD(+) and genes/sites susceptible to epigenetic regulation. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -276,7 +284,7 @@ Platform: GPL8490 11 Samples
 FTP download: GEO (IDAT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE120nnn/GSE120341/
 Series		Accession: GSE120341	ID: 200120341
 
-34. Aberrant transcriptomes and DNA methylomes define pathways that drive pathogenesis and loss of brain laterality/asymmetry in schizophrenia and bipolar disorder [Affymetrix]
+35. Aberrant transcriptomes and DNA methylomes define pathways that drive pathogenesis and loss of brain laterality/asymmetry in schizophrenia and bipolar disorder [Affymetrix]
 (Submitter supplied) Although the loss or reversal of brain laterality is one of the most consistent modalities in schizophrenia (SCZ) and bipolar disorder (BD), its molecular basis remains elusive. Our limited previous studies indicated that epigenetic modifications are key to the asymmetric transcriptomes of brain hemispheres. We used whole-genome expression microarrays to profile post-mortem brain samples from subjects with SCZ, psychotic BD [BD(+)] or non-psychotic BD [BD(-)], or matched controls (n=10/group, corresponding to different brain hemispheres) and performed whole-genome DNA methylation (DNAM) profiling of the same samples (n=3-4/group) to identify pathways associated with SCZ or BD(+) and genes/sites susceptible to epigenetic regulation. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -284,7 +292,7 @@ Platform: GPL16311 30 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE120nnn/GSE120340/
 Series		Accession: GSE120340	ID: 200120340
 
-35. Transciptome changes in relation to manic episode
+36. Transciptome changes in relation to manic episode
 (Submitter supplied) The present study focused on manic episode in bipolar disorder (BD) patients, and to investigate state-specific transcriptome alterations between acute episode and remission, including mRNAs, long non-coding RNAs (lncRNAs), and miRNAs using Affymetrix Human Transcriptome Array 2.0.
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -292,7 +300,7 @@ Platform: GPL17586 12 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE121nnn/GSE121963/
 Series		Accession: GSE121963	ID: 200121963
 
-36. Expression data of Glutarmatergic neuron and GABAergic neruon induced from iPSCs
+37. Expression data of Glutarmatergic neuron and GABAergic neruon induced from iPSCs
 (Submitter supplied) We used microarrays to identify the differently expressed genes in disease model for bipolar disorder and schizophrenia.
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -300,7 +308,7 @@ Platform: GPL23159 12 Samples
 FTP download: GEO (CEL, CHP) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE116nnn/GSE116820/
 Series		Accession: GSE116820	ID: 200116820
 
-37. Knockdown of TSPAN8 gene expression in the SH-SY5Y neuroblastoma cell line
+38. Knockdown of TSPAN8 gene expression in the SH-SY5Y neuroblastoma cell line
 (Submitter supplied) Bipolar disorder (BD) has an estimated heritability of about 80%. Different pathways and candidate genes may contribute to the pathogenesis of BD, but definite mechanisms are yet unresolved. In a previous study, we identified the single nucleotide polymorphism (SNP) rs4500567, located in the upstream region of Tetraspanin 8 (TSPAN8), to be associated with bipolar disorder (BD). The SNP´s minor allele results in a predicted binding site for the transcription factor Nuclear Factor Interleukin 3, regulated (NFIL3); luciferase assays confirmed allele-specific TSPAN8 expression levels.
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -308,15 +316,15 @@ Platform: GPL570 4 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE65nnn/GSE65459/
 Series		Accession: GSE65459	ID: 200065459
 
-38. Gene and MicroRNA expression data from lymphoblastoid cell lines from patients with bipolar disorder
+39. Gene and MicroRNA expression data from lymphoblastoid cell lines from patients with bipolar disorder
 (Submitter supplied) This SuperSeries is composed of the SubSeries listed below.
-Organism:	Homo sapiens; synthetic construct
+Organism:	synthetic construct; Homo sapiens
 Type:		Expression profiling by array; Non-coding RNA profiling by array
 Platforms: GPL16686 GPL16384 32 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE93nnn/GSE93114/
 Series		Accession: GSE93114	ID: 200093114
 
-39. Gene expression data from lymphoblastoid cell lines from patients with bipolar disorder
+40. Gene expression data from lymphoblastoid cell lines from patients with bipolar disorder
 (Submitter supplied) Bipolar disorder (BD) (1% of the general population) is a major affective disorder characterized by recurrent manic and depressive episodes and associated with considerable burden and costs. Lithium (Li) is the first line treatment for relapse prevention in bipolar disorders with many patients who remain asymptomatic for several years (even decades). In addition, it is the only psychoactive drug that has demonstrated efficacy in suicide prevention. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -324,7 +332,7 @@ Platform: GPL16686 16 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE93nnn/GSE93112/
 Series		Accession: GSE93112	ID: 200093112
 
-40. RNA-sequencing of human post-mortem brain tissues
+41. RNA-sequencing of human post-mortem brain tissues
 (Submitter supplied) RNA-seq profiling was conducted on clinically-annotated human post-mortem brain tissues
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -333,7 +341,7 @@ FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE80nnn/GSE80655/
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA319583
 Series		Accession: GSE80655	ID: 200080655
 
-41. Total RNAseq of human putamen and caudate nucleus tissues in healthy control and Bipolar Disorder individuals
+42. Total RNAseq of human putamen and caudate nucleus tissues in healthy control and Bipolar Disorder individuals
 (Submitter supplied) A multitude of genes have been associated with bipolar disorder via SNP genotyping studies.  However, many of these associated SNPs are found within intronic or intergenic regions of the human genome.  We were interested in studying transcriptional profiles/splice variation of genes associated with bipolar disorder within the human striatum. Understanding how these associated genes are transcribed in the human brain may help to guide the development of therapeutic agents for the treatment of bipolar disorder and other neuropsychiatric illnesses.
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -342,7 +350,7 @@ FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE81nnn/GSE81396/
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA321439
 Series		Accession: GSE81396	ID: 200081396
 
-42. Gene expression of L3 and L5 pyramidal neurons in the DLPFC comparing schizophrenia from bipolar major depressive disorders and unaffected subjects.
+43. Gene expression of L3 and L5 pyramidal neurons in the DLPFC comparing schizophrenia from bipolar major depressive disorders and unaffected subjects.
 (Submitter supplied) Impairments in certain cognitive processes (e.g., working memory) are typically most pronounced in schizophrenia (SZ), intermediate in bipolar disorder (BP) and least in major depressive disorder (MDD). Given that working memory depends, in part, on neural circuitry that includes pyramidal neurons in layer 3 (L3) and layer 5 (L5) of the dorsolateral prefrontal cortex (DLPFC), we sought to determine if transcriptome alterations in these neurons were shared or distinctive for each diagnosis.
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -350,7 +358,7 @@ Platform: GPL13667 286 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE87nnn/GSE87610/
 Series		Accession: GSE87610	ID: 200087610
 
-43. Transcriptome of iPSC-derived Cerebral Organoids with Heterozygous Knockout in CHD8
+44. Transcriptome of iPSC-derived Cerebral Organoids with Heterozygous Knockout in CHD8
 (Submitter supplied) CHD8 (chromodomain helicase DNA binding protein 8), which codes for a member of the CHD family of ATP-dependent chromatin-remodeling factors, is the most commonly mutated gene in autism spectrum disorders (ASD) identified in exome-sequencing studies. Loss of function mutations in the gene have also been found in schizophrenia (SZ) and intellectual disabilities, and affects cancer cell proliferation. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -359,7 +367,7 @@ FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE85nnn/GSE85417/
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA338401
 Series		Accession: GSE85417	ID: 200085417
 
-44. Inference of cell-type composition from human brain transcriptomic datasets illuminates the effects of age, manner of death, dissection, and psychiatric diagnosis
+45. Inference of cell-type composition from human brain transcriptomic datasets illuminates the effects of age, manner of death, dissection, and psychiatric diagnosis
 (Submitter supplied) Most neuroscientists would agree that psychiatric illness is unlikely to arise from pathological changes that occur uniformly across all cells in a given brain region. Despite this fact, the majority of transcriptomic analyses of the human brain to date are conducted using macro-dissected tissue due to the difficulty of conducting single-cell level analyses on donated post-mortem brains. To address this issue statistically, we compiled a database of several thousand transcripts that were specifically-enriched in one of 10 primary brain cell types identified in published single cell type transcriptomic experiments. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -367,7 +375,7 @@ Platforms: GPL17027 GPL10526 363 Samples
 FTP download: GEO (CEL, TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE92nnn/GSE92538/
 Series		Accession: GSE92538	ID: 200092538
 
-45. Systematically characterizing dysfunctional long intergenic non-coding RNAs in multiple brain regions of major psychosis
+46. Systematically characterizing dysfunctional long intergenic non-coding RNAs in multiple brain regions of major psychosis
 (Submitter supplied) Schizophrenia (SZ) and bipolar disorder (BD) are severe neuropsychiatric disorders with serious impact on patients, together termed “major psychosis”. Recently, long intergenic non-coding RNAs (lincRNAs) were reported to play important roles in mental diseases. However, little was known about their molecular mechanism in pathogenesis of SZ and BD. Here, we performed RNA sequencing on 82 post-mortem brain tissues from three brain regions (orbitofrontal cortex (BA11), anterior cingulate cortex (BA24) and dorsolateral prefrontal cortex (BA9)) of patients with SZ and BD and control subjects, generating over one billion reads. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -376,7 +384,7 @@ FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE78nnn/GSE78936/
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA314463
 Series		Accession: GSE78936	ID: 200078936
 
-46. Transcriptome profiling of the human dorsal striatum in bipolar disorder
+47. Transcriptome profiling of the human dorsal striatum in bipolar disorder
 (Submitter supplied) Bipolar disorder (BD) is a highly heritable and heterogeneous mental illness whose manifestations often include impulsive and risk-taking behavior. This particular phenotype suggests that abnormal striatal function could be involved in BD etiology, yet most transcriptomic studies of this disorder have concentrated on cortical brain regions. We report the first transcriptome profiling by RNA-Seq of the human dorsal striatum comparing bipolar and control subjects. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -385,7 +393,7 @@ FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE80nnn/GSE80336/
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA318642
 Series		Accession: GSE80336	ID: 200080336
 
-47. Characterization of expression quantitative trait loci in extensively phenotyped pedigrees from Colombia and Costa Rica
+48. Characterization of expression quantitative trait loci in extensively phenotyped pedigrees from Colombia and Costa Rica
 (Submitter supplied) The observation that variants regulating gene expression (expression quantitative trait loci, eQTL) are at a high frequency among SNPs associated with complex traits has made the genome-wide characterization of gene expression an important tool in genetic mapping studies of such traits. As part of a study to identify genetic loci contributing to bipolar disorder and a wide range of BP-related quantitative traits in members of 26 pedigrees from Costa Rica and Colombia, we measured gene expression in lymphoblastoid cell lines derived from 786 pedigree members. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -393,7 +401,7 @@ Platform: GPL10558 786 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE82nnn/GSE82042/
 Series		Accession: GSE82042	ID: 200082042
 
-48. Gene-expression profiles after siRNA knockdown and overexpression of bromodomian containing 1 (BRD1) in HEK293T cells
+49. Gene-expression profiles after siRNA knockdown and overexpression of bromodomian containing 1 (BRD1) in HEK293T cells
 (Submitter supplied) Background: The bromodomain containing 1 (BRD1) gene has been implicated with transcriptional regulation, brain development and susceptibility to schizophrenia and bipolar disorder. Results: To advance the understanding of BRD1 and its role in mental disorders, we characterized the protein and chromatin interactions of the BRD1 isoforms, BRD1-S and BRD1-L, by a series of investigations and integration of functional molecular data with human genetic data. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -401,7 +409,7 @@ Platform: GPL13667 9 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE79nnn/GSE79255/
 Series		Accession: GSE79255	ID: 200079255
 
-49. Quantitative Trait Locus and Brain Expression of HLA-DPA1 And Shared Immune Alterations in Psychiatric Disorders
+50. Quantitative Trait Locus and Brain Expression of HLA-DPA1 And Shared Immune Alterations in Psychiatric Disorders
 (Submitter supplied) Genome wide association studies of schizophrenia encompassing the major histocompatibility locus (MHC) were highly significant following genome wide correction. This broad region implicates many genes including the MHC complex class II. Within this interval we examined the expression of two MHC II genes (HLA-DPA1 and HLA-DRB1) in brain from individual subjects with schizophrenia (SZ), bipolar disorder (BD), major depressive disorder (MDD), and controls by differential gene expression methods. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -409,7 +417,7 @@ Platforms: GPL5175 GPL5188 40 Samples
 FTP download: GEO (CEL, PGF) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE78nnn/GSE78246/
 Series		Accession: GSE78246	ID: 200078246
 
-50. Peripheral Blood Gene Expression in Fibromyalgia Patients Reveals  Potential Biological Markers and Physiological Pathways
+51. Peripheral Blood Gene Expression in Fibromyalgia Patients Reveals  Potential Biological Markers and Physiological Pathways
 (Submitter supplied) Fibromyalgia (FM) is a common pain disorder characterized by dysregulation in the processing of pain. Although FM has similarities with other rheumatologic pain disorders, the search for objective markers has not been successful. In the current study we analyzed gene expression in the whole blood of 70 fibromyalgia patients and 70 healthy matched controls. Global molecular profiling revealed an upregulation of several inflammatory molecules in FM patients and downregulation of specific pathways related to hypersensitivity and allergy. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -417,7 +425,7 @@ Platform: GPL11532 142 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE67nnn/GSE67311/
 Series		Accession: GSE67311	ID: 200067311
 
-51. Strong Components of Epigenetic Memory in Cultured Human Fibroblasts Related to Site of Origin and Donor Age (RNA-Seq)
+52. Strong Components of Epigenetic Memory in Cultured Human Fibroblasts Related to Site of Origin and Donor Age (RNA-Seq)
 (Submitter supplied) Differentiating pluripotent cells from fibroblast progenitors is a potentially transformative tool in personalized medicine. We previously identified relatively greater success culturing dura-derived fibroblasts than scalp-derived fibroblasts from postmortem tissue. We hypothesized that these differences in culture success were related to epigenetic differences between the cultured fibroblasts by sampling location, and therefore generated genome-wide DNA methylation and transcriptome data on 11 intrinsically matched pairs of dural and scalp fibroblasts from donors across the lifespan (infant to 85 years). more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -426,7 +434,7 @@ FTP download: GEO (CSV) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE77nnn/GSE77131/
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA286856
 Series		Accession: GSE77131	ID: 200077131
 
-52. G72 overexpression in U87 cells
+53. G72 overexpression in U87 cells
 (Submitter supplied) G72 is a susceptible gene for schizophrenia. No matter genetic variation or serum levels, G72 has been recognized as a biomarker for schizophrenia. In some reports, G72 genetic variation also related with bipolar disorder. Although G72 has been studied for 15 years, the protein function is still unclear. This study aims for predicting the biological function of G72 and hope to elucidate its biological role.
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -434,7 +442,7 @@ Platform: GPL19137 8 Samples
 FTP download: GEO (GPR) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE67nnn/GSE67704/
 Series		Accession: GSE67704	ID: 200067704
 
-53. Gene expression analysis of skin fibroblast cells from patients with Bipolar Disorder
+54. Gene expression analysis of skin fibroblast cells from patients with Bipolar Disorder
 (Submitter supplied) Bipolar disorder is a severe, lifelong psychiatric disease. The main underlying pathophysiology of the disease is still incomprehensible. Many studies have suggested that many genes of small impact in combination with environmental factors contribute to the expression of the disease. In this study comparative transcriptomic profiling to characterize skin fibroblasts gene expression of bipolar disorder patients compared to healthy controls  has been performed.
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -442,7 +450,7 @@ Platform: GPL10558 12 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE69nnn/GSE69486/
 Series		Accession: GSE69486	ID: 200069486
 
-54. Hyper-excitability of Neurons generated from Patients with Bipolar Disorder
+55. Hyper-excitability of Neurons generated from Patients with Bipolar Disorder
 (Submitter supplied) Bipolar Disorder (BD) is a complex neuropsychiatric disorder that is characterized by intermittent episodes of mania and depression and, without treatment, 15% of patients commit suicide1. Hence, among all diseases, BD has been ranked by the WHO as a top disorder of morbidity and lost productivity2. Previous neuropathological studies have revealed a series of alterations in the brains of BD patients or animal models3, such as reduced glial cell number in the patient prefrontal cortex4, up-regulated activities of the PKA/PKC pathways5-7, and changes in dopamine/5-HT/glutamate neurotransmission systems8-11. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -451,7 +459,7 @@ FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE58nnn/GSE58933/
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA253946
 Series		Accession: GSE58933	ID: 200058933
 
-55. Transcriptomic Comparison of Neuronal Development Stages using Induced Pluripotent Stem Cells from Bipolar Disorder Patients
+56. Transcriptomic Comparison of Neuronal Development Stages using Induced Pluripotent Stem Cells from Bipolar Disorder Patients
 (Submitter supplied) Fibroblasts from patients with Type I bipolar disorder (BPD) and their unaffected siblings were obtained from an Old Order Amish pedigree with a high incidence of BPD and reprogrammed to induced pluripotent stem cells (iPSCs). Established iPSCs were subsequently differentiated into neuroprogenitors (NPs) and then to neurons. Transcriptomic microarray analysis was conducted on RNA samples from iPSCs, NPs and neurons matured in culture for either 2 weeks (termed early neurons, E) or 4 weeks (termed late neurons, L). more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -459,7 +467,7 @@ Platform: GPL570 28 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE74nnn/GSE74358/
 Series		Accession: GSE74358	ID: 200074358
 
-56. Gene expression profiles of patients with schizophrenia, bipolar disorder and healthy controls
+57. Gene expression profiles of patients with schizophrenia, bipolar disorder and healthy controls
 (Submitter supplied) Schizophrenia (SZ) and bipolar disorder (BD) are severe psychiatric conditions, with a lifetime prevalence of about 1%. Both disorders have a neurodevelopment component, with onset of symptoms occurring most frequently during late adolescence or early adulthood. Genetic findings indicate the existence of an overlap in genetic susceptibility across the disorders. These gene expression profiles were used to identify the molecular mechanisms that differentiate SZ and BP from healthy controls but also that distinguish both from healthy individuals. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -467,7 +475,7 @@ Platform: GPL4133 88 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE62nnn/GSE62191/
 Series		Accession: GSE62191	ID: 200062191
 
-57. State- and trait-specific gene expression in euthymia and mania
+58. State- and trait-specific gene expression in euthymia and mania
 (Submitter supplied) Gene expression profiles of bipolar disorder (BD) patients were assessed during both a manic and a euthymic phase and compared both intra-individually, and with the gene expression profiles of controls.
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -475,7 +483,7 @@ Platform: GPL11028 32 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE46nnn/GSE46416/
 Series		Accession: GSE46416	ID: 200046416
 
-58. ZNF804A transcriptome networks in differentiating human neurons derived from induced pluripotent stem cells
+59. ZNF804A transcriptome networks in differentiating human neurons derived from induced pluripotent stem cells
 (Submitter supplied) The goal of this project is to study transcriptome change by knocking down ZNF804A, a schizophrenia and bipolar disorder candidate gene, in early neurons derived from iPSCs.
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -484,7 +492,7 @@ FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE54nnn/GSE54112/
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA235198
 Series		Accession: GSE54112	ID: 200054112
 
-59. Whole transcriptome analysis of postmortem human hippocampus dentate gyrus granlule cells
+60. Whole transcriptome analysis of postmortem human hippocampus dentate gyrus granlule cells
 (Submitter supplied) We investigated the transcriptome of dentate gyrus (DG) granule cells in postmortem hippocampus from 79 subjects with mental illness (schizophrenia, bipolar disorder, major depression) or non-psychiatric controls.
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -493,7 +501,7 @@ FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE42nnn/GSE42546/
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA182544
 Series		Accession: GSE42546	ID: 200042546
 
-60. Microarray profiling of PFC, HPC and STR from subjects with schizophrenia, bipolar, MDD or control
+61. Microarray profiling of PFC, HPC and STR from subjects with schizophrenia, bipolar, MDD or control
 (Submitter supplied) Schizophrenia is a complex psychiatric disorder encompassing a range of symptoms and  etiology dependent upon the interaction of genetic and environmental factors.  Several risk genes, such as DISC1, have been associated with schizophrenia as well as bipolar disorder (BPD) and major depressive disorder (MDD), consistent with the hypothesis that a shared genetic architecture could contribute to divergent clinical syndromes. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -501,7 +509,7 @@ Platform: GPL570 205 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE53nnn/GSE53987/
 Series		Accession: GSE53987	ID: 200053987
 
-61. RNA-sequencing of the brain transcriptome implicates dysregulation of neuroplasticity, circadian rhythms, and GTPase binding in bipolar disorder
+62. RNA-sequencing of the brain transcriptome implicates dysregulation of neuroplasticity, circadian rhythms, and GTPase binding in bipolar disorder
 (Submitter supplied) See "Akula et al., Molecular Psychiatry in Press". RNA-sequencing (RNA-seq) is a powerful technique to investigate the complexity of gene expression in the human brain. We used RNA-seq to survey the brain transcriptome in high-quality post-mortem dorsolateral prefrontal cortex from 11 individuals diagnosed with bipolar disorder (BD) and from 11 age- and gender-matched controls.  Deep sequencing was performed, with over 350 million reads per specimen. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -510,7 +518,7 @@ FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE53nnn/GSE53239/
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA231202
 Series		Accession: GSE53239	ID: 200053239
 
-62. Expression data from Patients with Bipolar (BP) Disorder and Matched Control Subjects
+63. Expression data from Patients with Bipolar (BP) Disorder and Matched Control Subjects
 (Submitter supplied) There are currently no biological tests that differentiate patients with bipolar disorder (BPD) from healthy controls. While there is evidence that peripheral gene expression differences between patients and controls can be utilized as biomarkers for psychiatric illness, it is unclear whether current use or residual effects of antipsychotic and mood stabilizer medication drives much of the differential transcription. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -518,7 +526,7 @@ Dataset: GDS4837 Platform: GPL570 88 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE46nnn/GSE46449/
 Series		Accession: GSE46449	ID: 200046449
 
-63. Gene-expression differences in peripheral blood between lithium responders and non-responders in the “Lithium Treatment -Moderate dose Use Study” (LiTMUS)
+64. Gene-expression differences in peripheral blood between lithium responders and non-responders in the “Lithium Treatment -Moderate dose Use Study” (LiTMUS)
 (Submitter supplied) Analysis of gene-expression changes in treatment responders vs non-responders to two different treatments among subjectrs participating in LiTMUS. Results provide information on pathways that may be involved in the clinical response to Lithium in patients with bipolar disorder.
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -526,7 +534,7 @@ Dataset: GDS5393 Platform: GPL10558 120 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE45nnn/GSE45484/
 Series		Accession: GSE45484	ID: 200045484
 
-64. Expression data from the human parietal cortex brain
+65. Expression data from the human parietal cortex brain
 (Submitter supplied) Schizophrenia (SCZ) and bipolar disorder (BD) are highly heritable psychiatric disorders. Associated genetic and gene expression changes have been identified, but many have not been replicated and have unknown functions. We identified groups of genes whose expressions varied together, that is co-expression modules, then tested them for association with SCZ. Using weighted gene co-expression network analysis, we show that two modules were differentially expressed in patients versus controls. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -534,7 +542,7 @@ Platform: GPL6244 168 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE35nnn/GSE35977/
 Series		Accession: GSE35977	ID: 200035977
 
-65. Expression data from the human cerebellum brain
+66. Expression data from the human cerebellum brain
 (Submitter supplied) Schizophrenia (SCZ) and bipolar disorder (BD) are highly heritable psychiatric disorders. Associated genetic and gene expression changes have been identified, but many have not been replicated and have unknown functions. We identified groups of genes whose expressions varied together, that is co-expression modules, then tested them for association with SCZ. Using weighted gene co-expression network analysis, we show that two modules were differentially expressed in patients versus controls. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -542,7 +550,7 @@ Platform: GPL6244 144 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE35nnn/GSE35974/
 Series		Accession: GSE35974	ID: 200035974
 
-66. Differential Gene Expression in Patients with Mood Disorders
+67. Differential Gene Expression in Patients with Mood Disorders
 (Submitter supplied) RNA was extracted from peripheral blood mononuclear cells (PBMC) of 24 adult healthy controls, 8 adult patients with bipolar disorder, and 21 adult patients with major depressive disorder to analyze gene expression patterns that identify biomarkers of disease and that may be correlated with fMRI data.
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -550,7 +558,7 @@ Platform: GPL10558 53 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE39nnn/GSE39653/
 Series		Accession: GSE39653	ID: 200039653
 
-67. Knockdown of the psychosis susceptibility gene ZNF804A alters expression of genes involved in cell adhesion
+68. Knockdown of the psychosis susceptibility gene ZNF804A alters expression of genes involved in cell adhesion
 (Submitter supplied) Genome-wide association studies have convincingly implicated several novel genes in susceptibility to schizophrenia and bipolar disorder. The first genome-wide significant association with the broad phenotype of psychosis was with a polymorphism in the ZNF804A gene. However, the biological function(s) of ZNF804A have, to date, been entirely unknown. In this study, we manipulated the expression of ZNF804A in neural progenitor cells derived from human cortical neuroepithelium and assessed its effects on the cellular transcriptome. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -558,7 +566,7 @@ Platform: GPL10558 12 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE28nnn/GSE28725/
 Series		Accession: GSE28725	ID: 200028725
 
-68. RNA-Seq of human neurons derived from iPS cells Reveals candidate long non-coding RNAs Involved in neurogenesis and neuropsychiatric disorders.
+69. RNA-Seq of human neurons derived from iPS cells Reveals candidate long non-coding RNAs Involved in neurogenesis and neuropsychiatric disorders.
 (Submitter supplied) As a preliminary step towards applying next generation sequencing using neurons derived from patient-specific iPSCs, we have carried out an RNA-Seq analysis on control human neurons. Dramatic changes in the expression of coding genes, long non-coding RNAs (lncRNAs), pseudogenes, and splice isoforms were seen during the transition from pluripotent stem cells to early differentiating neurons. A number of genes that undergo radical changes in expression during this transition include candidates for schizophrenia (SZ), bipolar disorder (BD) and autism spectrum disorders (ASD) that function as transcription factors and chromatin modifiers, such as POU3F2 and ZNF804A, and genes coding for cell adhesion proteins implicated in these conditions including NRXN1 and NLGN1. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -567,7 +575,7 @@ FTP download: GEO (BAM) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE32nnn/GSE32625/
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA147137
 Series		Accession: GSE32625	ID: 200032625
 
-69. Peripheral blood gene-expression in depressed subjects with bipolar disorder vs healthy controls.
+70. Peripheral blood gene-expression in depressed subjects with bipolar disorder vs healthy controls.
 (Submitter supplied) Analysis of gene-expression changes in depressed subjects with bipolar disorder compared to healthy controls. Results provide information on pathways that may be involved in the pathogenesis of bipolar depression.
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -575,7 +583,7 @@ Platform: GPL6106 35 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE23nnn/GSE23848/
 Series		Accession: GSE23848	ID: 200023848
 
-70. Gene Expression in Blood in Scizophrenia and Bipolar Disorder
+71. Gene Expression in Blood in Scizophrenia and Bipolar Disorder
 (Submitter supplied) Schizophrenia (SCZ) and bipolar disorder (BPD) are polygenic disorders with many genes contributing to their etiologies. The aim of this investigation was to search for dysregulated molecular and cellular pathways for these disorders as well as psychosis. We conducted a blood-based microarray investigation in two independent samples with SCZ and BPD from San Diego (SCZ=13, BPD=9, control=8) and Taiwan [data not included](SCZ=11, BPD=14, control=16). more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -583,7 +591,7 @@ Platform: GPL5175 30 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE18nnn/GSE18312/
 Series		Accession: GSE18312	ID: 200018312
 
-71. Laser capture microdissection of endothelial and neuronal cells from human dorsolateral prefrontal cortex
+72. Laser capture microdissection of endothelial and neuronal cells from human dorsolateral prefrontal cortex
 (Submitter supplied) We used laser capture microdissection to isolate both microvascular endothelial cells and neurons from post mortem brain tissue from patients with schizophrenia and bipolar disorder and healthy controls. RNA was isolated from these cell populations, amplified, and analysed using Affymetrix HG133plus2.0 GeneChips. In the first instance, we used the dataset to compare the neuronal and endothelial data, in order to demonstrate that the predicted differences between cell types could be detected using this methodology. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -591,7 +599,7 @@ Dataset: GDS3502 Platform: GPL570 32 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE12nnn/GSE12679/
 Series		Accession: GSE12679	ID: 200012679
 
-72. Gene expression from human prefrontal cortex (BA10)
+73. Gene expression from human prefrontal cortex (BA10)
 (Submitter supplied) We performed the oligonucleotide microarray analysis in bipolar disorder, major depression, schizophrenia, and control subjects using postmortem prefrontal cortices provided by the Stanley Foundation Brain Collection. By comparing the gene expression profiles of similar but distinctive mental disorders, we explored the uniqueness of bipolar disorder and its similarity to other mental disorders at the molecular level. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -599,7 +607,7 @@ Dataset: GDS3345 Platform: GPL8300 50 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE12nnn/GSE12654/
 Series		Accession: GSE12654	ID: 200012654
 
-73. Gene expression from human prefrontal cortex (BA46)
+74. Gene expression from human prefrontal cortex (BA46)
 (Submitter supplied) Accumulating evidence suggests that mitochondrial dysfunction underlies the pathophysiology of bipolar disorder (BD) and schizophrenia (SZ). We performed large-scale DNA microarray analysis of postmortem brains of patients with BD or SZ, and examined expression patterns of mitochondria-related genes. We found a global down-regulation of mitochondrial genes, such as those encoding respiratory chain components, in BD and SZ samples, even after the effect of sample pH was controlled. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -607,7 +615,7 @@ Platform: GPL96 102 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE12nnn/GSE12649/
 Series		Accession: GSE12649	ID: 200012649
 
-74. Expression Profiles of Monozygotic Twin
+75. Expression Profiles of Monozygotic Twin
 (Submitter supplied) The expression level for 15 887 transcripts in lymphoblastoid cell lines from 19 monozygotic twin pairs (10 male, 9 female) were analysed for the effects of genotype and sex. On an average, the effect of twin pairs explained 31% of the variance in normalized gene expression levels, consistent with previous broad sense heritability estimates. The effect of sex on gene expression levels was most noticeable on the X chromosome, which contained 15 of the 20 significantly differentially expressed genes. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -615,7 +623,7 @@ Platform: GPL570 35 Samples
 FTP download: GEO (CEL, CHP) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE7nnn/GSE7624/
 Series		Accession: GSE7624	ID: 200007624
 
-75. Expression profiling in monozygotic twins discordant for bipolar disorder
+76. Expression profiling in monozygotic twins discordant for bipolar disorder
 (Submitter supplied) To identify genes dysregulated in bipolar disorder (BD1) we carried out global gene expression profiling using whole-genome microarrays. To minimize genetic variation in gene expression levels between cases and controls we compared expression profiles in lymphoblastoid cell lines from monozygotic twin pairs discordant for the disease. We identified 82 genes that were differentially expressed by ≥ 1.3-fold in 3 BD1 cases compared to their co-twins, and which were statistically (p ≤ 0.05) differentially expressed between the groups of BD1 cases and controls. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -623,7 +631,7 @@ Dataset: GDS2779 Platform: GPL570 6 Samples
 FTP download: GEO (CEL, CHP) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE7nnn/GSE7036/
 Series		Accession: GSE7036	ID: 200007036
 
-76. Expression profiling of human adult postmortem brain tissue from subjects with bipolar disorder and healthy controls
+77. Expression profiling of human adult postmortem brain tissue from subjects with bipolar disorder and healthy controls
 (Submitter supplied) Bipolar affective disorder is a severe psychiatric disorder with a strong genetic component but unknown pathophysiology. We used microarray technology (Affymetrix HG-U133A GeneChips) to determine the expression of approximately 22 000 mRNA transcripts in post-mortem brain tissue (dorsolateral prefrontal cortex and orbitofrontal cortex) from patients with bipolar disorder and matched healthy controls. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -631,7 +639,7 @@ Platform: GPL96 82 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE5nnn/GSE5392/
 Series		Accession: GSE5392	ID: 200005392
 
-77. Adult postmortem brain tissue (orbitofrontal cortex) from subjects with bipolar disorder and healthy controls
+78. Adult postmortem brain tissue (orbitofrontal cortex) from subjects with bipolar disorder and healthy controls
 (Submitter supplied) Bipolar affective disorder is a severe psychiatric disorder with a strong genetic component but unknown pathophysiology. We used microarray technology (Affymetrix HG-U133A GeneChips) to determine the expression of approximately 22 000 mRNA transcripts in post-mortem brain tissue (orbitofrontal cortex) from patients with bipolar disorder and matched healthy controls. Orbitofrontal cortex tissue from a cohort of 30 subjects was investigated and the final analysis included 10 bipolar and 11 control subjects. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -639,7 +647,7 @@ Dataset: GDS2191 Platform: GPL96 21 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE5nnn/GSE5389/
 Series		Accession: GSE5389	ID: 200005389
 
-78. Adult postmortem brain tissue (dorsolateral prefrontal cortex) from subjects with bipolar disorder and healthy controls
+79. Adult postmortem brain tissue (dorsolateral prefrontal cortex) from subjects with bipolar disorder and healthy controls
 (Submitter supplied) Bipolar affective disorder is a severe psychiatric disorder with a strong genetic component but unknown pathophysiology. We used microarray technology (Affymetrix HG-U133A GeneChips) to determine the expression of approximately 22 000 mRNA transcripts in post-mortem brain tissue (dorsolateral prefrontal cortex) from patients with bipolar disorder and matched healthy controls. A cohort of 70 subjects was investigated and the final analysis included 30 bipolar and 31 control subjects. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array

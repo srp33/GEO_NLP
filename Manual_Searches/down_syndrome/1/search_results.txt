@@ -1,5 +1,13 @@
 
-1. RNA-seq of cardiac differentiation of N and P hiPSCs on day 7
+1. Differential expression analysis connects knock-downs of eIF3e and eIF3d with the MAP kinase signaling pathway
+(Submitter supplied) A prominent hallmark of cancer is deregulated protein synthesis. It is well established that various translation initiation factors (eIFs) are either overexpressed or under-expressed in numerous types of cancer. Recent studies suggest that rather than representing an indirect consequence of neoplasia, imbalanced expression of eIFs significantly contributes to cellular transformation, tumor development, cancer cell survival, metastasis and tumor angiogenesis. more...
+Organism:	Homo sapiens
+Type:		Expression profiling by high throughput sequencing; Other
+Platform: GPL24676 28 Samples
+FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE216nnn/GSE216967/
+Series		Accession: GSE216967	ID: 200216967
+
+2. RNA-seq of cardiac differentiation of N and P hiPSCs on day 7
 (Submitter supplied) To know gene expression patterns between N and P hiPSCs derived cardiac cells.
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -7,7 +15,7 @@ Platform: GPL24676 6 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE213nnn/GSE213578/
 Series		Accession: GSE213578	ID: 200213578
 
-2. RNA-seq of hESCs and hiPSCs treated with 5-OXO-ETE and Calcitriol, respectively
+3. RNA-seq of hESCs and hiPSCs treated with 5-OXO-ETE and Calcitriol, respectively
 (Submitter supplied) To know gene expression patterns affected by 5-OXO-ETE and Calcitriol
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -15,7 +23,7 @@ Platform: GPL24676 12 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE213nnn/GSE213410/
 Series		Accession: GSE213410	ID: 200213410
 
-3. RNA-seq of hiPSCs derived mosaic Down syndrome (undi)
+4. RNA-seq of hiPSCs derived mosaic Down syndrome (undi)
 (Submitter supplied) To know gene expression patterns affected by 3 copies of chromosome 21
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -23,7 +31,7 @@ Platform: GPL24676 6 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE213nnn/GSE213409/
 Series		Accession: GSE213409	ID: 200213409
 
-4. Transcriptional Consequences of Trisomy 21 on Neural Induction
+5. Transcriptional Consequences of Trisomy 21 on Neural Induction
 (Submitter supplied) Down syndrome, caused by trisomy 21, is a complex developmental disorder associated with intellectual disability and reduced growth of multiple organs. Structural pathologies are present at birth, reflecting embryonic origins. A fundamental unanswered question is how an extra copy of human chromosome 21 contributes to organ-specific pathologies that characterize individuals with Down syndrome. Relevant to the hallmark intellectual disability in Down syndrome, how does trisomy 21 affect neural development? We tested the hypothesis that trisomy 21 exerts effects on human neural development as early as neural induction. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -31,7 +39,7 @@ Platform: GPL20301 18 Samples
 FTP download: GEO (TAB) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE247nnn/GSE247990/
 Series		Accession: GSE247990	ID: 200247990
 
-5. Differential gene expression analysis of trisomy 21 and euploid hematopoietic progenitor cells derived from human pluripotent stem cells.
+6. Differential gene expression analysis of trisomy 21 and euploid hematopoietic progenitor cells derived from human pluripotent stem cells.
 (Submitter supplied) Children with trisomy 21 (T21) are highly predisposed to acute myeloid leukemia, which is preceded by a pre-leukemic transient abnormal myelopoiesis driven by truncating mutations in GATA1 (GATA1s). We investigated gene expression profiles in T21 and isogenic euploid hematopoietic progenitor cells (HPCs) derived from human induced pluripotent stem cells (iPSCs), in combination GATA1s and STAG2 mutations associated with T21 myeloid leukemia. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -39,7 +47,7 @@ Platform: GPL18573 14 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE238nnn/GSE238115/
 Series		Accession: GSE238115	ID: 200238115
 
-6. Down Syndrome
+7. Down Syndrome
 (Submitter supplied) This SuperSeries is composed of the SubSeries listed below.
 Organism:	Homo sapiens; Mus musculus
 Type:		Expression profiling by high throughput sequencing
@@ -47,7 +55,7 @@ Type:		Expression profiling by high throughput sequencing
 FTP download: GEO (RESULTS, TAR) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE196nnn/GSE196447/
 Series		Accession: GSE196447	ID: 200196447
 
-7. Transcriptomic analysis of human foetal hearts with or without Down Syndrome
+8. Transcriptomic analysis of human foetal hearts with or without Down Syndrome
 (Submitter supplied) We performed bulk RNAseq on whole hearts from foetuses with Down syndrome and age-matched, sex-matched euploid controls. Analysis showed the expected increased expression of the genes on Hsa21 that are present in 3 copies. Gene set enrichment analysis identified pathways that are altered in DS hearts.
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -55,7 +63,7 @@ Platform: GPL20301 10 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE196nnn/GSE196443/
 Series		Accession: GSE196443	ID: 200196443
 
-8. Crnic Institute Human Trisome Project - JAK inhibition in Down syndrome: PolyA RNAseq from whole blood
+9. Crnic Institute Human Trisome Project - JAK inhibition in Down syndrome: PolyA RNAseq from whole blood
 (Submitter supplied) Analysis of steady-state mRNA levels in whole blood of  subjects with Down syndrome (trisomy 21) and qualifying moderate-to-severe immune skin conditions. This dataset is part of the Human Trisome Project run by the Linda Crnic Institute for Down Syndrome at the University of Colorado Anschutz Medical Campus. http://www.trisome.org/
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -63,7 +71,7 @@ Platform: GPL24676 39 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE251nnn/GSE251967/
 Series		Accession: GSE251967	ID: 200251967
 
-9. AP-1 inhibition on the treatment of down syndrome derived aminocytes(DSACs)
+10. AP-1 inhibition on the treatment of down syndrome derived aminocytes(DSACs)
 (Submitter supplied) MX1 mediated AP-1 involved transcriptional regulation play an important role in the pathogenesis of DS through integration analysis of ATAC-seq and RNA-seq， therefore，AP-1 inhibition may be a potential therapeutic target for the treatment of DS-associated phenotye.
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -71,7 +79,7 @@ Platform: GPL23227 6 Samples
 FTP download: GEO (XLSX) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE237nnn/GSE237545/
 Series		Accession: GSE237545	ID: 200237545
 
-10. Transcriptome study of MX1 overexpression on down syndrome derived aminocytes(DSACs)
+11. Transcriptome study of MX1 overexpression on down syndrome derived aminocytes(DSACs)
 (Submitter supplied) MX1 mediated AP-1 involved transcriptional regulation play an important role in the pathogenesis of DS through integration analysis of ATAC-seq and RNA-seq. To confirm the function of MX1 in DS, we applied RNA-seq to explore the difference between MX1-OE and Blank group
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -79,7 +87,7 @@ Platform: GPL23227 8 Samples
 FTP download: GEO (XLSX) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE237nnn/GSE237539/
 Series		Accession: GSE237539	ID: 200237539
 
-11. Single-cell Landscape Analysis Reveals HSA21 Induced Regulatory Network in Mammalian Down Syndrome
+12. Single-cell Landscape Analysis Reveals HSA21 Induced Regulatory Network in Mammalian Down Syndrome
 (Submitter supplied) Down syndrome (DS), characterized by various malfunctions, is the most common genetic chromosomal disorder. As DS population size keeps growing and most of them live beyond their puberty, their early‐onset health problems come into view. However, the molecular alterations have not been thoroughly surveyed before. Here we provide the first description of DS in single-cell resolution, including human and mouse, covering seven different organs. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -88,7 +96,7 @@ FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE155nnn/GSE15540
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA649649
 Series		Accession: GSE155409	ID: 200155409
 
-12. Synergistic roles of DYRK1A and GATA1 in trisomy 21 megakaryopoiesis
+13. Synergistic roles of DYRK1A and GATA1 in trisomy 21 megakaryopoiesis
 (Submitter supplied) Patients with Down syndrome (DS, trisomy 21, T21) are at increased risk of transient abnormal myelopoiesis (TAM) and acute megakaryoblastic leukemia (ML-DS). Both TAM and ML-DS require prenatal somatic mutations in GATA1, resulting in the truncated isoform GATA1s.  The mechanism by which individual chromosome 21 (HSA21) genes synergize with GATA1s for leukemic transformation is challenging to study, in part due to limited human cell models with wild type GATA1 or GATA1s. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -96,7 +104,7 @@ Platform: GPL24676 19 Samples
 FTP download: GEO (TSV) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE243nnn/GSE243702/
 Series		Accession: GSE243702	ID: 200243702
 
-13. PDGFRβ signaling cooperates with β-catenin to modulate c-Abl and biologic behavior of desmoid-type fibromatosis [RNA-seq II]
+14. PDGFRβ signaling cooperates with β-catenin to modulate c-Abl and biologic behavior of desmoid-type fibromatosis [RNA-seq II]
 (Submitter supplied) The mechanisms underlying oncogenesis in desmoid-type fibromatosis are poorly understood.  This project sought to understand how β-catenin may function to promote desmoid formation and how external signaling by PDGFRβ modulates this activity.  To examine this question, RNA-seq was performed on CTNNB1 knock-downs.  Gene set enrichment analysis suggested that the oncogene controlled HIF1 and angiogenesis pathways; expression of related genes accurately differentiated desmoids analyzed by U133A array from normal mesenchymal tissues. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -104,7 +112,7 @@ Platform: GPL20301 12 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE239nnn/GSE239407/
 Series		Accession: GSE239407	ID: 200239407
 
-14. PDGFRβ signaling cooperates with β-catenin to modulate c-Abl and biologic behavior of desmoid-type fibromatosis [RNA-seq I]
+15. PDGFRβ signaling cooperates with β-catenin to modulate c-Abl and biologic behavior of desmoid-type fibromatosis [RNA-seq I]
 (Submitter supplied) The mechanisms underlying oncogenesis in desmoid-type fibromatosis are poorly understood.  This project sought to understand how β-catenin may function to promote desmoid formation and how external signaling by PDGFRβ modulates this activity.  To examine this question, RNA-seq was performed on CTNNB1 knock-downs.  Gene set enrichment analysis suggested that the oncogene controlled HIF1 and angiogenesis pathways; expression of related genes accurately differentiated desmoids analyzed by U133A array from normal mesenchymal tissues. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -112,7 +120,7 @@ Platform: GPL20301 6 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE239nnn/GSE239406/
 Series		Accession: GSE239406	ID: 200239406
 
-15. Choroid plexus defects in Down syndrome brain organoids enhance neurotropism of SARS-CoV-2
+16. Choroid plexus defects in Down syndrome brain organoids enhance neurotropism of SARS-CoV-2
 (Submitter supplied) Why individuals with Down Syndrome (DS, trisomy 21) are particularly susceptible to SARS-CoV-2 induced disease remains largely unclear. The choroid plexus secrets the cerebrospinal fluid and strongly expresses the ACE2 receptor and the chromosome 21 encoded TMPRSS2 protease. To investigate the role of the choroid plexus in SARS-CoV-2 central nervous system infection in DS, we established a new type of brain organoid from DS and isogenic euploid control iPSC that consists of a core of appropriately patterned functional cortical neuronal cell types that is surrounded by a patent and functional choroid plexus (CPCOs). more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -120,7 +128,7 @@ Platform: GPL18573 12 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE208nnn/GSE208440/
 Series		Accession: GSE208440	ID: 200208440
 
-16. Mediator kinase inhibition suppresses hyperactive interferon signaling in Down syndrome
+17. Mediator kinase inhibition suppresses hyperactive interferon signaling in Down syndrome
 (Submitter supplied) Individuals with Down syndrome have a increased likelihood of suffering from inflammatory and autoimmune conditions, due to the presence of four interferon receptors on chromosome 21. Transcription of genes plays a key role in the interferon response, and the Mediator kinases, CDK8 and CDK19, are essential in potentiating this transcription. Given the role CDK8/19 play in the interferon response, and the fact that selective inhibitors of these kinases exist (such as Cortistatin A), it is possible that targetting Mediator kinase activity may alleviate symptoms of chronic inflammation in Down syndrome.
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -128,7 +136,7 @@ Platform: GPL24676 24 Samples
 FTP download: GEO (CSV, TDF) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE220nnn/GSE220652/
 Series		Accession: GSE220652	ID: 200220652
 
-17. Transposable elements are co-opted as oncogenic regulatory elements by lineage-specific transcription factors in prostate cancer
+18. Transposable elements are co-opted as oncogenic regulatory elements by lineage-specific transcription factors in prostate cancer
 (Submitter supplied) Transposable elements hold regulatory functions to impact cell fate determination by controlling gene expression, which when altered can promote oncogenesis. Despite accounting for half of the human genome, little is known about the transcriptional mechanisms that confer regulatory properties to transposable elements in pluripotent, mature versus oncogenic cell states. Through positional analysis over repetitive DNA sequence of H3K27ac ChIP-seq from 32 different normal cell and tissue states, we report pluripotent stem and mature cell states-specific “regulatory transposable elements”. more...
 Organism:	Homo sapiens
 Type:		Genome binding/occupancy profiling by high throughput sequencing; Expression profiling by high throughput sequencing; Other
@@ -136,7 +144,7 @@ Platforms: GPL16791 GPL24676 GPL11154 130 Samples
 FTP download: GEO (BED, BEDGRAPH, TSV) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE224nnn/GSE224687/
 Series		Accession: GSE224687	ID: 200224687
 
-18. Digging into the transcriptomic profile of mesenchymal stem cells diagnosed with 21 trisomy
+19. Digging into the transcriptomic profile of mesenchymal stem cells diagnosed with 21 trisomy
 (Submitter supplied) The molecular mechanism involved in Down's syndrome (DS) is more complex than previously thought. This study provides a comprehensive overview of DS through the whole transcriptomic profile obteined by NGS of MSCs  isolated from CV derived from women carrying foetuses with diagnosed DS in comparison to their euploid counterparts (CV), revealing the existence of a wide range of molecular signatures involved in the regulation of cell cycle, proliferation and phenotype.
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -145,15 +153,15 @@ FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE184nnn/GSE18445
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA764697
 Series		Accession: GSE184450	ID: 200184450
 
-19. Chemical inhibition of immune signaling rescues defects during heart development in Down syndrome via regulating canonical Wnt pathway
+20. Chemical inhibition of immune signaling rescues defects during heart development in Down syndrome via regulating canonical Wnt pathway
 (Submitter supplied) Congenital heart defects (CHDs) are very frequent in children with Down syndrome (DS), the genetic condition caused by trisomy of chromosome 21 (T21). However, the mechanisms by which T21 causes susceptibility to CHDs are poorly understood. Here, using a combination of human induced pluripotent stem cell (iPSC)-based model and Dp(16)1Yey/+ (Dp16) a mouse model of DS, we identified downregulation of canonical Wnt signaling that is caused by increased dosage of interferon (IFN) receptors encoded on chromosome 21 (HSA21) as a causative factor of CHDs in DS. more...
 Organism:	Homo sapiens; Mus musculus
 Type:		Expression profiling by high throughput sequencing
-Platforms: GPL24676 GPL28457 GPL28038 100 Samples
+Platforms: GPL24676 GPL28038 GPL28457 100 Samples
 FTP download: GEO (XLSX) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE217nnn/GSE217557/
 Series		Accession: GSE217557	ID: 200217557
 
-20. Definition and prognostic impact of Ph-like and IKZF1plus features in children with Down Syndrome Acute Lymphoblastic Leukaemia
+21. Definition and prognostic impact of Ph-like and IKZF1plus features in children with Down Syndrome Acute Lymphoblastic Leukaemia
 (Submitter supplied) Background Children with Down Syndrome have an augmented risk for B-cell acute lymphoblastic leukaemia (DS-ALL), which is associated with a survival lower than in non-DS ALL, due to increased chemotherapy-related toxicity and a higher relapse rate, thus demanding new tailored therapeutic strategies. Cytogenetic abnormalities common in childhood ALL are less frequent in DS-ALL, while alterations in CRLF2 and IKZF1 genes are increased. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -161,7 +169,7 @@ Platform: GPL570 64 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE200nnn/GSE200864/
 Series		Accession: GSE200864	ID: 200200864
 
-21. Trisomy 21 and RNA-seq of family
+22. Trisomy 21 and RNA-seq of family
 (Submitter supplied) RNA-seq of lymphoblastoid cells from a family of individuals (one of which has Trisomy 21) was used to determine the molecular origin of dosage compensation in Trisomy 21.
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -169,7 +177,7 @@ Platform: GPL11154 12 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE230nnn/GSE230995/
 Series		Accession: GSE230995	ID: 200230995
 
-22. Trisomy 21 and GRO-seq of family
+23. Trisomy 21 and GRO-seq of family
 (Submitter supplied) GRO-seq of lymphoblastoid cells from a family of individuals (one of which has Trisomy 21) was used to determine the molecular origin of dosage compensation in Trisomy 21.
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing; Other
@@ -177,7 +185,7 @@ Platform: GPL11154 16 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE230nnn/GSE230994/
 Series		Accession: GSE230994	ID: 200230994
 
-23. Transcription dosage compensation does not occur in Down syndrome
+24. Transcription dosage compensation does not occur in Down syndrome
 (Submitter supplied) This SuperSeries is composed of the SubSeries listed below.
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing; Other
@@ -185,7 +193,7 @@ Platform: GPL11154 28 Samples
 FTP download: GEO ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE230nnn/GSE230999/
 Series		Accession: GSE230999	ID: 200230999
 
-24. Blood cells with trisomy 21 overreact to heat shock stress [PRO-seq]
+25. Blood cells with trisomy 21 overreact to heat shock stress [PRO-seq]
 (Submitter supplied) Lymphoblastoid cells trisomic for chromosome 21 activate the heat shock response more robustly than disomic cells.
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -194,7 +202,7 @@ FTP download: GEO (BEDGRAPH) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE173nnn/GSE
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA725916
 Series		Accession: GSE173537	ID: 200173537
 
-25. Crnic Institute Human Trisome Project: PolyA RNA-seq from whole blood
+26. Crnic Institute Human Trisome Project: PolyA RNA-seq from whole blood
 (Submitter supplied) Analysis of steady-state mRNA levels in whole blood of euploid controls and subjects with trisomy 21. This dataset is part of the Human Trisome Project run by the Linda Crnic Institute for Down Syndrome at the University of Colorado Anschutz Medical Campus. http://www.trisome.org/
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -203,7 +211,7 @@ FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE190nnn/GSE19012
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA785930
 Series		Accession: GSE190125	ID: 200190125
 
-26. Large-scale study suggests effects of trisomy 21 on fetal neurodevelopment may be more subtle than variability between organoids and isogenic lines
+27. Large-scale study suggests effects of trisomy 21 on fetal neurodevelopment may be more subtle than variability between organoids and isogenic lines
 (Submitter supplied) This study examines cortical organoids generated from a panel of isogenic trisomic and disomic iPSC lines (subclones) as a model of early fetal brain development in Down syndrome. An initial experiment comparing organoids from one trisomic and one disomic line showed many genome-wide transcriptomic differences and modest differences in cell-type proportions, suggesting there may be a neurodevelopmental phenotype that is due to trisomy of chr 21. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -211,7 +219,7 @@ Platforms: GPL18573 GPL20301 58 Samples
 FTP download: GEO (FA, TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE222nnn/GSE222365/
 Series		Accession: GSE222365	ID: 200222365
 
-27. Comparative Computational RNA Analysis of Cardiac-Derived Progenitor Cells and Their Extracellular Vesicles [RNA-Seq]
+28. Comparative Computational RNA Analysis of Cardiac-Derived Progenitor Cells and Their Extracellular Vesicles [RNA-Seq]
 (Submitter supplied) We aimed to examine differences between c-kit+ progenitor cells (CPCs) and CPC-derived extracellular vesicles (EV) RNA content. We isolated CPCs from cardiac biopsies of patients with congenital heart disease using magnetic bead sorting. We expanded CPCs, reduced serum for 24hrs, and collected secreted EVs from conditioned media with sequential ultracentrifugation. We isolate RNA from CPCs and CPC-EVs and sequence total RNA and miRNA. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -219,7 +227,7 @@ Platform: GPL24676 57 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE202nnn/GSE202345/
 Series		Accession: GSE202345	ID: 200202345
 
-28. Migration deficits of neural crest caused by CXADR triplication in a Human Down Syndrome Stem Cell Model
+29. Migration deficits of neural crest caused by CXADR triplication in a Human Down Syndrome Stem Cell Model
 (Submitter supplied) Here, Down syndrome-specific hiPSCs (DS1-hiPSCs and DS2-hiPSCs) were induced to differentiate to neural crest stem cells (NCSCs). We sequenced mRNA samples of DS1-NCSCs and DS2-NCSCs to generate the gene expression profiles of these cells.
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -227,7 +235,7 @@ Platform: GPL11154 2 Samples
 FTP download: GEO (XLSX) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE190nnn/GSE190305/
 Series		Accession: GSE190305	ID: 200190305
 
-29. Chromatin occupancy and chromatin status of K562 cells with a mutation causing exclusive expression of N-terminally truncated GATA1 (GATA1s).
+30. Chromatin occupancy and chromatin status of K562 cells with a mutation causing exclusive expression of N-terminally truncated GATA1 (GATA1s).
 (Submitter supplied) Children with Down syndrome (DS) are at high risk of transient abnormal myelopoiesis (TAM) and acute megakaryoblastic leukemia (DS-AMKL). GATA1 gene mutations are detected in almost all TAM and DS-AMKL samples, leading to exclusive expression of short GATA1 protein (GATA1s) lacking of N-terminal domain (NTD). However, it remains to be clarified how GATA1s is involved with both disorders. To investigate how the loss of GATA1 NTD is involved in the molecular mechanisms of leukemogenesis in DS, we established the K562 GATA1s (K562-G1s) clones expressing only GATA1s by CRISPR/Cas9 genome editing. more...
 Organism:	Homo sapiens
 Type:		Genome binding/occupancy profiling by high throughput sequencing; Expression profiling by high throughput sequencing; Other
@@ -236,7 +244,7 @@ FTP download: GEO (BED, BIGWIG, TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE15
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA667612
 Series		Accession: GSE159072	ID: 200159072
 
-30. Comparative Computational RNA Analysis of Cardiac-Derived Progenitor Cells and Their Extracellular Vesicles
+31. Comparative Computational RNA Analysis of Cardiac-Derived Progenitor Cells and Their Extracellular Vesicles
 (Submitter supplied) We aimed to examine differences between c-kit+ progenitor cells (CPCs) and CPC-derived extracellular vesicles (EV) RNA content. We isolated CPCs from cardiac biopsies of patients with congenital heart disease using magnetic bead sorting. We expanded CPCs, reduced serum for 24hrs, and collected secreted EVs from conditioned media with sequential ultracentrifugation. We isolate RNA from CPCs and CPC-EVs and sequence total RNA and miRNA. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -244,15 +252,15 @@ Platform: GPL24676 30 Samples
 FTP download: GEO (TAB) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE196nnn/GSE196556/
 Series		Accession: GSE196556	ID: 200196556
 
-31. Biphasic Cell Cycle Defect Causes Impaired Neurogenesis in Down Syndrome
+32. Biphasic Cell Cycle Defect Causes Impaired Neurogenesis in Down Syndrome
 (Submitter supplied) This SuperSeries is composed of the SubSeries listed below.
-Organism:	Homo sapiens; Mus musculus
+Organism:	Mus musculus; Homo sapiens
 Type:		Genome binding/occupancy profiling by high throughput sequencing; Expression profiling by high throughput sequencing
-Platforms: GPL18573 GPL17021 GPL16791 23 Samples
+Platforms: GPL18573 GPL16791 GPL17021 23 Samples
 FTP download: GEO (BIGWIG, TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE95nnn/GSE95553/
 Series		Accession: GSE95553	ID: 200095553
 
-32. Biphasic Cell Cycle Defect Causes Impaired Neurogenesis in Down Syndrome [CPC RNA-Seq]
+33. Biphasic Cell Cycle Defect Causes Impaired Neurogenesis in Down Syndrome [CPC RNA-Seq]
 (Submitter supplied) Using integrative approach involving human and mouse iPSCs, we have unravelded the cellular and molecular mechanisms of reduced neurogenesis in Down syndome
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -261,7 +269,7 @@ FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE95nnn/GSE95552/
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA377431
 Series		Accession: GSE95552	ID: 200095552
 
-33. Single-cell atlas of patient-derived trophoblast organoids (TO) in on-going pregnancies.
+34. Single-cell atlas of patient-derived trophoblast organoids (TO) in on-going pregnancies.
 (Submitter supplied) Trophoblast organoids (TOs) hold great promise for elucidating human placental development and function. By deriving TOs in on-going pregnancies using chorionic villus sampling (CVS), we established a platform to study trophoblast differentiation and function in early pregnancy, including pregnancies with different fetal genetic abnormalities. We addressed cellular heterogeneity of CVS-derived TOs by providing a single-cell transcriptomic atlas and show that CVS-TOs recapitulate key aspects of the human placenta, including syncytial fusion and hormone synthesis. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -269,7 +277,7 @@ Platform: GPL24676 3 Samples
 FTP download: GEO (MTX, TSV) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE211nnn/GSE211429/
 Series		Accession: GSE211429	ID: 200211429
 
-34. Molecular convergence between Down syndrome and Fragile X syndrome identified using human pluripotent stem cell models
+35. Molecular convergence between Down syndrome and Fragile X syndrome identified using human pluripotent stem cell models
 (Submitter supplied) The goal of this study was to define molecular overlap between Down syndrome and Fragile X syndrome using human pluripotent stem cells (hPSCs) and in vitro derived glutamatergic neurons.
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -278,7 +286,7 @@ FTP download: GEO (CSV) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE144nnn/GSE14485
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA605160
 Series		Accession: GSE144857	ID: 200144857
 
-35. Choroid plexus defects in Down syndrome brain organoids enhance neurotropism of SARS-CoV-2
+36. Choroid plexus defects in Down syndrome brain organoids enhance neurotropism of SARS-CoV-2
 (Submitter supplied) Why individuals with Down Syndrome (DS, trisomy 21) are particularly susceptible to SARS-CoV-2 induced disease remains largely unclear. The choroid plexus secrets the cerebrospinal fluid and strongly expresses the ACE2 receptor and the chromosome 21 encoded TMPRSS2 protease. To investigate the role of the choroid plexus in SARS-CoV-2 central nervous system infection in DS, we established a new type of brain organoid from DS and isogenic euploid control iPSC that consists of a core of appropriately patterned functional cortical neuronal cell types that is surrounded by a patent and functional choroid plexus (CPCOs). more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -286,7 +294,7 @@ Platform: GPL24676 9 Samples
 FTP download: GEO (XLS) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE208nnn/GSE208575/
 Series		Accession: GSE208575	ID: 200208575
 
-36. Burlk and single cell RNA sequencing of neural stem cells derived from human trisomic iPSCs
+37. Burlk and single cell RNA sequencing of neural stem cells derived from human trisomic iPSCs
 (Submitter supplied) Down syndrome (DS) is the most common genetic condition that causes intellectual disability in humans. The molecular mechanisms behind the DS phenotype remain unclear. Therefore, in the present study, induced pluripotent stem cells (iPSCs) from a patient with DS and a normal control (NC) patient were differentiated into iPSCs‐derived neural stem cells (NSCs). Single-cell RNA sequencing was performed to achieve a comprehensive single-cell level differentiation roadmap for DS-iPSCs. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -294,7 +302,7 @@ Platform: GPL16791 12 Samples
 FTP download: GEO (MTX, TSV) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE208nnn/GSE208625/
 Series		Accession: GSE208625	ID: 200208625
 
-37. Trisomy 21 human iPSC derived interneuron progenitors
+38. Trisomy 21 human iPSC derived interneuron progenitors
 (Submitter supplied) Individuals with Down syndrome (DS, Ts21) have impaired neurogenesis during development. Using Ts21 human induced pluripotent stem cells (iPSCs) and isogenic controls, we carried out single cell RNA-sequencing of Ts21 interneuron progenitors .
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -302,7 +310,7 @@ Platform: GPL24676 2 Samples
 FTP download: GEO (MTX, TSV) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE201nnn/GSE201523/
 Series		Accession: GSE201523	ID: 200201523
 
-38. Type I Interferon Signaling Mediates Microglial Dysfunction and Senescence in Human-Mouse Chimeric Brain Models of Down Syndrome and Alzheimer’s Disease
+39. Type I Interferon Signaling Mediates Microglial Dysfunction and Senescence in Human-Mouse Chimeric Brain Models of Down Syndrome and Alzheimer’s Disease
 (Submitter supplied) This SuperSeries is composed of the SubSeries listed below.
 Organism:	Homo sapiens; Mus musculus
 Type:		Expression profiling by high throughput sequencing
@@ -310,15 +318,15 @@ Platforms: GPL18573 GPL25526 10 Samples
 FTP download: GEO ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE189nnn/GSE189227/
 Series		Accession: GSE189227	ID: 200189227
 
-39. Type I Interferon Signaling Mediates Microglial Dysfunction and Senescence in Human-Mouse Chimeric Brain Models of Down Syndrome and Alzheimer’s Disease [single-cell RNA-seq]
+40. Type I Interferon Signaling Mediates Microglial Dysfunction and Senescence in Human-Mouse Chimeric Brain Models of Down Syndrome and Alzheimer’s Disease [single-cell RNA-seq]
 (Submitter supplied) Microglia are critical for brain development and play a central role in Alzheimer’s disease (AD) etiology. Down syndrome (DS), also known as trisomy 21, is the most common genetic origin of intellectual disability and the most common risk factor for AD. Surprisingly, little information is available on the impact of trisomy of human chromosome 21 (Hsa21) on microglia in DS brain development and AD in DS (DSAD). more...
-Organism:	Homo sapiens; Mus musculus
+Organism:	Mus musculus; Homo sapiens
 Type:		Expression profiling by high throughput sequencing
 Platform: GPL25526 4 Samples
 FTP download: GEO (RDS) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE189nnn/GSE189226/
 Series		Accession: GSE189226	ID: 200189226
 
-40. Type I Interferon Signaling Mediates Microglial Dysfunction and Senescence in Human-Mouse Chimeric Brain Models of Down Syndrome and Alzheimer’s Disease [bulk RNA-seq]
+41. Type I Interferon Signaling Mediates Microglial Dysfunction and Senescence in Human-Mouse Chimeric Brain Models of Down Syndrome and Alzheimer’s Disease [bulk RNA-seq]
 (Submitter supplied) Microglia are critical for brain development and play a central role in Alzheimer’s disease (AD) etiology. Down syndrome (DS), also known as trisomy 21, is the most common genetic origin of intellectual disability and the most common risk factor for AD. Surprisingly, little information is available on the impact of trisomy of human chromosome 21 (Hsa21) on microglia in DS brain development and AD in DS (DSAD). more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -326,7 +334,7 @@ Platform: GPL18573 6 Samples
 FTP download: GEO (CSV) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE189nnn/GSE189225/
 Series		Accession: GSE189225	ID: 200189225
 
-41. Chromosome silencing in vitro reveals trisomy 21 causes cell-autonomous deficits in angiogenesis and early dysregulation in Notch signaling
+42. Chromosome silencing in vitro reveals trisomy 21 causes cell-autonomous deficits in angiogenesis and early dysregulation in Notch signaling
 (Submitter supplied) Despite the prevalence and clinical importance of Down syndrome, little is known as to the specific cell pathologies that underlie this multi-system disorder. To understand which cell types and pathways are more directly impacted by trisomy 21, we used an inducible-XIST system to silence the extra chromosome 21 in a panel of patient-derived iPSCs. Transcriptomic analysis showed significant dysregulation of potentially impacting programming of multiple cell-types as well as Notch. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -335,7 +343,7 @@ FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE166nnn/GSE16684
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA702118
 Series		Accession: GSE166849	ID: 200166849
 
-42. Combining LSD1 and JAK-STAT inhibition targets Down syndrome-associated myeloid leukemia at its core
+43. Combining LSD1 and JAK-STAT inhibition targets Down syndrome-associated myeloid leukemia at its core
 (Submitter supplied) We investigated the combination of the irreversible LSD1 inhibitor T-3775440 and the JAK1/JAK2 inhibitor ruxolitinib as novel therapeutic approach in ML-DS which is specifically designed to target key hallmarks of ML-DS leukemogenesis. We observed synergistic anti-leukemic effects by combining both drugs. To elucidate the underlying molecular mechanisms we performed RNAseq in two independent patients samples treated with vehicle, LSD1 inhibitor or ruxolitinib monotherapy or the combination of both drugs.
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -343,7 +351,7 @@ Platform: GPL24676 12 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE201nnn/GSE201093/
 Series		Accession: GSE201093	ID: 200201093
 
-43. Induced-pluripotent stem-derived vascular endothelial cells in Down syndrome
+44. Induced-pluripotent stem-derived vascular endothelial cells in Down syndrome
 (Submitter supplied) To investigate the physiological characteristics of endothelial cells (EC) harboring trisomy 21 (T21), we establised isogenic pairs of T21-iPSCs and corrected disomy 21 (cDi21)-iPSCs We then performed gene expression profiling analysis using data obtained from RNA-seq of 5 different iPSC-derived ECs.
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -351,7 +359,7 @@ Platform: GPL16791 5 Samples
 FTP download: GEO (XLSX) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE203nnn/GSE203257/
 Series		Accession: GSE203257	ID: 200203257
 
-44. Chromosome 21-encoded miR-125b cooperates with GATA1s in trisomy 21-associated megakaryoblastic leukemia by targeting the megakaryocytic transcription factor ARID3A III
+45. Chromosome 21-encoded miR-125b cooperates with GATA1s in trisomy 21-associated megakaryoblastic leukemia by targeting the megakaryocytic transcription factor ARID3A III
 (Submitter supplied) The purpose of this study was to decipher the gene expression changes in the ML-DS cell line CMK upon overexpression of ARID3A. For that, we used a doxycycline-inducible gene expression system to overexpress ARID3A
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -360,7 +368,7 @@ FTP download: GEO (XLS) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE169nnn/GSE16974
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA717777
 Series		Accession: GSE169740	ID: 200169740
 
-45. Modeling Down syndrome AML by introducing disese-specific mutations in iPSCs
+46. Modeling Down syndrome AML by introducing disese-specific mutations in iPSCs
 (Submitter supplied) Down syndrome AML is characterized by the presence of the pathgnonomic mutation in GATA1, which cooperates with other somatic mutations. In this study, we utilzed iPSCs derived from Down syndrome individuals bearing trisomy 21 and introduced disease-specific mutations using CRISPR-Cas9. Hematopoeitic stem and progenitor cells (HSPCs) obtained by hematopoeitic differentiation of these iPSCs, and megakaryocytes generated from the HSPCs (by culturing in megakaryocyte-specific media) were used for RNA sequencing analysis.
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -369,7 +377,7 @@ FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE188nnn/GSE18856
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA779425
 Series		Accession: GSE188568	ID: 200188568
 
-46. Partial monosomy 21 mirrors gene expression of trisomy 21 in a patient-derived neuroepithelial stem cells model
+47. Partial monosomy 21 mirrors gene expression of trisomy 21 in a patient-derived neuroepithelial stem cells model
 (Submitter supplied) Induced pluripotent stem cells (iPSCs) from patients are an attractive disease model to study tissues with poor accessibility such as the brain. Using this approach, we and others have shown that trisomy 21 results in genome-wide transcriptional dysregulations. The effects of loss of genes on chromosome 21 is much less characterized. Here, we use patient-derived neural cells from an individual with neurodevelopmental delay and a ring chromosome 21 with two deletions spanning 3.8 Mb at the terminal end of 21q22.3, containing 60 protein-coding genes. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -378,7 +386,7 @@ FTP download: GEO (SF, XLSX) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE190nnn/GSE
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA785642
 Series		Accession: GSE190053	ID: 200190053
 
-47. Premature senescence and increased oxidative stress in the thymus of Down Syndrome patients
+48. Premature senescence and increased oxidative stress in the thymus of Down Syndrome patients
 (Submitter supplied) Immunohistochemical analysis of thymic tissue showed signs of accelerated thymic aging in down syndrome (DS) patients, normally seen in older healthy subjects. We then performed RNA-Seq analysis on human Epcam-enriched thymic epithelial cells (hTEC), isolated from three DS children, which revealed disease-specific transcriptomic alterations. Gene set enrichment analysis (GSEA) of DS TEC revealed an enrichment in genes involved in cellular response to stress, epigenetic histone DNA modifications and senescence. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -387,7 +395,7 @@ FTP download: GEO (TSV) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE167nnn/GSE16702
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA702748
 Series		Accession: GSE167021	ID: 200167021
 
-48. Hierarchy of TGFβ/SMAD, Hippo/YAP/TAZ and Wnt/β-catenin signaling in melanoma phenotype switching
+49. Hierarchy of TGFβ/SMAD, Hippo/YAP/TAZ and Wnt/β-catenin signaling in melanoma phenotype switching
 (Submitter supplied) In melanoma, a switch from a proliferative melanocytic to an invasive mesenchymal phenotype is based on dramatic transcriptional reprogramming which involves complex interactions between a variety of signaling pathways and their downstream transcriptional regulators. TGFb/SMAD, Hippo/YAP/TAZ and Wnt/b-catenin signaling pathways are major inducers of transcriptional reprogramming and converge at several levels. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -396,7 +404,7 @@ FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE188nnn/GSE18846
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA778984
 Series		Accession: GSE188463	ID: 200188463
 
-49. Endothelial GNAQ p.R183Q activates phospholipase-Cbeta3, increases angiopoietin-2 and drives formation of enlarged blood vessels
+50. Endothelial GNAQ p.R183Q activates phospholipase-Cbeta3, increases angiopoietin-2 and drives formation of enlarged blood vessels
 (Submitter supplied) Introduction: Capillary malformation (CM) occurs sporadically and is associated with Sturge-Weber syndrome (SWS). The somatic mosaic mutation in GNAQ (c.548GàA, p.R183Q) is enriched in endothelial cells (EC) in skin CM and SWS brain CM. Our goal was to investigate how the mutant G-protein a-q subunit (Gaq) alters EC signaling and disrupts capillary morphogenesis. Approach and results: We used lentiviral constructs to express p.R183Q or wild-type GNAQ in normal human endothelial colony forming cells (EC-R183Q and EC-WT respectively). more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -405,7 +413,7 @@ FTP download: GEO (CSV) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE186nnn/GSE18699
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA777248
 Series		Accession: GSE186998	ID: 200186998
 
-50. Down Syndrome Induced Senescence Disrupts the Nuclear Architecture of Neural Progenitors
+51. Down Syndrome Induced Senescence Disrupts the Nuclear Architecture of Neural Progenitors
 (Submitter supplied) We utilized human derived induced pluripotent stem cells (iPSCs) and iPSC derived neural progenitor cells (NPCs) from individuals with Down syndrome and sex matched controls to interrogate the cell type consequences of trisomy 21 (T21). We report the consequences of T21 on the spatial chromatin organization (Hi-C), lamina-associated domains (ChIP-seq), chromatin state (ATAC-seq), and transcriptome (RNA-seq)  in an isogenic pair (euploid: Iso-E and trisomic: Iso-T cells derived from the same individual), pair of male individuals with euploid (Ma-E) and trisomic (Ma-T), pair of female individuals with euploid (Fe-E) and trisomic (Fe-T). more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -414,7 +422,7 @@ FTP download: GEO (BW, HIC, TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE185nnn
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA769437
 Series		Accession: GSE185192	ID: 200185192
 
-51. Permutational immune analysis reveals architectural similarities between inflammaging, Down syndrome and autoimmunity
+52. Permutational immune analysis reveals architectural similarities between inflammaging, Down syndrome and autoimmunity
 (Submitter supplied) Permutational analysis of immune landscape reveals advanced immune aging in people with Down syndrome and in people with type 1 diabetes.
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -423,7 +431,7 @@ FTP download: GEO (CSV) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE183nnn/GSE18370
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA761711
 Series		Accession: GSE183701	ID: 200183701
 
-52. Blood and immune cell development in human fetal bone marrow and in Down syndrome
+53. Blood and immune cell development in human fetal bone marrow and in Down syndrome
 (Submitter supplied) Throughout postnatal life, haematopoiesis in the bone marrow (BM) maintains blood and immune cell production. Haematopoiesis first emerges in human BM at 11-12 post conception weeks while fetal liver (FL) haematopoiesis is still expanding. Yet, almost nothing is known about how fetal BM evolves to meet the highly specialised needs of the fetus and newborn infant. Here, we detail the development of fetal BM including stroma using single cell RNA-sequencing. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing; Other
@@ -432,7 +440,7 @@ FTP download: GEO (CSV) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE166nnn/GSE16689
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA702168
 Series		Accession: GSE166895	ID: 200166895
 
-53. Gene Expression profiling of Down Syndrome Lungs
+54. Gene Expression profiling of Down Syndrome Lungs
 (Submitter supplied) Comprehensive gene expression assessment in prenatal DS lungs (n=19), and age-matched non-DS (n=19), was performed using high-throughput RNA sequencing (RNAseq)
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -440,7 +448,7 @@ Platform: GPL24676 38 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE175nnn/GSE175539/
 Series		Accession: GSE175539	ID: 200175539
 
-54. Transcriptome analysis by RNA sequencing of human trisomy 21 and normal control blood cells
+55. Transcriptome analysis by RNA sequencing of human trisomy 21 and normal control blood cells
 (Submitter supplied) The aim of this study is to analyse trisomy 21 (T21) transcriptome. We generated RNA sequencing (RNA-Seq) paired-end data from ribosomal RNA-depleted total RNA isolated from blood cell samples of four T21 and four normal control individuals.
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -449,7 +457,7 @@ FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE151nnn/GSE15128
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA635385
 Series		Accession: GSE151282	ID: 200151282
 
-55. Polycomb factor Phf19 controls cell growth and differentiation towards erythroid pathway in chronic myeloid leukemia cells
+56. Polycomb factor Phf19 controls cell growth and differentiation towards erythroid pathway in chronic myeloid leukemia cells
 (Submitter supplied) Polycomb group (PcG) of proteins are a group of highly conserved epigenetic regulators involved in many biological functions, such as embryonic development, cell proliferation and adult stem cell determination. PHD finger protein 19 (PHF19) is an associated factor of Polycomb Repressor Complex 2 (PRC2) up-regulated in different human cancers. In particular, myeloid leukemia cell lines show increased levels of PHF19, yet little is known about its function. more...
 Organism:	Homo sapiens
 Type:		Genome binding/occupancy profiling by high throughput sequencing; Expression profiling by high throughput sequencing
@@ -458,7 +466,7 @@ FTP download: GEO (BED, BEDGRAPH, TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA692103
 Series		Accession: GSE164804	ID: 200164804
 
-56. The study of alternative splicing events in human induced pluripotent stem cells from a Down's syndrome patient
+57. The study of alternative splicing events in human induced pluripotent stem cells from a Down's syndrome patient
 (Submitter supplied) We employed the GeneChip Human Transcriptome Array 2.0 (HTA 2.0) for the global gene analysis with hiPSCs from DS and healthy individuals. Examining differentially expressed genes (DEGs) in these groups and focusing on specific transcripts with Alternative Splicing.
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -466,28 +474,28 @@ Platform: GPL17586 6 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE168nnn/GSE168111/
 Series		Accession: GSE168111	ID: 200168111
 
-57. Multi-influential interactions controls behaviour and cognition through a limited number of pathways in Down syndrome mouse models (RNA-Seq reanalysis II)
+58. Multi-influential interactions controls behaviour and cognition through a limited number of pathways in Down syndrome mouse models (RNA-Seq reanalysis II)
 (Submitter supplied) Down syndrome (DS) is the most common genetic form of intellectual disability with additional clinical features, caused by the presence of an additional copy of human chromosome 21 (Hsa21). A few number of patients with DS features, carry partial duplication of Hsa21 and their study provided novel insights into genotype–phenotype correlations. Despite the progress of genome analysis, the rareness of patients with partial duplication, and the human genetic heterogeneity, makes difficult to achieve a more detailed phenotypic map at present. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing; Third-party reanalysis
 FTP download: GEO (TXT, XLS) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE149nnn/GSE149469/
 Series		Accession: GSE149469	ID: 200149469
 
-58. Multi-influential interactions controls behaviour and cognition through a limited number of pathways in Down syndrome mouse models (RNA-Seq reanalysis I)
+59. Multi-influential interactions controls behaviour and cognition through a limited number of pathways in Down syndrome mouse models (RNA-Seq reanalysis I)
 (Submitter supplied) Down syndrome (DS) is the most common genetic form of intellectual disability with additional clinical features, caused by the presence of an additional copy of human chromosome 21 (Hsa21). A few number of patients with DS features, carry partial duplication of Hsa21 and their study provided novel insights into genotype–phenotype correlations. Despite the progress of genome analysis, the rareness of patients with partial duplication, and the human genetic heterogeneity, makes difficult to achieve a more detailed phenotypic map at present. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing; Third-party reanalysis
 FTP download: GEO (TXT, XLSX) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE149nnn/GSE149467/
 Series		Accession: GSE149467	ID: 200149467
 
-59. Multi-influential interactions controls behaviour and cognition through a limited number of pathways in Down syndrome mouse models (Affymetrix reanalysis)
+60. Multi-influential interactions controls behaviour and cognition through a limited number of pathways in Down syndrome mouse models (Affymetrix reanalysis)
 (Submitter supplied) Down syndrome (DS) is the most common genetic form of intellectual disability with additional clinical features, caused by the presence of an additional copy of human chromosome 21 (Hsa21). A few number of patients with DS features, carry partial duplication of Hsa21 and their study provided novel insights into genotype–phenotype correlations. Despite the progress of genome analysis, the rareness of patients with partial duplication, and the human genetic heterogeneity, makes difficult to achieve a more detailed phenotypic map at present. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array; Third-party reanalysis
 FTP download: GEO (TXT, XLS) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE149nnn/GSE149466/
 Series		Accession: GSE149466	ID: 200149466
 
-60. PolyA RNA-seq from whole blood of subjects with Trisomy 21 ± clonal hematopoiesis
+61. PolyA RNA-seq from whole blood of subjects with Trisomy 21 ± clonal hematopoiesis
 (Submitter supplied) Analysis of steady-state mRNA levels in trisomy 21 subjects ± clonal hematopoiesis. This dataset is part of the Human Trisome Project run by the Linda Crnic Institute for Down Syndrome at the University of Colorado Anschutz Medical Campus. http://www.trisome.org/
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -496,7 +504,7 @@ FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE167nnn/GSE16712
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA703029
 Series		Accession: GSE167124	ID: 200167124
 
-61. Synchrony and asynchrony between an epigenetic clock and developmental timing [RNA-Seq]
+62. Synchrony and asynchrony between an epigenetic clock and developmental timing [RNA-Seq]
 (Submitter supplied) Epigenetic changes have been used to estimate chronological age across the lifespan, and some studies suggest that epigenetic "aging" clocks may already operate in developing tissue. To better understand the relationship between developmental stage and epigenetic age, we utilized the highly regular sequence of development found in the mammalian neural retina and a well-established epigenetic aging clock based on DNA methylation. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -505,7 +513,7 @@ FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE124nnn/GSE12425
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA511410
 Series		Accession: GSE124252	ID: 200124252
 
-62. Gene expression profiling in periodontal ligament cells derived from Down syndrome
+63. Gene expression profiling in periodontal ligament cells derived from Down syndrome
 (Submitter supplied) We performed the microarray analysis for gene expression profiling in periodontal ligament cells derived from Down syndrome.
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -513,7 +521,7 @@ Platform: GPL23159 2 Samples
 FTP download: GEO (CEL, CHP) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE143nnn/GSE143885/
 Series		Accession: GSE143885	ID: 200143885
 
-63. The genome-wide impact of trisomy 21 on DNA methylation and its implications for hematopoiesis
+64. The genome-wide impact of trisomy 21 on DNA methylation and its implications for hematopoiesis
 (Submitter supplied) Background: Down syndrome (DS) is associated with a wide range of phenotypes. To address the hypothesis that the genome-wide perturbation of gene regulation in DS is modulated by epigenetic changes, we performed an epigenome-wide association study (EWAS) on neonatal bloodspots comparing 196 newborns with DS and 439 newborns without DS. Results: We identified 652 epigenome-wide significant CpGs (P<7.67x10-8) and 1,052 differentially methylated regions (DMRs) across the genome. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -522,7 +530,7 @@ FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE160nnn/GSE16063
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA673834
 Series		Accession: GSE160637	ID: 200160637
 
-64. METTL3-mediated N6-methyladenosine modification is involved in the dysregulation of NRIP1 expression in Down syndrome
+65. METTL3-mediated N6-methyladenosine modification is involved in the dysregulation of NRIP1 expression in Down syndrome
 (Submitter supplied) This SuperSeries is composed of the SubSeries listed below.
 Organism:	Homo sapiens
 Type:		Other; Expression profiling by high throughput sequencing
@@ -530,7 +538,7 @@ Platform: GPL24676 15 Samples
 FTP download: GEO ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE160nnn/GSE160691/
 Series		Accession: GSE160691	ID: 200160691
 
-65. RNA-sequencing analysis of cerebral cortex in Down syndrome and controls
+66. RNA-sequencing analysis of cerebral cortex in Down syndrome and controls
 (Submitter supplied) To determine the relationship between m6A modification and gene expression, we analyzed the RNA-Seq data of the same cortex tissues as MeRIP-Seq analyzed
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -539,7 +547,7 @@ FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE160nnn/GSE16069
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA674018
 Series		Accession: GSE160690	ID: 200160690
 
-66. Consequences of aneuploidy in human fibroblasts with trisomy 21
+67. Consequences of aneuploidy in human fibroblasts with trisomy 21
 (Submitter supplied) RNA-Seq of primary human fibroblasts
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -548,7 +556,7 @@ FTP download: GEO (XLSX) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE154nnn/GSE1544
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA646219
 Series		Accession: GSE154418	ID: 200154418
 
-67. Apigenin as a Candidate Prenatal Treatment for Trisomy 21: Effects in Human Amniocytes and the Ts1Cje Mouse Model
+68. Apigenin as a Candidate Prenatal Treatment for Trisomy 21: Effects in Human Amniocytes and the Ts1Cje Mouse Model
 (Submitter supplied) This SuperSeries is composed of the SubSeries listed below.
 Organism:	Homo sapiens; Mus musculus
 Type:		Expression profiling by array
@@ -556,7 +564,7 @@ Platforms: GPL17586 GPL13730 48 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE158nnn/GSE158385/
 Series		Accession: GSE158385	ID: 200158385
 
-68. Apigenin as a Candidate Prenatal Treatment for Trisomy 21: Effects in Human Amniocytes and the Ts1Cje Mouse Model [Human]
+69. Apigenin as a Candidate Prenatal Treatment for Trisomy 21: Effects in Human Amniocytes and the Ts1Cje Mouse Model [Human]
 (Submitter supplied) Down syndrome (DS), a genetic condition leading to intellectual disability, is characterized by triplication of human chromosome 21. Neuropathological hallmarks of DS include abnormal central nervous system development that manifests during gestation and extends throughout life. As a result, newborns and adults with DS exhibit cognitive and motor deficits and fail to meet typical developmental and lack independent life skills. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -564,7 +572,7 @@ Platform: GPL17586 28 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE158nnn/GSE158377/
 Series		Accession: GSE158377	ID: 200158377
 
-69. Rescuing over-activated microglia by acetaminophen treatment restores cognitive performance in the Dp(16) mouse model of Down syndrome.
+70. Rescuing over-activated microglia by acetaminophen treatment restores cognitive performance in the Dp(16) mouse model of Down syndrome.
 (Submitter supplied) Microglia are the resident immune cells of the brain and have been implicated in mechanisms essential for cognitive functions. Down syndrome (DS), the most frequent cause of genetic intellectual disability, is caused by the presence of a supernumerary chromosome 21, which contains genes essential for the function of the immune system. Here, we investigated the presence of microglial alterations and their implication for cognitive impairment in the Dp(16) mouse model of DS. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -573,7 +581,7 @@ FTP download: GEO (XLSX) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE137nnn/GSE1379
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA573911
 Series		Accession: GSE137939	ID: 200137939
 
-70. SON inhibits megakaryocytic differentiation via repressing the megakaryocytic gene expression program in acute megakaryoblastic leukemia
+71. SON inhibits megakaryocytic differentiation via repressing the megakaryocytic gene expression program in acute megakaryoblastic leukemia
 (Submitter supplied) A high incidence of acute megakaryoblastic leukemia (AMKL) in Down syndrome patients implies that chromosome 21 genes have a pivotal role in AMKL development, but the functional contribution of individual genes remains elusive.  Here, we report that SON, a chromosome 21-encoded DNA- and RNA-binding protein, inhibits megakaryocytic differentiation by suppressing RUNX1 and the megakaryocytic gene expression program. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -582,7 +590,7 @@ FTP download: GEO (BW) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE157nnn/GSE157178
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA660403
 Series		Accession: GSE157178	ID: 200157178
 
-71. Gene expression - PRDM8 reveals aberrant DNA methylation in aging syndromes and is relevant for hematopoietic and neuronal differentiation.
+72. Gene expression - PRDM8 reveals aberrant DNA methylation in aging syndromes and is relevant for hematopoietic and neuronal differentiation.
 (Submitter supplied) Dyskeratosis congenita (DKC) and idiopathic aplastic anemia (AA) are bone marrow failure syndromes that share characteristics of premature aging with severe telomere attrition. In this study, we analyzed blood samples of 62 AA and 13 DKC patients to demonstrate that their epigenetic age predictions are overall increased, albeit not directly correlated with telomere length. Aberrant DNA methylation was observed in the gene PRDM8 in DKC and AA as well as in other diseases with premature aging phenotype, such as Down syndrome, Werner syndrome and Hutchinson-Gilford-Progeria syndrome. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -591,7 +599,7 @@ FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE141nnn/GSE14110
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA592137
 Series		Accession: GSE141107	ID: 200141107
 
-72. Expression data of human mesenchymal stromal cells isolated from bone marrow of ML-DS, AMKL patients and HD
+73. Expression data of human mesenchymal stromal cells isolated from bone marrow of ML-DS, AMKL patients and HD
 (Submitter supplied) Bone marrow fibrosis (BMF) is a rare complication in acute leukemia. In pediatrics, it predominantly occurs in acute megakaryoblastic leukemia (AMKL) and here especially in patients with trisomy 21, called myeloid leukemia in Down syndrome (ML-DS). Defects in mesenchymal stromal cells (MSCs) and cytokines specifically released by the myeloid blasts are the main drivers of fibrosis in the bone marrow niche (BMN). more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -599,15 +607,15 @@ Platform: GPL23159 18 Samples
 FTP download: GEO (CEL, XLSX) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE138nnn/GSE138861/
 Series		Accession: GSE138861	ID: 200138861
 
-73. Synchrony and asynchrony between an epigenetic clock and developmental timing
+74. Synchrony and asynchrony between an epigenetic clock and developmental timing
 (Submitter supplied) This SuperSeries is composed of the SubSeries listed below.
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing; Methylation profiling by genome tiling array
-Platforms: GPL13534 GPL21145 GPL11154 81 Samples
+Platforms: GPL13534 GPL11154 GPL21145 81 Samples
 FTP download: GEO (IDAT, TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE124nnn/GSE124569/
 Series		Accession: GSE124569	ID: 200124569
 
-74. Silencing Trisomy 21 with XIST in Neural Stem Cells Promotes Neuronal Differentiation
+75. Silencing Trisomy 21 with XIST in Neural Stem Cells Promotes Neuronal Differentiation
 (Submitter supplied) This SuperSeries is composed of the SubSeries listed below.
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -615,7 +623,7 @@ Platform: GPL20301 36 Samples
 FTP download: GEO (MTX) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE125nnn/GSE125839/
 Series		Accession: GSE125839	ID: 200125839
 
-75. Silencing Trisomy 21 with XIST in Neural Stem Cells Promotes Neuronal Differentiation (single cells)
+76. Silencing Trisomy 21 with XIST in Neural Stem Cells Promotes Neuronal Differentiation (single cells)
 (Submitter supplied) Although Down Syndrome (DS) is the leading genetic cause of intellectual disability in children, the developmental pathogenesis remains largely unknown, and better strategies are needed to investigate this. We previously showed that one copy of chromosome 21 can be epigenetically silenced in DS iPSCs by insertion of an XIST transgene, which produces a non-coding RNA that normally silences one X chromosome in female cells. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -624,7 +632,7 @@ FTP download: GEO (MTX, TSV) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE125nnn/GSE
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA517689
 Series		Accession: GSE125838	ID: 200125838
 
-76. Silencing Trisomy 21 with XIST in Neural Stem Cells Promotes Neuronal Differentiation (bulk)
+77. Silencing Trisomy 21 with XIST in Neural Stem Cells Promotes Neuronal Differentiation (bulk)
 (Submitter supplied) Although Down Syndrome (DS) is the leading genetic cause of intellectual disability in children, the developmental pathogenesis remains largely unknown, and better strategies are needed to investigate this. We previously showed that one copy of chromosome 21 can be epigenetically silenced in DS iPSCs by insertion of an XIST transgene, which produces a non-coding RNA that normally silences one X chromosome in female cells. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -633,7 +641,7 @@ FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE125nnn/GSE12583
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA517690
 Series		Accession: GSE125837	ID: 200125837
 
-77. RNAseq transcriptome analysis of White Blood Cells (WBCs) from individuals with and without trisomy 21
+78. RNAseq transcriptome analysis of White Blood Cells (WBCs) from individuals with and without trisomy 21
 (Submitter supplied) This SuperSeries is composed of the SubSeries listed below.
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -641,7 +649,7 @@ Platform: GPL20301 19 Samples
 FTP download: GEO ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE128nnn/GSE128622/
 Series		Accession: GSE128622	ID: 200128622
 
-78. RNAseq transcriptome analysis of White Blood Cells (WBCs) from individuals with and without trisomy 21 [stranded]
+79. RNAseq transcriptome analysis of White Blood Cells (WBCs) from individuals with and without trisomy 21 [stranded]
 (Submitter supplied) Poly(A)+ RNA extracted from WBCs obtained from chromosome 21 disomic (D21) and trisomic (T21) individuals to identify consistent changes in gene expression across individuals.
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -650,7 +658,7 @@ FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE128nnn/GSE12862
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA528293
 Series		Accession: GSE128621	ID: 200128621
 
-79. RNAseq transcriptome analysis of White Blood Cells (WBCs) from individuals with and without trisomy 21 [unstranded]
+80. RNAseq transcriptome analysis of White Blood Cells (WBCs) from individuals with and without trisomy 21 [unstranded]
 (Submitter supplied) Poly(A)+ RNA extracted from WBCs obtained from chromosome 21 disomic (D21) and trisomic (T21) individuals to identify consistent changes in gene expression across individuals.
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -659,7 +667,7 @@ FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE128nnn/GSE12861
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA528283
 Series		Accession: GSE128614	ID: 200128614
 
-80. IRF2 is a master regulator of human keratinocyte stem cell fate
+81. IRF2 is a master regulator of human keratinocyte stem cell fate
 (Submitter supplied) This SuperSeries is composed of the SubSeries listed below.
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing; Genome binding/occupancy profiling by high throughput sequencing
@@ -667,7 +675,7 @@ Platforms: GPL21697 GPL16791 GPL18573 40 Samples
 FTP download: GEO (WIG) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE135nnn/GSE135680/
 Series		Accession: GSE135680	ID: 200135680
 
-81. Analysis of the Clustered Protocadherin (cPcdh) Locus in Human Pluripotent Stem and Derived Cells [scRNA-seq]
+82. Analysis of the Clustered Protocadherin (cPcdh) Locus in Human Pluripotent Stem and Derived Cells [scRNA-seq]
 (Submitter supplied) In the mammalian genome, the clustered protocadherin (cPcdh) locus is a paradigm of stochastic gene expression with the potential to express a different cPcdh combination in every neuron. Here, we report a limited version established during the transition from the naive to the primed states of human cell pluripotency that reduces by orders of magnitude the combinatorial potential in the cPcdh locus. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -676,7 +684,7 @@ FTP download: GEO (BEDGRAPH) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE135nnn/GSE
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA559520
 Series		Accession: GSE135634	ID: 200135634
 
-82. Analysis of the Clustered Protocadherin (cPcdh) Locus in Human Pluripotent Stem and Derived Cells [RNA-seq II our of II]
+83. Analysis of the Clustered Protocadherin (cPcdh) Locus in Human Pluripotent Stem and Derived Cells [RNA-seq II our of II]
 (Submitter supplied) In the mammalian genome, the clustered protocadherin (cPcdh) locus is a paradigm of stochastic gene expression with the potential to express a different cPcdh combination in every neuron. Here, we report a limited version established during the transition from the naive to the primed states of human cell pluripotency that reduces by orders of magnitude the combinatorial potential in the cPcdh locus. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -685,7 +693,7 @@ FTP download: GEO (BEDGRAPH) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE135nnn/GSE
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA559519
 Series		Accession: GSE135633	ID: 200135633
 
-83. N6-methyladenosine (m6A) profiling of EndoC-bH1 cell line and RNA seq of Mettl14 knockout mice beta cell
+84. N6-methyladenosine (m6A) profiling of EndoC-bH1 cell line and RNA seq of Mettl14 knockout mice beta cell
 (Submitter supplied) In type 2 diabetes, pancreatic beta-cells fail to compensate for the presence of insulin resistance in target tissues and represent a central player in the disease development. Identifying and studying innovative molecular mechanisms that lead to beta-cell failure in diabetes represent an interesting line of research and are necessary. N6-Methyladenosine (m6A) is the most abundant modification in mRNA and is found virtually in all mammals. more...
 Organism:	Homo sapiens; Mus musculus
 Type:		Expression profiling by high throughput sequencing; Other
@@ -694,7 +702,7 @@ FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE132nnn/GSE13230
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA547579
 Series		Accession: GSE132306	ID: 200132306
 
-84. Analysis of the Clustered Protocadherin (cPcdh) Locus in Human Pluripotent Stem and Derived Cells (RNA-seq I out of II)
+85. Analysis of the Clustered Protocadherin (cPcdh) Locus in Human Pluripotent Stem and Derived Cells (RNA-seq I out of II)
 (Submitter supplied) In the mammalian genome, the clustered protocadherin (cPcdh) locus is a paradigm of stochastic gene expression with the potential to express a different cPcdh combination in every neuron. Here, we report a limited version established during the transition from the naive to the primed states of human cell pluripotency that reduces by orders of magnitude the combinatorial potential in the cPcdh locus. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -703,15 +711,15 @@ FTP download: GEO (BEDGRAPH) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE106nnn/GSE
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA418296
 Series		Accession: GSE106871	ID: 200106871
 
-85. Analysis of the Clustered Protocadherin (cPcdh) Locus in Human Pluripotent Stem and Derived Cells
+86. Analysis of the Clustered Protocadherin (cPcdh) Locus in Human Pluripotent Stem and Derived Cells
 (Submitter supplied) In the mammalian genome, the clustered protocadherin (cPcdh) locus is a paradigm of stochastic gene expression with the potential to express a different cPcdh combination in every neuron. Here, we report a limited version established during the transition from the naive to the primed states of human cell pluripotency that reduces by orders of magnitude the combinatorial potential in the cPcdh locus. more...
-Organism:	Homo sapiens; Mus musculus
+Organism:	Mus musculus; Homo sapiens
 Type:		Expression profiling by high throughput sequencing; Genome binding/occupancy profiling by high throughput sequencing
 4 related Platforms 341 Samples
 FTP download: GEO (BEDGRAPH) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE106nnn/GSE106872/
 Series		Accession: GSE106872	ID: 200106872
 
-86. The expression levels of genes on trisomic chromosomes (chromosome 13, 18 or 21) are increased approximately 1.5-fold on average compared with diploid cells
+87. The expression levels of genes on trisomic chromosomes (chromosome 13, 18 or 21) are increased approximately 1.5-fold on average compared with diploid cells
 (Submitter supplied) Phenotypes in chromosome abnormalities do not arise as a mere summation of the specific effects of dosage-sensitive genes, but as a result of the synergistic actions of whole chromosomes. Recent studies on yeast and mammalian cells have demonstrated that aneuploidy exerts detrimental effects on organismal growth and development, regardless of the karyotype, suggesting that aneuploidy-associated stress plays an important role in disease pathogenesis. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -719,7 +727,7 @@ Platforms: GPL10332 GPL16699 16 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE120nnn/GSE120291/
 Series		Accession: GSE120291	ID: 200120291
 
-87. mTOR hyperactivation in Down Syndrome mediates deficits in autophagy induction, autophagosome formation, and mitophagy
+88. mTOR hyperactivation in Down Syndrome mediates deficits in autophagy induction, autophagosome formation, and mitophagy
 (Submitter supplied) Down syndrome (DS), a complex genetic disorder caused by chromosome 21 trisomy, is associated with mitochondrial dysfunction leading to the accumulation of damaged mitochondria. Here we report that mitophagy, a form of selective autophagy activated to clear damaged mitochondria is deficient in primary human fibroblasts derived from individuals with DS leading to accumulation of damaged mitochondria with consequent increases in oxidative stress. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -728,7 +736,7 @@ FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE126nnn/GSE12691
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA523635
 Series		Accession: GSE126910	ID: 200126910
 
-88. Lysosomal dysfunction in Down syndrome is APP-dependent and mediated by APP-βCTF (C99)
+89. Lysosomal dysfunction in Down syndrome is APP-dependent and mediated by APP-βCTF (C99)
 (Submitter supplied) Lysosomal failure underlies pathogenesis of numerous congenital neurodegenerative disorders and is an early and progressive feature of Alzheimer’s disease (AD) pathogenesis. Here, we report that lysosomal dysfunction in Down Syndrome (Trisomy 21) requires the extra gene copy of amyloid precursor protein (APP) and is mediated by the beta cleaved carboxy terminal fragment of APP (APP-βCTF, C99).  In primary fibroblasts from individuals with Down Syndrome (DS), lysosomal degradation of autophagic and endocytic substrates is selectively impaired causing them to accumulate in enlarged autolysosomes/lysosomes. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing; Third-party reanalysis
@@ -737,7 +745,7 @@ FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE127nnn/GSE12788
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA525687
 Series		Accession: GSE127880	ID: 200127880
 
-89. RNA-seq of human aneuploid cell lines with Trisomy 21
+90. RNA-seq of human aneuploid cell lines with Trisomy 21
 (Submitter supplied) Trisomy 21, a form of aneuploidy, is one of the few viable forms of trisomy. The goal of this study was to assess the effect of an additional chromosome 21 on gene expression in two different human aneuploid model cell lines.
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -746,7 +754,7 @@ FTP download: GEO (XLSX) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE131nnn/GSE1312
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA543056
 Series		Accession: GSE131249	ID: 200131249
 
-90. Aberrant expression of select piRNA-pathway genes does not reactivate piRNA silencing in cancer cells
+91. Aberrant expression of select piRNA-pathway genes does not reactivate piRNA silencing in cancer cells
 (Submitter supplied) Analysis of PIWIL1 function in COLO205 [ATCC® CCL-222] colon adenocarcinoma cancer cell culture model. 
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing; Non-coding RNA profiling by high throughput sequencing
@@ -755,7 +763,7 @@ FTP download: GEO (XLSX) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE128nnn/GSE1285
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA528177
 Series		Accession: GSE128526	ID: 200128526
 
-91. Nuclear import of the DSCAM-cytoplasmic domain drives signaling capable of inhibiting synapse formation
+92. Nuclear import of the DSCAM-cytoplasmic domain drives signaling capable of inhibiting synapse formation
 (Submitter supplied) DSCAM and DSCAML1 are immunoglobulin and cell adhesion-type receptors serving important neurodevelopmental functions including control of axon growth, branching, neurite self-avoidance and neuronal cell death. The signal transduction mechanisms or effectors of DSCAM receptors however, remain poorly characterized. We used a human ORFeome library to perform a high-throughput screen in mammalian cells and identified novel cytoplasmic signaling effector candidates including the Down syndrome kinase Dyrk1a, STAT3, USP21, and SH2D2A. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -764,7 +772,7 @@ FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE122nnn/GSE12256
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA505631
 Series		Accession: GSE122568	ID: 200122568
 
-92. Reversing Abnormal Neural Development by Inhibiting OLIG2 in Down Syndrome Human iPSC Brain Organoids and Neuronal Mouse Chimeras
+93. Reversing Abnormal Neural Development by Inhibiting OLIG2 in Down Syndrome Human iPSC Brain Organoids and Neuronal Mouse Chimeras
 (Submitter supplied) Down syndrome (DS), caused by triplication of human chromosome 21 (HSA21), is the most common genetic origin of intellectual disability. Despite the limited success of current pharmacological interventions, little has been achieved to reverse the abnormal brain developmental in DS. Here, using human induced pluripotent stem cell (hiPSC)-based brain organoid and in vivo human neuronal chimeric mouse brain models, we demonstrate that the HSA21 genes OLIG1 and OLIG2 exhibit distinct temporal expression patterns during neuronal differentiation. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -773,15 +781,15 @@ FTP download: GEO (XLSX) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE124nnn/GSE1245
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA512272
 Series		Accession: GSE124513	ID: 200124513
 
-93. Trisomy of a ‘Down syndrome critical region’ globally amplifies transcription via HMGN1 overexpression
+94. Trisomy of a ‘Down syndrome critical region’ globally amplifies transcription via HMGN1 overexpression
 (Submitter supplied) This SuperSeries is composed of the SubSeries listed below.
 Organism:	Homo sapiens; Mus musculus
 Type:		Expression profiling by high throughput sequencing; Genome binding/occupancy profiling by high throughput sequencing
-Platforms: GPL18573 GPL19057 33 Samples
+Platforms: GPL19057 GPL18573 33 Samples
 FTP download: GEO (BEDGRAPH) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE121nnn/GSE121071/
 Series		Accession: GSE121071	ID: 200121071
 
-94. Trisomy of a ‘Down syndrome critical region’ globally amplifies transcription via HMGN1 overexpression [SLAM-Seq]
+95. Trisomy of a ‘Down syndrome critical region’ globally amplifies transcription via HMGN1 overexpression [SLAM-Seq]
 (Submitter supplied) Down syndrome (DS, trisomy 21) is associated with developmental abnormalities and increased leukemia risk. To reconcile chromatin alterations with transcriptome changes in cells with trisomy 21, we performed paired exogenous spike-in normalized RNA and chromatin immunoprecipitation sequencing in DS models. Absolute per cell normalization unmasked global amplification of gene expression associated with trisomy 21. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -790,7 +798,7 @@ FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE121nnn/GSE12107
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA495599
 Series		Accession: GSE121070	ID: 200121070
 
-95. Trisomy of a ‘Down syndrome critical region’ globally amplifies transcription via HMGN1 overexpression [NALM6 RNA-Seq]
+96. Trisomy of a ‘Down syndrome critical region’ globally amplifies transcription via HMGN1 overexpression [NALM6 RNA-Seq]
 (Submitter supplied) Down syndrome (DS, trisomy 21) is associated with developmental abnormalities and increased leukemia risk. To reconcile chromatin alterations with transcriptome changes in cells with trisomy 21, we performed paired exogenous spike-in normalized RNA and chromatin immunoprecipitation sequencing in DS models. Absolute per cell normalization unmasked global amplification of gene expression associated with trisomy 21. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -799,7 +807,7 @@ FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE121nnn/GSE12106
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA495597
 Series		Accession: GSE121065	ID: 200121065
 
-96. APP levels mediate beta-amyloid but not tau-related aspects of Alzheimer’s disease in a Down syndrome model of cortical neurogenesis.
+97. APP levels mediate beta-amyloid but not tau-related aspects of Alzheimer’s disease in a Down syndrome model of cortical neurogenesis.
 (Submitter supplied) Early-onset Alzheimer’s disease-like pathology in Down syndrome (DS, trisomy 21) is commonly attributed to an increased dosage of the amyloid precursor protein (APP) gene.  To test this central tenet of the amyloid-cascade hypothesis we deleted the supernumerary copy of the APP gene in trisomic DS iPSC, or upregulated APP expression in euploid human pluripotent stem cell lines with dCas9-VP64, and subjected these lines to prolonged cortical neural differentiation. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -807,7 +815,7 @@ Platform: GPL10558 34 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE100nnn/GSE100680/
 Series		Accession: GSE100680	ID: 200100680
 
-97. Downregulation of Endothelin Receptor B Contributes to Defective B Cell Lymphopoiesis in Trisomy 21 Pluripotent Cells
+98. Downregulation of Endothelin Receptor B Contributes to Defective B Cell Lymphopoiesis in Trisomy 21 Pluripotent Cells
 (Submitter supplied) Individuals with Trisomy 21 (T21) exhibit numerous hematological abnormalities, including reductions in numbers of circulating B and T lymphocytes.  To elucidate molecular mechanisms underlying these phenotypes, we differentiated human isogenic disomic and trisomic pluripotent cells, and observed that trisomic cells showed defects in B cell, but not T, cell differentiation.  Global gene expression of differentiated, trisomic B cells revealed reduced expression of genes encoding endothelin signaling components, namely the Endothelin Receptor B (Ednrb), and its ligand Endothelin1 (Edn1).. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -815,7 +823,7 @@ Platform: GPL570 6 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE110nnn/GSE110064/
 Series		Accession: GSE110064	ID: 200110064
 
-98. Human blastocysts of normal and abnormal karyotypes display distinct transcriptome profiles: an analysis of every mono and trisomy
+99. Human blastocysts of normal and abnormal karyotypes display distinct transcriptome profiles: an analysis of every mono and trisomy
 (Submitter supplied) Characterization of the transcriptome of normal and abnormal embryos.
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -824,7 +832,7 @@ FTP download: GEO (XLSX) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE114nnn/GSE1145
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA471739
 Series		Accession: GSE114559	ID: 200114559
 
-99. Transcriptome analysis of genetically matched human induced pluripotent stem cells disomic or trisomic for chromosome 21
+100. Transcriptome analysis of genetically matched human induced pluripotent stem cells disomic or trisomic for chromosome 21
 (Submitter supplied) Trisomy of chromosome 21, the genetic cause of Down syndrome, has the potential to alter expression of genes on chromosome 21, as well as other locations throughout the genome. These transcriptome changes are likely to underlie the Down syndrome clinical phenotypes. We have employed RNA-seq to undertake an in-depth analysis of transcriptome changes resulting from trisomy of chromosome 21, using induced pluripotent stem cells (iPSCs) derived from a single individual with Down syndrome. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -833,16 +841,16 @@ FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE101nnn/GSE10194
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA395984
 Series		Accession: GSE101942	ID: 200101942
 
-100. Identification of Differentially Expressed Splice Variants by the Proteogenomic Pipeline Splicify
+101. Identification of Differentially Expressed Splice Variants by the Proteogenomic Pipeline Splicify
 (Submitter supplied) Proteogenomics, i.e. comprehensive integration of genomics and proteomics data, is a powerful approach identifying novel protein biomarkers. This is especially the case for proteins that differ structurally between disease and control conditions. As tumor development is associated with aberrant splicing, we focus on this rich source of cancer specific biomarkers. To this end, we developed a proteogenomic pipeline, Splicify, which is able to detect differentially expressed protein isoforms. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
-Platforms: GPL16791 GPL21311 16 Samples
+Platforms: GPL21311 GPL16791 16 Samples
 FTP download: GEO (BED, GFF, TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE108nnn/GSE108140/
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA422579
 Series		Accession: GSE108140	ID: 200108140
 
-101. Coding and noncoding gene expression of 48 pediatric AML samples
+102. Coding and noncoding gene expression of 48 pediatric AML samples
 (Submitter supplied) Long non-coding RNAs (lncRNAs) and miRNAs have emerged as crucial regulators of gene expression and cell fate decisions. Here we present an integrated analysis of the ncRNA-transcriptome of purified human hematopoietic stem cells (HSCs) and their differentiated progenies, including granulocytes, monocytes, T-cells, NK-cells, B-cells, megakaryocytes and erythroid precursors, which we correlated with the ncRNA expression profile of 48 pediatric AML samples to establish a core lncRNA stem cell signature in AML.Linear (PCA) and nonlinear (t-SNE) dimensionality reduction of 46 pediatric AML samples including Down syndrome AMKL, core-binding factor AMLs (inv[16] or t[8;21]) and MLL-rearranged leukemias mapped most samples to a space between HSCs and differentiated cells together with the myeloid progenitors. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -850,7 +858,7 @@ Platform: GPL23434 48 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE98nnn/GSE98697/
 Series		Accession: GSE98697	ID: 200098697
 
-102. Modular Transcriptional Repertoire and microRNA-target Analyses in Thymic Tissue of Down Syndrome Infants
+103. Modular Transcriptional Repertoire and microRNA-target Analyses in Thymic Tissue of Down Syndrome Infants
 (Submitter supplied) Trisomy 21- driven transcriptional alterations in human thymus were characterized through gene coexpression network (GCN) and microRNA-target analyses. We used whole thymic tissue (corticomedullar sections) - obtained at heart surgery from Down syndrome (DS) and karyotipically normal individuals (CT) - and a network-based approach for GCN analysis that allows the identification of modular transcriptional repertoires and the interactions between all the system’s constituents through community detection. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -858,7 +866,7 @@ Platform: GPL13497 20 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE69nnn/GSE69210/
 Series		Accession: GSE69210	ID: 200069210
 
-103. Transcriptome profiling uncovers potential common mechanisms in fetal trisomies 18 and 21
+104. Transcriptome profiling uncovers potential common mechanisms in fetal trisomies 18 and 21
 (Submitter supplied) Several studies have investigated the gene expression profiles in trisomies 21 and 18 to identify the expression signatures that are characteristic of each of these specific aneuploidy conditions. We hypothesized that the viability of cells with gross genomic imbalances might be associated with the activation of resilience mechanisms that are common to different trisomies and that are reflected by specific shared gene expression patterns. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -866,7 +874,7 @@ Platform: GPL6480 19 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE89nnn/GSE89782/
 Series		Accession: GSE89782	ID: 200089782
 
-104. Single and double knock-down of ETV6 and NFKB1 in U251 glioblastoma cell line.
+105. Single and double knock-down of ETV6 and NFKB1 in U251 glioblastoma cell line.
 (Submitter supplied) To elucidate the mechanism(s) underlying the synergistic interaction between ETV6 and NFKB1, we analyzed the genome-wide transcriptional consequences of single and double knock-downs of the two TFs in U251 cells.
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -874,7 +882,7 @@ Platform: GPL570 12 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE75nnn/GSE75003/
 Series		Accession: GSE75003	ID: 200075003
 
-105. Molecular Characterization of Down Syndrome Embryonic Stem Cells Reveals a Role for RUNX1 in Neural Differentiation
+106. Molecular Characterization of Down Syndrome Embryonic Stem Cells Reveals a Role for RUNX1 in Neural Differentiation
 (Submitter supplied) Down syndrome (DS) is the leading genetic cause of mental retardation and is caused by a third copy of human chromosome 21. The different pathologies of DS involve many tissues with a distinct array of neural phenotypes. Here we characterize new embryonic stem cell lines with DS (DS-ESCs), and focus on the neural aspects of the diease. Our results show that neural progenitor cells (NPCs) differentiated from five independent DS-ESC lines display increased apoptosis and down-regulation of forehead developmental genes. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -882,7 +890,7 @@ Platforms: GPL570 GPL6244 11 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE84nnn/GSE84887/
 Series		Accession: GSE84887	ID: 200084887
 
-106. Trisomy 21 consistently activates the interferon response
+107. Trisomy 21 consistently activates the interferon response
 (Submitter supplied) This SuperSeries is composed of the SubSeries listed below.
 Organism:	Homo sapiens; Mus musculus
 Type:		Other; Expression profiling by high throughput sequencing
@@ -890,7 +898,7 @@ Platforms: GPL17021 GPL16791 GPL20301 115 Samples
 FTP download: GEO ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE79nnn/GSE79843/
 Series		Accession: GSE79843	ID: 200079843
 
-107. Analysis of chromosomal aberrations and recombination by allelic bias in RNA-Seq
+108. Analysis of chromosomal aberrations and recombination by allelic bias in RNA-Seq
 (Submitter supplied) Genomic instability has profound effects on cellular phenotypes. Studies have shown that pluripotent cells with abnormal karyotypes may grow faster, differentiate less and become more resistance to apoptosis. Previously, we showed that microarray gene expression profiles can be utilized for the analysis of chromosomal aberrations by comparing gene expression levels between normal and aneuploid samples. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -899,7 +907,7 @@ FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE81nnn/GSE81402/
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA321469
 Series		Accession: GSE81402	ID: 200081402
 
-108. caArray_orkin-0038: Identification of distinct molecular phenotypes in acute megakaryoblastic leukemia by gene expression profiling
+109. caArray_orkin-0038: Identification of distinct molecular phenotypes in acute megakaryoblastic leukemia by gene expression profiling
 (Submitter supplied) Individuals with Down syndrome (DS) are predisposed to develop acute megakaryoblastic leukemia (AMKL), characterized by expression of truncated GATA1 transcription factor protein (GATA1s) due to somatic mutation. The treatment outcome for DS-AMKL is more favorable than for AMKL in non-DS patients. To gain insight into gene expression differences in AMKL, we compared 24 DS and 39 non-DS AMKL samples. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -907,7 +915,7 @@ Platform: GPL96 80 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE83nnn/GSE83449/
 Series		Accession: GSE83449	ID: 200083449
 
-109. Musashi-2 attenuates AHR signalling to expand human haematopoietic stem cells
+110. Musashi-2 attenuates AHR signalling to expand human haematopoietic stem cells
 (Submitter supplied) A greater understanding of the molecular pathways that underpin the unique human hematopoietic stem and progenitor cell (HSPC) self-renewal program will improve strategies to expand these critical cell types for regenerative therapies. The post-transcriptional mechanisms guiding HSPC fate during ex vivo expansion have not been closely investigated. Using shRNA-mediated knockdown, we show that the RNA-binding protein (RBP) Musashi-2 (MSI2) is required for human HSPC self-renewal. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -916,7 +924,7 @@ FTP download: GEO (XLSX) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE70nnn/GSE70685
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA289354
 Series		Accession: GSE70685	ID: 200070685
 
-110. Longitudinal Gene Expression Analysis in Human Brain identifies biological processes underlying neuropathology in Down Syndrome
+111. Longitudinal Gene Expression Analysis in Human Brain identifies biological processes underlying neuropathology in Down Syndrome
 (Submitter supplied) Trisomy 21 (Ts21) or Down syndrome (DS) is the most common genetic cause of intellectual disability. To investigate the consequences of Ts21 on human brain development, we have systematically analyzed the transcriptome of dorsolateral prefrontal cortex (DFC) and cerebellar cortex (CBC) using exon array mapping in DS and matched euploid control brains spanning from prenatal development to adulthood. We identify hundreds of differentially expressed (DEX) genes in the DS brains, many of which exhibit temporal changes in expression over the lifespan. To gain insight into how these DEX genes may cause specific DS phenotypes, we identified functional modules of co-expressed genes using several different bioinformatics approaches, including WGCNA and gene ontology analysis.  A module comprised of genes associated with myelination, including those dynamically expressed over the course of oligodendrocyte development, was amongst those with the great levels of differential gene expression. Using Ts65Dn mouse line, the most common rodent  model of DS, w e observed significant and novel defects in oligodendrocyte maturation and myelin ultrastructure; establishing  a correlative proof-of-principle implicating myelin dysgenesis in DS.  Thus, examination of the spatio-temporal transcriptome predicts specific cellular and functional events in the DS brain and is an outstanding resource for determining putative mechanisms involved in the neuropathology of DS.
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -924,7 +932,7 @@ Platform: GPL5175 116 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE59nnn/GSE59630/
 Series		Accession: GSE59630	ID: 200059630
 
-111. Donor dependent variations in hematopoietic differentiation among embryonic and induced pluripotent stem cell lines.
+112. Donor dependent variations in hematopoietic differentiation among embryonic and induced pluripotent stem cell lines.
 (Submitter supplied) Hematopoiesis generated from human embryonic stem cells (ES) and induced pluripotent stem cells (iPS) are unprecedented resources for cell therapy. We compared hematopoietic differentiation potentials from ES and iPS cell lines originated from various donors and derived them using integrative and non-integrative vectors. Significant differences in differentiation toward hematopoietic lineage were observed among ES and iPS. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -932,7 +940,7 @@ Platform: GPL13497 9 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE75nnn/GSE75051/
 Series		Accession: GSE75051	ID: 200075051
 
-112. A validated gene regulatory network and GWAS identifies early regulators of T-cell associated diseases [MAF siRNA]
+113. A validated gene regulatory network and GWAS identifies early regulators of T-cell associated diseases [MAF siRNA]
 (Submitter supplied) In this work we present an analytical strategy to systematically identify early regulators by combining gene regulatory networks (GRN) with GWAS.  We hypothesized that early regulators in T-cell associated diseases could be found by defining upstream transcription factors (TFs) in T-cell differentiation. Time series expression and DNA methylation profiling of T-cell differentiation identified several upstream TFs, of which TFs involved in Th1/2 differentiation were most enriched for disease associated SNPs identified by GWAS.
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -940,7 +948,7 @@ Platform: GPL14552 12 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE61nnn/GSE61964/
 Series		Accession: GSE61964	ID: 200061964
 
-113. A validated gene regulatory network and GWAS identifies early regulators of T-cell associated diseases
+114. A validated gene regulatory network and GWAS identifies early regulators of T-cell associated diseases
 (Submitter supplied) This SuperSeries is composed of the SubSeries listed below.
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -948,7 +956,7 @@ Type:		Expression profiling by array
 FTP download: GEO (BED, TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE60nnn/GSE60680/
 Series		Accession: GSE60680	ID: 200060680
 
-114. Expression data from euploid and trisomic 13, 18 and 21 human fetal cells
+115. Expression data from euploid and trisomic 13, 18 and 21 human fetal cells
 (Submitter supplied) The organization and dynamics of chromatin within the in vivo interphase nucleus and the latter's relationship with transcriptional regulation are still not fully understood. To better understand these relationships, we studied a natural example of chromosomal disorganization: aneuploidy due to trisomies 13, 18 and 21. We hypothesized that the presence of an extra copy of one chromosome alters the CT distribution in the nucleus, which in turn perturbs transcriptional activity. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -956,7 +964,7 @@ Platform: GPL17930 23 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE65nnn/GSE65055/
 Series		Accession: GSE65055	ID: 200065055
 
-115. Placental Transcriptomes in the Common Aneuploidies Reveal Critical Regions on the Trisomic Chromosomes and Genome-Wide Effects
+116. Placental Transcriptomes in the Common Aneuploidies Reveal Critical Regions on the Trisomic Chromosomes and Genome-Wide Effects
 (Submitter supplied) We profiled gene expression at the maternal-fetal interface during the second trimester of pregnancy (13-22 wks) in trisomy 13 (T13; Patau syndrome, n = 4), trisomy 18 (T18; Edwards syndrome, n = 4), trisomy 21 (T21; Down syndrome, n = 8), and in euploid pregnancies (n = 4). FISH confirmed the ploidy of the samples. Global transcriptional profiling identified differentially expressed transcripts (≥ 2-fold) in T21 (n = 160), T18 (n = 80), and T13 (n = 125). more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -964,7 +972,7 @@ Platform: GPL570 20 Samples
 FTP download: GEO (CEL, TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE70nnn/GSE70102/
 Series		Accession: GSE70102	ID: 200070102
 
-116. Expression data from diploid and aneuoploid human pluripotent stem cells-derived teratomas
+117. Expression data from diploid and aneuoploid human pluripotent stem cells-derived teratomas
 (Submitter supplied) Teratoma formation is the gold standard assay for testing the capacity of human stem cells to differentiate into all embryonic germ layers. Although widely used, little effort has been made to transform this qualitative assay into a quantitative one. Using gene expression data from a wide variety of cells, we created a gene scorecard representing tissues from all three germ layers as well as an extraembryonic tissue. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -972,15 +980,15 @@ Platform: GPL570 7 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE64nnn/GSE64669/
 Series		Accession: GSE64669	ID: 200064669
 
-117. Pluripotent stem cells reveal novel erythroid activities of the GATA1 N-terminus
+118. Pluripotent stem cells reveal novel erythroid activities of the GATA1 N-terminus
 (Submitter supplied) This SuperSeries is composed of the SubSeries listed below.  Germline GATA1 mutations resulting in the production of an amino-truncated protein termed GATA1s (for “short”) cause congenital hypoplastic anemia. Similar somatic mutations promote transient myeloproliferative disease and acute megakaryoblastic leukemia in trisomy 21 patients. Here we show that induced pluripotent stem cells (iPSCs) from patients with GATA1-truncating mutations exhibit impaired erythroid potential but enhanced megakaryopoiesis and myelopoiesis, faithfully recapitulating the major phenotypes of associated diseases. more...
-Organism:	Mus musculus; Homo sapiens
+Organism:	Homo sapiens; Mus musculus
 Type:		Expression profiling by array; Genome binding/occupancy profiling by high throughput sequencing; Third-party reanalysis
 Platforms: GPL1261 GPL6244 GPL13112 24 Samples
 FTP download: GEO (BROADPEAK, BW, CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE61nnn/GSE61933/
 Series		Accession: GSE61933	ID: 200061933
 
-118. Transcriptome profiling of trisomy 21 and euploid iPSC-derived hematopoietic progenitors expressing wtGATA1 or an amino-truncated isoform of GATA1, GATA1short (GATA1s).
+119. Transcriptome profiling of trisomy 21 and euploid iPSC-derived hematopoietic progenitors expressing wtGATA1 or an amino-truncated isoform of GATA1, GATA1short (GATA1s).
 (Submitter supplied) We generated human induced pluripotent stem cells (iPSCs) from trisomy 21 (T21) and euploid patient tissues with and without GATA1 mutations causing exclusive expression of truncated GATA1, termed GATA1short (GATA1s). Transcriptome analysis comparing expression levels of genes in GATA1s vs. wtGATA1-expressing progenitors demonstrated that GATA1s impairs erythropoiesis and enhances megakaryopoiesis and myelopoiesis in both T21 and euploid contexts in the iPSC-model system.
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -988,7 +996,7 @@ Platform: GPL6244 13 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE36nnn/GSE36787/
 Series		Accession: GSE36787	ID: 200036787
 
-119. Transcriptome wide target profiling for miR-23b and miR-27a.
+120. Transcriptome wide target profiling for miR-23b and miR-27a.
 (Submitter supplied) Whole transcriptome Identification of  direct targets of miR-23b and miR-27a using biotinylated pull-downs found that both miRNAs have roles relevant to the mammalian cell cycle and cancer.
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -996,7 +1004,7 @@ Platform: GPL10558 8 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE40nnn/GSE40410/
 Series		Accession: GSE40410	ID: 200040410
 
-120. Transcriptome wide target profiling for miR-3118-3p and miR-4307-3p.
+121. Transcriptome wide target profiling for miR-3118-3p and miR-4307-3p.
 (Submitter supplied) Whole transcriptome Identification of  direct targets of miR-3118-3p and miR-4307-3p using biotinylated pull-downs found that both miRNAs have roles relevant to pancreatic cancer.
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -1004,7 +1012,7 @@ Platform: GPL10558 12 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE40nnn/GSE40409/
 Series		Accession: GSE40409	ID: 200040409
 
-121. Identification of markers of early dementia in adults with Down syndrome
+122. Identification of markers of early dementia in adults with Down syndrome
 (Submitter supplied) We aimed at identification of variations of genome expression in white blood cells, which could serve as blood markers of early dementia in adults with Down syndrome
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -1012,7 +1020,7 @@ Platform: GPL17077 48 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE63nnn/GSE63870/
 Series		Accession: GSE63870	ID: 200063870
 
-122. Genome-wide profiling of short fragment-enriched RNA in HeLa cells subjected to exosome depletion by RNAi
+123. Genome-wide profiling of short fragment-enriched RNA in HeLa cells subjected to exosome depletion by RNAi
 (Submitter supplied) To assay the effect of depletion of the RNA exosome on RNAs shorter than the standard length captured by RNA-seq (>200 nt), we created RNA-seq libraries using fragmented RNA and a linker-ligation-based protocol that does not deplete RNAs shorter than 200 nt. Note: these data relate to Figure 6E in Lubas, Andersen et al., Cell Reports 2014 (accepted)
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -1021,7 +1029,7 @@ FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE63nnn/GSE63496/
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA268059
 Series		Accession: GSE63496	ID: 200063496
 
-123. Role of NFATc1 in patients with FLT3-ITD AML
+124. Role of NFATc1 in patients with FLT3-ITD AML
 (Submitter supplied) Diagnostic samples of peripheral blood form acute myeloid leukemia were analysed for gene expression differences MLL Munich Leukemia Laboratory
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -1029,7 +1037,7 @@ Platform: GPL570 325 Samples
 FTP download: GEO (CEL, PDF) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE61nnn/GSE61804/
 Series		Accession: GSE61804	ID: 200061804
 
-124. Amniotic fluid RNA gene expression profiling provides insights into the phenotype of Turner syndrome
+125. Amniotic fluid RNA gene expression profiling provides insights into the phenotype of Turner syndrome
 (Submitter supplied) Background: Turner syndrome, a common sex chromosome aneuploidy, has characteristics and malformations associated with the phenotype.  Fetal amniotic fluid is a complex biological material that could contribute to the understanding Turner syndrome pathogenesis.  Global gene expression analysis of Turner syndrome fetal amniotic fluid supernatant was utilized to identify organ systems and specific genes that may play a role in the pathophysiologic changes that are seen in individuals with Turner syndrome. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -1037,24 +1045,24 @@ Dataset: GDS5211 Platform: GPL570 10 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE58nnn/GSE58435/
 Series		Accession: GSE58435	ID: 200058435
 
-125. Domains of genomewide gene expression dysregulation in Down syndrome [RNA-seq]
+126. Domains of genomewide gene expression dysregulation in Down syndrome [RNA-seq]
 (Submitter supplied) Trisomy 21 (T21) is the most frequent genetic cause of cognitive impairment. To assess the perturbations of gene expression in T21, and to eliminate the noise of the genomic variability, we studied the transcriptome of fetal fibroblasts from a pair of monozygotic twins discordant for T21. Here we show that the differential expression between the twins is organized in domains along all chromosomes that are either up- or downregulated. more...
 Organism:	Homo sapiens; Mus musculus
 Type:		Expression profiling by high throughput sequencing
-Platforms: GPL13112 GPL11154 GPL16791 30 Samples
+Platforms: GPL11154 GPL13112 GPL16791 30 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE55nnn/GSE55504/
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA239814
 Series		Accession: GSE55504	ID: 200055504
 
-126. Domains of genomewide gene expression dysregulation in Down syndrome
+127. Domains of genomewide gene expression dysregulation in Down syndrome
 (Submitter supplied) This SuperSeries is composed of the SubSeries listed below.
-Organism:	Mus musculus; Homo sapiens
+Organism:	Homo sapiens; Mus musculus
 Type:		Methylation profiling by genome tiling array; Genome binding/occupancy profiling by high throughput sequencing; Expression profiling by high throughput sequencing; Methylation profiling by high throughput sequencing
 4 related Platforms 42 Samples
 FTP download: GEO (BW, PAIR, TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE55nnn/GSE55426/
 Series		Accession: GSE55426	ID: 200055426
 
-127. GATA1s induces hyperproliferation of eosinophil precursors in Down syndrome transient leukemia
+128. GATA1s induces hyperproliferation of eosinophil precursors in Down syndrome transient leukemia
 (Submitter supplied) Transient leukemia (TL) is evident in 5-10% of all neonates with Down syndrome (DS) and associated with N-terminal truncating GATA1-mutations (GATA1s). Here we analyzed the effect of on gene expression upon ectopic expression of Gata1s or  Gata1, while simultaneously  knocking down endogenous GATA1, in wild-type CD34+-hematopoietic stem and progenitor cells during myeloid differentiation. Ectopic expression of Gata1s, but not Gata1, in wild-type CD34+-hematopoietic stem and progenitor cells induced hyperproliferation of eosinophil promyelocytes in vitro. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -1062,7 +1070,7 @@ Dataset: GDS5368 Platform: GPL6480 9 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE56nnn/GSE56332/
 Series		Accession: GSE56332	ID: 200056332
 
-128. Microarray profiling of rectal tumor samples
+129. Microarray profiling of rectal tumor samples
 (Submitter supplied) Using Human WG CodeLink microarrays, we established the expression profiling of 26 LARC without metastasis to gain insight into the molecular signatures associated with response to treatment after CRT.
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -1070,7 +1078,7 @@ Platform: GPL18134 26 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE53nnn/GSE53781/
 Series		Accession: GSE53781	ID: 200053781
 
-129. Aryl hydrocarbon receptor senses bacterial pigmented virulence factors and orchestrates anti-bacterial defenses
+130. Aryl hydrocarbon receptor senses bacterial pigmented virulence factors and orchestrates anti-bacterial defenses
 (Submitter supplied) This SuperSeries is composed of the SubSeries listed below.
 Organism:	Homo sapiens; Mus musculus
 Type:		Expression profiling by array
@@ -1078,7 +1086,7 @@ Platforms: GPL4133 GPL4134 20 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE48nnn/GSE48133/
 Series		Accession: GSE48133	ID: 200048133
 
-130. Aryl hydrocarbon receptor senses bacterial pigmented virulence factors and orchestrates anti-bacterial defenses (part 2)
+131. Aryl hydrocarbon receptor senses bacterial pigmented virulence factors and orchestrates anti-bacterial defenses (part 2)
 (Submitter supplied) The aryl hydrocarbon receptor (AhR) is a highly conserved ligand-dependent transcription factor that senses environmental toxins and endogenous ligands, thereby inducing detoxifying enzymes and modulating immune cell differentiation and responses. We hypothesized that AhR not only evolved to sense pollutants from the environment, but also insults of microbial origin. We demonstrate that bacterial pigmented virulence factors, namely the phenazines pyocyanin and 1-hydroxyphenazine from Pseudomonas aeruginosa and the naphthoquinone phthiocol from Mycobacterium tuberculosis, are ligands of AhR. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -1086,7 +1094,7 @@ Platform: GPL4133 12 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE48nnn/GSE48132/
 Series		Accession: GSE48132	ID: 200048132
 
-131. Transcriptome wide target profiling for miR-199a-5p and miR-424-3p.
+132. Transcriptome wide target profiling for miR-199a-5p and miR-424-3p.
 (Submitter supplied) Whole transcriptome Identification of  direct targets of miR-199a-5p and miR-424-3p using biotinylated pull-downs found that both miRNAs are likely to have a role in the cell cycle.
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -1094,15 +1102,15 @@ Platform: GPL10558 12 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE40nnn/GSE40406/
 Series		Accession: GSE40406	ID: 200040406
 
-132. Modelling and rescuing neurodevelopmental defect of Down syndrome using induced pluripotent stem cells from monozygotic twins discordant for trisomy 21
+133. Modelling and rescuing neurodevelopmental defect of Down syndrome using induced pluripotent stem cells from monozygotic twins discordant for trisomy 21
 (Submitter supplied) This SuperSeries is composed of the SubSeries listed below.
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing; Genome variation profiling by array
-Platforms: GPL5477 GPL11154 9 Samples
+Platforms: GPL11154 GPL5477 9 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE52nnn/GSE52251/
 Series		Accession: GSE52251	ID: 200052251
 
-133. Modelling and rescuing neurodevelopmental defect of Down syndrome using induced pluripotent stem cells from monozygotic twins discordant for trisomy 21 [RNA-seq]
+134. Modelling and rescuing neurodevelopmental defect of Down syndrome using induced pluripotent stem cells from monozygotic twins discordant for trisomy 21 [RNA-seq]
 (Submitter supplied) Down syndrome (trisomy 21) is the most common viable chromosomal disorder with intellectual impairment and several other developmental abnormalities. Here, we report the generation and characterization of induced pluripotent stem cells (iPSCs) derived from monozygotic twins discordant for trisomy 21 in order to eliminate the effects of the variability of genomic background. The alterations observed by genetic analysis at the iPSC level and at first approximation in early development illustrate the developmental disease transcriptional signature of Down syndrome. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -1111,7 +1119,7 @@ FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE52nnn/GSE52249/
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA227902
 Series		Accession: GSE52249	ID: 200052249
 
-134. The miRNA miR-139-5p is a regulator of metastatic pathways in breast cancer.
+135. The miRNA miR-139-5p is a regulator of metastatic pathways in breast cancer.
 (Submitter supplied) Whole transcriptome Identification of  direct targets of miR-139-5p using biotinylated pull-downs found that this miRNA has roles in breast cancer invasion and migration.
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -1119,7 +1127,7 @@ Platform: GPL10558 6 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE40nnn/GSE40411/
 Series		Accession: GSE40411	ID: 200040411
 
-135. Global DNA Hypermethylation in Down Syndrome Placenta
+136. Global DNA Hypermethylation in Down Syndrome Placenta
 (Submitter supplied) This SuperSeries is composed of the SubSeries listed below.
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing; Methylation profiling by high throughput sequencing
@@ -1127,7 +1135,7 @@ Platform: GPL10999 26 Samples
 FTP download: GEO ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE42nnn/GSE42144/
 Series		Accession: GSE42144	ID: 200042144
 
-136. Global DNA Hypermethylation in Down Syndrome Placenta [RNA-Seq]
+137. Global DNA Hypermethylation in Down Syndrome Placenta [RNA-Seq]
 (Submitter supplied) We have performed genome-wide DNA methylation analysis at single base resolution and gene expression analysis, resulted in hypermethylation in all autosomes in DS samples, mediated by down-regulation of all three TET family genes, and down-regulation of REST/NRSF. Genes located on chr21 were up-regulated by a median of 45% in DS compared to normal villi, while genes with promoter hypermethylation were down regulated.
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing
@@ -1136,7 +1144,7 @@ FTP download: GEO (XLS) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE42nnn/GSE42142/
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA179205
 Series		Accession: GSE42142	ID: 200042142
 
-137. Translating Dosage Compensation to Trisomy 21
+138. Translating Dosage Compensation to Trisomy 21
 (Submitter supplied) Down syndrome is a common disorder with enormous medical and social costs, caused by trisomy for Chr21. We tested the concept that gene imbalance across an extra chromosome can be de facto corrected in DS patient stem cells by manipulating a single gene, XIST. Using zinc finger nucleases, we targeted a large, inducible XIST transgene into the Chr21 DYRK1A locus, in DS pluripotent stem cells. XIST RNA coats Chr21 and triggers stable heterochromatin modifications, chromosome-wide transcriptional silencing and DNA methylation to form a “Chr21 Barr Body.” This provides a model to study human chromosome inactivation and creates a system to investigate genomic expression changes and cellular pathologies of trisomy 21, free from genetic and epigenetic noise. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -1144,7 +1152,7 @@ Platform: GPL15207 27 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE47nnn/GSE47014/
 Series		Accession: GSE47014	ID: 200047014
 
-138. Gene expression of human isogenic trisomy 21 induced pluripotent stem cells and derived neurons
+139. Gene expression of human isogenic trisomy 21 induced pluripotent stem cells and derived neurons
 (Submitter supplied) Down syndrome (trisomy 21) is the most common genetic cause of intellectual disability, but the precise molecular mechanisms underlying impaired cognition remain unclear. Elucidation of these mechanisms has been hindered by the lack of a model system that contains full trisomy of chromosome 21 (Ts21) in a human genome that enables normal gene regulation. To overcome this limitation,we created Ts21-induced pluripotent stem cells (iPSCs) from two sets of Ts21 human fibroblasts. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -1152,7 +1160,7 @@ Platform: GPL570 18 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE48nnn/GSE48611/
 Series		Accession: GSE48611	ID: 200048611
 
-139. Expression signature as a biomarker for prenatal diagnosis of trisomy 21
+140. Expression signature as a biomarker for prenatal diagnosis of trisomy 21
 (Submitter supplied) To date, a universal biomarker panel with a potential to predict high-risk pregnancies or adverse pregnancy outcome does not exist. Transcriptomic approach, a measure of gene expression levels across the genome, is a powerful tool to capture differentially expressed genes (DEG) in various conditions, including human trisomy of chromosome 21 (Ts21). DEG can be used to design a biomarker set as a diagnostic-predictive tool for various conditions of heterogeneous aetiology in a prenatal setting. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -1160,7 +1168,7 @@ Platform: GPL6480 19 Samples
 FTP download: GEO (GPR) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE48nnn/GSE48051/
 Series		Accession: GSE48051	ID: 200048051
 
-140. Microarray profiling of mononuclear peripheral blood cells to identify novel candidate genes related to chemoradiation response in rectal cancer
+141. Microarray profiling of mononuclear peripheral blood cells to identify novel candidate genes related to chemoradiation response in rectal cancer
 (Submitter supplied) Peripheral blood mononuclear cells have emerged recently as pathology markers of cancer and other diseases, making possible their use as therapy predictors. Furthermore, the importance of the immune response in radiosensivity of solid organs led us to hypothesized that microarray gene expression profiling of peripheral blood mononuclear cells could identify patients with response to chemoradiation in rectal cancer. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -1168,7 +1176,7 @@ Platform: GPL2895 24 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE44nnn/GSE44172/
 Series		Accession: GSE44172	ID: 200044172
 
-141. Integration-Free Induced Pluripotent Stem Cells Model Genetic and Neural Developmental Features of Down Syndrome Etiology
+142. Integration-Free Induced Pluripotent Stem Cells Model Genetic and Neural Developmental Features of Down Syndrome Etiology
 (Submitter supplied) Down syndrome (DS) is the most frequent cause of human congenital mental retardation. Cognitive deficits in DS result from perturbations of normal cellular processes both during development and in adult tissues, but the mechanisms underlying DS etiology remain poorly understood. To assess the ability of iPSCs to model DS phenotypes, as a prototypical complex human disease, we generated bona-fide DS and wild-type (WT) non-viral iPSCs by episomal reprogramming. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -1176,7 +1184,7 @@ Platform: GPL10558 54 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE42nnn/GSE42956/
 Series		Accession: GSE42956	ID: 200042956
 
-142. Transcription pattern in Normal (NL) and Down's Syndrome (DS) Astrocytes
+143. Transcription pattern in Normal (NL) and Down's Syndrome (DS) Astrocytes
 (Submitter supplied) We performed a broad-spectrum microarray analysis using mRNA from 3 NL and 5 DS astrocyte cultures. The microarray output was validated for several genes To explore the relation between gene expression and potential oxidative stress in DS samples, we also evaluated the transcription profile in NL astrocytes subjected to mild oxidative stress (50µM H2O2 for 24 hr).
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -1184,7 +1192,7 @@ Platform: GPL6255 16 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE42nnn/GSE42772/
 Series		Accession: GSE42772	ID: 200042772
 
-143. Transcriptome Sequence Analysis of Pediatric Acute Megakaryoblastic Leukemia Identifies An Inv(16)(p13.3;q24.3)-Encoded CBFA2T3-GLIS2 Fusion Protein As a Recurrent Lesion in 39% of Non-Infant Cases [2010]
+144. Transcriptome Sequence Analysis of Pediatric Acute Megakaryoblastic Leukemia Identifies An Inv(16)(p13.3;q24.3)-Encoded CBFA2T3-GLIS2 Fusion Protein As a Recurrent Lesion in 39% of Non-Infant Cases [2010]
 (Submitter supplied) Transcriptome Sequence Analysis of Pediatric Acute Megakaryoblastic Leukemia Identifies An Inv(16)(p13.3;q24.3)-Encoded CBFA2T3-GLIS2 Fusion Protein As a Recurrent Lesion in 39% of Non-Infant Cases:  A Report From the St. Jude Children’s Research Hospital – Washington University Pediatric Cancer Genome Project. Acute Megakaryoblastic Leukemia (AMKL) accounts for ~10% of childhood acute myeloid leukemia (AML).  Although AMKL patients with down syndrome (DS-AMKL) have an excellent 5 year event-free survival (EFS), non-DS-AMKL patients have an extremely poor outcome with a 3 year EFS of less than 40%. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -1192,7 +1200,7 @@ Platform: GPL5175 14 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE35nnn/GSE35202/
 Series		Accession: GSE35202	ID: 200035202
 
-144. Transcriptome Sequence Analysis of Pediatric Acute Megakaryoblastic Leukemia Identifies An Inv(16)(p13.3;q24.3)-Encoded CBFA2T3-GLIS2 Fusion Protein As a Recurrent Lesion in 39% of Non-Infant Cases [2007]
+145. Transcriptome Sequence Analysis of Pediatric Acute Megakaryoblastic Leukemia Identifies An Inv(16)(p13.3;q24.3)-Encoded CBFA2T3-GLIS2 Fusion Protein As a Recurrent Lesion in 39% of Non-Infant Cases [2007]
 (Submitter supplied) Transcriptome Sequence Analysis of Pediatric Acute Megakaryoblastic Leukemia Identifies An Inv(16)(p13.3;q24.3)-Encoded CBFA2T3-GLIS2 Fusion Protein As a Recurrent Lesion in 39% of Non-Infant Cases:  A Report From the St. Jude Children’s Research Hospital – Washington University Pediatric Cancer Genome Project. Acute Megakaryoblastic Leukemia (AMKL) accounts for ~10% of childhood acute myeloid leukemia (AML).  Although AMKL patients with down syndrome (DS-AMKL) have an excellent 5 year event-free survival (EFS), non-DS-AMKL patients have an extremely poor outcome with a 3 year EFS of less than 40%. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -1200,7 +1208,7 @@ Platform: GPL5175 29 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE35nnn/GSE35201/
 Series		Accession: GSE35201	ID: 200035201
 
-145. Genome-wide comparison of trisomy 21 iPSCs and derived isogenic disomy 21 iPSCs.
+146. Genome-wide comparison of trisomy 21 iPSCs and derived isogenic disomy 21 iPSCs.
 (Submitter supplied) Human trisomies can alter cellular phenotypes and produce congenital abnormalities such as Down Syndrome (DS).  Here we have generated induced pluripotent stem cells (iPSCs) from DS fibroblasts, and introduced a TKNEO transgene into one copy of chromosome 21 by gene targeting.  When selecting against TKNEO, spontaneous chromosome loss was the most common cause for survival, with a frequency of ~10-4, while point mutations, epigenetic silencing, and TKNEO deletions occurred at lower frequencies in this unbiased comparison of inactivating mutations. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -1208,7 +1216,7 @@ Platform: GPL10558 8 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE38nnn/GSE38931/
 Series		Accession: GSE38931	ID: 200038931
 
-146. Expression data from trisomy 21 and euploid induced pluripotent stem cell hematopoietic progenitors
+147. Expression data from trisomy 21 and euploid induced pluripotent stem cell hematopoietic progenitors
 (Submitter supplied) We modeled human Trisomy 21 primitive hematopoiesis using induced pluripotent stem cells (iPSCs).  Primitive multipotent progenitor populations generated from Trisomy 21 iPSCs showed normal proliferative capacity and megakaryocyte production, enhanced erythropoiesis and reduced myeloid development compared to euploid iPSCs.
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -1216,7 +1224,7 @@ Dataset: GDS4377 Platform: GPL6244 6 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE35nnn/GSE35561/
 Series		Accession: GSE35561	ID: 200035561
 
-147. Molecular Signatures of cardiac defects in Down syndrome lymphoblastoid cell lines
+148. Molecular Signatures of cardiac defects in Down syndrome lymphoblastoid cell lines
 (Submitter supplied) This SuperSeries is composed of the SubSeries listed below.
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -1224,7 +1232,7 @@ Platforms: GPL6102 GPL6947 66 Samples
 FTP download: GEO ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE34nnn/GSE34459/
 Series		Accession: GSE34459	ID: 200034459
 
-148. Molecular Signatures of cardiac defects in Down syndrome lymphoblastoid cell lines (trisomy 21)
+149. Molecular Signatures of cardiac defects in Down syndrome lymphoblastoid cell lines (trisomy 21)
 (Submitter supplied) Molecular consequences of trisomy in lymphoblastoid cell lines from patients with Down syndrome. This project analyses differentially expressed genes between humans with trisomy 21 and humans without trisomy 21.
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -1232,7 +1240,7 @@ Platform: GPL6947 23 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE34nnn/GSE34458/
 Series		Accession: GSE34458	ID: 200034458
 
-149. Molecular Signatures of cardiac defects in Down syndrome lymphoblastoid cell lines (congenital heart disease)
+150. Molecular Signatures of cardiac defects in Down syndrome lymphoblastoid cell lines (congenital heart disease)
 (Submitter supplied) Molecular Signatures of cardiac defects in Down syndrome lymphoblastoid cell lines. In this study, we want to identify genes and pathways specifically dysregulated in atrioventricular septal defect and /or atrial septal defect + ventricular septal defect in case of trisomy 21.
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -1240,7 +1248,7 @@ Platform: GPL6102 43 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE34nnn/GSE34457/
 Series		Accession: GSE34457	ID: 200034457
 
-150. The unique role of GATA1s in Down syndrome acute megakaryocytic leukemia biology and therapy
+151. The unique role of GATA1s in Down syndrome acute megakaryocytic leukemia biology and therapy
 (Submitter supplied) Microarray gene expression profiling of lentivirus shRNA knockdown of the GATA1 gene in a DS AMkL cell line, CMK (harbors a mutated GATA1 gene and only expresses GATA1s).
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -1248,7 +1256,7 @@ Platform: GPL4133 4 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE32nnn/GSE32388/
 Series		Accession: GSE32388	ID: 200032388
 
-151. Knock-down and Over-expression of JMJD6 in MCF-7 and/or MDA-MB231
+152. Knock-down and Over-expression of JMJD6 in MCF-7 and/or MDA-MB231
 (Submitter supplied) By survival analysis of breast cancer patients, JMJD6 was found to be significantly associated with poor prognosis. Over-expression and knock-down of JMJD6 in breast cancer cell lines suggested a role in proliferation. In order to study the transcriptional events that occur following JMJD6 expression changes, siRNA-mediated knock-down of JMJD6 was performed in MCF-7 and MDA-MB231 and stable over-expression of JMJD6 was performed in MCF-7.
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -1256,7 +1264,7 @@ Platform: GPL570 28 Samples
 FTP download: GEO (CEL, CHP) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE31nnn/GSE31782/
 Series		Accession: GSE31782	ID: 200031782
 
-152. siRNA-mediated HNRPA2B1 knock-down in MDA-MB-231 cells
+153. siRNA-mediated HNRPA2B1 knock-down in MDA-MB-231 cells
 (Submitter supplied) Transcriptional profiling of MDA-MB-231 comparing the siRNA-mediated HNRPA2B1 knock-downs versus mock-transfected controls
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -1264,7 +1272,7 @@ Platform: GPL4133 3 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE35nnn/GSE35757/
 Series		Accession: GSE35757	ID: 200035757
 
-153. Whole-genome decay rate measurements in MDA-MB-231 cells transfected with HNRPA2B1 siRNAs versus controls
+154. Whole-genome decay rate measurements in MDA-MB-231 cells transfected with HNRPA2B1 siRNAs versus controls
 (Submitter supplied) Transcriptional profiling of MDA-MB-231 samples taken at 0, 1, 2 and 4hr timepoints upon exposure to alpha-amanitine, comparing the siRNA-mediated HNRPA2B1 knock-downs versus mock-transfected controls
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -1272,7 +1280,7 @@ Platform: GPL4133 32 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE35nnn/GSE35756/
 Series		Accession: GSE35756	ID: 200035756
 
-154. Genome-wide expression analysis in Down syndrome: insight into immunodeficiency
+155. Genome-wide expression analysis in Down syndrome: insight into immunodeficiency
 (Submitter supplied) Down syndrome (DS) is caused by triplication of Human chromosome 21 (Hsa21) and associated with an array of deleterious phenotypes, including mental retardation, heart defects and immunodeficiency. Genome-wide expression patterns of uncultured peripheral blood cells are useful to understanding of DS-associated immune dysfunction. We used a Human Exon microarray to characterize gene expression in uncultured peripheral blood cells derived from DS individuals and age-matched controls from two age groups: neonate (N) and child (C). more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -1280,7 +1288,7 @@ Platform: GPL5175 37 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE35nnn/GSE35665/
 Series		Accession: GSE35665	ID: 200035665
 
-155. Augmented hematopoiesis in induced pluripotent stem cells derived from patients with Down syndrome.
+156. Augmented hematopoiesis in induced pluripotent stem cells derived from patients with Down syndrome.
 (Submitter supplied) To identify the genes, which led to the augmented hematopoiesis in DS-iPS cells, we performed gene expression profiling of D12-DS-iPS cells (DS-iPS-T32, DS-iPS-T33 and DS-iPS-T31) and control hiPS cells (253G1, 253G4 and A31) generated by 3 factors.  In the comparison of gene expression levels in each DS-iPS cell clone with the average of these in control iPS cell clones, 972 genes showed more than 2-fold increased expression, and 1118 genes showed decreased expression in all DS-iPS cell clones. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -1288,7 +1296,7 @@ Platform: GPL14550 8 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE33nnn/GSE33911/
 Series		Accession: GSE33911	ID: 200033911
 
-156. Deep sequencing of MYC DNA-binding sites in Burkitt's lymphoma
+157. Deep sequencing of MYC DNA-binding sites in Burkitt's lymphoma
 (Submitter supplied) Background: MYC is a transcription factor encoded by the c-MYC gene (thereafter termed MYC). MYC is key transcription factor involved in many central cellular processes including ribosomal biogenesis. MYC is overexpressed in the majority of human tumours including aggressive B-cell lymphoma especially Burkitt's lymphoma. Although Burkitt's lymphoma is a highlight example for MYC overexpression due to a chromosomal translocation, no global analysis of MYC binding sites by chromatin immunoprecipitation (ChIP) followed by global next generation sequencing (ChIP-Seq) has been conducted so far in Burkitt's lymphoma. more...
 Organism:	Homo sapiens
 Type:		Genome binding/occupancy profiling by high throughput sequencing; Expression profiling by array
@@ -1297,7 +1305,7 @@ FTP download: GEO (BED, CEL, TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE30nnn
 SRA Run Selector: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA144391
 Series		Accession: GSE30726	ID: 200030726
 
-157. AIRE hypoexpression and transcriptome profiles correlate with thymic impairment in Down syndrome
+158. AIRE hypoexpression and transcriptome profiles correlate with thymic impairment in Down syndrome
 (Submitter supplied) Down syndrome (DS) patients frequently develop organ-specific autoimmune disorders, particularly endocrinopathies and coeliac disease, as well as an increased susceptibility to mucosal candidiasis. These clinical features resemble APECED (autoimmune-polyendocrinopathy-candidiasis-ectodermal-dystrophy), a monogenic condition due to mutations in the AIRE gene, located on 21q22.3 and already described as down-regulated in 21 trisomy. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -1305,7 +1313,7 @@ Platform: GPL6480 8 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE23nnn/GSE23910/
 Series		Accession: GSE23910	ID: 200023910
 
-158. Identification differentially expressed genes upon valproic acid treatment
+159. Identification differentially expressed genes upon valproic acid treatment
 (Submitter supplied) The goal of this study is to define genes that are differentially expressed in Down syndrome leukemic blasts after treatment with valproic acid (VPA) Here we report the identification gene sets that are downregulated in Down syndrome leukemic cell lines after exposure to valproic acid (VPA)
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -1313,7 +1321,7 @@ Platform: GPL96 10 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE30nnn/GSE30517/
 Series		Accession: GSE30517	ID: 200030517
 
-159. Genomic profiling in Down syndrome pediatric acute lymphoblastic leukemia
+160. Genomic profiling in Down syndrome pediatric acute lymphoblastic leukemia
 (Submitter supplied) Patients with Down syndrome (DS) and acute lymphoblastic leukemia (ALL) have distinct clinical and biological features.  Whereas most DS-ALL cases lack the sentinel cytogenetic lesions that guide risk assignment in childhood ALL, JAK2 mutations and CRLF2 overexpression are highly enriched.  To further characterize the unique biology of DS-ALL, we performed genome-wide profiling of 58 DS-ALL and 35 non-Down syndrome (NDS) ALL cases by DNA copy number, loss of heterozygosity, gene expression, and methylation analyses. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array; Methylation profiling by array; SNP genotyping by SNP array; Genome variation profiling by SNP array
@@ -1321,7 +1329,7 @@ Platforms: GPL6986 GPL8490 GPL570 233 Samples
 FTP download: GEO (CEL, TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE21nnn/GSE21094/
 Series		Accession: GSE21094	ID: 200021094
 
-160. Expression data from Down syndrome and non-Down syndrome pediatric acute lymphoblastic leukemia cases
+161. Expression data from Down syndrome and non-Down syndrome pediatric acute lymphoblastic leukemia cases
 (Submitter supplied) Gene expression profiling (GEP) can reveal characteristic signatures associated with distinct biologic subtypes of acute lymphoblastic leukemia (ALL). We performed GEP on Down syndrome (DS) and comparison non-Down syndrome (NDS) ALL cases to identify biologic differences between these groups.
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -1329,7 +1337,7 @@ Platform: GPL570 49 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE20nnn/GSE20910/
 Series		Accession: GSE20910	ID: 200020910
 
-161. RNA-Seq of rRNA depleted circulating endothelial progenitor cells (cEPCs) in trisomy 21 and euploid samples
+162. RNA-Seq of rRNA depleted circulating endothelial progenitor cells (cEPCs) in trisomy 21 and euploid samples
 (Submitter supplied) Massive-scale RNA-seq on rRNA-depleted samples allowed us to survey in a specific cell type, affected in Down syndrome, the complete set of coding and non-coding RNA species - emerging as novel contributors to pathogenic mechanisms - to an unprecedented level of resolution and sensitivity. In particular, we demonstrated the deregulation of crucial gene pathways by quantitatively measuring the expression of known RefSeq genes. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by high throughput sequencing; Non-coding RNA profiling by high throughput sequencing
@@ -1337,7 +1345,7 @@ Platform: GPL9442 2 Samples
 FTP download: GEO (BED, BEDGRAPH, TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE27nnn/GSE27443/
 Series		Accession: GSE27443	ID: 200027443
 
-162. Expression profiles of amniotic fluid from human fetuses with Trisomy 18 and euploid controls
+163. Expression profiles of amniotic fluid from human fetuses with Trisomy 18 and euploid controls
 (Submitter supplied) To understand the molecular mechanisms underlying the congenital anomalies observed in patients with Trisomy 18, we compared gene expression in uncultured amniotic fluid supernatant samples from second trimester fetuses with Trisomy 18 and from euploid controls. Analysis of differential expression using both individual-gene and gene-set or pathway methods indicated disrupted function in ion transport, MHCII/T-cell mediated immunity, DNA repair, G-protein mediated signaling, kinases, and glycosylation. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -1345,7 +1353,7 @@ Platform: GPL570 11 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE25nnn/GSE25634/
 Series		Accession: GSE25634	ID: 200025634
 
-163. Gene expression profiling of Down Syndrome (DS)-AMKL and non-DS AMKL samples
+164. Gene expression profiling of Down Syndrome (DS)-AMKL and non-DS AMKL samples
 (Submitter supplied) The goal of this study is to define a gene expression signature unique to DS-AMKL (acute megakaryoblastic leukemia or FAB M7 leukemia). A similar study was done previously, but using unfractionated patient leukemic samples. In this study, we sorted megakaryocytic leukemia blasts from patients and then compared their gene expression signatures to those from similarly sorted blasts from patients with non-DS AMKL. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -1353,7 +1361,7 @@ Platform: GPL570 18 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE16nnn/GSE16677/
 Series		Accession: GSE16677	ID: 200016677
 
-164. Developmental stage-specific interplay between GATA1 and IGF signaling in fetal hematopoiesis and leukemogenesis
+165. Developmental stage-specific interplay between GATA1 and IGF signaling in fetal hematopoiesis and leukemogenesis
 (Submitter supplied) This SuperSeries is composed of the SubSeries listed below.
 Organism:	Homo sapiens; Mus musculus
 Type:		Expression profiling by array
@@ -1361,7 +1369,7 @@ Platforms: GPL570 GPL1261 47 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE16nnn/GSE16655/
 Series		Accession: GSE16655	ID: 200016655
 
-165. HeLa SCY1-like 1 esiRNA knockdown
+166. HeLa SCY1-like 1 esiRNA knockdown
 (Submitter supplied) Array-based characterisation of SCY1-like 1 (NM_020680.3) esiRNA knockdown
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -1369,7 +1377,7 @@ Platform: GPL570 6 Samples
 FTP download: GEO (CEL, CHP) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE23nnn/GSE23103/
 Series		Accession: GSE23103	ID: 200023103
 
-166. Down's syndrome with acute lymphoblastic pediatric leukemia (DS-ALL)
+167. Down's syndrome with acute lymphoblastic pediatric leukemia (DS-ALL)
 (Submitter supplied) DS-ALL is a highly heterogeneous disease with predominance of an aberrant exp. of CRLF2 cooperating with mutated JAK2  Acute lymphoblastic pediatric leukemia specimens of Down's syndrome are examined for gene expression profiles and specific genetic aberrations. Gene expression profiling and specific genetic variation analysis identify novel pathways involved in DS-ALL pathogenesis.
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -1377,7 +1385,7 @@ Platforms: GPL96 GPL570 119 Samples
 FTP download: GEO (CEL, PDF) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE17nnn/GSE17459/
 Series		Accession: GSE17459	ID: 200017459
 
-167. Global gene expression profile of primary human leukemic blasts
+168. Global gene expression profile of primary human leukemic blasts
 (Submitter supplied) The goal of this study is to define the global gene expression profile of primary leukemic blasts from patients with different forms of myeloid leukemia and different FAB subtypes. Here we report the global gene expression profile of 2 patients with AML FAB M5, 2 patients with AML FAB M7, 3 patients with Down syndrome AML FAB M7 and 3 patients with Down syndrome transient leukemia.
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -1385,7 +1393,7 @@ Platform: GPL570 10 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE19nnn/GSE19681/
 Series		Accession: GSE19681	ID: 200019681
 
-168. Identification of miR-125b-2 target genes
+169. Identification of miR-125b-2 target genes
 (Submitter supplied) The goal of this study is to define miR-125b-2 target genes in the hematopoietic system by genetic alteration of miR-125b expression levels. Here we report the identification of miR-125b-2 targets in the hematopoietic system by repressing miR125b in megakaryoblastic leukemia (AMKL) cell lines and overexpressing miR-125b-2 in hematopoietic stem and progenitor cells (CD34+-HSPCs)
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -1393,15 +1401,15 @@ Platform: GPL570 10 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE19nnn/GSE19680/
 Series		Accession: GSE19680	ID: 200019680
 
-169. Many Human Large Intergenic Non-coding RNAs Associate with Chromatin Modifying Complexes and Affect Gene Expression
+170. Many Human Large Intergenic Non-coding RNAs Associate with Chromatin Modifying Complexes and Affect Gene Expression
 (Submitter supplied) We recently showed that the mammalian genome encodes more than a thousand large intergenic non-coding RNAs (lincRNAs) that are clearly conserved across mammals and thus functional.  Gene expression patterns have implicated these lincRNAs in diverse biological processes including cell cycle regulation, immune surveillance, and embryonic stem cell pluripotency.  However, the mechanism by which these lincRNAs function is unknown. more...
 Organism:	Homo sapiens
 Type:		Non-coding RNA profiling by genome tiling array; Expression profiling by array
-Platforms: GPL8792 GPL570 GPL8791 68 Samples
+Platforms: GPL8792 GPL8791 GPL570 68 Samples
 FTP download: GEO (CEL, GFF) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE16nnn/GSE16226/
 Series		Accession: GSE16226	ID: 200016226
 
-170. Children's Oncology Group Study 9906 for High-Risk Pediatric ALL
+171. Children's Oncology Group Study 9906 for High-Risk Pediatric ALL
 (Submitter supplied) PAPER 1:"Identification of novel subgroups of high-risk pediatric precursor B acute lymphoblastic leukemia (B-ALL) by unsupervised microarray analysis: clinical correlates and therapeutic implications. A Children's Oncology Group (COG) study."  ABSTRACT  We examined gene expression profiles of pre-treatment specimens from 207 patients from the COG P9906 study to identify signatures of children with high risk B-precursor acute lymphoblastic leukemia (ALL) and to determine whether the resulting clusters are associated with either specific clinical features or treatment response characteristics. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -1409,7 +1417,7 @@ Platform: GPL570 207 Samples
 FTP download: GEO (CEL, CHP, MSK) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE11nnn/GSE11877/
 Series		Accession: GSE11877	ID: 200011877
 
-171. Expression profiles of amniotic fluid from human fetuses with Down syndrome and euploid controls
+172. Expression profiles of amniotic fluid from human fetuses with Down syndrome and euploid controls
 (Submitter supplied) In order to characterize the differences between second trimester Down syndrome (DS) and euploid fetuses, we compared gene expression in uncultured amniotic fluid supernatant samples. We identified individually differentially expressed genes via paired t-tests in the matched samples, and a set of differentially expressed genes on chromosome 21 using Gene Set Enrichment Analysis.  Functional pathway analysis of the resulting genes highlighted the importance of oxidative stress, ion transport, and G-protein signaling in the DS fetuses.
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -1417,7 +1425,7 @@ Platform: GPL570 14 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE16nnn/GSE16176/
 Series		Accession: GSE16176	ID: 200016176
 
-172. Normal human bone marrow CD34+ cells, promyelocytes, and neutrophils and PR9 cell line PML-RARA induction time course
+173. Normal human bone marrow CD34+ cells, promyelocytes, and neutrophils and PR9 cell line PML-RARA induction time course
 (Submitter supplied) To better understand the pathogenesis of acute promyelocytic leukemia (APL, FAB M3 AML), we identified genes that are expressed differently in APL cells compared to other acute myeloid leukemia subtypes, and to normal promyelocytes. Comparative gene expression analysis of 14 M3, 62 other AML (M0, M1, M2 and M4) and 5 enriched normal promyelocyte samples revealed a signature of 1,121 genes that are specifically dysregulated in M3 samples relative to other AML, and that do not simply represent normal promyelocyte expression (“M3-specific signature”). more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -1425,7 +1433,7 @@ Platform: GPL570 106 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE12nnn/GSE12662/
 Series		Accession: GSE12662	ID: 200012662
 
-173. Gene expression variation increase in trisomy 21 tissues
+174. Gene expression variation increase in trisomy 21 tissues
 (Submitter supplied) Congenital development disorders with variable severity occur in trisomy 21. However, how these phenotypic abnormalities develop with variations remains elusive. We hypothesize that the difference in euploidy gene expression variation among trisomy 21 tissues are perturbed by the presence of an extra copy of chromosome 21 and this may contribute to the phenotypic variations in Down syndrome.  Keywords: Disease state analysis
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -1433,7 +1441,7 @@ Platform: GPL887 10 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE10nnn/GSE10758/
 Series		Accession: GSE10758	ID: 200010758
 
-174. Discovery and validation of expression data for the Genomics of Acute Myeloid Leukemia Program at Washington University
+175. Discovery and validation of expression data for the Genomics of Acute Myeloid Leukemia Program at Washington University
 (Submitter supplied) Activating mutations in tyrosine kinase (TK) genes (e.g. FLT3 and KIT) are found in more than 30% of patients with de novo acute myeloid leukemia (AML); many groups have speculated that mutations in other TK genes may be present in the remaining 70%. We performed high-throughput re-sequencing of the kinase domains of 26 TK genes (11 receptor TK and 15 cytoplasmic TK) that are expressed in most AML patients, using genomic DNA from the bone marrow (tumor) and matched skin biopsy samples (germline) from 94 patients with de novo AML; sequence variants were validated in an additional 94 AML tumor samples (14.3 million base pairs of sequence were obtained and analyzed). more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -1441,7 +1449,7 @@ Platform: GPL570 304 Samples
 FTP download: GEO (CEL, CHP) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE10nnn/GSE10358/
 Series		Accession: GSE10358	ID: 200010358
 
-175. Trisomy 21 fibroblasts (pevsn-affy-human-512801)
+176. Trisomy 21 fibroblasts (pevsn-affy-human-512801)
 (Submitter supplied) Down syndrome (DS) is caused by an extra copy of chromosome 21. We are characterizing protein changes in human skin fibroblasts. We propose to study corresponding changes at the DNA level (by SNP analysis) and the RNA level (using Affymetrix chips). These studies will detail transcriptional and translational regulation in trisomy. The Specific Aim is to obtain data on RNA transcript levels using Affymetrix expression arrays in a group of trisomy 21 and euploid fibroblast cell lines. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -1449,7 +1457,7 @@ Platform: GPL570 14 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE9nnn/GSE9762/
 Series		Accession: GSE9762	ID: 200009762
 
-176. Expression profiling of human adult postmortem brain tissue from Down syndrome and healthy control subjects
+177. Expression profiling of human adult postmortem brain tissue from Down syndrome and healthy control subjects
 (Submitter supplied) Down syndrome (DS) is the result of trisomy chromosome 21 but the mechanisms by which the genotype leads to the characteristic disease phenotype are unclear. We performed a microarray study using human adult brain tissue (dorsolateral prefrontal cortex) from DS subjects and healthy controls to characterise for the first time the human adult Down syndrome brain Keywords: disease state analysis
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -1457,7 +1465,7 @@ Dataset: GDS2941 Platform: GPL96 15 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE5nnn/GSE5390/
 Series		Accession: GSE5390	ID: 200005390
 
-177. Knock-down of three core transcription factors in hEC cells
+178. Knock-down of three core transcription factors in hEC cells
 (Submitter supplied) Three transcription factors were silenced in human embryonic carcinoma cells, OCT4, NANOG, and SOX2. Downstream effects were analysed by means of microarrays to obtain insights into the regulation of self-renewal in these cells. Keywords: RNAi-chip
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -1465,7 +1473,7 @@ Platform: GPL2507 4 Samples
 FTP download: GEO (TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE5nnn/GSE5422/
 Series		Accession: GSE5422	ID: 200005422
 
-178. HSA21 gene expression between Down Syndrome and control cell lines
+179. HSA21 gene expression between Down Syndrome and control cell lines
 (Submitter supplied) Background: Down syndrome is the most common genetic cause of mental retardation in humans, occurring in ~1 in 800 newborns.  It is caused by chromosome 21 trisomy.  Disruption of the phenotype is thought to be the result of gene dosage imbalance. The aim of the study was to classify chromosome 21 genes according to their level of expression in Down syndrome. Results: Variations in chromosome 21 gene expression were analyzed in lymphoblastoid cell lines derived from 10 Down syndrome patients and 11 control individuals. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -1473,7 +1481,7 @@ Platform: GPL4593 40 Samples
 FTP download: GEO (GPR, TXT) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE6nnn/GSE6408/
 Series		Accession: GSE6408	ID: 200006408
 
-179. Specific transcriptional changes in human fetus with autosomal trisomies 
+180. Specific transcriptional changes in human fetus with autosomal trisomies 
 (Submitter supplied) Background: Among full autosomal trisomies, only trisomies of chromosome 21 (Down syndrome, DS), 18 (Edward syndrome, ES) and 13 (Patau syndrome, PS) are compatible with postnatal survival. But the mechanisms, how a supernumerary chromosome disrupts the normal development and causes specific phenotypes, are still not fully explained. As an alternative to gene dosage effects due to the trisomic chromosome, a genome-wide transcriptional dysregulation has been postulated. more...
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -1481,7 +1489,7 @@ Platform: GPL570 21 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE6nnn/GSE6283/
 Series		Accession: GSE6283	ID: 200006283
 
-180. Expression profiling of acute megakaryoblastic leukemia
+181. Expression profiling of acute megakaryoblastic leukemia
 (Submitter supplied) mononuclear cells were isolated on a density gradient and RNA extracted using Trizol and the Promega SV column RNA purification. Affymetrix U133A chips were hybridised using standard procedures at the core facility of Dana Farber Cancer Institute. Keywords: disease state analysis
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -1489,7 +1497,7 @@ Platform: GPL96 80 Samples
 FTP download: GEO ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE4nnn/GSE4119/
 Series		Accession: GSE4119	ID: 200004119
 
-181. Trisomy 21 and TS13
+182. Trisomy 21 and TS13
 (Submitter supplied) Gene expression was measured in trisomy 21 and trisomy 13 human fetal samples. For TS21, regions assayed were cerebrum, cerebellum, heart, and cerebrum-derived astrocyte cell lines. Keywords = trisomy 21 Keywords = Down syndrome Keywords = aneuploidy Keywords = brain Keywords = heart Keywords = trisomy 13 Keywords: other
 Organism:	Homo sapiens
 Type:		Expression profiling by array
@@ -1497,7 +1505,7 @@ Platform: GPL96 28 Samples
 FTP download: GEO ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE1nnn/GSE1397/
 Series		Accession: GSE1397	ID: 200001397
 
-182. heart gene expression in Down syndrome
+183. heart gene expression in Down syndrome
 (Submitter supplied) Expression profiles in normal and Down syndrome fetal heart explants. Keywords: other
 Organism:	Homo sapiens
 Type:		Expression profiling by array

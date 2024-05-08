@@ -217,7 +217,7 @@ Series		Accession: GSE81259	ID: 200081259
 
 26. Modeling Transcriptional Rewiring in Neutrophils through the Course of Treated Juvenile Idiopathic Arthritis
 (Submitter supplied) Neutrophils in children with the polyarticular form of juvenile idiopathic arthritis (JIA) display abnormal transcriptional patterns linked to fundamental metabolic derangements. These abnormalities include re-ordering of miRNA-RNA expression networks. In this study, we sought to determine the effects of therapy on miRNA-RNA networks in polyarticular JIA. We studied children with active JIA disease on therapy (ADM), children with inactive disease also on therapy (ID), and children with clinical remission on medication (CRM) using exon and miRNA microarrays and compared results to findings from healthy control (HC) children. more...
-Organism:	Homo sapiens; synthetic construct
+Organism:	synthetic construct; Homo sapiens
 Type:		Expression profiling by array; Non-coding RNA profiling by array
 Platforms: GPL5188 GPL8786 145 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE94nnn/GSE94354/
@@ -259,9 +259,9 @@ Series		Accession: GSE79970	ID: 200079970
 
 31. Complexity and Specificity of the Neutrophil Transcriptome in Diverse Inflammatory States
 (Submitter supplied) In this study, we explored transcriptional complexity in human neutrophils, cells generally regarded as nonspecific in their functions and responses.  We studied distinct human disease phenotypes and found that, at the gene, gene isoform, and miRNA level, neutrophils exhibit considerable specificity in their transcriptomes.  These findings were particularly striking for isoform usage.  Thus, even cells whose responses are considered non-specific show tailoring of their transcriptional repertoire toward specific physiologic or pathologic contexts. more...
-Organism:	Homo sapiens; synthetic construct
+Organism:	synthetic construct; Homo sapiens
 Type:		Expression profiling by array; Non-coding RNA profiling by array
-Platforms: GPL8786 GPL5188 179 Samples
+Platforms: GPL5188 GPL8786 179 Samples
 FTP download: GEO (CEL) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE71nnn/GSE71010/
 Series		Accession: GSE71010	ID: 200071010
 
