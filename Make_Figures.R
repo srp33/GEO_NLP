@@ -61,7 +61,8 @@ top_nongemma_candidates = read_tsv("../Results/Top_NonGemma_Candidates.tsv.gz")
 
 dir.create("../Figures", showWarnings = FALSE)
 
-plot_data = mutate(manual_results, Top_Num = as.integer(Top_Num))
+plot_data = mutate(manual_results, Top_Num = as.integer(Top_Num)) %>%
+  mutate(Search_Type = factor(Search_Type, levels = c("Tag ontology term", "Tag ontology term plus synonyms", "MeSH term")))
 
 ggplot(plot_data, aes(x = Top_Num, y = Value, color = Metric, linetype=Search_Type)) +
   geom_line() +
