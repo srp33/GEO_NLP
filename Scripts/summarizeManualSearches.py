@@ -30,7 +30,7 @@ with gzip.open(gemma_json_file_path) as gemma_file:
 with gzip.open(out_summary_file_path, "w") as out_summary_file:
     with gzip.open(out_nongemma_nonsubseries_file_path, "w") as out_nongemma_nonsubseries_file:
         out_summary_file.write("Query\tSearch_Type\tTop_Num\tMetric\tValue\n".encode())
-        out_nongemma_nonsubseries_file.write("Query\tSearch_Type\tSeries_ID\tSeries_Title\tSeries_Summary\tSeries_Overall_Design\tIn_Gemma\n".encode())
+        out_nongemma_nonsubseries_file.write("Query\tSearch_Type\tRank\tSeries_ID\tSeries_Title\tSeries_Summary\tSeries_Overall_Design\tIn_Gemma\n".encode())
 
         for queryDirPath in glob.glob(f"{baseDirPath}/*"):
             query = os.path.basename(queryDirPath)
@@ -81,13 +81,15 @@ with gzip.open(out_summary_file_path, "w") as out_summary_file:
 #                                out_summary_file.write((f"{query}\t{searchType}\t{numTop}\tPrecision\t{precision:.2f}\n").encode())
 #                                out_summary_file.write((f"{query}\t{searchType}\t{numTop}\tF1 score\t{f1:.2f}\n").encode())
 
+                        rank = 0
                         for geoID in geoIDs:
                             if geoID in all_geo_dict:
+                                rank += 1
                                 title = all_geo_dict[geoID][0]
                                 summary = all_geo_dict[geoID][1]
                                 overall_design = all_geo_dict[geoID][2]
                                 inGemma = "Yes" if geoID in gemmaSet else "No"
 
-                                out_nongemma_nonsubseries_file.write((f"{query}\t{searchType}\t{geoID}\t{title}\t{summary}\t{overall_design}\t{inGemma}\n").encode())
+                                out_nongemma_nonsubseries_file.write((f"{query}\t{searchType}\t{rank}\t{geoID}\t{title}\t{summary}\t{overall_design}\t{inGemma}\n").encode())
 
 print(f"Saved to {out_summary_file_path} and {out_nongemma_nonsubseries_file_path}")
