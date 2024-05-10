@@ -16,13 +16,28 @@ with gzip.open(all_geo_tsv_file_path) as all_geo_tsv_file:
     all_geo_tsv_file.readline()
 
     for line in all_geo_tsv_file:
-        line_items = line.rstrip(b"\n").split(b"\t")
-        series = line_items[0].decode()
-        title = line_items[1].decode()
-        summary = line_items[2].decode()
-        overall_design = line_items[3].decode()
+        line_items = line.decode().rstrip("\n").split("\t")
 
-        all_geo_dict[series] = [title, summary, overall_design]
+        series = line_items[0]
+        title = line_items[1]
+        summary = line_items[2]
+        overall_design = line_items[3]
+        experiment_type = line_items[4].lower().split("|")
+        gpl = line_items[5].lower().split("|")
+        gpl_title = line_items[6].lower()
+        gpl_technology = line_items[7].lower()
+        species = line_items[8].lower().split("|")
+        taxon_id = line_items[9].split("|")
+        superseries_gse = line_items[10]
+
+        # This repeats logic that we already had in our manual search.
+        # But we do it to ensure consistency with the automated queries.
+        if "homo sapiens" in species and "9606" in taxon_id and superseries_gse == "":
+            if "expression profiling by array" in experiment_type:
+                if "affymetrix" in gpl_title or "illumina" in gpl_title or "agilent" in gpl_title:
+                    all_geo_dict[series] = [title, summary, overall_design]
+            elif "expression profiling by high throughput sequencing" in experiment_type and "illumina" in gpl_title:
+                all_geo_dict[series] = [title, summary, overall_design]
 
 with gzip.open(gemma_json_file_path) as gemma_file:
     gemmaSet = set(json.loads(gemma_file.read()).keys())
@@ -57,6 +72,7 @@ with gzip.open(out_summary_file_path, "w") as out_summary_file:
 
                     if len(searchText) > 0:
                         geoIDs = re.findall(r"Accession: (GSE\d+)", searchText)
+                        geoIDs = [geoID for geoID in geoIDs if geoID in all_geo_dict]
 
                         if len(geoIDs) > 0:
                             for numTop in [20, 50, 200, 500, 1000, len(geoIDs)]:
