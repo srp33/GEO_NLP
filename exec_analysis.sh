@@ -60,7 +60,7 @@ python3 assignTrainingTestingOther.py "$gemma_json_file_path" bipolar_disorder Q
 python3 assignTrainingTestingOther.py "$gemma_json_file_path" parkinson_disease Queries Assignments "$multiplication_rates"
 python3 assignTrainingTestingOther.py "$gemma_json_file_path" neuroblastoma Queries Assignments "$multiplication_rates"
 
-python3 summarizeManualSearches.py Manual_Searches "$gemma_json_file_path" Results/Manual_Search_Summary.tsv.gz Results/Manual_Search_Items.tsv.gz
+python3 summarizeManualSearches.py Manual_Searches "$all_geo_tsv_file_path" "$gemma_json_file_path" Results/Manual_Search_Summary.tsv.gz Results/Manual_Search_NonGemma_NonSubSeries.tsv.gz
 
 python3 findWordOverlap.py "$gemma_json_file_path" "$overlap_scores_file_path"
 
