@@ -72,7 +72,7 @@ with gzip.open(out_summary_file_path, "w") as out_summary_file:
 
                     if len(searchText) > 0:
                         geoIDs = re.findall(r"Accession: (GSE\d+)", searchText)
-                        geoIDs = [geoID for geoID in geoIDs if geoID in all_geo_dict]
+                        geoIDs = [geoID for geoID in geoIDs if geoID in all_geo_dict and geoID in gemmaSet]
 
                         if len(geoIDs) > 0:
                             for numTop in [20, 50, 200, 500, 1000, len(geoIDs)]:
