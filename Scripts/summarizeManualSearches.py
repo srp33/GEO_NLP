@@ -9,7 +9,7 @@ baseDirPath = sys.argv[1]
 all_geo_tsv_file_path = sys.argv[2]
 gemma_json_file_path = sys.argv[3]
 out_summary_file_path = sys.argv[4]
-out_nongemma_nonsubseries_file_path = sys.argv[5]
+out_nonsubseries_file_path = sys.argv[5]
 
 all_geo_dict = {}
 with gzip.open(all_geo_tsv_file_path) as all_geo_tsv_file:
@@ -43,9 +43,9 @@ with gzip.open(gemma_json_file_path) as gemma_file:
     gemmaSet = set(json.loads(gemma_file.read()).keys())
 
 with gzip.open(out_summary_file_path, "w") as out_summary_file:
-    with gzip.open(out_nongemma_nonsubseries_file_path, "w") as out_nongemma_nonsubseries_file:
+    with gzip.open(out_nonsubseries_file_path, "w") as out_nonsubseries_file:
         out_summary_file.write("Query\tSearch_Type\tTop_Num\tMetric\tValue\n".encode())
-        out_nongemma_nonsubseries_file.write("Query\tSearch_Type\tRank\tSeries_ID\tSeries_Title\tSeries_Summary\tSeries_Overall_Design\tIn_Gemma\n".encode())
+        out_nonsubseries_file.write("Query\tSearch_Type\tRank\tSeries_ID\tSeries_Title\tSeries_Summary\tSeries_Overall_Design\tIn_Gemma\n".encode())
 
         for queryDirPath in glob.glob(f"{baseDirPath}/*"):
             query = os.path.basename(queryDirPath)
@@ -106,6 +106,6 @@ with gzip.open(out_summary_file_path, "w") as out_summary_file:
                                 overall_design = all_geo_dict[geoID][2]
                                 inGemma = "Yes" if geoID in gemmaSet else "No"
 
-                                out_nongemma_nonsubseries_file.write((f"{query}\t{searchType}\t{rank}\t{geoID}\t{title}\t{summary}\t{overall_design}\t{inGemma}\n").encode())
+                                out_nonsubseries_file.write((f"{query}\t{searchType}\t{rank}\t{geoID}\t{title}\t{summary}\t{overall_design}\t{inGemma}\n").encode())
 
-print(f"Saved to {out_summary_file_path} and {out_nongemma_nonsubseries_file_path}")
+print(f"Saved to {out_summary_file_path} and {out_nonsubseries_file_path}")

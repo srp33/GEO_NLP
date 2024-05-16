@@ -29,6 +29,9 @@ non_gemma_json_file_path="/Data/NonGemma.json.gz"
 multiplication_rates="1,2,5,10,100,300"
 overlap_scores_file_path="${tmp_dir_path}/word_overlap/scores.tsv.gz"
 
+python3 summarizeManualSearches.py Manual_Searches "$all_geo_tsv_file_path" "$gemma_json_file_path" Results/Manual_Search_Summary.tsv.gz Results/Manual_Search_NonSubSeries.tsv.gz
+exit
+
 tmp_dir_path="/Data/tmp"
 mkdir -p ${tmp_dir_path}/word_overlap
 
@@ -60,7 +63,7 @@ python3 assignTrainingTestingOther.py "$gemma_json_file_path" bipolar_disorder Q
 python3 assignTrainingTestingOther.py "$gemma_json_file_path" parkinson_disease Queries Assignments "$multiplication_rates"
 python3 assignTrainingTestingOther.py "$gemma_json_file_path" neuroblastoma Queries Assignments "$multiplication_rates"
 
-python3 summarizeManualSearches.py Manual_Searches "$all_geo_tsv_file_path" "$gemma_json_file_path" Results/Manual_Search_Summary.tsv.gz Results/Manual_Search_NonGemma_NonSubSeries.tsv.gz
+python3 summarizeManualSearches.py Manual_Searches "$all_geo_tsv_file_path" "$gemma_json_file_path" Results/Manual_Search_Summary.tsv.gz Results/Manual_Search_NonSubSeries.tsv.gz
 
 python3 findWordOverlap.py "$gemma_json_file_path" "$overlap_scores_file_path"
 
