@@ -45,15 +45,14 @@ with gzip.open(gemma_json_file_path) as gemma_file:
 with gzip.open(out_summary_file_path, "w") as out_summary_file:
     with gzip.open(out_nonsubseries_file_path, "w") as out_nonsubseries_file:
         out_summary_file.write("Query\tSearch_Type\tTop_Num\tMetric\tValue\n".encode())
-        out_nonsubseries_file.write("Query\tSearch_Type\tRank\tSeries_ID\tSeries_Title\tSeries_Summary\tSeries_Overall_Design\tIn_Gemma\n".encode())
+        out_nonsubseries_file.write("Query\tSearch_Type\tRank\tSeries_ID\tSeries_Title\tSeries_Summary\tSeries_Overall_Design\tIn_Gemma\tMatches_Gemma\n".encode())
 
         for queryDirPath in glob.glob(f"{baseDirPath}/*"):
             query = os.path.basename(queryDirPath)
 
-            queryFilePath = f"Queries/{query}"
-            with open(queryFilePath) as queryFile:
-                queryGeoIDs = queryFile.read().strip().split("\n")
-                numTagged = len(queryGeoIDs)
+            testSeriesFilePath = f"Assignments/{query}/testing_series"
+            with open(testSeriesFilePath) as testSeriesFile:
+                testGeoIDs = json.loads(testSeriesFile.read())
 
             for searchNumFilePath in glob.glob(f"{queryDirPath}/*"):
                 searchNum = os.path.basename(searchNumFilePath)
@@ -73,30 +72,19 @@ with gzip.open(out_summary_file_path, "w") as out_summary_file:
                     if len(searchText) > 0:
                         geoIDs = re.findall(r"Accession: (GSE\d+)", searchText)
                         geoIDs = [geoID for geoID in geoIDs if geoID in all_geo_dict]
-                        geoIDsInGemma = [geoID for geoID in gemmaSet]
+                        geoIDsInGemma = [geoID for geoID in geoIDs if geoID in gemmaSet]
 
                         if len(geoIDsInGemma) > 0:
-                            for numTop in [20, 50, 200, 500, 1000, len(geoIDsInGemma)]:
+                            for numTop in [5, 10, 20, 50, 100, 200, 500, 1000]:
                                 if len(geoIDsInGemma) < numTop:
                                     continue
 
-                                matches = [x for x in geoIDsInGemma[:numTop] if x in queryGeoIDs]
+                                matches = [x for x in geoIDsInGemma[:numTop] if x in testGeoIDs]
                                 numMatches = len(matches)
 
-                                #precision = the fraction of retrieved documents that are relevant
-#                                precision = numMatches / numTop
-
-                                #recall = num relevant documents in top n / total relevant documents
-                                recall = numMatches / numTagged
-
-#                                if (precision + recall) == 0:
-#                                    f1 = 0.0
-#                                else:
-#                                    f1 = 2 * ((precision * recall) / (precision + recall))
+                                recall = numMatches / len(testGeoIDs)
 
                                 out_summary_file.write((f"{query}\t{searchType}\t{numTop}\tRecall\t{recall:.2f}\n").encode())
-#                                out_summary_file.write((f"{query}\t{searchType}\t{numTop}\tPrecision\t{precision:.2f}\n").encode())
-#                                out_summary_file.write((f"{query}\t{searchType}\t{numTop}\tF1 score\t{f1:.2f}\n").encode())
 
                         rank = 0
                         for geoID in geoIDs:
@@ -106,7 +94,8 @@ with gzip.open(out_summary_file_path, "w") as out_summary_file:
                                 summary = all_geo_dict[geoID][1]
                                 overall_design = all_geo_dict[geoID][2]
                                 inGemma = "Yes" if geoID in gemmaSet else "No"
+                                matchesGemma = "Yes" if geoID in testGeoIDs else "No"
 
-                                out_nonsubseries_file.write((f"{query}\t{searchType}\t{rank}\t{geoID}\t{title}\t{summary}\t{overall_design}\t{inGemma}\n").encode())
+                                out_nonsubseries_file.write((f"{query}\t{searchType}\t{rank}\t{geoID}\t{title}\t{summary}\t{overall_design}\t{inGemma}\t{matchesGemma}\n").encode())
 
 print(f"Saved to {out_summary_file_path} and {out_nonsubseries_file_path}")

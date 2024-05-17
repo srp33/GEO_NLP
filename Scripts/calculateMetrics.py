@@ -47,7 +47,7 @@ with gzip.open(metrics_file_path, "w") as metrics_file:
         groups_scores = sorted(groups_scores, key=lambda x: x[1], reverse=True)
         num_testing = sum(groups)
 
-        for n in [20, 50, 200, 500, 1000]:
+        for n in [5, 10, 20, 50, 100, 200, 500, 1000]:
             count = 0
             for group_score in groups_scores[:n]:
                 if group_score[0] == "Testing":
