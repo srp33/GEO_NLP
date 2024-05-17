@@ -72,14 +72,15 @@ with gzip.open(out_summary_file_path, "w") as out_summary_file:
 
                     if len(searchText) > 0:
                         geoIDs = re.findall(r"Accession: (GSE\d+)", searchText)
-                        geoIDs = [geoID for geoID in geoIDs if geoID in all_geo_dict and geoID in gemmaSet]
+                        geoIDs = [geoID for geoID in geoIDs if geoID in all_geo_dict]
+                        geoIDsInGemma = [geoID for geoID in gemmaSet]
 
-                        if len(geoIDs) > 0:
-                            for numTop in [20, 50, 200, 500, 1000, len(geoIDs)]:
-                                if len(geoIDs) < numTop:
+                        if len(geoIDsInGemma) > 0:
+                            for numTop in [20, 50, 200, 500, 1000, len(geoIDsInGemma)]:
+                                if len(geoIDsInGemma) < numTop:
                                     continue
 
-                                matches = [x for x in geoIDs[:numTop] if x in queryGeoIDs]
+                                matches = [x for x in geoIDsInGemma[:numTop] if x in queryGeoIDs]
                                 numMatches = len(matches)
 
                                 #precision = the fraction of retrieved documents that are relevant

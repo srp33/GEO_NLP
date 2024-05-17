@@ -33,9 +33,14 @@ make_query_factor_2 = function(data) {
     return()
 }
 
-manual_results = read_tsv("Results/Manual_Searches.tsv.gz") %>%
+manual_search_summary = read_tsv("Results/Manual_Search_Gemma_Summary.tsv.gz") %>%
   make_query_factor() %>%
-  mutate(Metric = factor(Metric, levels=c("Precision", "Recall", "F1 score")))
+  select(-Metric) %>%
+  mutate(Search_Type = factor(Search_Type, levels = c("Tag ontology term", "Tag ontology term plus synonyms", "MeSH term")))
+
+manual_search_items = read_tsv("Results/Manual_Search_Items.tsv.gz") %>%
+  make_query_factor_2() %>%
+  mutate(Search_Type = factor(Search_Type, levels = c("Tag ontology term", "Tag ontology term plus synonyms", "MeSH term")))
 
 results = read_tsv("Results/Metrics.tsv.gz") %>%
   make_query_factor() %>%
@@ -61,20 +66,38 @@ top_nongemma_candidates = read_tsv("Results/Top_NonGemma_Candidates.tsv.gz")
 
 dir.create("Figures", showWarnings = FALSE)
 
-plot_data = mutate(manual_results, Top_Num = as.integer(Top_Num)) %>%
+plot_data = mutate(manual_search_summary, Top_Num = as.integer(Top_Num)) %>%
   mutate(Search_Type = factor(Search_Type, levels = c("Tag ontology term", "Tag ontology term plus synonyms", "MeSH term")))
 
-ggplot(plot_data, aes(x = Top_Num, y = Value, color = Metric, linetype=Search_Type)) +
-  geom_line() +
+ggplot(plot_data, aes(x = Top_Num, y = Value, linetype=Search_Type)) +
+  geom_line(alpha = 0.5) +
   geom_point() +
   facet_wrap(vars(Query), scales="free_x", ncol = 2) +
   xlab("Number of returned series") +
   ylab("Metric value") +
   theme_bw(base_size = 17) +
-  scale_color_manual(values = c('Precision' = '#1b9e77', 'Recall' = '#7570b3', 'F1 score' = '#d95f02')) +
+  # scale_color_manual(values = c('Precision' = '#1b9e77', 'Recall' = '#7570b3', 'F1 score' = '#d95f02')) +
   scale_linetype_manual(values = c("MeSH term" = "solid", "Tag ontology term" = "dashed", "Tag ontology term plus synonyms" = "dotdash"), name = "Search type")
 
 ggsave("Figures/Manual_Searches.pdf", width=12.5, height=8.5, unit="in")
+
+########################################################################
+# Create Excel sheet for reviewing manual results.
+########################################################################
+
+manual_search_items %>%
+  filter(Rank <= 50) %>%
+  dplyr::rename(`Series title` = Series_Title) %>%
+  dplyr::rename(`Series summary` = Series_Summary) %>%
+  dplyr::rename(`Series overall design` = Series_Overall_Design) %>%
+  mutate(`Comment(s)` = "") %>%
+  mutate(`Relevant to medical condition` =  "No") %>%
+  mutate(`Relevant to related condition(s)` = "No") -> top_manual_candidates_table
+
+# Only execute this code when you want to create the Excel file.
+#write_xlsx(top_manual_candidates_table, "Tables/Top_Manual_Candidates.xlsx")
+
+top_manual_candidates_excel = readxl::read_xlsx("Tables/Top_Manual_Candidates.xlsx")
 
 ########################################################################
 # Compare performance with or without text chunking.
@@ -238,6 +261,21 @@ pull(top_gemma_candidates_excel, `Strong case`) %>%
 kable(top_gemma_candidates_excel, format="simple") %>%
   write("Tables/Top_Gemma_Candidates.md")
 
+textlength_vs_distance_rho = group_by(textlength_vs_distance, Query) %>%
+  summarize(spearman_rho = cor(TextLength, Distance, method="spearman"), .groups = "drop")
+
+textlength_vs_distance <- left_join(textlength_vs_distance, textlength_vs_distance_rho, by = "Query")
+
+ggplot(textlength_vs_distance, aes(x = TextLength, y = Distance)) +
+  geom_point() +
+  facet_wrap(vars(Query)) +
+  geom_text(data = textlength_vs_distance_rho, aes(label = sprintf("rho = %.2f", spearman_rho), x = Inf, y = Inf), 
+            hjust = 1.4, vjust = 4, check_overlap = TRUE, size=4.5) +
+  xlab("Text length (# of characters)") +
+  theme_bw(base_size = 16)
+
+ggsave("Figures/Gemma_TextLength_vs_Distance.pdf", width=11, height=9, unit="in")
+
 mutate(top_nongemma_candidates, Model = str_replace_all(Model, "____", "/")) %>%
   mutate(Query = fct_recode(Query,
                             "Triple negative breast carcinoma" = "triple_negative_breast_carcinoma",
@@ -255,21 +293,6 @@ mutate(top_nongemma_candidates, Model = str_replace_all(Model, "____", "/")) %>%
   mutate(`Primary sample(s)` = "No") %>%
   mutate(`Cell line(s)` = "No") %>%
   mutate(`Xenograft(s)` = "No") -> top_nongemma_candidates_table
-
-textlength_vs_distance_rho = group_by(textlength_vs_distance, Query) %>%
-  summarize(spearman_rho = cor(TextLength, Distance, method="spearman"), .groups = "drop")
-
-textlength_vs_distance <- left_join(textlength_vs_distance, textlength_vs_distance_rho, by = "Query")
-
-ggplot(textlength_vs_distance, aes(x = TextLength, y = Distance)) +
-  geom_point() +
-  facet_wrap(vars(Query)) +
-  geom_text(data = textlength_vs_distance_rho, aes(label = sprintf("rho = %.2f", spearman_rho), x = Inf, y = Inf), 
-            hjust = 1.4, vjust = 4, check_overlap = TRUE, size=4.5) +
-  xlab("Text length (# of characters)") +
-  theme_bw(base_size = 16)
-
-ggsave("Figures/Gemma_TextLength_vs_Distance.pdf", width=11, height=9, unit="in")
 
 # FYI: Uncomment this only if you want to overwrite the XLSX file.
 #write_xlsx(top_nongemma_candidates_table, "Tables/Top_NonGemma_Candidates.xlsx")
@@ -317,6 +340,49 @@ filter(top_nongemma_candidates_excel, `Relevant to medical condition` == "Yes") 
 
 ggsave("Figures/NonGemma_SampleType.pdf", width=11, height=9, unit="in")
 
+
+
+
+
+
+# non_gemma_reviewed_yes = filter(top_nongemma_candidates_excel, `Relevant to medical condition` == "Yes") %>%
+  # select(Query, Series)
+
+# for (query in unique(pull(non_gemma_reviewed_yes, Query))) {
+#   query_nongemma_yes_series = filter(non_gemma_reviewed_yes, Query == query) %>%
+#     pull(Series)
+# 
+#   for (searchType in unique(pull(manual_search_items, Search_Type))) {
+#     query_manual_series = filter(manual_search_items, Query == query) %>%
+#       filter(Search_Type == searchType) %>%
+#       filter(In_Gemma == "No") %>%
+#       head(n = 50) %>%
+#       pull(Series_ID)
+# 
+#     print(query)
+#     print(searchType)
+#     # print(query_nongemma_yes_series)
+#     # print(query_manual_series)
+#     
+#     # print(query_nongemma_yes_series %in% query_manual_series)
+#     num_missed_by_manual = sum(!(query_nongemma_yes_series %in% query_manual_series))
+#     percentage_missed_by_manual = round(100 * num_missed_by_manual / length(query_nongemma_yes_series), 1)
+#     output = str_c(num_missed_by_manual, " / ", length(query_nongemma_yes_series), " (", sprintf("%.1f", percentage_missed_by_manual), "%)")
+# 
+#     print(output)
+#     # print(length(query_manual_series))
+#     # break
+#   }
+#   # break
+# }
+
 # TODO:
+# Compare top_num recall for manual vs. auto for Gemma series. That's one direct comparison we can do.
+# Curate Tables/Top_Manual_Candidates.xlsx????? Or maybe not necessary.
+#.  See commented code above.
+#   Write code to compare precision.
+#   You can calculate a recall-like metric by seeing how many of the top-50 NLP series are
+#     NOT in the manual list (and vice versa).
+#   Calculate metric(s) for the non-Gemma results based on the manual searches.
 # Send Anna the JSON file with the gte embeddings for all of GEO (make sure it has all).
 # Send Anna the TSV file with other metadata.
