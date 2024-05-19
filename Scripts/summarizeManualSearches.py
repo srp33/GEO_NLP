@@ -82,9 +82,21 @@ with gzip.open(out_summary_file_path, "w") as out_summary_file:
                                 matches = [x for x in geoIDsInGemma[:numTop] if x in testGeoIDs]
                                 numMatches = len(matches)
 
+                                #precision = the fraction of retrieved documents that are relevant
+                                precision = numMatches / numTop
+
+                                #recall = num relevant documents in top n / total relevant documents
                                 recall = numMatches / len(testGeoIDs)
 
+                                if (precision + recall) == 0:
+                                    f1 = "NA"
+                                else:
+                                    f1 = 2 * ((precision * recall) / (precision + recall))
+                                    f1 = f"{f1:.2f}"
+
+                                out_summary_file.write((f"{query}\t{searchType}\t{numTop}\tPrecision\t{precision:.2f}\n").encode())
                                 out_summary_file.write((f"{query}\t{searchType}\t{numTop}\tRecall\t{recall:.2f}\n").encode())
+                                out_summary_file.write((f"{query}\t{searchType}\t{numTop}\tF1\t{f1}\n").encode())
 
                         rank = 0
                         for geoID in geoIDs:
