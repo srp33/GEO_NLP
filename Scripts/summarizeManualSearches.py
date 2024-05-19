@@ -99,7 +99,7 @@ with gzip.open(out_summary_file_path, "w") as out_summary_file:
 
                                 out_summary_file.write((f"{query}\t{searchType}\t{numTop}\tPrecision\t{precision:.2f}\n").encode())
                                 out_summary_file.write((f"{query}\t{searchType}\t{numTop}\tRecall\t{recall:.2f}\n").encode())
-                                out_summary_file.write((f"{query}\t{searchType}\t{numTop}\tF1\t{f1}\n").encode())
+                                out_summary_file.write((f"{query}\t{searchType}\t{numTop}\tF1 score\t{f1}\n").encode())
 
                         rank = 0
                         for geoID in geoIDs:
