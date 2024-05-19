@@ -94,6 +94,9 @@ with gzip.open(out_summary_file_path, "w") as out_summary_file:
                                     f1 = 2 * ((precision * recall) / (precision + recall))
                                     f1 = f"{f1:.2f}"
 
+                                # FYI: We cannot calculate AUPRC here because all of the candidate
+                                #      datasets were not assigned a score.
+
                                 out_summary_file.write((f"{query}\t{searchType}\t{numTop}\tPrecision\t{precision:.2f}\n").encode())
                                 out_summary_file.write((f"{query}\t{searchType}\t{numTop}\tRecall\t{recall:.2f}\n").encode())
                                 out_summary_file.write((f"{query}\t{searchType}\t{numTop}\tF1\t{f1}\n").encode())
