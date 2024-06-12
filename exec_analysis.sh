@@ -30,6 +30,7 @@ multiplication_rates="1,2,5,10,100,300"
 overlap_scores_file_path="${tmp_dir_path}/word_overlap/scores.tsv.gz"
 
 tmp_dir_path="/Data/tmp"
+
 mkdir -p ${tmp_dir_path}/word_overlap
 
 python3 getAllGEO.py ${tmp_dir_path} "$all_geo_tsv_file_path"
@@ -143,5 +144,8 @@ done
 python3 findTopNonGemmaCandidates.py "Similarities_NonGemma/*/*/all" ${all_geo_tsv_file_path} Results/Top_NonGemma_Candidates.tsv.gz
 
 python3 saveCheckpointMetadata.py "Data/tmp/Embeddings/*/*.gz" Results/Embedding_Sizes.tsv.gz Results/Checkpoint_Metadata.tsv.gz
+
+# This puts the embedding in a TSV file rather than JSON so it can be read line by line (for the Web app).
+python3 reformatEmbeddings.py "${tmp_dir_path}/Embeddings/thenlper/gte-large.gz" "${tmp_dir_path}/Embeddings/thenlper/gte-large.tsv.gz"
 
 # rm -rf ${tmp_dir_path}
