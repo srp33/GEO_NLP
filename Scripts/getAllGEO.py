@@ -3,6 +3,7 @@ import glob
 import gzip
 import joblib
 import os
+import re
 import requests
 import sys
 import time
@@ -27,7 +28,8 @@ def save_gse(gse):
         gse_text = requests.get(url).text
 
         gse_lines = [line.rstrip("\n") for line in gse_text.strip().split("\n")]
-        gse_lines = [line for line in gse_lines if line.startswith("!Series") and not (line.startswith("!Series_sample") or line.startswith("!Series_contact"))]
+        #gse_lines = [line for line in gse_lines if line.startswith("!Series") and not (line.startswith("!Series_sample") or line.startswith("!Series_contact"))]
+        gse_lines = [line for line in gse_lines if line.startswith("!Series") and not line.startswith("!Series_contact")]
         gse_text = "\n".join(gse_lines)
 
         with open(tmp_file_path, "w") as tmp_file:
@@ -58,55 +60,64 @@ def get_gpl_info(gpl):
     return gpl_dict
 
 # Last run on April 18, 2024.
-joblib.Parallel(n_jobs=8)(joblib.delayed(save_gse)(gse) for gse in gse_list)
+#joblib.Parallel(n_jobs=8)(joblib.delayed(save_gse)(gse) for gse in gse_list)
 
 # Sometimes the files are empty. This removes them.
-for file_path in glob.glob("Data/tmp/*"):
-    if os.path.getsize(file_path) == 0:
-        print(f"Removing {file_path} because it is empty.", flush=True)
-        os.remove(file_path)
+#for file_path in glob.glob("Data/tmp/*"):
+#    if os.path.getsize(file_path) == 0:
+#        print(f"Removing {file_path} because it is empty.", flush=True)
+#        os.remove(file_path)
 
 gpl_dict = {}
 
 with gzip.open(out_tsv_file_path, "w") as out_tsv_file:
-    header = f"GSE\tTitle\tSummary\tOverall_Design\tExperiment_Type\tGPL\tGPL_Title\tGPL_Technology\tSpecies\tTaxon_ID\tSuperSeries_GSE\tSubSeries_GSEs\tPubMed_IDs\n"
+    header = f"GSE\tTitle\tSummary\tOverall_Design\tExperiment_Type\tYear_Released\tNum_Samples\tGPL\tGPL_Title\tGPL_Technology\tSpecies\tTaxon_ID\tSuperSeries_GSE\tSubSeries_GSEs\tPubMed_IDs\n"
     out_tsv_file.write(header.encode())
+
+#    dataset_save_count = 0
 
     for in_file_path in sorted(glob.glob(f"{tmp_dir_path}/GSE*")):
         with open(in_file_path) as in_file:
             print(f"Parsing text from {in_file_path}", flush=True)
 
             gse = os.path.basename(in_file_path)
-            gse_text = in_file.read()
 
+            gse_text = in_file.read()
             gse_dict = {}
+            sample_count = 0
+
             for line in gse_text.split("\n"):
                 line = line.strip()
                 if len(line) == 0:
                     continue
 
-                line_items = line.split(" = ")
+                line = line.replace("\t", " ")
+                line_items = re.split(" += +", line)
 
                 if len(line_items) < 2:
                     continue
 
                 key = line_items[0]
                 key = key.replace("!Series_", "")
-                value = line_items[1]
 
-                gse_dict.setdefault(key, []).append(value)
+                if key == "sample_id":
+                    sample_count += 1
+                else:
+                    value = line_items[1]
 
-                subseries_gse = []
-                for x in gse_dict.get("relation", []):
-                    if x.startswith("SubSeries of: "):
-                        subseries_gse.append(x.replace("SubSeries of: ", ""))
-                gse_dict["subseries_gse"] = subseries_gse
+                    gse_dict.setdefault(key, []).append(value)
 
-                superseries_gse = []
-                for x in gse_dict.get("relation", []):
-                    if x.startswith("SuperSeries of: "):
-                        superseries_gse.append(x.replace("SuperSeries of: ", ""))
-                gse_dict["superseries_gse"] = superseries_gse
+                    subseries_gse = []
+                    for x in gse_dict.get("relation", []):
+                        if x.startswith("SubSeries of: "):
+                            subseries_gse.append(x.replace("SubSeries of: ", ""))
+                    gse_dict["subseries_gse"] = subseries_gse
+
+                    superseries_gse = []
+                    for x in gse_dict.get("relation", []):
+                        if x.startswith("SuperSeries of: "):
+                            superseries_gse.append(x.replace("SuperSeries of: ", ""))
+                    gse_dict["superseries_gse"] = superseries_gse
 
             for key, value_list in gse_dict.items():
                 if len(value_list) == 1:
@@ -128,6 +139,7 @@ with gzip.open(out_tsv_file_path, "w") as out_tsv_file:
             subseries_gse = gse_dict.get("subseries_gse", "")
             superseries_gse = gse_dict.get("superseries_gse", "")
             pubmed_ids = gse_dict.get("pubmed_id", "")
+            submission_year = gse_dict.get("submission_date", "").split(" ")[-1]
 
             # Deal with the fact that some series have multiple platforms.
             for x in gpl.split("|"):
@@ -138,7 +150,9 @@ with gzip.open(out_tsv_file_path, "w") as out_tsv_file:
             gpl_title = "|".join(sorted(set([gpl_dict[x]["title"] for x in gpl.split("|") if "title" in gpl_dict[x]])))
             gpl_technology = "|".join(sorted(set([gpl_dict[x]["technology"] for x in gpl.split("|") if "technology" in gpl_dict[x]])))
 
-            out_line = "\t".join([gse, title, summary, overall_design, experiment_type, gpl, gpl_title, gpl_technology, species, taxon_id, subseries_gse, superseries_gse, pubmed_ids]) + "\n"
+            out_line = "\t".join([gse, title, summary, overall_design, experiment_type, submission_year, str(sample_count), gpl, gpl_title, gpl_technology, species, taxon_id, subseries_gse, superseries_gse, pubmed_ids]) + "\n"
             out_tsv_file.write(out_line.encode())
+
+#            dataset_save_count += 1
 
 print(f"Saved to {out_tsv_file_path}.")

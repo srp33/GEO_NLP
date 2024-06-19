@@ -34,6 +34,7 @@ tmp_dir_path="/Data/tmp"
 mkdir -p ${tmp_dir_path}/word_overlap
 
 python3 getAllGEO.py ${tmp_dir_path} "$all_geo_tsv_file_path"
+exit
 python3 prepareAllGEO.py "$all_geo_tsv_file_path" "$all_geo_json_file_path"
 
 # This sometimes gives an error message, but it seems to work properly.

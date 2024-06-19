@@ -10,8 +10,8 @@ mkdir -p Similarities Similarities_Chunks Similarities_NonGemma
 mkdir -p Models
 mkdir -p Results
 
-#docker run --rm \
-docker run --rm -i -t \
+#docker run --rm -i -t \
+docker run --rm \
     --gpus all \
     -v $(pwd)/Data:/Data \
     -v $(pwd)/Queries:/Queries \
