@@ -64,13 +64,13 @@ def remove_non_ascii(text):
     return ''.join(char for char in text if ord(char) < 128)
 
 # Last run on April 18, 2024.
-#joblib.Parallel(n_jobs=8)(joblib.delayed(save_gse)(gse) for gse in gse_list)
+joblib.Parallel(n_jobs=8)(joblib.delayed(save_gse)(gse) for gse in gse_list)
 
 # Sometimes the files are empty. This removes them.
-#for file_path in glob.glob("Data/tmp/*"):
-#    if os.path.getsize(file_path) == 0:
-#        print(f"Removing {file_path} because it is empty.", flush=True)
-#        os.remove(file_path)
+for file_path in glob.glob("Data/tmp/*"):
+    if os.path.getsize(file_path) == 0:
+        print(f"Removing {file_path} because it is empty.", flush=True)
+        os.remove(file_path)
 
 gpl_dict = {}
 

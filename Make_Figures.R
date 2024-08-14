@@ -35,12 +35,14 @@ make_query_factor_2 = function(data) {
 
 manual_search_summary = read_tsv("Results/Manual_Search_Gemma_Summary.tsv.gz") %>%
   make_query_factor() %>%
-  select(-Metric) %>%
-  mutate(Search_Type = factor(Search_Type, levels = c("Tag ontology term", "Tag ontology term plus synonyms", "MeSH term")))
+  mutate(Search_Type = factor(Search_Type, levels = c("Tag ontology term", "Tag ontology term plus synonyms", "MeSH term"))) %>%
+  mutate(Metric = factor(Metric, levels = c("Precision", "Recall", "F1 score"))) %>%
+  mutate(Top_Num = as.integer(Top_Num))
 
 manual_search_items = read_tsv("Results/Manual_Search_Items.tsv.gz") %>%
   make_query_factor_2() %>%
-  mutate(Search_Type = factor(Search_Type, levels = c("Tag ontology term", "Tag ontology term plus synonyms", "MeSH term")))
+  mutate(Search_Type = factor(Search_Type, levels = c("Tag ontology term", "Tag ontology term plus synonyms", "MeSH term"))) %>%
+  dplyr::rename(Series = Series_ID)
 
 results = read_tsv("Results/Metrics.tsv.gz") %>%
   make_query_factor() %>%
@@ -66,38 +68,19 @@ top_nongemma_candidates = read_tsv("Results/Top_NonGemma_Candidates.tsv.gz")
 
 dir.create("Figures", showWarnings = FALSE)
 
-plot_data = mutate(manual_search_summary, Top_Num = as.integer(Top_Num)) %>%
-  mutate(Search_Type = factor(Search_Type, levels = c("Tag ontology term", "Tag ontology term plus synonyms", "MeSH term")))
-
-ggplot(plot_data, aes(x = Top_Num, y = Value, linetype=Search_Type)) +
-  geom_line(alpha = 0.5) +
-  geom_point() +
-  facet_wrap(vars(Query), scales="free_x", ncol = 2) +
-  xlab("Number of returned series") +
-  ylab("Metric value") +
-  theme_bw(base_size = 17) +
-  # scale_color_manual(values = c('Precision' = '#1b9e77', 'Recall' = '#7570b3', 'F1 score' = '#d95f02')) +
-  scale_linetype_manual(values = c("MeSH term" = "solid", "Tag ontology term" = "dashed", "Tag ontology term plus synonyms" = "dotdash"), name = "Search type")
+manual_search_summary %>%
+  filter(Metric == "Recall") %>%
+  ggplot(aes(x = Top_Num, y = Value, linetype=Search_Type)) +
+    geom_line(alpha = 0.5) +
+    geom_point() +
+    facet_wrap(vars(Query), ncol = 2) +
+    xlab("Number of returned series") +
+    ylab("Recall") +
+    theme_bw(base_size = 17) +
+    scale_linetype_manual(values = c("MeSH term" = "solid", "Tag ontology term" = "dashed", "Tag ontology term plus synonyms" = "dotdash"), name = "Search type") +
+    ylim(0, 1)
 
 ggsave("Figures/Manual_Searches.pdf", width=12.5, height=8.5, unit="in")
-
-########################################################################
-# Create Excel sheet for reviewing manual results.
-########################################################################
-
-manual_search_items %>%
-  filter(Rank <= 50) %>%
-  dplyr::rename(`Series title` = Series_Title) %>%
-  dplyr::rename(`Series summary` = Series_Summary) %>%
-  dplyr::rename(`Series overall design` = Series_Overall_Design) %>%
-  mutate(`Comment(s)` = "") %>%
-  mutate(`Relevant to medical condition` =  "No") %>%
-  mutate(`Relevant to related condition(s)` = "No") -> top_manual_candidates_table
-
-# Only execute this code when you want to create the Excel file.
-#write_xlsx(top_manual_candidates_table, "Tables/Top_Manual_Candidates.xlsx")
-
-top_manual_candidates_excel = readxl::read_xlsx("Tables/Top_Manual_Candidates.xlsx")
 
 ########################################################################
 # Compare performance with or without text chunking.
@@ -137,9 +120,10 @@ filter(results, Multiplication_Rate == "all") %>%
 
 ggsave("Figures/AUPRC_by_Query.pdf", width=6.5, height=3.5, unit="in")
 
-filter(results, Multiplication_Rate == "all") %>%
-  filter(Metric == "AUPRC") %>%
-  ggplot(aes(x = Value, y = fct_rev(Method))) +
+plot_data = filter(results, Multiplication_Rate == "all") %>%
+  filter(Metric == "AUPRC")
+
+ggplot(plot_data, aes(x = Value, y = fct_rev(Method))) +
   geom_point(aes(color = Query, shape = Query), size = 2) +
   geom_boxplot(outlier.shape = NA, alpha = 0) +
   xlab("Area under precision-recall curve") +
@@ -156,24 +140,25 @@ unique_embedding_sizes = pull(embedding_sizes, Embedding_Size) %>%
   unique() %>%
   sort()
 
-filter(results, Multiplication_Rate == "all") %>%
+plot_data = filter(results, Multiplication_Rate == "all") %>%
   filter(Metric == "AUPRC") %>%
   group_by(Query) %>%
-  reframe(Method = Method, AUPRC_Rank = rank(-Value, ties.method = "min")) %>%
+  reframe(Method = Method, AUPRC = Value, AUPRC_Rank = rank(-Value, ties.method = "min")) %>%
   group_by(Method) %>%
-  summarize(Median_AUPRC_Rank = median(AUPRC_Rank)) %>%
+  summarize(Median_AUPRC = median(AUPRC), Median_AUPRC_Rank = median(AUPRC_Rank)) %>%
   dplyr::rename(Checkpoint = Method) %>%
   left_join(embedding_sizes) %>%
   left_join(checkpoint_metadata) %>%
   mutate(Has_Embedding = !is.na(Embedding_Size)) %>%
   mutate(Embedding_Size = ifelse(is.na(Embedding_Size), 400, Embedding_Size)) %>%
   mutate(Data_Source_Type = ifelse(is.na(Data_Source_Type), "None", Data_Source_Type)) %>%
-  mutate(Data_Source_Type = factor(Data_Source_Type, levels = c("General", "Scientific", "Biomedical", "None"))) %>%
-  ggplot(aes(x = Median_AUPRC_Rank,
-             y = fct_reorder(Checkpoint, Median_AUPRC_Rank, .desc=TRUE),
-             size = Embedding_Size,
-             shape = Has_Embedding,
-             color = Data_Source_Type)) +
+  mutate(Data_Source_Type = factor(Data_Source_Type, levels = c("General", "Scientific", "Biomedical", "None")))
+
+ggplot(plot_data, aes(x = Median_AUPRC_Rank,
+                      y = fct_reorder(Checkpoint, Median_AUPRC_Rank, .desc=TRUE),
+                      size = Embedding_Size,
+                      shape = Has_Embedding,
+                      color = Data_Source_Type)) +
   geom_point() +
   xlab("Median rank (lower is better)") +
   ylab("") +
@@ -188,6 +173,22 @@ filter(results, Multiplication_Rate == "all") %>%
   guides(shape = "none")
 
 ggsave("Figures/AUPRC_Rank_by_Checkpoint.pdf", width=11, height=9, unit="in")
+
+plot_data = filter(plot_data, Has_Embedding == TRUE)
+
+# Correlation between rank and embedding size.
+cor.test(plot_data$Median_AUPRC, plot_data$Embedding_Size, method="spearman") %>%
+  print()
+# S = 2216.4, p-value = 0.004253
+# alternative hypothesis: true rho is not equal to 0
+# sample estimates:
+#   rho 
+# 0.5069084
+
+stat_data = filter(plot_data, Data_Source_Type %in% c("General", "Biomedical"))
+wilcox.test(Median_AUPRC ~ Data_Source_Type, data = stat_data) %>%
+  print()
+# p-value = 0.4557
 
 inner_join(embedding_sizes, checkpoint_metadata) %>%
   arrange(Checkpoint) %>%
@@ -225,9 +226,51 @@ filter(results, Metric == "Recall") %>%
   facet_wrap(vars(Query)) +
   xlab("Number of top-ranked series") +
   ylab("Recall (sensitivity)") +
+  ylim(0, 1) +
   theme_bw(base_size = 14)
 
-ggsave("Figures/Recall_by_Top_Num.pdf", width=11, height=9, unit="in")
+ggsave("Figures/Recall_by_Top_Num_All_Checkpoints.pdf", width=11, height=9, unit="in")
+
+########################################################################
+# Compare manual vs. model-based approaches.
+########################################################################
+
+metric = "Recall"
+
+checkpoints = filter(results, Metric == metric) %>%
+  filter(Multiplication_Rate == "all") %>%
+  filter(Method %in% top_three) %>%
+  select(Query, Method, Top_Num, Metric, Value) %>%
+  mutate(Top_Num = str_replace_all(Top_Num, "Recall_Top_", "")) %>%
+  mutate(Top_Num = as.integer(Top_Num)) %>%
+  mutate(Top_Num = factor(Top_Num)) %>%
+  mutate(Overall_Category = "NLP")
+
+manual = filter(manual_search_summary, Metric == metric) %>%
+  select(Query, Search_Type, Top_Num, Metric, Value) %>%
+  dplyr::rename(Method = Search_Type) %>%
+  mutate(Top_Num = as.integer(Top_Num)) %>%
+  mutate(Top_Num = factor(Top_Num)) %>%
+  mutate(Overall_Category = "Manual GEO search")
+
+bind_rows(checkpoints, manual) %>%
+  mutate(Overall_Category = factor(Overall_Category, levels = c("Manual GEO search", "NLP"))) %>%
+  ggplot(aes(x = Top_Num, y = Value, group = Method)) +
+  geom_line(alpha = 0.6, size = 3, aes(color = Overall_Category)) +
+  scale_color_manual(values = c("Manual GEO search" = "#2c7bb6", "NLP" = "#d7191c")) +
+  geom_point(aes(shape = Method), size = 2) +
+  facet_wrap(vars(Query), ncol = 2) +
+  xlab("Number of top-ranked series") +
+  ylab(metric) +
+  labs(color = "Overall category") +
+  ylim(0, 1) +
+  theme_bw(base_size = 14)
+
+ggsave("Figures/Compare_Top_Num_Manual_vs_Checkpoints_Gemma.pdf", width=11, height=9, unit="in")
+
+########################################################################
+# Summarize top Gemma candidates
+########################################################################
 
 select(top_gemma_candidates, -Score) %>%
   mutate(Model = str_replace_all(Model, "____", "/")) %>%
@@ -252,7 +295,7 @@ select(top_gemma_candidates, -Score) %>%
 top_gemma_candidates_excel = readxl::read_xlsx("Tables/Top_Gemma_Candidates.xlsx")
 
 pull(top_gemma_candidates_excel, `Strong case`) %>%
-  factor(levels = c("Yes", "No", "Maybe")) %>%
+  factor(levels = c("Yes", "Maybe", "No")) %>%
   table() %>%
   print()
 #   Yes    No Maybe 
@@ -276,6 +319,10 @@ ggplot(textlength_vs_distance, aes(x = TextLength, y = Distance)) +
 
 ggsave("Figures/Gemma_TextLength_vs_Distance.pdf", width=11, height=9, unit="in")
 
+########################################################################
+# Summarize top non-Gemma candidates
+########################################################################
+
 mutate(top_nongemma_candidates, Model = str_replace_all(Model, "____", "/")) %>%
   mutate(Query = fct_recode(Query,
                             "Triple negative breast carcinoma" = "triple_negative_breast_carcinoma",
@@ -298,14 +345,12 @@ mutate(top_nongemma_candidates, Model = str_replace_all(Model, "____", "/")) %>%
 #write_xlsx(top_nongemma_candidates_table, "Tables/Top_NonGemma_Candidates.xlsx")
 
 top_nongemma_candidates_excel = readxl::read_xlsx("Tables/Top_NonGemma_Candidates.xlsx") %>%
-  mutate(`Relevant to medical condition` = factor(`Relevant to medical condition`, levels=c("Yes", "No", "Maybe"))) %>%
+  mutate(`Relevant to medical condition` = factor(`Relevant to medical condition`, levels=c("Yes", "Maybe", "No"))) %>%
   mutate(Query = factor(Query, levels = c("Triple negative breast carcinoma", "Parkinson's disease", "Neuroblastoma", "Juvenile idiopathic arthritis", "Down syndrome", "Bipolar disorder")))
 
 pull(top_nongemma_candidates_excel, `Relevant to medical condition`) %>%
   table() %>%
   print()
-# Maybe    No   Yes 
-# 17       82   201
 
 group_by(top_nongemma_candidates_excel, Query, `Relevant to medical condition`) %>%
   summarize(Count = n()) %>%
@@ -340,49 +385,58 @@ filter(top_nongemma_candidates_excel, `Relevant to medical condition` == "Yes") 
 
 ggsave("Figures/NonGemma_SampleType.pdf", width=11, height=9, unit="in")
 
+########################################################################
+# Summarize top manual candidates and compare against top model candidates
+########################################################################
 
+manual_search_items %>%
+  filter(Search_Type == "Tag ontology term plus synonyms") %>%
+  filter(In_Gemma == "No") %>%
+  arrange(Rank) %>%
+  select(-Search_Type, -In_Gemma, -Matches_Gemma, -Rank) %>%
+  group_by(Query) %>%
+  slice_head(n = 50) %>%
+  dplyr::rename(`Series title` = Series_Title) %>%
+  dplyr::rename(`Series summary` = Series_Summary) %>%
+  dplyr::rename(`Series overall design` = Series_Overall_Design) %>%
+  mutate(`Comment(s)` = "") %>%
+  mutate(`Relevant to medical condition` =  "No")
 
+# Only execute this code when you want to create the Excel file.
+#write_xlsx(top_manual_candidates_table, "Tables/Top_Manual_Candidates.xlsx")
 
+top_manual_candidates_excel = readxl::read_xlsx("Tables/Top_Manual_Candidates.xlsx") %>%
+  mutate(`Relevant to medical condition` = factor(`Relevant to medical condition`, levels=c("Yes", "Maybe", "No"))) %>%
+  mutate(Query = factor(Query, levels = c("Triple negative breast carcinoma", "Parkinson's disease", "Neuroblastoma", "Juvenile idiopathic arthritis", "Down syndrome", "Bipolar disorder"))) %>%
+  mutate(Model = "Manual GEO search")
 
+combined = select(top_nongemma_candidates_excel, Model, Query, Series, `Relevant to medical condition`) %>%
+  bind_rows(select(top_manual_candidates_excel, Model, Query, Series, `Relevant to medical condition`))
 
-# non_gemma_reviewed_yes = filter(top_nongemma_candidates_excel, `Relevant to medical condition` == "Yes") %>%
-  # select(Query, Series)
+combined_counts = group_by(combined, Model, Query) %>%
+  summarize(Total = n())
 
-# for (query in unique(pull(non_gemma_reviewed_yes, Query))) {
-#   query_nongemma_yes_series = filter(non_gemma_reviewed_yes, Query == query) %>%
-#     pull(Series)
-# 
-#   for (searchType in unique(pull(manual_search_items, Search_Type))) {
-#     query_manual_series = filter(manual_search_items, Query == query) %>%
-#       filter(Search_Type == searchType) %>%
-#       filter(In_Gemma == "No") %>%
-#       head(n = 50) %>%
-#       pull(Series_ID)
-# 
-#     print(query)
-#     print(searchType)
-#     # print(query_nongemma_yes_series)
-#     # print(query_manual_series)
-#     
-#     # print(query_nongemma_yes_series %in% query_manual_series)
-#     num_missed_by_manual = sum(!(query_nongemma_yes_series %in% query_manual_series))
-#     percentage_missed_by_manual = round(100 * num_missed_by_manual / length(query_nongemma_yes_series), 1)
-#     output = str_c(num_missed_by_manual, " / ", length(query_nongemma_yes_series), " (", sprintf("%.1f", percentage_missed_by_manual), "%)")
-# 
-#     print(output)
-#     # print(length(query_manual_series))
-#     # break
-#   }
-#   # break
-# }
+group_by(combined, Model, Query, `Relevant to medical condition`) %>%
+  summarize(Count = n()) %>%
+  inner_join(combined_counts) %>%
+  mutate(Percentage = round(100 * Count / Total, 1)) %>%
+  select(-Count, -Total) %>%
+  ggplot(aes(x = `Relevant to medical condition`, y = Percentage, fill = Model)) +
+    geom_col(position = "dodge2") +
+    ylab("Percentage") +
+    facet_wrap(vars(Query)) +
+    theme_bw(base_size = 14) +
+    scale_fill_brewer(palette = "Set2") +
+    labs(fill = "")
 
-# TODO:
-# Compare top_num recall for manual vs. auto for Gemma series. That's one direct comparison we can do.
-# Curate Tables/Top_Manual_Candidates.xlsx????? Or maybe not necessary.
-#.  See commented code above.
-#   Write code to compare precision.
-#   You can calculate a recall-like metric by seeing how many of the top-50 NLP series are
-#     NOT in the manual list (and vice versa).
-#   Calculate metric(s) for the non-Gemma results based on the manual searches.
-# Send Anna the JSON file with the gte embeddings for all of GEO (make sure it has all).
-# Send Anna the TSV file with other metadata.
+ggsave("Figures/NonGemma_vs_Manual_Precision.pdf", width=11, height=9, unit="in")
+
+group_by(combined, Query, Series) %>%
+  summarize(Num_Overlapping = n()) %>%
+  group_by(Num_Overlapping) %>%
+  summarize(Count = n()) %>%
+  print()
+
+# Num_Overlapping Count
+# 1               447
+# 2               62
