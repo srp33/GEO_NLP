@@ -59,6 +59,10 @@ def get_gpl_info(gpl):
 
     return gpl_dict
 
+def remove_non_ascii(text):
+    """Remove non-ASCII characters from the text."""
+    return ''.join(char for char in text if ord(char) < 128)
+
 # Last run on April 18, 2024.
 #joblib.Parallel(n_jobs=8)(joblib.delayed(save_gse)(gse) for gse in gse_list)
 
@@ -125,13 +129,13 @@ with gzip.open(out_tsv_file_path, "w") as out_tsv_file:
                 else:
                     gse_dict[key] = "|".join(value_list)
 
-            title = gse_dict["title"]
+            title = remove_non_ascii(gse_dict["title"])
 
             if title == "RETIRED": # This happened at least for GSE1829.
                 continue
 
-            summary = gse_dict.get("summary", "")
-            overall_design = gse_dict.get("overall_design", "")
+            summary = remove_non_ascii(gse_dict.get("summary", ""))
+            overall_design = remove_non_ascii(gse_dict.get("overall_design", ""))
             experiment_type = gse_dict.get("type", "")
             gpl = gse_dict.get("platform_id", "")
             species = gse_dict.get("platform_organism", "")
