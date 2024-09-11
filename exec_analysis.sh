@@ -141,6 +141,7 @@ do
     done
 done
 
+python3 findTopNonGemmaCandidates_Pilot.py "Similarities_NonGemma/*/*/all" ${all_geo_tsv_file_path} Results/Top_NonGemma_Candidates_Pilot.tsv.gz
 python3 findTopNonGemmaCandidates.py "Similarities_NonGemma/*/*/all" ${all_geo_tsv_file_path} Results/Top_NonGemma_Candidates.tsv.gz
 
 python3 saveCheckpointMetadata.py "Data/tmp/Embeddings/*/*.gz" Results/Embedding_Sizes.tsv.gz Results/Checkpoint_Metadata.tsv.gz
