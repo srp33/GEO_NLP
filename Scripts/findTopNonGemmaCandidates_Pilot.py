@@ -24,7 +24,7 @@ with gzip.open(all_geo_tsv_file_path) as all_geo_tsv_file:
 distractor_candidates = set()
 
 with gzip.open(out_file_path, "w") as out_file:
-    out_file.write((f"Model\tQuery\tSeries\tSeries_Title\tSeries_Summary\tSeries_Overall_Design\tScore\n").encode())
+    out_file.write((f"Model\tQuery\tSeries\tSeries_Title\tSeries_Summary\tSeries_Overall_Design\n").encode())
 
     for similarity_files_path in glob.glob(similarity_files_pattern):
         with open(similarity_files_path) as similarity_file:
@@ -50,7 +50,7 @@ with gzip.open(out_file_path, "w") as out_file:
                     overall_design = all_geo_dict[series][2]
 
                     if count <= 55:
-                        out_file.write((f"{model}\t{query}\t{series}\t{title}\t{summary}\t{overall_design}\t{score}\n").encode())
+                        out_file.write((f"{model}\t{query}\t{series}\t{title}\t{summary}\t{overall_design}\n").encode())
                     else:
                         distractor_candidates.add(f"{model}\tNone\t{series}\t{title}\t{summary}\t{overall_design}\n")
 
