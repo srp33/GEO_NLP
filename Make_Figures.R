@@ -36,6 +36,22 @@ make_query_factor_2 = function(data) {
 
 medical_condition_levels = c("Juvenile idiopathic arthritis", "Triple negative breast carcinoma", "Down syndrome", "Bipolar disorder", "Parkinson's disease", "Neuroblastoma")
 
+#####################################################################
+# Prepare spreadsheet for pilot manual review
+#####################################################################
+top_nongemma_candidates_pilot = read_tsv("Results/Top_NonGemma_Candidates_Pilot.tsv.gz") %>%
+  dplyr::select(-Model, -Query)
+
+for (column_name in medical_condition_levels) {
+  top_nongemma_candidates_pilot[[column_name]] = "No"
+}
+top_nongemma_candidates_pilot[["None"]] = "No"
+top_nongemma_candidates_pilot[["Investigate more"]] = "No"
+set.seed(0)
+top_nongemma_candidates_pilot = sample_n(top_nongemma_candidates_pilot, nrow(top_nongemma_candidates_pilot), replace = FALSE)
+write_xlsx(top_nongemma_candidates_pilot, "Tables/Top_NonGemma_Candidates_Pilot.xlsx")
+#####################################################################
+
 manual_search_summary = read_tsv("Results/Manual_Search_Gemma_Summary.tsv.gz") %>%
   make_query_factor() %>%
   mutate(Search_Type = factor(Search_Type, levels = c("Tag ontology term", "Tag ontology term plus synonyms", "MeSH term"))) %>%
@@ -92,7 +108,7 @@ ggsave("Figures/Manual_Searches.pdf", width=12.5, height=8.5, unit="in")
 
 diff_data = inner_join(results, results_chunks, by = c("Query", "Method", "Multiplication_Rate", "Top_Num", "Metric")) %>%
   mutate(Difference = Value.y - Value.x) %>%
-  # select(-Value.x, -Value.y) %>%
+  # dplyr::select(-Value.x, -Value.y) %>%
   filter(Multiplication_Rate == "all") %>%
   filter(Metric == "AUPRC")
 
@@ -110,7 +126,7 @@ group_by(diff_data, Method) %>%
 # Create graphs for model-based approaches.
 ########################################################################
 
-set.seed(1)
+set.seed(0)
 
 plot_data = filter(results, Multiplication_Rate == "all") %>%
   filter(Metric == "AUPRC")
@@ -271,7 +287,7 @@ ggsave("Figures/Recall_by_Top_Num_All_Checkpoints.pdf", width=11, height=9, unit
 # Compare manual vs. model-based approaches.
 ########################################################################
 
-# This option doesn't make as much sense because there is a variable
+# AUPRC doesn't make as much sense because there is a variable
 # number of results returned from GEO, so it's harder to compare them.
 #metric = "AUPRC"
 
@@ -280,14 +296,14 @@ metric = "Recall"
 checkpoints = filter(results, Metric == metric) %>%
   filter(Multiplication_Rate == "all") %>%
   filter(Method %in% top_three) %>%
-  select(Query, Method, Top_Num, Metric, Value) %>%
+  dplyr::select(Query, Method, Top_Num, Metric, Value) %>%
   mutate(Top_Num = str_replace_all(Top_Num, "Recall_Top_", "")) %>%
   mutate(Top_Num = as.integer(Top_Num)) %>%
   mutate(Top_Num = factor(Top_Num)) %>%
   mutate(Overall_Category = "Language model")
 
 manual = filter(manual_search_summary, Metric == metric) %>%
-  select(Query, Search_Type, Top_Num, Metric, Value) %>%
+  dplyr::select(Query, Search_Type, Top_Num, Metric, Value) %>%
   dplyr::rename(Method = Search_Type) %>%
   mutate(Top_Num = as.integer(Top_Num)) %>%
   mutate(Top_Num = factor(Top_Num)) %>%
@@ -312,7 +328,7 @@ ggsave("Figures/Compare_Top_Num_Manual_vs_Checkpoints_Gemma.pdf", width=11, heig
 # Summarize top Gemma candidates
 ########################################################################
 
-select(top_gemma_candidates, -Score) %>%
+dplyr::select(top_gemma_candidates, -Score) %>%
   mutate(Model = str_replace_all(Model, "____", "/")) %>%
   make_query_factor_2() %>%
   group_by(Query, Series, Series_Title, Series_Summary, Series_Overall_Design) %>%
@@ -365,7 +381,8 @@ ggplot(textlength_vs_distance, aes(x = TextLength, y = Distance)) +
 ggsave("Figures/Gemma_TextLength_vs_Distance.pdf", width=11, height=9, unit="in")
 
 ########################################################################
-# Summarize top non-Gemma candidates
+# Summarize top non-Gemma candidates.
+#   These findings are based on my own evaluation, not the curators'.
 ########################################################################
 
 mutate(top_nongemma_candidates, Model = str_replace_all(Model, "____", "/")) %>%
@@ -432,13 +449,14 @@ filter(top_nongemma_candidates_excel, `Relevant to medical condition` == "No") %
 
 ########################################################################
 # Summarize top manual candidates and compare against top model candidates
+#   These findings are based on my own evaluation, not the curators'.
 ########################################################################
 
 manual_search_items %>%
   filter(Search_Type == "Tag ontology term plus synonyms") %>%
   filter(In_Gemma == "No") %>%
   arrange(Rank) %>%
-  select(-Search_Type, -In_Gemma, -Matches_Gemma, -Rank) %>%
+  dplyr::select(-Search_Type, -In_Gemma, -Matches_Gemma, -Rank) %>%
   group_by(Query) %>%
   slice_head(n = 50) %>%
   dplyr::rename(`Series title` = Series_Title) %>%
@@ -455,8 +473,8 @@ top_manual_candidates_excel = readxl::read_xlsx("Tables/Top_Manual_Candidates.xl
   mutate(Query = factor(Query, levels = medical_condition_levels)) %>%
   mutate(Model = "Manual GEO search")
 
-combined = select(top_nongemma_candidates_excel, Model, Query, Series, `Relevant to medical condition`) %>%
-  bind_rows(select(top_manual_candidates_excel, Model, Query, Series, `Relevant to medical condition`))
+combined = dplyr::select(top_nongemma_candidates_excel, Model, Query, Series, `Relevant to medical condition`) %>%
+  bind_rows(dplyr::select(top_manual_candidates_excel, Model, Query, Series, `Relevant to medical condition`))
 
 combined_counts = group_by(combined, Model, Query) %>%
   dplyr::summarize(Total = n())
@@ -487,3 +505,75 @@ filter(combined, `Relevant to medical condition` == "Yes") %>%
 # <int> <int>
 # 1               1   252
 # 2               2    57 (18.4%)
+
+
+########################################################################
+# Randomly select subsets for UBC curators with 10% overlap.
+########################################################################
+
+retrieve_top_bottom = function(tbl, query) {
+  tbl2 = filter(tbl, Query == query) %>%
+    slice_sample(prop = 1)
+  
+  n = ceiling(nrow(tbl2) / 2 + 5)
+  
+  top = head(tbl2, n = n)
+  bottom = tail(tbl2, n = n)
+  
+  return(list("top" = top, "bottom" = bottom))
+}
+
+set.seed(0)
+
+top_nongemma_candidates_ubc1 = NULL
+top_nongemma_candidates_ubc2 = NULL
+
+top_nongemma_candidates_table_tmp = top_nongemma_candidates_table %>%
+  dplyr::select(-Model, -`Score`, -`Comment(s)`, -`Relevant to medical condition`, -`Relevant to related condition(s)`, -`Primary sample(s)`, -`Cell line(s)`, -`Xenograft(s)`)
+
+for (query in unique(pull(top_nongemma_candidates_table_tmp, Query))) {
+  top_bottom = retrieve_top_bottom(top_nongemma_candidates_table_tmp, query)
+  
+  top_nongemma_candidates_ubc1 = bind_rows(top_nongemma_candidates_ubc1, top_bottom$top)
+  top_nongemma_candidates_ubc2 = bind_rows(top_nongemma_candidates_ubc2, top_bottom$bottom)
+}
+
+# Randomly shuffle and then modify the columns to be consistent with the pilot.
+finalize_subset_for_ubc = function(tbl, file_name1, file_name2) {
+  tbl = slice_sample(tbl, prop = 1)
+  
+  for (column_name in medical_condition_levels) {
+    tbl[[column_name]] = "No"
+  }
+
+  tbl[["Investigate more"]] = "No"
+  tbl[["Optional comments"]] = ""
+  
+  # Save a copy with Query and one without
+  write_xlsx(tbl, file_name1)
+
+  dplyr::select(tbl, -Query) %>%
+    write_xlsx(file_name2)
+}
+
+finalize_subset_for_ubc(top_nongemma_candidates_ubc1, "Tables/Top_Candidates_EvaluationA_Curator1_WithMedicalCondition.xlsx", "Tables/Top_Candidates_EvaluationA_Curator1.xlsx")
+finalize_subset_for_ubc(top_nongemma_candidates_ubc2, "Tables/Top_Candidates_EvaluationA_Curator2_WithMedicalCondition.xlsx", "Tables/Top_Candidates_EvaluationA_Curator2.xlsx")
+
+#########
+
+top_manual_candidates_ubc1 = NULL
+top_manual_candidates_ubc2 = NULL
+
+top_manual_candidates_table_tmp = top_manual_candidates_table %>%
+  ungroup() %>%
+  dplyr::select(-`Comment(s)`, -`Relevant to medical condition`)
+
+for (query in unique(pull(top_manual_candidates_table_tmp, Query))) {
+  top_bottom = retrieve_top_bottom(top_manual_candidates_table_tmp, query)
+
+  top_manual_candidates_ubc1 = bind_rows(top_manual_candidates_ubc1, top_bottom$top)
+  top_manual_candidates_ubc2 = bind_rows(top_manual_candidates_ubc2, top_bottom$bottom)
+}
+
+finalize_subset_for_ubc(top_manual_candidates_ubc1, "Tables/Top_Candidates_EvaluationB_Curator1_WithMedicalCondition.xlsx", "Tables/Top_Candidates_EvaluationB_Curator1.xlsx")
+finalize_subset_for_ubc(top_manual_candidates_ubc2, "Tables/Top_Candidates_EvaluationB_Curator2_WithMedicalCondition.xlsx", "Tables/Top_Candidates_EvaluationB_Curator2.xlsx")
