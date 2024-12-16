@@ -381,7 +381,7 @@ ggplot(textlength_vs_distance, aes(x = TextLength, y = Distance)) +
 ggsave("Figures/Gemma_TextLength_vs_Distance.pdf", width=11, height=9, unit="in")
 
 ########################################################################
-# Summarize top non-Gemma candidates.
+# Summarize top non-Gemma candidates according to the models.
 #   These findings are based on my own evaluation, not the curators'.
 ########################################################################
 
@@ -448,7 +448,7 @@ filter(top_nongemma_candidates_excel, `Relevant to medical condition` == "No") %
 # ggsave("Figures/NonGemma_SampleType.pdf", width=11, height=9, unit="in")
 
 ########################################################################
-# Summarize top manual candidates and compare against top model candidates
+# Summarize top manual candidates and compare against top model candidates.
 #   These findings are based on my own evaluation, not the curators'.
 ########################################################################
 
@@ -577,3 +577,9 @@ for (query in unique(pull(top_manual_candidates_table_tmp, Query))) {
 
 finalize_subset_for_ubc(top_manual_candidates_ubc1, "Tables/Top_Candidates_EvaluationB_Curator1_WithMedicalCondition.xlsx", "Tables/Top_Candidates_EvaluationB_Curator1.xlsx")
 finalize_subset_for_ubc(top_manual_candidates_ubc2, "Tables/Top_Candidates_EvaluationB_Curator2_WithMedicalCondition.xlsx", "Tables/Top_Candidates_EvaluationB_Curator2.xlsx")
+
+########################################################################
+# Summarize top manual candidates and compare against top model candidates.
+#   These findings are based on my own evaluation, not the curators'.
+########################################################################
+
