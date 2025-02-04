@@ -144,9 +144,6 @@ done
 python3 findTopNonGemmaCandidates_Pilot.py "Similarities_NonGemma/*/*/all" ${all_geo_tsv_file_path} Results/Top_NonGemma_Candidates_Pilot.tsv.gz
 python3 findTopNonGemmaCandidates.py "Similarities_NonGemma/*/*/all" ${all_geo_tsv_file_path} Results/Top_NonGemma_Candidates.tsv.gz
 
-python3 saveCheckpointMetadata.py "Data/tmp/Embeddings/*/*.gz" Results/Embedding_Sizes.tsv.gz Results/Checkpoint_Metadata.tsv.gz
+python3 saveCheckpointMetadata.py "${tmp_dir_path}/Embeddings/*/*.gz" Results/Embedding_Sizes.tsv.gz Results/Checkpoint_Metadata.tsv.gz
 
-# This puts the embedding in a TSV file rather than JSON so it can be read line by line (for the Web app).
-python3 reformatEmbeddings.py "${tmp_dir_path}/Embeddings/thenlper/gte-large.gz" "${tmp_dir_path}/Embeddings/thenlper/gte-large.tsv.gz"
-
-# rm -rf ${tmp_dir_path}
+rm -rf ${tmp_dir_path}

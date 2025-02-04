@@ -20,5 +20,6 @@ RUN mkdir /nltk_data \
 COPY checkpoints*.txt /
 
 COPY exec_analysis.sh /
+COPY save_for_webapp.sh /
 
 COPY Scripts/* /
