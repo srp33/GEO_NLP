@@ -95,7 +95,7 @@ manual_search_summary %>%
     geom_point() +
     facet_wrap(vars(Query), ncol = 2) +
     xlab("Number of returned series") +
-    ylab("Recall (sensitivity)") +
+    ylab("Recall") +
     theme_bw(base_size = 17) +
     scale_linetype_manual(values = c("MeSH term" = "solid", "Tag ontology term" = "dashed", "Tag ontology term plus synonyms" = "dotdash"), name = "Search type") +
     ylim(0, 1)
@@ -277,7 +277,7 @@ filter(results, Metric == "Recall") %>%
   geom_point() +
   facet_wrap(vars(Query)) +
   xlab("Number of top-ranked series") +
-  ylab("Recall (sensitivity)") +
+  ylab("Recall") +
   ylim(0, 1) +
   theme_bw(base_size = 14)
 
@@ -406,29 +406,29 @@ mutate(top_nongemma_candidates, Model = str_replace_all(Model, "____", "/")) %>%
 # FYI: Uncomment this only if you want to overwrite the XLSX file.
 #write_xlsx(top_nongemma_candidates_table, "Tables/Top_NonGemma_Candidates.xlsx")
 
-top_nongemma_candidates_excel = readxl::read_xlsx("Tables/Top_NonGemma_Candidates.xlsx") %>%
-  mutate(`Relevant to medical condition` = factor(`Relevant to medical condition`, levels=c("Yes", "Maybe", "No"))) %>%
-  mutate(Query = factor(Query, levels = medical_condition_levels))
+# top_nongemma_candidates_excel = readxl::read_xlsx("Tables/Top_NonGemma_Candidates.xlsx") %>%
+#   mutate(`Relevant to medical condition` = factor(`Relevant to medical condition`, levels=c("Yes", "Maybe", "No"))) %>%
+#   mutate(Query = factor(Query, levels = medical_condition_levels))
+# 
+# pull(top_nongemma_candidates_excel, `Relevant to medical condition`) %>%
+#   table() %>%
+#   print()
 
-pull(top_nongemma_candidates_excel, `Relevant to medical condition`) %>%
-  table() %>%
-  print()
+# group_by(top_nongemma_candidates_excel, Query, `Relevant to medical condition`) %>%
+#   dplyr::summarize(Count = n()) %>%
+#   ggplot(aes(x = Query, y = Count, fill = `Relevant to medical condition`)) +
+#   geom_col() +
+#   coord_flip() +
+#   xlab("") +
+#   scale_fill_brewer(palette = "Set2") +
+#   theme_bw(base_size=16)
+# 
+# ggsave("Figures/NonGemma_Relevance.pdf", width=11, height=9, unit="in")
 
-group_by(top_nongemma_candidates_excel, Query, `Relevant to medical condition`) %>%
-  dplyr::summarize(Count = n()) %>%
-  ggplot(aes(x = Query, y = Count, fill = `Relevant to medical condition`)) +
-  geom_col() +
-  coord_flip() +
-  xlab("") +
-  scale_fill_brewer(palette = "Set2") +
-  theme_bw(base_size=16)
-
-ggsave("Figures/NonGemma_Relevance.pdf", width=11, height=9, unit="in")
-
-filter(top_nongemma_candidates_excel, `Relevant to medical condition` == "No") %>%
-  pull(`Relevant to related condition(s)`) %>%
-  table() %>%
-  print()
+# filter(top_nongemma_candidates_excel, `Relevant to medical condition` == "No") %>%
+#   pull(`Relevant to related condition(s)`) %>%
+#   table() %>%
+#   print()
 # Maybe    No   Yes 
 # 8        24    50
 
@@ -464,42 +464,42 @@ manual_search_items %>%
   dplyr::rename(`Series overall design` = Series_Overall_Design) %>%
   mutate(`Comment(s)` = "") %>%
   mutate(`Relevant to medical condition` =  "No") -> top_manual_candidates_table
-
-# Only execute this code when you want to create the Excel file.
-#write_xlsx(top_manual_candidates_table, "Tables/Top_Manual_Candidates.xlsx")
-
-top_manual_candidates_excel = readxl::read_xlsx("Tables/Top_Manual_Candidates.xlsx") %>%
-  mutate(`Relevant to medical condition` = factor(`Relevant to medical condition`, levels=c("Yes", "Maybe", "No"))) %>%
-  mutate(Query = factor(Query, levels = medical_condition_levels)) %>%
-  mutate(Model = "Manual GEO search")
-
-combined = dplyr::select(top_nongemma_candidates_excel, Model, Query, Series, `Relevant to medical condition`) %>%
-  bind_rows(dplyr::select(top_manual_candidates_excel, Model, Query, Series, `Relevant to medical condition`))
-
-combined_counts = group_by(combined, Model, Query) %>%
-  dplyr::summarize(Total = n())
-
-plot_data = group_by(combined, Model, Query, `Relevant to medical condition`) %>%
-  dplyr::summarize(Count = n()) %>%
-  inner_join(combined_counts) %>%
-  mutate(Percentage = round(100 * Count / Total, 1))
-
-ggplot(plot_data, aes(x = `Relevant to medical condition`, y = Percentage, fill = Model)) +
-    geom_col(position = "dodge2") +
-    ylab("Percentage") +
-    facet_wrap(vars(Query)) +
-    theme_bw(base_size = 14) +
-    scale_fill_brewer(palette = "Set2") +
-    labs(fill = "")
-
-ggsave("Figures/NonGemma_vs_Manual_Precision.pdf", width=11, height=9, unit="in")
-
-filter(combined, `Relevant to medical condition` == "Yes") %>%
-  group_by(Query, Series) %>%
-  dplyr::summarize(Num_Overlapping = n()) %>%
-  group_by(Num_Overlapping) %>%
-  dplyr::summarize(Count = n()) %>%
-  print()
+# 
+# # Only execute this code when you want to create the Excel file.
+# #write_xlsx(top_manual_candidates_table, "Tables/Top_Manual_Candidates.xlsx")
+# 
+# top_manual_candidates_excel = readxl::read_xlsx("Tables/Top_Manual_Candidates.xlsx") %>%
+#   mutate(`Relevant to medical condition` = factor(`Relevant to medical condition`, levels=c("Yes", "Maybe", "No"))) %>%
+#   mutate(Query = factor(Query, levels = medical_condition_levels)) %>%
+#   mutate(Model = "Manual GEO search")
+# 
+# combined = dplyr::select(top_nongemma_candidates_excel, Model, Query, Series, `Relevant to medical condition`) %>%
+#   bind_rows(dplyr::select(top_manual_candidates_excel, Model, Query, Series, `Relevant to medical condition`))
+# 
+# combined_counts = group_by(combined, Model, Query) %>%
+#   dplyr::summarize(Total = n())
+# 
+# plot_data = group_by(combined, Model, Query, `Relevant to medical condition`) %>%
+#   dplyr::summarize(Count = n()) %>%
+#   inner_join(combined_counts) %>%
+#   mutate(Percentage = round(100 * Count / Total, 1))
+# 
+# ggplot(plot_data, aes(x = `Relevant to medical condition`, y = Percentage, fill = Model)) +
+#     geom_col(position = "dodge2") +
+#     ylab("Percentage") +
+#     facet_wrap(vars(Query)) +
+#     theme_bw(base_size = 14) +
+#     scale_fill_brewer(palette = "Set2") +
+#     labs(fill = "")
+# 
+# ggsave("Figures/NonGemma_vs_Manual_Precision.pdf", width=11, height=9, unit="in")
+# 
+# filter(combined, `Relevant to medical condition` == "Yes") %>%
+#   group_by(Query, Series) %>%
+#   dplyr::summarize(Num_Overlapping = n()) %>%
+#   group_by(Num_Overlapping) %>%
+#   dplyr::summarize(Count = n()) %>%
+#   print()
 
 # Num_Overlapping Count
 # <int> <int>
@@ -553,7 +553,7 @@ finalize_subset_for_ubc = function(tbl, file_name1, file_name2) {
   write_xlsx(tbl, file_name1)
 
   dplyr::select(tbl, -Query) %>%
-    write_xlsx(file_name2)
+   write_xlsx(file_name2)
 }
 
 finalize_subset_for_ubc(top_nongemma_candidates_ubc1, "Tables/Top_Candidates_EvaluationA_Curator1_WithMedicalCondition.xlsx", "Tables/Top_Candidates_EvaluationA_Curator1.xlsx")
@@ -579,7 +579,181 @@ finalize_subset_for_ubc(top_manual_candidates_ubc1, "Tables/Top_Candidates_Evalu
 finalize_subset_for_ubc(top_manual_candidates_ubc2, "Tables/Top_Candidates_EvaluationB_Curator2_WithMedicalCondition.xlsx", "Tables/Top_Candidates_EvaluationB_Curator2.xlsx")
 
 ########################################################################
-# Summarize top manual candidates and compare against top model candidates.
-#   These findings are based on my own evaluation, not the curators'.
+# Summarize top model candidates and compare against top manual candidates.
+#   These findings are based on the curators' evaluations.
 ########################################################################
 
+model_results_curator1 = readxl::read_excel("Tables/Top_Candidates_EvaluationA_Curator1_complete_Dec20.xlsx")
+# Two GSEs were duplicated, so we use distinct() to remove one copy of each.
+model_results_curator2 = readxl::read_excel("Tables/Top_Candidates_EvaluationA_Curator2_complete_updated.xlsx") %>%
+  distinct()
+manual_results_curator1 = readxl::read_excel("Tables/Top_Candidates_EvaluationB_Curator1_complete_Dec20.xlsx")
+# One GSE was duplicated, so we use distinct() to remove one copy.
+manual_results_curator2 = readxl::read_excel("Tables/Top_Candidates_EvaluationB_Curator2_complete_Dec20.xlsx") %>%
+  distinct()
+
+# One row has a value of "maybe" for Other and "No" for the other columns.
+# filter(manual_results_curator2, str_to_lower(Other) == "maybe") %>%
+#   View()
+
+# Check for duplicates.
+# manual_results_curator2 %>%
+#   dplyr::select(Series, `Juvenile idiopathic arthritis`:`Other`) %>%
+#   pivot_longer(-Series, names_to = "Medical_Condition", values_to = "Response") %>%
+#   group_by(Series) %>%
+#   # summarize(num_yes = sum(str_to_lower(Response) %in% c("yes"))) %>%
+#   summarize(num_yes = sum(str_to_lower(Response) %in% c("yes", "maybe"))) %>%
+#   View()
+
+restructure_results = function(df, master_file_path) {
+  dplyr::select(df, Series, `Juvenile idiopathic arthritis`:`Other`) %>%
+    pivot_longer(-Series, names_to = "Curator_Medical_Condition", values_to = "Response") %>%
+    mutate(Response = str_to_lower(Response)) %>%
+    dplyr::filter(Response != "no") %>%
+    inner_join(dplyr::select(readxl::read_excel(master_file_path), Series, Query)) %>%
+    dplyr::rename(Automated_Medical_Condition = Query)
+}
+
+# These tibbles have a column called Curator_Medical_Condition that indicates which series the curators said were relevant to each condition (or "Other").
+# They also have a column called Automated_Medical_Condition that indicates which medical condition the model or GEO indicated was relevant.
+model_results_curator1 = restructure_results(model_results_curator1, "Tables/Top_Candidates_EvaluationA_Curator1_WithMedicalCondition.xlsx")
+model_results_curator2 = restructure_results(model_results_curator2, "Tables/Top_Candidates_EvaluationA_Curator2_WithMedicalCondition.xlsx")
+manual_results_curator1 = restructure_results(manual_results_curator1, "Tables/Top_Candidates_EvaluationB_Curator1_WithMedicalCondition.xlsx")
+manual_results_curator2 = restructure_results(manual_results_curator2, "Tables/Top_Candidates_EvaluationB_Curator2_WithMedicalCondition.xlsx")
+
+model_overlapping_curator_series = inner_join(model_results_curator1, model_results_curator2, by = "Series")
+manual_overlapping_curator_series = inner_join(manual_results_curator1, manual_results_curator2, by = "Series")
+
+model_agreement = filter(model_overlapping_curator_series, Curator_Medical_Condition.x == Curator_Medical_Condition.y & Response.x == Response.y) %>%
+  nrow() %>%
+  `/`(nrow(model_overlapping_curator_series))
+# 0.8709677
+
+manual_agreement = filter(manual_overlapping_curator_series, Curator_Medical_Condition.x == Curator_Medical_Condition.y & Response.x == Response.y) %>%
+  nrow() %>%
+  `/`(nrow(manual_overlapping_curator_series))
+# 0.8870968
+
+calc_curation_metrics = function(overall_metrics_df, curator_df, search_method, curator) {
+  yes_df = filter(curator_df, Response == "yes")
+  maybe_df = filter(curator_df, Response == "maybe")
+  
+  yes_match = filter(yes_df, Automated_Medical_Condition == Curator_Medical_Condition)
+  maybe_match = filter(maybe_df, Automated_Medical_Condition == Curator_Medical_Condition)
+  
+  metrics_df = tibble(
+    `Search method` = search_method,
+     Curator = curator,
+     `# yes` = nrow(yes_df),
+     `% yes - relevant` = round(100 * nrow(yes_match) / nrow(yes_df), 1),
+     `# maybe` = nrow(maybe_df),
+     `% maybe - relevant` = round(100 * nrow(maybe_match) / nrow(maybe_df), 1),
+  )
+  
+  if (is.null(overall_metrics_df)) {
+    return(metrics_df)
+  } else {
+    return(overall_metrics_df %>% bind_rows(metrics_df))
+  }
+}
+
+# Calculate metrics
+curator_metrics = calc_curation_metrics(NULL, model_results_curator1, "Language model", "1")
+curator_metrics = calc_curation_metrics(curator_metrics, model_results_curator2, "Language model", "2")
+curator_metrics = calc_curation_metrics(curator_metrics, manual_results_curator1, "GEO search", "1")
+curator_metrics = calc_curation_metrics(curator_metrics, manual_results_curator2, "GEO search", "2")
+
+kable(curator_metrics, format="simple") %>%
+  write("Tables/Curator_Metrics.md")
+
+model_plot_data = bind_rows(model_results_curator1,  model_results_curator2) %>%
+  mutate(`Search method` = "Language model")
+
+manual_plot_data = bind_rows(manual_results_curator1,  manual_results_curator2) %>%
+  mutate(`Search method` = "GEO search")
+
+plot_data = bind_rows(model_plot_data, manual_plot_data) %>%
+  mutate(`Agreed` = Curator_Medical_Condition == Automated_Medical_Condition) %>%
+  group_by(`Search method`, Automated_Medical_Condition) %>%
+  summarize(
+    Number_Agreed = sum(Agreed),
+    Number_Evaluated = n(),
+    `Percentage` = round(100 * sum(Agreed) / n(), 1)
+  ) %>%
+  ungroup() %>%
+  mutate(Automated_Medical_Condition = str_replace_all(Automated_Medical_Condition, " ", "\n"))
+
+ggplot(plot_data, aes(x = Automated_Medical_Condition, y = Percentage, fill = `Search method`)) +
+  geom_col(position = "dodge2") +
+  ylab("Percentage") +
+  theme_bw(base_size = 16) +
+  scale_fill_brewer(palette = "Set2") +
+  labs(fill = "", x = "Medical condition", y = "% relevant")
+
+ggsave("Figures/NonGemma_Curation_Agreement.pdf", width=11, height=9, unit="in")
+
+# Find the amount of overlap between the top datasets for manual versus model.
+
+top_model_series = bind_rows(model_results_curator1, model_results_curator2) %>%
+  filter(Curator_Medical_Condition == Automated_Medical_Condition) %>%
+  filter(Response == "yes") %>%
+  pull(Series) %>%
+  unique()
+
+top_manual_series = bind_rows(manual_results_curator1, manual_results_curator2) %>%
+  filter(Curator_Medical_Condition == Automated_Medical_Condition) %>%
+  filter(Response == "yes") %>%
+  pull(Series) %>%
+  unique()
+
+all_top_series = unique(c(top_manual_series, top_model_series))
+overlapping_top_series = intersect(top_manual_series, top_model_series)
+
+print(length(all_top_series))
+print(length(overlapping_top_series))
+print(length(overlapping_top_series) / length(all_top_series))
+
+# Summarize the curators' responses for supplementary file
+
+model_results_curator1 = readxl::read_excel("Tables/Top_Candidates_EvaluationA_Curator1_complete_Dec20.xlsx") %>%
+  distinct() %>%
+  inner_join(readxl::read_excel("Tables/Top_Candidates_EvaluationA_Curator1_WithMedicalCondition.xlsx") %>%
+               dplyr::select(Series, Query), by = "Series") %>%
+  mutate(`Search method` = "Language model") %>%
+  mutate(Curator = 1)
+
+model_results_curator2 = readxl::read_excel("Tables/Top_Candidates_EvaluationA_Curator2_complete_updated.xlsx") %>%
+  distinct() %>%
+  inner_join(readxl::read_excel("Tables/Top_Candidates_EvaluationA_Curator2_WithMedicalCondition.xlsx") %>%
+               dplyr::select(Series, Query), by = "Series") %>%
+  mutate(`Search method` = "Language model") %>%
+  mutate(Curator = 2)
+
+manual_results_curator1 = readxl::read_excel("Tables/Top_Candidates_EvaluationB_Curator1_complete_Dec20.xlsx") %>%
+  distinct() %>%
+  inner_join(readxl::read_excel("Tables/Top_Candidates_EvaluationB_Curator1_WithMedicalCondition.xlsx") %>%
+               dplyr::select(Series, Query), by = "Series") %>%
+  mutate(`Search method` = "GEO Advanced Search Builder") %>%
+  mutate(Curator = 1)
+
+manual_results_curator2 = readxl::read_excel("Tables/Top_Candidates_EvaluationB_Curator2_complete_Dec20.xlsx") %>%
+  distinct() %>%
+  inner_join(readxl::read_excel("Tables/Top_Candidates_EvaluationB_Curator2_WithMedicalCondition.xlsx") %>%
+               dplyr::select(Series, Query), by = "Series") %>%
+  mutate(`Search method` = "GEO Advanced Search Builder") %>%
+  mutate(Curator = 2)
+
+top_nongemma_candidates = bind_rows(model_results_curator1, model_results_curator2, manual_results_curator1, manual_results_curator2) %>%
+  dplyr::select(Series, `Series title`, `Series summary`, `Series overall design`, `Search method`, Query, Curator, `Juvenile idiopathic arthritis`:Other, `Optional comments`) %>%
+  dplyr::rename(`Medical condition predicted by search` = Query,
+                `Curator response - Juvenile idiopathic arthritis` = `Juvenile idiopathic arthritis`,
+                `Curator response - Triple negative breast carcinoma` = `Triple negative breast carcinoma`,
+                `Curator response - Down syndrome` = `Down syndrome`,
+                `Curator response - Bipolar disorder` = `Bipolar disorder`,
+                `Curator response - Parkinson's disease` = `Parkinson's disease`,
+                `Curator response - Neuroblastoma` = Neuroblastoma,
+                `Curator response - Other` = Other
+  ) %>%
+  dplyr::mutate(`Optional comments` = ifelse(is.na(`Optional comments`), "", `Optional comments`))
+
+  write_xlsx(top_nongemma_candidates, "Tables/Top_NonGemma_Candidates.xlsx")
