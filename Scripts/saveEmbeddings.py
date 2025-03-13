@@ -3,7 +3,7 @@ os.environ['HF_HOME'] = "/Models/huggingface"
 
 from chromadb.utils import embedding_functions
 import fasttext
-from gensim.models import KeyedVectors
+#from gensim.models import KeyedVectors
 import gzip
 from helper import *
 import json

@@ -63,7 +63,6 @@ def remove_non_ascii(text):
     """Remove non-ASCII characters from the text."""
     return ''.join(char for char in text if ord(char) < 128)
 
-# Last run on April 18, 2024.
 joblib.Parallel(n_jobs=8)(joblib.delayed(save_gse)(gse) for gse in gse_list)
 
 # Sometimes the files are empty. This removes them.
@@ -95,7 +94,7 @@ with gzip.open(out_tsv_file_path, "w") as out_tsv_file:
                 if len(line) == 0:
                     continue
 
-                line = line.replace("\t", " ")
+                line = line.replace("\t", " ").replace("\n", " ")
                 line_items = re.split(" += +", line)
 
                 if len(line_items) < 2:
