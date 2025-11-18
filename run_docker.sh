@@ -1,17 +1,18 @@
 #! /bin/bash
 
+echo "Building the Docker container"
 docker build -t srp33/geo_nlp .
 
-mkdir -p Data/tmp
-mkdir -p Queries
-mkdir -p Assignments
-mkdir -p Manual_Searches
-mkdir -p Similarities Similarities_Chunks Similarities_NonGemma
-mkdir -p Models
-mkdir -p Results
+#mkdir -p Data/tmp
+#mkdir -p Queries
+#mkdir -p Assignments
+#mkdir -p Manual_Searches
+#mkdir -p Similarities Similarities_Chunks Similarities_NonGemma
+#mkdir -p Models
+#mkdir -p Results
 
-#docker run --rm -i -t \
-docker run --rm \
+#docker run --rm \
+docker run --rm -i -t \
     --gpus all \
     -v $(pwd)/Data:/Data \
     -v $(pwd)/Queries:/Queries \

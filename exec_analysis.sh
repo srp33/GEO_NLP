@@ -20,6 +20,8 @@ then
   cd -
 fi
 
+tmp_dir_path="/Data/tmp"
+
 all_geo_tsv_file_path="/Data/AllGEO.tsv.gz"
 all_geo_json_file_path="/Data/AllGEO.json.gz"
 gemma_txt_file_path="/Data/Gemma.txt.gz"
@@ -28,40 +30,51 @@ gemma_json_file_path="/Data/Gemma.json.gz"
 non_gemma_json_file_path="/Data/NonGemma.json.gz"
 multiplication_rates="1,2,5,10,100,300"
 overlap_scores_file_path="${tmp_dir_path}/word_overlap/scores.tsv.gz"
+bm25_scores_file_path="${tmp_dir_path}/bm25/scores.tsv.gz"
+bm25plus_scores_file_path="${tmp_dir_path}/bm25plus/scores.tsv.gz"
 
-tmp_dir_path="/Data/tmp"
+#mkdir -p ${tmp_dir_path}/word_overlap ${tmp_dir_path}/bm25 ${tmp_dir_path}/bm25plus
 
-mkdir -p ${tmp_dir_path}/word_overlap
+#python3 getAllGEO.py ${tmp_dir_path} "$all_geo_tsv_file_path"
+#python3 prepareAllGEO.py "$all_geo_tsv_file_path" "$all_geo_json_file_path"
 
-python3 getAllGEO.py ${tmp_dir_path} "$all_geo_tsv_file_path"
-python3 prepareAllGEO.py "$all_geo_tsv_file_path" "$all_geo_json_file_path"
+## This sometimes gives an error message, but it seems to work properly.
+#python3 getGemma.py "$all_geo_json_file_path" "$gemma_txt_file_path" "$non_gemma_txt_file_path"
+#python3 prepareGemma.py "$all_geo_json_file_path" "$gemma_txt_file_path" "$gemma_json_file_path"
+#python3 prepareGemma.py "$all_geo_json_file_path" "$non_gemma_txt_file_path" "$non_gemma_json_file_path"
 
-# This sometimes gives an error message, but it seems to work properly.
-python3 getGemma.py "$all_geo_json_file_path" "$gemma_txt_file_path" "$non_gemma_txt_file_path"
-python3 prepareGemma.py "$all_geo_json_file_path" "$gemma_txt_file_path" "$gemma_json_file_path"
-python3 prepareGemma.py "$all_geo_json_file_path" "$non_gemma_txt_file_path" "$non_gemma_json_file_path"
+## Save query series on April 19, 2024.
+## Save small queries
+#python3 getQuerySeries.py 0005494 False "$all_geo_json_file_path" Queries/triple_negative_breast_carcinoma
+#python3 getQuerySeries.py 0011429 False "$all_geo_json_file_path" Queries/juvenile_idiopathic_arthritis
 
-# Save query series on April 19, 2024.
-# Save small queries
-python3 getQuerySeries.py 0005494 False "$all_geo_json_file_path" Queries/triple_negative_breast_carcinoma
-python3 getQuerySeries.py 0011429 False "$all_geo_json_file_path" Queries/juvenile_idiopathic_arthritis
+## Save medium queries
+#python3 getQuerySeries.py 0008608 False "$all_geo_json_file_path" Queries/down_syndrome
+#python3 getQuerySeries.py 0004985,0000693 False "$all_geo_json_file_path" Queries/bipolar_disorder
 
-# Save medium queries
-python3 getQuerySeries.py 0008608 False "$all_geo_json_file_path" Queries/down_syndrome
-python3 getQuerySeries.py 0004985,0000693 False "$all_geo_json_file_path" Queries/bipolar_disorder
+## Save large queries
+#python3 getQuerySeries.py 0005180 True "$all_geo_json_file_path" Queries/parkinson_disease
+#python3 getQuerySeries.py 0005072 True "$all_geo_json_file_path" Queries/neuroblastoma
 
-# Save large queries
-python3 getQuerySeries.py 0005180 True "$all_geo_json_file_path" Queries/parkinson_disease
-python3 getQuerySeries.py 0005072 True "$all_geo_json_file_path" Queries/neuroblastoma
+#python3 assignTrainingTestingOther.py "$gemma_json_file_path" triple_negative_breast_carcinoma Queries Assignments "$multiplication_rates"
+#python3 assignTrainingTestingOther.py "$gemma_json_file_path" juvenile_idiopathic_arthritis Queries Assignments "$multiplication_rates"
+#python3 assignTrainingTestingOther.py "$gemma_json_file_path" down_syndrome Queries Assignments "$multiplication_rates"
+#python3 assignTrainingTestingOther.py "$gemma_json_file_path" bipolar_disorder Queries Assignments "$multiplication_rates"
+#python3 assignTrainingTestingOther.py "$gemma_json_file_path" parkinson_disease Queries Assignments "$multiplication_rates"
+#python3 assignTrainingTestingOther.py "$gemma_json_file_path" neuroblastoma Queries Assignments "$multiplication_rates"
 
-python3 assignTrainingTestingOther.py "$gemma_json_file_path" triple_negative_breast_carcinoma Queries Assignments "$multiplication_rates"
-python3 assignTrainingTestingOther.py "$gemma_json_file_path" juvenile_idiopathic_arthritis Queries Assignments "$multiplication_rates"
-python3 assignTrainingTestingOther.py "$gemma_json_file_path" down_syndrome Queries Assignments "$multiplication_rates"
-python3 assignTrainingTestingOther.py "$gemma_json_file_path" bipolar_disorder Queries Assignments "$multiplication_rates"
-python3 assignTrainingTestingOther.py "$gemma_json_file_path" parkinson_disease Queries Assignments "$multiplication_rates"
-python3 assignTrainingTestingOther.py "$gemma_json_file_path" neuroblastoma Queries Assignments "$multiplication_rates"
+#python3 summarizeManualSearches.py Manual_Searches "$all_geo_tsv_file_path" "$gemma_json_file_path" Results/Manual_Search_Gemma_Summary.tsv.gz Results/Manual_Search_Items.tsv.gz
+exit
 
-python3 summarizeManualSearches.py Manual_Searches "$all_geo_tsv_file_path" "$gemma_json_file_path" Results/Manual_Search_Gemma_Summary.tsv.gz Results/Manual_Search_Items.tsv.gz
+python3 calcBM25.py "$gemma_json_file_path" False "$bm25_scores_file_path"
+python3 calcBM25.py "$gemma_json_file_path" True "$bm25plus_scores_file_path"
+
+for tag in triple_negative_breast_carcinoma juvenile_idiopathic_arthritis down_syndrome bipolar_disorder parkinson_disease neuroblastoma
+do
+  python3 rankTestingOther.py "$bm25_scores_file_path" $tag bm25 Assignments Similarities &
+  python3 rankTestingOther.py "$bm25plus_scores_file_path" $tag bm25plus Assignments Similarities &
+done
+wait
 
 python3 findWordOverlap.py "$gemma_json_file_path" "$overlap_scores_file_path"
 
