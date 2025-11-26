@@ -5,7 +5,8 @@ import os
 import sys
 
 tsv_file_path = sys.argv[1]
-json_file_path = sys.argv[2]
+convert_to_lower = sys.argv[2] == "True"
+json_file_path = sys.argv[3]
 
 article_dict = {}
 
@@ -36,9 +37,9 @@ with gzip.open(tsv_file_path) as tsv_file:
         if "homo sapiens" in species and "9606" in taxon_id and superseries_gse == "":
             if "expression profiling by array" in experiment_type:
                 if "affymetrix" in gpl_title or "illumina" in gpl_title or "agilent" in gpl_title:
-                    article_dict[gse] = clean_text(f"{title} {summary} {overall_design}")
+                    article_dict[gse] = clean_text(f"{title} {summary} {overall_design}", convert_to_lower=convert_to_lower)
             elif "expression profiling by high throughput sequencing" in experiment_type and "illumina" in gpl_title:
-                article_dict[gse] = clean_text(f"{title} {summary} {overall_design}")
+                article_dict[gse] = clean_text(f"{title} {summary} {overall_design}", convert_to_lower=convert_to_lower)
 
 print(len(article_dict)) #48,893
 with gzip.open(json_file_path, 'w') as json_file:

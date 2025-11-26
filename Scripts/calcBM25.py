@@ -40,7 +40,6 @@ with gzip.open(out_file_path, "w") as out_file:
         else:
             query_tokens = bm25s.tokenize(gemma_text)
 
-
         results, scores = retriever.retrieve(query_tokens, k=k)
 
         for j in range(k):

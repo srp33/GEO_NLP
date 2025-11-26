@@ -7,12 +7,12 @@ docker build -t srp33/geo_nlp .
 #mkdir -p Queries
 #mkdir -p Assignments
 #mkdir -p Manual_Searches
-#mkdir -p Similarities Similarities_Chunks Similarities_NonGemma
+#mkdir -p Similarities Similarities_Chunks Similarities_NonGemma Similarities_nolower
 #mkdir -p Models
 #mkdir -p Results
 
-#docker run --rm \
-docker run --rm -i -t \
+#docker run --rm -i -t \
+docker run --rm \
     --gpus all \
     -v $(pwd)/Data:/Data \
     -v $(pwd)/Queries:/Queries \
@@ -20,6 +20,7 @@ docker run --rm -i -t \
     -v $(pwd)/Similarities:/Similarities \
     -v $(pwd)/Similarities_Chunks:/Similarities_Chunks \
     -v $(pwd)/Similarities_NonGemma:/Similarities_NonGemma \
+    -v $(pwd)/Similarities_nolower:/Similarities_nolower \
     -v $(pwd)/Manual_Searches:/Manual_Searches \
     -v $(pwd)/Models:/Models \
     -v $(pwd)/Results:/Results \

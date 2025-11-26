@@ -24,6 +24,7 @@ tmp_dir_path="/Data/tmp"
 
 all_geo_tsv_file_path="/Data/AllGEO.tsv.gz"
 all_geo_json_file_path="/Data/AllGEO.json.gz"
+all_geo_nolower_json_file_path="/Data/AllGEO_nolower.json.gz"
 gemma_txt_file_path="/Data/Gemma.txt.gz"
 non_gemma_txt_file_path="/Data/NonGemma.txt.gz"
 gemma_json_file_path="/Data/Gemma.json.gz"
@@ -36,7 +37,8 @@ bm25plus_scores_file_path="${tmp_dir_path}/bm25plus/scores.tsv.gz"
 #mkdir -p ${tmp_dir_path}/word_overlap ${tmp_dir_path}/bm25 ${tmp_dir_path}/bm25plus
 
 #python3 getAllGEO.py ${tmp_dir_path} "$all_geo_tsv_file_path"
-#python3 prepareAllGEO.py "$all_geo_tsv_file_path" "$all_geo_json_file_path"
+#python3 prepareAllGEO.py "$all_geo_tsv_file_path" True "$all_geo_json_file_path"
+#python3 prepareAllGEO.py "$all_geo_tsv_file_path" False "$all_geo_nolower_json_file_path"
 
 ## This sometimes gives an error message, but it seems to work properly.
 #python3 getGemma.py "$all_geo_json_file_path" "$gemma_txt_file_path" "$non_gemma_txt_file_path"
@@ -64,99 +66,124 @@ bm25plus_scores_file_path="${tmp_dir_path}/bm25plus/scores.tsv.gz"
 #python3 assignTrainingTestingOther.py "$gemma_json_file_path" neuroblastoma Queries Assignments "$multiplication_rates"
 
 #python3 summarizeManualSearches.py Manual_Searches "$all_geo_tsv_file_path" "$gemma_json_file_path" Results/Manual_Search_Gemma_Summary.tsv.gz Results/Manual_Search_Items.tsv.gz
-exit
 
-python3 calcBM25.py "$gemma_json_file_path" False "$bm25_scores_file_path"
-python3 calcBM25.py "$gemma_json_file_path" True "$bm25plus_scores_file_path"
+#python3 calcBM25.py "$gemma_json_file_path" False "$bm25_scores_file_path"
+#python3 calcBM25.py "$gemma_json_file_path" True "$bm25plus_scores_file_path"
 
-for tag in triple_negative_breast_carcinoma juvenile_idiopathic_arthritis down_syndrome bipolar_disorder parkinson_disease neuroblastoma
-do
-  python3 rankTestingOther.py "$bm25_scores_file_path" $tag bm25 Assignments Similarities &
-  python3 rankTestingOther.py "$bm25plus_scores_file_path" $tag bm25plus Assignments Similarities &
-done
-wait
+#for tag in triple_negative_breast_carcinoma juvenile_idiopathic_arthritis down_syndrome bipolar_disorder parkinson_disease neuroblastoma
+#do
+#  python3 rankTestingOther.py "$bm25_scores_file_path" $tag bm25 Assignments Similarities &
+#  python3 rankTestingOther.py "$bm25plus_scores_file_path" $tag bm25plus Assignments Similarities &
+#done
+#wait
 
-python3 findWordOverlap.py "$gemma_json_file_path" "$overlap_scores_file_path"
+#python3 findWordOverlap.py "$gemma_json_file_path" "$overlap_scores_file_path"
 
-for tag in triple_negative_breast_carcinoma juvenile_idiopathic_arthritis down_syndrome bipolar_disorder parkinson_disease neuroblastoma
-do
-  python3 rankTestingOther.py "$overlap_scores_file_path" $tag word_overlap Assignments Similarities &
-done
-wait
+#for tag in triple_negative_breast_carcinoma juvenile_idiopathic_arthritis down_syndrome bipolar_disorder parkinson_disease neuroblastoma
+#do
+#  python3 rankTestingOther.py "$overlap_scores_file_path" $tag word_overlap Assignments Similarities &
+#done
+#wait
 
 # We are using an extremely large chunk size so it doesn't split the texts into chunks.
-python3 saveEmbeddings.py "$all_geo_json_file_path" checkpoints.txt 100000000 "${tmp_dir_path}/Embeddings"
-python3 findDistances.py "$gemma_json_file_path" "$gemma_json_file_path" checkpoints.txt "${tmp_dir_path}/Embeddings" "${tmp_dir_path}/Distances"
+#python3 saveEmbeddings.py "$all_geo_json_file_path" checkpoints.txt 100000000 "${tmp_dir_path}/Embeddings"
+#python3 findDistances.py "$gemma_json_file_path" "$gemma_json_file_path" checkpoints.txt "${tmp_dir_path}/Embeddings" "${tmp_dir_path}/Distances"
 
-# Two two smallest embedding sizes are GloVe (size = 300) and all-MiniLM-L6-v2 (size = 384).
-# That description for all-MiniLM-L6-v2 says, "By default, input text longer than 256 word pieces is truncated."
-python3 saveEmbeddings.py "$all_geo_json_file_path" checkpoints.txt 256 "${tmp_dir_path}/Embeddings_Chunks"
-python3 findDistances.py "$gemma_json_file_path" "$gemma_json_file_path" checkpoints.txt "${tmp_dir_path}/Embeddings_Chunks" "${tmp_dir_path}/Distances_Chunks"
+## Two two smallest embedding sizes are GloVe (size = 300) and all-MiniLM-L6-v2 (size = 384).
+## That description for all-MiniLM-L6-v2 says, "By default, input text longer than 256 word pieces is truncated."
+#python3 saveEmbeddings.py "$all_geo_json_file_path" checkpoints.txt 256 "${tmp_dir_path}/Embeddings_Chunks"
+#python3 findDistances.py "$gemma_json_file_path" "$gemma_json_file_path" checkpoints.txt "${tmp_dir_path}/Embeddings_Chunks" "${tmp_dir_path}/Distances_Chunks"
 
-for f in ${tmp_dir_path}/Distances/*/*.tsv.gz
-do
-    model_root=$(dirname $f)
-    model_root=$(basename $model_root)
+#for f in ${tmp_dir_path}/Distances/*/*.tsv.gz
+#do
+#    model_root=$(dirname $f)
+#    model_root=$(basename $model_root)
+#
+#    model_name=$(basename $f)
+#    model_name=${model_name/\.tsv\.gz/}
+#
+#    method_descriptor=${model_root}____${model_name}
+#
+#    for tag in triple_negative_breast_carcinoma juvenile_idiopathic_arthritis down_syndrome bipolar_disorder parkinson_disease neuroblastoma
+#    do
+#        python3 rankTestingOther.py "$f" $tag ${method_descriptor} Assignments Similarities &
+#    done
+#    wait
+#done
 
-    model_name=$(basename $f)
-    model_name=${model_name/\.tsv\.gz/}
+#for f in ${tmp_dir_path}/Distances_Chunks/*/*.tsv.gz
+#do
+#    model_root=$(dirname $f)
+#    model_root=$(basename $model_root)
+#
+#    model_name=$(basename $f)
+#    model_name=${model_name/\.tsv\.gz/}
+#
+#    method_descriptor=${model_root}____${model_name}
+#
+#    for tag in triple_negative_breast_carcinoma juvenile_idiopathic_arthritis down_syndrome bipolar_disorder parkinson_disease neuroblastoma
+#    do
+#        python3 rankTestingOther.py "$f" $tag ${method_descriptor} Assignments Similarities_Chunks &
+#    done
+#    wait
+#done
 
-    method_descriptor=${model_root}____${model_name}
+#python3 calculateMetrics.py Similarities Results/Metrics.tsv.gz
+#python3 calculateMetrics.py Similarities_Chunks Results/Metrics_Chunks.tsv.gz
+#
+#python3 saveTextLength_vs_Distance.py "Similarities/*/thenlper____gte-large/rest_of_gemma_all" "$all_geo_json_file_path" Results/TextLength_vs_Distance.tsv.gz
+#
+#python3 findTopGemmaCandidates.py "Similarities/*/*/rest_of_gemma_all" ${all_geo_tsv_file_path} Results/Top_Gemma_Candidates.tsv.gz
+#
+## Process non-Gemma series.
+#python3 findDistances.py "$gemma_json_file_path" "$non_gemma_json_file_path" checkpoints2.txt "${tmp_dir_path}/Embeddings" "${tmp_dir_path}/Distances_NonGemma"
+#
+#for f in ${tmp_dir_path}/Distances_NonGemma/*/*.tsv.gz
+#do
+#    echo $f
+#    model_root=$(dirname $f)
+#    model_root=$(basename $model_root)
+#
+#    model_name=$(basename $f)
+#    model_name=${model_name/\.tsv\.gz/}
+#
+#    method_descriptor=${model_root}____${model_name}
+#
+#    for tag in triple_negative_breast_carcinoma juvenile_idiopathic_arthritis down_syndrome bipolar_disorder parkinson_disease neuroblastoma
+#    do
+#        python3 rankNonGemma.py "$f" $tag ${method_descriptor} Queries Similarities_NonGemma
+#    done
+#done
+#
+#python3 findTopNonGemmaCandidates_Pilot.py "Similarities_NonGemma/*/*/all" ${all_geo_tsv_file_path} Results/Top_NonGemma_Candidates_Pilot.tsv.gz
+#python3 findTopNonGemmaCandidates.py "Similarities_NonGemma/*/*/all" ${all_geo_tsv_file_path} Results/Top_NonGemma_Candidates.tsv.gz
+#
+#python3 saveCheckpointMetadata.py "${tmp_dir_path}/Embeddings/*/*.gz" Results/Embedding_Sizes.tsv.gz Results/Checkpoint_Metadata.tsv.gz
 
-    for tag in triple_negative_breast_carcinoma juvenile_idiopathic_arthritis down_syndrome bipolar_disorder parkinson_disease neuroblastoma
-    do
-        python3 rankTestingOther.py "$f" $tag ${method_descriptor} Assignments Similarities &
-    done
-    wait
-done
+#########################################################
+# Enabling comparison for non-lowercase text
+#########################################################
 
-for f in ${tmp_dir_path}/Distances_Chunks/*/*.tsv.gz
-do
-    model_root=$(dirname $f)
-    model_root=$(basename $model_root)
+#python3 saveEmbeddings.py "$all_geo_nolower_json_file_path" checkpoints3.txt 100000000 "${tmp_dir_path}/Embeddings_nolower"
+#python3 findDistances.py "$gemma_json_file_path" "$gemma_json_file_path" checkpoints3.txt "${tmp_dir_path}/Embeddings_nolower" "${tmp_dir_path}/Distances_nolower"
 
-    model_name=$(basename $f)
-    model_name=${model_name/\.tsv\.gz/}
+#for f in ${tmp_dir_path}/Distances_nolower/*/*.tsv.gz
+#do
+#    model_root=$(dirname $f)
+#    model_root=$(basename $model_root)
+#
+#    model_name=$(basename $f)
+#    model_name=${model_name/\.tsv\.gz/}
+#
+#    method_descriptor=${model_root}____${model_name}
+#
+#    for tag in triple_negative_breast_carcinoma juvenile_idiopathic_arthritis down_syndrome bipolar_disorder parkinson_disease neuroblastoma
+#    do
+#        python3 rankTestingOther.py "$f" $tag ${method_descriptor} Assignments Similarities_nolower &
+#    done
+#    wait
+#done
 
-    method_descriptor=${model_root}____${model_name}
+python3 calculateMetrics.py Similarities_nolower Results/Metrics_nolower.tsv.gz
 
-    for tag in triple_negative_breast_carcinoma juvenile_idiopathic_arthritis down_syndrome bipolar_disorder parkinson_disease neuroblastoma
-    do
-        python3 rankTestingOther.py "$f" $tag ${method_descriptor} Assignments Similarities_Chunks &
-    done
-    wait
-done
-
-python3 calculateMetrics.py Similarities Results/Metrics.tsv.gz
-python3 calculateMetrics.py Similarities_Chunks Results/Metrics_Chunks.tsv.gz
-
-python3 saveTextLength_vs_Distance.py "Similarities/*/thenlper____gte-large/rest_of_gemma_all" "$all_geo_json_file_path" Results/TextLength_vs_Distance.tsv.gz
-
-python3 findTopGemmaCandidates.py "Similarities/*/*/rest_of_gemma_all" ${all_geo_tsv_file_path} Results/Top_Gemma_Candidates.tsv.gz
-
-# Process non-Gemma series.
-python3 findDistances.py "$gemma_json_file_path" "$non_gemma_json_file_path" checkpoints2.txt "${tmp_dir_path}/Embeddings" "${tmp_dir_path}/Distances_NonGemma"
-
-for f in ${tmp_dir_path}/Distances_NonGemma/*/*.tsv.gz
-do
-    echo $f
-    model_root=$(dirname $f)
-    model_root=$(basename $model_root)
-
-    model_name=$(basename $f)
-    model_name=${model_name/\.tsv\.gz/}
-
-    method_descriptor=${model_root}____${model_name}
-
-    for tag in triple_negative_breast_carcinoma juvenile_idiopathic_arthritis down_syndrome bipolar_disorder parkinson_disease neuroblastoma
-    do
-        python3 rankNonGemma.py "$f" $tag ${method_descriptor} Queries Similarities_NonGemma
-    done
-done
-
-python3 findTopNonGemmaCandidates_Pilot.py "Similarities_NonGemma/*/*/all" ${all_geo_tsv_file_path} Results/Top_NonGemma_Candidates_Pilot.tsv.gz
-python3 findTopNonGemmaCandidates.py "Similarities_NonGemma/*/*/all" ${all_geo_tsv_file_path} Results/Top_NonGemma_Candidates.tsv.gz
-
-python3 saveCheckpointMetadata.py "${tmp_dir_path}/Embeddings/*/*.gz" Results/Embedding_Sizes.tsv.gz Results/Checkpoint_Metadata.tsv.gz
-
-rm -rf ${tmp_dir_path}
+#rm -rf ${tmp_dir_path}
