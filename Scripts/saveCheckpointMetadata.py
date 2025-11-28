@@ -8,8 +8,8 @@ embeddings_file_pattern = sys.argv[1]
 out_sizes_file_path = sys.argv[2]
 out_metadata_file_path = sys.argv[3]
 
-size_dict = {}
-
+#size_dict = {}
+#
 #for embeddings_file_path in glob.glob(embeddings_file_pattern):
 #    with gzip.open(embeddings_file_path) as embeddings_file:
 #        print(f"Getting embedding size for {embeddings_file_path}")
