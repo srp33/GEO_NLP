@@ -25,6 +25,8 @@ out_metadata_file_path = sys.argv[3]
 #with gzip.open(out_sizes_file_path, "w") as out_file:
 #    out_file.write("Checkpoint\tEmbedding_Size\n".encode())
 #    out_file.write("word_overlap\tNA\n".encode())
+#    out_file.write("bm25\tNA\n".encode())
+#    out_file.write("bm25plus\tNA\n".encode())
 #
 #    for model_root_name, size in sorted(size_dict.items()):
 #        out_file.write((f"{model_root_name[0]}/{model_root_name[1]}\t{size}\n").encode())
