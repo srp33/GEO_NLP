@@ -8,13 +8,15 @@ from nltk.tokenize import word_tokenize
 def print_time_stamp(message):
     print(f"{message} - {datetime.datetime.now()}")
 
-def clean_text(text, convert_to_lower=True):
+def clean_text(text, convert_to_lower=True, remove_non_alnum=True):
     if convert_to_lower:
         text = text.lower()
 
     text = text.replace("\n", " ") # Remove newline characters
     text = re.sub(r'https?://\S+|www\.\S+', '', text) # Remove URLs
-    text = re.sub(r'\W', ' ', str(text)) # Remove non-alphanumeric characters
+    if remove_non_alnum:
+        text = re.sub(r'\W', ' ', str(text)) # Remove non-alphanumeric characters
+
     text = remove_html_tags(text)
     text = re.sub(r' +', r' ', text) # Remove consecutive spaces
     text = text.strip()

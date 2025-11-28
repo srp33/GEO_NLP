@@ -22,12 +22,30 @@ fi
 
 tmp_dir_path="/Data/tmp"
 
+#########################################################
+# Sample-level metadata
+#########################################################
+
+#mkdir -p ${tmp_dir_path}/PEPhub
+#cd ${tmp_dir_path}/PEPhub
+
+#wget -O geo_2025_04_28.tar https://cloud2.databio.org/pephub/geo/geo_2025_04_28.tar
+#tar -xvf geo_2025_04_28.tar
+#rm -f geo_2025_04_28.tar
+
+#peps/*/*.zip
+
+#cd ../../../
+
 all_geo_tsv_file_path="/Data/AllGEO.tsv.gz"
 all_geo_json_file_path="/Data/AllGEO.json.gz"
 all_geo_nolower_json_file_path="/Data/AllGEO_nolower.json.gz"
+all_geo_withmetadata_json_file_path="/Data/AllGEO_withmetadata.json.gz"
 gemma_txt_file_path="/Data/Gemma.txt.gz"
 non_gemma_txt_file_path="/Data/NonGemma.txt.gz"
 gemma_json_file_path="/Data/Gemma.json.gz"
+gemma_nolower_json_file_path="/Data/Gemma_nolower.json.gz"
+gemma_withmetadata_json_file_path="/Data/Gemma_withmetadata.json.gz"
 non_gemma_json_file_path="/Data/NonGemma.json.gz"
 multiplication_rates="1,2,5,10,100,300"
 overlap_scores_file_path="${tmp_dir_path}/word_overlap/scores.tsv.gz"
@@ -37,8 +55,9 @@ bm25plus_scores_file_path="${tmp_dir_path}/bm25plus/scores.tsv.gz"
 #mkdir -p ${tmp_dir_path}/word_overlap ${tmp_dir_path}/bm25 ${tmp_dir_path}/bm25plus
 
 #python3 getAllGEO.py ${tmp_dir_path} "$all_geo_tsv_file_path"
-#python3 prepareAllGEO.py "$all_geo_tsv_file_path" True "$all_geo_json_file_path"
-#python3 prepareAllGEO.py "$all_geo_tsv_file_path" False "$all_geo_nolower_json_file_path"
+#python3 prepareAllGEO.py "$all_geo_tsv_file_path" True "" "$all_geo_json_file_path"
+#python3 prepareAllGEO.py "$all_geo_tsv_file_path" False "" "$all_geo_nolower_json_file_path"
+#python3 prepareAllGEO.py "$all_geo_tsv_file_path" True "${tmp_dir_path}/PEPhub/peps" "$all_geo_withmetadata_json_file_path"
 
 ## This sometimes gives an error message, but it seems to work properly.
 #python3 getGemma.py "$all_geo_json_file_path" "$gemma_txt_file_path" "$non_gemma_txt_file_path"
@@ -165,6 +184,8 @@ bm25plus_scores_file_path="${tmp_dir_path}/bm25plus/scores.tsv.gz"
 #########################################################
 
 #python3 saveEmbeddings.py "$all_geo_nolower_json_file_path" checkpoints3.txt 100000000 "${tmp_dir_path}/Embeddings_nolower"
+
+# We can use gemma_json_file_path because it uses the keys, not the text.
 #python3 findDistances.py "$gemma_json_file_path" "$gemma_json_file_path" checkpoints3.txt "${tmp_dir_path}/Embeddings_nolower" "${tmp_dir_path}/Distances_nolower"
 
 #for f in ${tmp_dir_path}/Distances_nolower/*/*.tsv.gz
@@ -184,6 +205,34 @@ bm25plus_scores_file_path="${tmp_dir_path}/bm25plus/scores.tsv.gz"
 #    wait
 #done
 
-python3 calculateMetrics.py Similarities_nolower Results/Metrics_nolower.tsv.gz
+#python3 calculateMetrics.py Similarities_nolower Results/Metrics_nolower.tsv.gz
+
+#########################################################
+# Enabling comparison when sample-level metadata included
+#########################################################
+
+python3 saveEmbeddings.py "$all_geo_withmetadata_json_file_path" checkpoints3.txt 100000000 "${tmp_dir_path}/Embeddings_withmetadata"
+
+# We can use gemma_json_file_path because it uses the keys, not the text.
+#python3 findDistances.py "$gemma_json_file_path" "$gemma_json_file_path" checkpoints3.txt "${tmp_dir_path}/Embeddings_withmetadata" "${tmp_dir_path}/Distances_withmetadata"
+
+#for f in ${tmp_dir_path}/Distances_withmetadata/*/*.tsv.gz
+#do
+#    model_root=$(dirname $f)
+#    model_root=$(basename $model_root)
+#
+#    model_name=$(basename $f)
+#    model_name=${model_name/\.tsv\.gz/}
+#
+#    method_descriptor=${model_root}____${model_name}
+#
+#    for tag in triple_negative_breast_carcinoma juvenile_idiopathic_arthritis down_syndrome bipolar_disorder parkinson_disease neuroblastoma
+#    do
+#        python3 rankTestingOther.py "$f" $tag ${method_descriptor} Assignments Similarities_withmetadata &
+#    done
+#    wait
+#done
+
+#python3 calculateMetrics.py Similarities_withmetadata Results/Metrics_withmetadata.tsv.gz
 
 #rm -rf ${tmp_dir_path}
