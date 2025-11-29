@@ -39,6 +39,7 @@ medical_condition_levels = c("Juvenile idiopathic arthritis", "Triple negative b
 #####################################################################
 # Prepare spreadsheet for pilot manual review
 #####################################################################
+
 top_nongemma_candidates_pilot = read_tsv("Results/Top_NonGemma_Candidates_Pilot.tsv.gz") %>%
   dplyr::select(-Model, -Query)
 
@@ -50,6 +51,7 @@ top_nongemma_candidates_pilot[["Investigate more"]] = "No"
 set.seed(0)
 top_nongemma_candidates_pilot = sample_n(top_nongemma_candidates_pilot, nrow(top_nongemma_candidates_pilot), replace = FALSE)
 write_xlsx(top_nongemma_candidates_pilot, "Tables/Top_NonGemma_Candidates_Pilot.xlsx")
+
 #####################################################################
 
 manual_search_summary = read_tsv("Results/Manual_Search_Gemma_Summary.tsv.gz") %>%
@@ -69,6 +71,11 @@ results = read_tsv("Results/Metrics.tsv.gz") %>%
   mutate(Method = factor(Method, levels = sort(unique(Method))))
 
 results_chunks = read_tsv("Results/Metrics_Chunks.tsv.gz") %>%
+  make_query_factor() %>%
+  mutate(Multiplication_Rate = factor(Multiplication_Rate, levels = c("1", "2", "5", "10", "100", "300", "all"))) %>%
+  mutate(Method = factor(Method, levels = sort(unique(Method))))
+
+results_nolower = read_tsv("Results/Metrics_nolower.tsv.gz") %>%
   make_query_factor() %>%
   mutate(Multiplication_Rate = factor(Multiplication_Rate, levels = c("1", "2", "5", "10", "100", "300", "all"))) %>%
   mutate(Method = factor(Method, levels = sort(unique(Method))))
@@ -108,7 +115,6 @@ ggsave("Figures/Manual_Searches.pdf", width=12.5, height=8.5, unit="in")
 
 diff_data = inner_join(results, results_chunks, by = c("Query", "Method", "Multiplication_Rate", "Top_Num", "Metric")) %>%
   mutate(Difference = Value.y - Value.x) %>%
-  # dplyr::select(-Value.x, -Value.y) %>%
   filter(Multiplication_Rate == "all") %>%
   filter(Metric == "AUPRC")
 
@@ -119,8 +125,41 @@ pull(diff_data, Difference) %>%
 group_by(diff_data, Method) %>%
   dplyr::summarize(Difference = median(Difference, na.rm=TRUE)) %>%
   arrange(Method) %>%
+  mutate(
+    Difference = ifelse(
+      abs(Difference) < 0.01,
+      formatC(Difference, format = "e", digits = 2),   # scientific notation
+      formatC(Difference, format = "f", digits = 3)    # fixed decimal
+    )
+  ) %>%
   kable(format="simple") %>%
   write("Tables/Chunking_Improvement.md")
+
+########################################################################
+# Compare performance with or without converting to lowercase.
+########################################################################
+
+diff_data = inner_join(results, results_nolower, by = c("Query", "Method", "Multiplication_Rate", "Top_Num", "Metric")) %>%
+  mutate(Difference = Value.y - Value.x) %>%
+  filter(Multiplication_Rate == "all") %>%
+  filter(Metric == "AUPRC")
+
+pull(diff_data, Difference) %>%
+  median(na.rm = TRUE) %>%
+  print()
+
+group_by(diff_data, Method) %>%
+  dplyr::summarize(Difference = median(Difference, na.rm=TRUE)) %>%
+  arrange(Method) %>%
+  mutate(
+    Difference = ifelse(
+      abs(Difference) < 0.01,
+      formatC(Difference, format = "e", digits = 2),   # scientific notation
+      formatC(Difference, format = "f", digits = 3)    # fixed decimal
+    )
+  ) %>%
+  kable(format="simple") %>%
+  write("Tables/nolower_Improvement.md")
 
 ########################################################################
 # Create graphs for model-based approaches.
@@ -139,7 +178,7 @@ group_by(plot_data, Query) %>%
 p_value = kruskal.test(Value ~ Query, data = plot_data) %>%
   tidy() %>%
   pull(p.value) %>%
-  print() # 8.81088e-06
+  print() # 1.242188e-06
 
 ggplot(plot_data, aes(x = Value, y = fct_rev(Query))) +
   geom_jitter(alpha = 0.2) +
@@ -161,7 +200,7 @@ group_by(plot_data, Method) %>%
 p_value = kruskal.test(Value ~ Method, data = plot_data) %>%
   tidy() %>%
   pull(p.value) %>%
-  print() # 5.329025e-15
+  print() # 2.257862e-15
 
 ggplot(plot_data, aes(x = Value, y = fct_rev(Method))) +
   geom_point(aes(color = Query, shape = Query), size = 2) +
@@ -219,6 +258,40 @@ ggplot(plot_data, aes(x = Median_AUPRC_Rank,
 
 ggsave("Figures/AUPRC_Rank_by_Checkpoint.pdf", width=11, height=9, unit="in")
 
+#####################################################
+# Modified version for presentations.
+#####################################################
+
+# plot_data <- dplyr::filter(plot_data, Data_Source_Type != "None")
+# 
+# plot_data <- mutate(plot_data, Median_AUPRC_Rank = Median_AUPRC_Rank + rnorm(nrow(plot_data), mean = 0, sd = 0.0001)) %>%
+#   arrange(Median_AUPRC_Rank, Checkpoint) %>%
+#   mutate(Checkpoint_Label = factor(paste0("Model ", row_number()),
+#                                    levels = paste0("Model ", row_number())))
+# 
+# ggplot(plot_data, aes(x = Median_AUPRC_Rank,
+#                       y = fct_reorder(Checkpoint_Label, Median_AUPRC_Rank, .desc = TRUE),
+#                       size = Embedding_Size,
+#                       shape = Has_Embedding,
+#                       color = Data_Source_Type)) +
+#   geom_point() +
+#   xlab("Median rank (lower is better)") +
+#   ylab("") +
+#   theme_bw(base_size = 16) +
+#   theme(plot.margin = margin(t = 3, r = 12, unit = "mm")) +
+#   scale_size_continuous(
+#     breaks = unique_embedding_sizes,
+#     name = "Embedding size"
+#   ) +
+#   scale_shape_manual(values = c(`TRUE` = 16, `FALSE` = 4)) +
+#   scale_color_manual(values = c("General" = "#f46d43", "Scientific" = "#abd9e9", "Biomedical" = "#4575b4", "None" = "black"), name = "Data source type") +
+#   guides(shape = "none")
+# 
+# ggsave("Figures/AUPRC_Rank_by_Checkpoint_Presentations.pdf", width=3000, height=1688, unit="px")
+
+#####################################################
+#####################################################
+
 plot_data = filter(plot_data, Has_Embedding == TRUE)
 
 # Correlation between rank and embedding size.
@@ -235,6 +308,32 @@ wilcox.test(Median_AUPRC ~ Data_Source_Type, data = stat_data) %>%
   print()
 # p-value = 0.4557
 
+library(lme4)
+
+stat_data = filter(results, Multiplication_Rate == "all") %>%
+  filter(Metric == "AUPRC") %>%
+  mutate(Sample_Size = str_extract(Query, "n = \\d+")) %>%
+  mutate(Sample_Size = str_replace(Sample_Size, "n = ", "")) %>%
+  mutate(Sample_Size = as.numeric(Sample_Size))
+
+model = lmer(Value ~ Sample_Size + (1 | Method), data = stat_data)
+
+  # group_by(Method) %>% 
+  # summarize(
+  #   `Correlation coefficient` = cor(Sample_Size, Value, method="spearman"),
+  #   `p-value` = cor.test(Sample_Size, Value, method="spearman")$p.value
+  # ) %>%
+  # ungroup() %>%
+  # mutate(`p-value` = )
+
+print(median(pull(stat_data, `Correlation coefficient`)))
+
+stat_data %>%
+  mutate(`Correlation coefficient` = formatC(`Correlation coefficient`, format = "f", digits = 3)) %>%
+  mutate(`p-value` = formatC(`p-value`, format = "f", digits = 3)) %>%
+  kable(format="simple") %>%
+  write("Tables/Sample_size_correlation_coefficients.md")
+
 inner_join(embedding_sizes, checkpoint_metadata) %>%
   arrange(Checkpoint) %>%
   mutate(Fine_Tuning = ifelse(is.na(Fine_Tuning), "", Fine_Tuning)) %>%
@@ -249,17 +348,55 @@ inner_join(embedding_sizes, checkpoint_metadata) %>%
 
 top_three = c("thenlper/gte-large", "sentence-transformers/all-roberta-large-v1", "sentence-transformers/all-mpnet-base-v2")
 
-filter(results, Metric == "AUPRC") %>%
-  mutate(Method_Color = if_else(Method == top_three[1], "#d73027", if_else(Method == top_three[2], "#f46d43", if_else(Method == top_three[3], "#fdae61", "black")))) %>%
-  mutate(Method_Line_Size = if_else(Method %in% top_three, 1, 0.5)) %>%
-  mutate(Method_Alpha = if_else(Method %in% top_three, 1, 0.5)) %>%
-  ggplot(aes(x = Multiplication_Rate, y = Value, group = Method, color = I(Method_Color), linewidth = I(Method_Line_Size), alpha = I(Method_Alpha))) +
-  geom_line() +
-  geom_point() +
+# filter(results, Metric == "AUPRC") %>%
+#   mutate(Method_Color = if_else(Method == top_three[1], "#d73027", if_else(Method == top_three[2], "#f46d43", if_else(Method == top_three[3], "#fdae61", "black")))) %>%
+#   mutate(Method_Line_Size = if_else(Method %in% top_three, 1, 0.5)) %>%
+#   mutate(Method_Alpha = if_else(Method %in% top_three, 1, 0.5)) %>%
+#   mutate(Method_Display = if_else(Method %in% top_three, Method, NA)) %>%
+#   ggplot(aes(x = Multiplication_Rate, y = Value, group = Method, color = I(Method_Color), linewidth = I(Method_Line_Size), alpha = I(Method_Alpha))) +
+#   geom_line() +
+#   geom_point() +
+#   facet_wrap(vars(Query)) +
+#   xlab("Imbalance ratio") +
+#   ylab("AUPRC") +
+#   theme_bw(base_size = 14)
+
+# Define colors for top three
+# Colors for the top three
+legend_cols <- setNames(c("#d73027", "#f46d43", "#fdae61"), top_three)
+
+df_plot <- results %>%
+  filter(Metric == "AUPRC") %>%
+  mutate(
+    Method_Legend = if_else(Method %in% top_three, Method, "Other"),
+    Method_Legend = factor(Method_Legend, levels = c(top_three, "Other"))
+  )
+
+# Data splits
+df_other <- subset(df_plot, Method_Legend == "Other")
+df_top   <- subset(df_plot, Method_Legend %in% top_three)
+
+ggplot(df_plot, aes(x = Multiplication_Rate, y = Value, group = Method)) +
+  # 1) Draw all "Other" in solid black FIRST
+  geom_line(data = df_other, color = "black", linewidth = 0.5, alpha = 1) +
+  geom_point(data = df_other, color = "black", size = 1.5, alpha = 1) +
+  # 2) Draw the top-three ON TOP, in color
+  geom_line(data = df_top, aes(color = Method_Legend), linewidth = 1) +
+  geom_point(data = df_top, aes(color = Method_Legend), size = 2) +
+  scale_color_manual(
+    values = legend_cols,
+    breaks = top_three,   # legend shows only the top three
+    name   = "Method"
+  ) +
   facet_wrap(vars(Query)) +
   xlab("Imbalance ratio") +
   ylab("AUPRC") +
-  theme_bw(base_size = 14)
+  theme_bw(base_size = 15) +
+  guides(color = guide_legend(override.aes = list(linewidth = 1.2, alpha = 1))) +
+  theme(
+    legend.position = "bottom",
+    legend.direction = "horizontal"
+  )
 
 ggsave("Figures/AUPRC_by_Multiplication_Rate.pdf", width=11, height=9, unit="in")
 
@@ -616,10 +753,14 @@ restructure_results = function(df, master_file_path) {
 
 # These tibbles have a column called Curator_Medical_Condition that indicates which series the curators said were relevant to each condition (or "Other").
 # They also have a column called Automated_Medical_Condition that indicates which medical condition the model or GEO indicated was relevant.
-model_results_curator1 = restructure_results(model_results_curator1, "Tables/Top_Candidates_EvaluationA_Curator1_WithMedicalCondition.xlsx")
-model_results_curator2 = restructure_results(model_results_curator2, "Tables/Top_Candidates_EvaluationA_Curator2_WithMedicalCondition.xlsx")
-manual_results_curator1 = restructure_results(manual_results_curator1, "Tables/Top_Candidates_EvaluationB_Curator1_WithMedicalCondition.xlsx")
-manual_results_curator2 = restructure_results(manual_results_curator2, "Tables/Top_Candidates_EvaluationB_Curator2_WithMedicalCondition.xlsx")
+model_results_curator1 = restructure_results(model_results_curator1, "Tables/Top_Candidates_EvaluationA_Curator1_WithMedicalCondition.xlsx") %>%
+  mutate(Curator = "Curator 1")
+model_results_curator2 = restructure_results(model_results_curator2, "Tables/Top_Candidates_EvaluationA_Curator2_WithMedicalCondition.xlsx") %>%
+  mutate(Curator = "Curator 2")
+manual_results_curator1 = restructure_results(manual_results_curator1, "Tables/Top_Candidates_EvaluationB_Curator1_WithMedicalCondition.xlsx") %>%
+  mutate(Curator = "Curator 1")
+manual_results_curator2 = restructure_results(manual_results_curator2, "Tables/Top_Candidates_EvaluationB_Curator2_WithMedicalCondition.xlsx") %>%
+  mutate(Curator = "Curator 2")
 
 model_overlapping_curator_series = inner_join(model_results_curator1, model_results_curator2, by = "Series")
 manual_overlapping_curator_series = inner_join(manual_results_curator1, manual_results_curator2, by = "Series")
@@ -627,11 +768,13 @@ manual_overlapping_curator_series = inner_join(manual_results_curator1, manual_r
 model_agreement = filter(model_overlapping_curator_series, Curator_Medical_Condition.x == Curator_Medical_Condition.y & Response.x == Response.y) %>%
   nrow() %>%
   `/`(nrow(model_overlapping_curator_series))
+print(model_agreement)
 # 0.8709677
 
 manual_agreement = filter(manual_overlapping_curator_series, Curator_Medical_Condition.x == Curator_Medical_Condition.y & Response.x == Response.y) %>%
   nrow() %>%
   `/`(nrow(manual_overlapping_curator_series))
+print(manual_agreement)
 # 0.8870968
 
 calc_curation_metrics = function(overall_metrics_df, curator_df, search_method, curator) {
@@ -672,8 +815,11 @@ model_plot_data = bind_rows(model_results_curator1,  model_results_curator2) %>%
 manual_plot_data = bind_rows(manual_results_curator1,  manual_results_curator2) %>%
   mutate(`Search method` = "GEO search")
 
-plot_data = bind_rows(model_plot_data, manual_plot_data) %>%
+curator_stat_data = bind_rows(model_plot_data, manual_plot_data) %>%
   mutate(`Agreed` = Curator_Medical_Condition == Automated_Medical_Condition) %>%
+  filter(Response == "yes")
+
+plot_data = curator_stat_data %>%
   group_by(`Search method`, Automated_Medical_Condition) %>%
   summarize(
     Number_Agreed = sum(Agreed),
@@ -691,6 +837,56 @@ ggplot(plot_data, aes(x = Automated_Medical_Condition, y = Percentage, fill = `S
   labs(fill = "", x = "Medical condition", y = "% relevant")
 
 ggsave("Figures/NonGemma_Curation_Agreement.pdf", width=11, height=9, unit="in")
+
+# Fit logistic regression model
+model = glm(Agreed ~ `Search method` + Automated_Medical_Condition + Curator, 
+            data = curator_stat_data,
+            family = binomial(link = "logit"))
+
+# View results
+print(tidy(model))
+# A tibble: 8 × 5
+# term                               estimate std.error statistic  p.value
+# <chr>                                 <dbl>     <dbl>     <dbl>    <dbl>
+#   1 (Intercept)                         -1.23       0.288    -4.26  2.03e- 5
+# 2 Search_TypeModel                     0.680      0.189     3.59  3.30e- 4
+# 3 Automated_Medical_ConditionDown s…   1.46       0.326     4.49  7.28e- 6
+# 4 Automated_Medical_ConditionJuveni…  -0.208      0.315    -0.660 5.09e- 1
+# 5 Automated_Medical_ConditionNeurob…   2.39       0.342     6.99  2.77e-12
+# 6 Automated_Medical_ConditionParkin…   0.970      0.308     3.15  1.65e- 3
+# 7 Automated_Medical_ConditionTriple…   2.64       0.364     7.25  4.21e-13
+# 8 CuratorCurator 2                     0.0553     0.185     0.299 7.65e- 1
+
+# Get odds ratios
+exp(coef(model))
+# (Intercept) 
+# 0.2930067 
+# Search_TypeModel 
+# 1.9733584 
+# Automated_Medical_ConditionDown syndrome 
+# 4.3144081 
+# Automated_Medical_ConditionJuvenile idiopathic arthritis 
+# 0.8121413 
+# Automated_Medical_ConditionNeuroblastoma 
+# 10.9291241 
+# Automated_Medical_ConditionParkinson's disease 
+#                                                   2.6370579 
+# Automated_Medical_ConditionTriple negative breast carcinoma 
+#                                                  13.9483634 
+#                                            CuratorCurator 2 
+#                                                   1.0568546
+
+# Get 95% confidence intervals for odds ratios
+exp(confint(model))
+# 2.5 %     97.5 %
+#   (Intercept)                                                 0.1642969  0.5096421
+# Search_TypeModel                                            1.3656622  2.8709683
+# Automated_Medical_ConditionDown syndrome                    2.3007622  8.2770711
+# Automated_Medical_ConditionJuvenile idiopathic arthritis    0.4374048  1.5109438
+# Automated_Medical_ConditionNeuroblastoma                    5.6860709 21.8144620
+# Automated_Medical_ConditionParkinson's disease              1.4519532  4.8704675
+# Automated_Medical_ConditionTriple negative breast carcinoma 6.9950359 29.2250658
+# CuratorCurator 2                                            0.7349790  1.5197478
 
 # Find the amount of overlap between the top datasets for manual versus model.
 
