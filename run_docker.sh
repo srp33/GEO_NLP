@@ -3,13 +3,13 @@
 echo "Building the Docker container"
 docker build -t srp33/geo_nlp .
 
-#mkdir -p Data/tmp
-#mkdir -p Queries
-#mkdir -p Assignments
-#mkdir -p Manual_Searches
-#mkdir -p Similarities Similarities_Chunks Similarities_NonGemma Similarities_nolower Similarities_withmetadata
-#mkdir -p Models
-#mkdir -p Results
+mkdir -p Data/tmp
+mkdir -p Queries
+mkdir -p Assignments
+mkdir -p Manual_Searches
+mkdir -p Similarities Similarities_Chunks Similarities_NonGemma Similarities_nolower Similarities_withmetadata
+mkdir -p Models
+mkdir -p Results
 
 #docker run --rm -i -t \
 docker run --rm \
